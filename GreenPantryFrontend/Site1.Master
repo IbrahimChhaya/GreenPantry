@@ -44,25 +44,15 @@
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
-            <div class="header__cart__price">item: <span>R150.00</span></div>
         </div>
         <div class="humberger__menu__widget">
-            <!--<div class="header__top__right__language">
-                <img src="img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul>
-            </div>-->
             <div class="header__top__right__auth">
                 <i class="fa fa-user"></i> <a href="login.aspx">Login</a> / <a href="register.aspx">Register</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="./home.aspx">Home</a></li>
+                <!--<li class="active"><a href="./home.aspx">Home</a></li>
                 <li><a href="./shop-grid.html">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
@@ -71,7 +61,7 @@
                         <li><a href="./checkout.aspx">Check Out</a></li>
                     </ul>
                 </li>
-                <li><a href="./contact.aspx">Contact</a></li>
+                <li><a href="./contact.aspx">Contact</a></li>-->
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -80,10 +70,21 @@
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-envelope"></i></a>
         </div>
+
+        <style>
+            a.corona {
+                color: #1c1c1c;
+                text-decoration: underline;
+            }
+            a.corona:hover {
+                color: #0FAB2C;
+            }
+        </style>
+
         <div class="humberger__menu__contact">
             <ul>
                 <li><i class="fa fa-envelope"></i> hello@greenpantry.me</li>
-                <li>Free Shipping for all Orders over R500</li>
+                <li>Stay informed on COVID-19  <a class="corona" href="https://sacoronavirus.co.za/">www.sacoronavirus.co.za</a></li>
             </ul>
         </div>
     </div>
@@ -98,7 +99,7 @@
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> hello@greenpantry.me</li>
-                                <li>Free Shipping for all Orders over R500</li>
+                                <li>Stay informed on COVID-19  <a class="corona" href="https://sacoronavirus.co.za/">www.sacoronavirus.co.za</a></li>
                             </ul>
                         </div>
                     </div>
@@ -137,7 +138,7 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./home.aspx">Home</a></li>
+                           <!--<li class="active"><a href="./home.aspx">Home</a></li>
                             <li><a href="./shop-grid.html">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
@@ -146,7 +147,7 @@
                                     <li><a href="./checkout.aspx">Check Out</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./contact.aspx">Contact</a></li>
+                            <li><a href="./contact.aspx">Contact</a></li> -->
                         </ul>
                     </nav>
                 </div>
@@ -156,7 +157,6 @@
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>R150.00</span></div>
                     </div>
                 </div>
             </div>

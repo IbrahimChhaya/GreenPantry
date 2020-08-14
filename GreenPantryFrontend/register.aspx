@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="GreenPantryFrontend.login" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="GreenPantryFrontend.register" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -71,10 +71,10 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Login</h2>
+                        <h2>Register</h2>
                         <div class="breadcrumb__option">
                             <a href="./home.aspx">Home</a>
-                            <span>Login</span>
+                            <span>Register</span>
                         </div>
                     </div>
                 </div>
@@ -143,6 +143,6 @@
         <input type="password" placeholder="Password" />
         </br>
         </br>
-        <button type="submit" class="site-btn">LOGIN</button>
+        <button type="submit" class="site-btn">REGISTER</button>
     </div>
 </asp:Content>
