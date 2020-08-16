@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<!-- Hero Section Begin -->
+    <!-- Hero Section Begin -->
     <section class="hero hero-normal">
         <div class="container">
             <div class="row">
@@ -37,7 +37,7 @@
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
+                                <input type="text">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -137,10 +137,19 @@
     </style>
 
     <div class="testText">
+        <input type="text" placeholder="First Name" />
+        </br>
+        </br>
+        <input type="text" placeholder="Last Name" />
+        </br>
+        </br>
         <input type="email" placeholder="Email" />
         </br>
         </br>
         <input type="password" placeholder="Password" />
+        </br>
+        </br>
+        <input type="password" placeholder="Confirm Password" />
         </br>
         </br>
         <button type="submit" class="site-btn">REGISTER</button>

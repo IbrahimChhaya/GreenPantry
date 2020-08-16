@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="GreenPantryFrontend.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.Master.cs" Inherits="GreenPantryFrontend.Site1" %>
 
 <!DOCTYPE html>
 
@@ -37,7 +37,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="img/GPlogo.png" alt="Green Pantry"></a>
+            <a href="#"><img src="img/GPlogowithText.png" alt="Green Pantry"></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -83,7 +83,7 @@
 
         <div class="humberger__menu__contact">
             <ul>
-                <li><i class="fa fa-envelope"></i> hello@greenpantry.me</li>
+                <li><i class="fa fa-envelope"></i> <a class="corona" href="mailto:hello@greenpantry.me">hello@greenpantry.me</a></li>
                 <li>Stay informed on COVID-19  <a class="corona" href="https://sacoronavirus.co.za/">www.sacoronavirus.co.za</a></li>
             </ul>
         </div>
@@ -98,7 +98,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> hello@greenpantry.me</li>
+                                <li><i class="fa fa-envelope"></i> <a class="corona" href="mailto:hello@greenpantry.me">hello@greenpantry.me</a></li>
                                 <li>Stay informed on COVID-19  <a class="corona" href="https://sacoronavirus.co.za/">www.sacoronavirus.co.za</a></li>
                             </ul>
                         </div>
@@ -109,20 +109,22 @@
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-envelope"></i></a>
-                                <!--<a href="#"><i class="fa fa-pinterest-p"></i></a>-->
                             </div>
-                            <!--<div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul>
-                            </div> -->
-                            <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
-                            </div>
+                            <style>
+                                .header__login {
+                                    font-size: 14px;
+                                    color: #1c1c1c;
+
+                                }
+                                .header__login:hover {
+                                    font-size: 14px;
+                                    color: #1c1c1c;
+                                }
+                            </style>
+                            <i class="fa fa-user"></i><a class="header__login" href="login.aspx">  Login</a> / <a class="header__login" href="register.aspx">Register</a>
+                            <!--<div class="header__top__right__auth">
+                                <i class="fa fa-user"></i> <a href="login.aspx">Login</a> / <a href="register.aspx">Register</a>
+                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -183,8 +185,8 @@
                         </div>
                         <ul>
                             <li>Address: Kingsway Ave, Johannesburg</li>
-                            <li>Phone: +27 11 616 8269</li>
-                            <li>Email: hello@greenpantry.me</li>
+                            <li>Phone: <a class="corona" href="tel:0116168269">011 616 8269</a></li>
+                            <li>Email: <a class="corona" href="mailto:hello@greenpantry.me">hello@greenpantry.me</a></li>
                         </ul>
                     </div>
                 </div>
@@ -199,6 +201,7 @@
                             <li><a href="#">Privacy Policy</a></li>
                             <li><a href="#">Our Sitemap</a></li>
                         </ul>
+                        <h6>Useful Links</h6>
                         <ul>
                             <li><a href="#">Who We Are</a></li>
                             <li><a href="#">Our Services</a></li>

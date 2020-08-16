@@ -720,6 +720,12 @@ ol {
 	font-weight: 700;
 	margin-bottom: 5px;
 }
+	
+.hero__search__phone__text a {
+	color: #1c1c1c;
+	font-weight: 700;
+	margin-bottom: 5px;
+}
 
 .hero__search__phone__text span {
 	font-size: 14px;
@@ -727,7 +733,7 @@ ol {
 }
 
 .hero__item {
-	height: 431px;
+	height: 250px;
 	display: flex;
 	align-items: center;
 	padding-left: 75px;
@@ -743,7 +749,7 @@ ol {
 
 .hero__text h2 {
 	font-size: 46px;
-	color: #252525;
+	color: #FFFFFF;
 	line-height: 52px;
 	font-weight: 700;
 	margin: 10px 0;
@@ -751,6 +757,7 @@ ol {
 
 .hero__text p {
 	margin-bottom: 35px;
+	color: #FFFFFF;
 }
 
 /*---------------------
