@@ -65,7 +65,7 @@
                     <div class="breadcrumb__text">
                         <h2>Shopping Cart</h2>
                         <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
+                            <a href="./home.aspx">Home</a>
                             <span>Shopping Cart</span>
                         </div>
                     </div>
@@ -187,9 +187,10 @@
                         <h5>Cart Total</h5>
                         <ul>
                             <li>Subtotal <span>$454.98</span></li>
+                            <li>VAT at 15% <span>$454.98</span></li>
                             <li>Total <span>$454.98</span></li>
                         </ul>
-                        <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
+                        <a href="checkout.aspx" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>
             </div>

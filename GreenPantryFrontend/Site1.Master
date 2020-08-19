@@ -43,7 +43,7 @@
         <div class="humberger__menu__cart">
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                <li><a href="cart.aspx"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
         </div>
         <div class="humberger__menu__widget">
@@ -112,10 +112,9 @@
                                 <a href="#"><i class="fa fa-envelope"></i></a>
                             </div>
                             <div class="header__top__right__auth">
-                                <i class="fa fa-user"></i> <p class="header__login" onclick="document.getElementById('id01').style.display='block'">Login / Register</p>
-                            </div>
+                                <i class="fa fa-user"></i> <p class="header__login" onclick="document.getElementById('id01').style.display='block'">My Account</p>
+                            </div>    
                                 <!--<a class="header__login" href="/login.aspx">  Login</a> / <a class="header__login" href="register.aspx">Register</a>
-                                <div class="header__top__right__auth">
                                 <i class="fa fa-user"></i> <a href="login.aspx">Login</a> / <a href="register.aspx">Register</a>
                             </div>-->
                         </div>
