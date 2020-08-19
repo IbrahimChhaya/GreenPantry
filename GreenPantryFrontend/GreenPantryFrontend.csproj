@@ -162,6 +162,7 @@
     <Content Include="login2.aspx" />
     <Content Include="logincss.css" />
     <Content Include="loginjs.js" />
+    <Content Include="modallogin.aspx" />
     <Content Include="register.aspx" />
     <Content Include="shop-grid.html" />
     <Content Include="singleproduct.aspx" />
@@ -209,6 +210,13 @@
     </Compile>
     <Compile Include="login2.aspx.designer.cs">
       <DependentUpon>login2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="modallogin.aspx.cs">
+      <DependentUpon>modallogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modallogin.aspx.designer.cs">
+      <DependentUpon>modallogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -321,11 +329,11 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-<Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
     <ItemGroup>
       <RoslynFiles Include="$(CscToolPath)\*" />
     </ItemGroup>
     <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
     <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
-</Target>
+  </Target>
 </Project>

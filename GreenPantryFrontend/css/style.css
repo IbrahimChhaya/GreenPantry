@@ -31,15 +31,15 @@
 /*----------------------------------------*/
 
 html,
-body {
+body:not(.bodylogin) {
 	height: 100%;
 	font-family: "Cairo", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
 
-h1,
-h2,
+h1:not(.h1login),
+h2:not(.h2login),
 h3,
 h4,
 h5,
@@ -50,11 +50,11 @@ h6 {
 	font-family: "Cairo", sans-serif;
 }
 
-h1 {
+h1:not(.h1login) {
 	font-size: 70px;
 }
 
-h2 {
+h2:not(.h2login) {
 	font-size: 36px;
 }
 
@@ -74,7 +74,7 @@ h6 {
 	font-size: 16px;
 }
 
-p {
+p:not(.plogin) {
 	font-size: 16px;
 	font-family: "Cairo", sans-serif;
 	color: #6f6f6f;

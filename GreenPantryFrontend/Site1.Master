@@ -23,15 +23,16 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="logincss.css" type="text/css" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
     <body>
-    <!-- Page Preloder -->
+    <!-- Page Preloder 
     <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <!-- Humberger Begin -->
     <div class="humberger__menu__overlay"></div>
@@ -47,7 +48,7 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
-                <i class="fa fa-user"></i> <a href="login.aspx">Login</a> / <a href="register.aspx">Register</a>
+                <i class="fa fa-user"></i> <a id="showPopup">Login</a> / <a href="register.aspx">Register</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -121,7 +122,7 @@
                                     color: #1c1c1c;
                                 }
                             </style>
-                            <i class="fa fa-user"></i><a class="header__login" href="login.aspx">  Login</a> / <a class="header__login" href="register.aspx">Register</a>
+                            <i class="fa fa-user"></i><a class="header__login" href="/login.aspx">  Login</a> / <a class="header__login" href="register.aspx">Register</a>
                             <!--<div class="header__top__right__auth">
                                 <i class="fa fa-user"></i> <a href="login.aspx">Login</a> / <a href="register.aspx">Register</a>
                             </div>-->
@@ -252,6 +253,7 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="loginjs.js"></script>
 
 </body>
 </html>
