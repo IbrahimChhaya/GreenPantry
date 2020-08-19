@@ -10,7 +10,7 @@
     class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
-  <form class="modal-content animate" action="/action_page.php">
+  <form class="modal-content animate" action="#">
     <div class="containerPopup">
         <div class="bodylogin" id="test">
 		<div class="containerlogin" id="container">
@@ -39,12 +39,12 @@
 				<div class="overlay">
 					<div class="overlay-panel overlay-left">
 						<h1 class="h1login">Welcome Back!</h1>
-						<p class="login">To keep connected with us please login with your personal info</p>
+						<p class="plogin">To keep connected with us please login with your personal info</p>
 						<button class="login ghost" id="signIn">Sign In</button>
 					</div>
 					<div class="overlay-panel overlay-right">
-						<h1 class="h1login">Hello, jimo</h1>
-						<p class="plogin">ur dumb</p>
+						<h1 class="h1login">Helllo</h1>
+						<p class="plogin">hey</p>
 						<button class="login ghost" id="signUp">Sign Up</button>
 					</div>
 				</div>

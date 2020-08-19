@@ -83,6 +83,17 @@ p:not(.plogin) {
 	margin: 0 0 15px 0;
 }
 
+p.header__login {
+	font-size: 14px;
+	color: #1c1c1c;
+}
+
+p.header__login:hover {
+	font-size: 14px;
+	color: #1c1c1c;
+	cursor: pointer;
+}
+
 img {
 	max-width: 100%;
 }

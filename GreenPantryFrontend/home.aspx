@@ -4,6 +4,60 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+
+    <!-- The Modal -->
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'"
+    class="close" title="Close Modal">&times;</span>
+
+  <!-- Modal Content -->
+  <form class="modal-content animate" action="#">
+    <div class="containerPopup">
+        <div class="bodylogin" id="test">
+		<div class="containerlogin" id="container">
+			<div class="form-container sign-up-container">
+				<div class="loginForm">
+					<h1 class="h1login">Create Account</h1>
+					</br>
+					<input class="login" type="text" placeholder="Name" />
+				<input class="login" type="text" placeholder="Last name" />
+					<input class="login" type="email" placeholder="Email" />
+					<input class="login" type="password" placeholder="Password" />
+					<button class="login">Sign Up</button>
+				</div>
+			</div>
+			<div class="form-container sign-in-container">
+				<div class="loginForm">
+					<h1 class="h1login" id="closePopup">Sign in</h1>
+					</br>
+					<input class="login" type="email" placeholder="Email" />
+					<input class="login" type="password" placeholder="Password" />
+					<a class="login" href="#">Forgot your password?</a>
+					<button class="login">Sign In</button>
+				</div>
+			</div>
+			<div class="overlay-container">
+				<div class="overlay">
+					<div class="overlay-panel overlay-left">
+						<h1 class="h1login">Welcome Back!</h1>
+						<p class="plogin">To keep connected with us please login with your personal info</p>
+						<button class="login ghost" id="signIn">Sign In</button>
+					</div>
+					<div class="overlay-panel overlay-right">
+						<h1 class="h1login">Helllo</h1>
+						<p class="plogin">hey</p>
+						<button class="login ghost" id="signUp">Sign Up</button>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>      
+    </div>
+</form>
+</div>
+
+    <!-- Modal login End -->
+
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="container">

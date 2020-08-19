@@ -76,6 +76,7 @@
     <Content Include="css\elegant-icons.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\jquery-ui.min.css" />
+    <Content Include="css\logincss.css" />
     <Content Include="css\nice-select.css" />
     <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\slicknav.min.css" />
@@ -155,13 +156,12 @@
     <Content Include="js\jquery-ui.min.js" />
     <Content Include="js\jquery.nice-select.min.js" />
     <Content Include="js\jquery.slicknav.js" />
+    <Content Include="js\loginjs.js" />
     <Content Include="js\main.js" />
     <Content Include="js\mixitup.min.js" />
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="login.aspx" />
     <Content Include="login2.aspx" />
-    <Content Include="logincss.css" />
-    <Content Include="loginjs.js" />
     <Content Include="modallogin.aspx" />
     <Content Include="register.aspx" />
     <Content Include="shop-grid.html" />

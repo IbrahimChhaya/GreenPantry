@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="logincss.css" type="text/css" />
+    <link rel="stylesheet" href="css/logincss.css" type="text/css" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -48,7 +48,7 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
-                <i class="fa fa-user"></i> <a id="showPopup">Login</a> / <a href="register.aspx">Register</a>
+                <i class="fa fa-user"></i> <p onclick="document.getElementById('id01').style.display='block'">Login / Register</p>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -111,19 +111,11 @@
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-envelope"></i></a>
                             </div>
-                            <style>
-                                .header__login {
-                                    font-size: 14px;
-                                    color: #1c1c1c;
-
-                                }
-                                .header__login:hover {
-                                    font-size: 14px;
-                                    color: #1c1c1c;
-                                }
-                            </style>
-                            <i class="fa fa-user"></i><a class="header__login" href="/login.aspx">  Login</a> / <a class="header__login" href="register.aspx">Register</a>
-                            <!--<div class="header__top__right__auth">
+                            <div class="header__top__right__auth">
+                                <i class="fa fa-user"></i> <p class="header__login" onclick="document.getElementById('id01').style.display='block'">Login / Register</p>
+                            </div>
+                                <!--<a class="header__login" href="/login.aspx">  Login</a> / <a class="header__login" href="register.aspx">Register</a>
+                                <div class="header__top__right__auth">
                                 <i class="fa fa-user"></i> <a href="login.aspx">Login</a> / <a href="register.aspx">Register</a>
                             </div>-->
                         </div>
@@ -253,7 +245,7 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="loginjs.js"></script>
+    <script src="js/loginjs.js"></script>
 
 </body>
 </html>
