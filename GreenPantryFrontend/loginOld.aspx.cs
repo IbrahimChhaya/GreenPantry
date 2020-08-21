@@ -7,9 +7,13 @@ using System.Web.UI.WebControls;
 
 namespace GreenPantryFrontend
 {
-    public partial class login2 : System.Web.UI.Page
+    public partial class login : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+        protected void login_Click(object sender, EventArgs e)
         {
 
         }

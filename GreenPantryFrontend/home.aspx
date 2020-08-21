@@ -4,60 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-    <!-- The Modal -->
-    <div id="id01" class="modal">
-        <span onclick="document.getElementById('id01').style.display='none'"
-    class="close" title="Close Modal">&times;</span>
-
-  <!-- Modal Content -->
-  <form class="modal-content animate" action="#">
-    <div class="containerPopup">
-        <div class="bodylogin" id="test">
-		<div class="containerlogin" id="container">
-			<div class="form-container sign-up-container">
-				<div class="loginForm">
-					<h1 class="h1login">Create Account</h1>
-					</br>
-					<input class="login" type="text" placeholder="Name" />
-				<input class="login" type="text" placeholder="Last name" />
-					<input class="login" type="email" placeholder="Email" />
-					<input class="login" type="password" placeholder="Password" />
-					<button class="login">Sign Up</button>
-				</div>
-			</div>
-			<div class="form-container sign-in-container">
-				<div class="loginForm">
-					<h1 class="h1login" id="closePopup">Sign in</h1>
-					</br>
-					<input class="login" type="email" placeholder="Email" />
-					<input class="login" type="password" placeholder="Password" />
-					<a class="login" href="#">Forgot your password?</a>
-					<button class="login">Sign In</button>
-				</div>
-			</div>
-			<div class="overlay-container">
-				<div class="overlay">
-					<div class="overlay-panel overlay-left">
-						<h1 class="h1login">Welcome Back!</h1>
-						<p class="plogin">To keep connected with us please login with your personal info</p>
-						<button class="login ghost" id="signIn">Sign In</button>
-					</div>
-					<div class="overlay-panel overlay-right">
-						<h1 class="h1login">Helllo</h1>
-						<p class="plogin">hey</p>
-						<button class="login ghost" id="signUp">Sign Up</button>
-					</div>
-				</div>
-			</div>
-		</div>
-    </div>      
-    </div>
-</form>
-</div>
-
-    <!-- Modal login End -->
-
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="container">
@@ -68,7 +14,7 @@
                             <i class="fa fa-bars"></i>
                             <span>All departments</span>
                         </div>
-                        <ul>
+                        <ul id="categoryList" runat="server">
                             <li><a href="#">Fresh Meat</a></li>
                             <li><a href="#">Vegetables</a></li>
                             <li><a href="#">Fruit & Nut Gifts</a></li>
@@ -110,9 +56,17 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="banner__pic">
+                                    <div class="hero__4item set-bg" data-setbg="img/banner/banner-1.jpg">
+                                        <div class="hero__textButBlack">
+                                            <span></span>
+                                            <h2>Zeerak <br />Dumb</h2>
+                                            <p>100% dumb</p>
+                                            <a href="#" class="primary-btn">SHOP NOW</a>
+                                        </div>
+                                     </div>
+                                    <!--<div class="banner__pic">
                                         <img src="img/banner/banner-1.jpg" alt="">
-                                    </div>
+                                    </div>-->
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="banner__pic">
@@ -149,7 +103,7 @@
     <!-- Categories Section Begin -->
     <section class="categories">
         <div class="container">
-            <div class="row">
+            <div class="row" id="categorySlider1" runat="server">
                 <div class="col-lg-12">
                     <div class="hero__item set-bg" data-setbg="img/freeshipping.png">
                         <div class="hero__text">
@@ -251,7 +205,7 @@
     <!-- Categories Section Begin 2 -->
     <section class="categories">
         <div class="container">
-            <div class="row">
+            <div class="row" id="categorySlider2" runat="server">
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h2>Fresh From The Bakery</h2>
@@ -342,7 +296,7 @@
     <!-- Categories Section Begin 3 -->
     <section class="categories">
         <div class="container">
-            <div class="row">
+            <div class="row" id="categorySlider3" runat="server">
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h2>Baby products for Zeerak</h2>

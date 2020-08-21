@@ -161,7 +161,6 @@
     <Content Include="js\mixitup.min.js" />
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="login.aspx" />
-    <Content Include="login2.aspx" />
     <Content Include="modallogin.aspx" />
     <Content Include="register.aspx" />
     <Content Include="shop-grid.html" />
@@ -203,13 +202,6 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="login2.aspx.cs">
-      <DependentUpon>login2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="login2.aspx.designer.cs">
-      <DependentUpon>login2.aspx</DependentUpon>
     </Compile>
     <Compile Include="modallogin.aspx.cs">
       <DependentUpon>modallogin.aspx</DependentUpon>

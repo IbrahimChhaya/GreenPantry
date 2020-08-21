@@ -11,43 +11,34 @@ namespace GreenPantryFrontend
 {
 
 
-    public partial class home
+    public partial class login
     {
 
         /// <summary>
-        /// categoryList control.
+        /// Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl categoryList;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Email;
 
         /// <summary>
-        /// categorySlider1 control.
+        /// Password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl categorySlider1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Password;
 
         /// <summary>
-        /// categorySlider2 control.
+        /// error control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl categorySlider2;
-
-        /// <summary>
-        /// categorySlider3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl categorySlider3;
+        protected global::System.Web.UI.WebControls.Label error;
     }
 }

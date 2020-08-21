@@ -1,10 +1,13 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="GreenPantryFrontend.login" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="GreenPantryFrontend.login2" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="/logincss.css" type="text/css">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<!-- Hero Section Begin -->
+    <!-- Hero Section Begin -->
     <section class="hero hero-normal">
         <div class="container">
             <div class="row">
@@ -37,7 +40,7 @@
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
+                                <input type="text">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -56,93 +59,55 @@
         </div>
     </section>
     <!-- Hero Section End -->
-
-    <!-- Breadcrumb Section Begin 
-<style>
-    #grad1 {
-        height: 200px;
-        background-color: #0FAB2C; /* For browsers that do not support gradients */
-        background-image: linear-gradient(to right, #0FAB2C, #1FAF92); /* Standard syntax (must be last) */
-        }
-</style> -->
-
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>Login</h2>
-                        <div class="breadcrumb__option">
-                            <a href="./home.aspx">Home</a>
-                            <span>Login</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
-
     </br>
     </br>
-
-    <!-- <form action="#" runat="server">
-        
-                            <div class="center">
-        <div class="container">
-
-                <div class="row">                        
-                            <input type="text" name="first_name" placeholder="Email"
-                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required
-                                runat="server" id="Email">
-                </div>
-                <div class="row">                        
-                            <input type="text" name="last_name" placeholder="Password"
-                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required
-                                runat="server" id="Password">
-                </div>    
-                        <button type="submit" class="site-btn">LOGIN</button>                            
-                            <a href="register.aspx" class="genric-btn info-border">Register</a>
-                        
-                    <div class="mt-10">
-                            <asp:Label ID="error" runat="server" Text="Incorrect Password or Username" visible="false" ></asp:Label>
-                    </div>
-                                </div>
-           </div>                           <input type="text" placeholder="Your Email">
-
-    </form>
-
-    <div class="contact-form spad">
-        <div class="container">
-            <form action="#">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                    <div class="col-lg-6 col-md-6">
-                        <input type="text" placeholder="Your name">
-                     </div>
-                        <button type="submit" class="site-btn">LOGIN</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>-->
-
-
+    </br>
+    <!-- Login form -->
     <style>
-        .testText {
-            margin:0 auto;
-            width:125px;
-            padding-bottom:25px;
+        .loginPage {
+            background: #FFFFFF;
         }
     </style>
-
-    <div class="testText">
-        <input type="email" placeholder="Email" />
-        </br>
-        </br>
-        <input type="password" placeholder="Password" />
-        </br>
-        </br>
-        <button type="submit" class="site-btn">LOGIN</button>
+	<div class="bodylogin loginPage" id="test">
+		<div class="containerlogin" id="container">
+			<div class="form-container sign-up-container">
+				<form class="login" action="#">
+					<h1 class="h1login">Create Account</h1>
+					</br>
+					<input class="login" type="text" placeholder="Name" />
+				<input class="login" type="text" placeholder="Last name" />
+					<input class="login" type="email" placeholder="Email" />
+					<input class="login" type="password" placeholder="Password" />
+					<button class="login">Sign Up</button>
+				</form>
+			</div>
+			<div class="form-container sign-in-container">
+				<form class="login" action="#">
+					<h1 class="h1login" id="closePopup">Sign in</h1>
+					</br>
+					<input class="login" type="email" placeholder="Email" />
+					<input class="login" type="password" placeholder="Password" />
+					<a class="login" href="#">Forgot your password?</a>
+					<button class="login">Sign In</button>
+				</form>
+			</div>
+			<div class="overlay-container">
+				<div class="overlay">
+					<div class="overlay-panel overlay-left">
+						<h1 class="h1login">Welcome Back!</h1>
+						<p class="plogin">To keep connected with us please login with your personal info</p>
+						<button class="login ghost" id="signIn">Sign In</button>
+					</div>
+					<div class="overlay-panel overlay-right">
+						<h1 class="h1login">Hello, jimo</h1>
+						<p class="plogin">ur dumb</p>
+						<button class="login ghost" id="signUp">Sign Up</button>
+					</div>
+				</div>
+			</div>
+		</div>
     </div>
+    </br>
+    </br>
+    </br>
 </asp:Content>
