@@ -755,19 +755,46 @@ ol {
 	height: 190px;
 	display: flex;
 	align-items: center;
-	padding-left: 75px;
+	padding-top: 140px;
+	background-size: 100% 100%;
+}
+
+.hero__Tallitem {
+	height: 190px;
+	display: flex;
+	align-items: center;
+	padding-top: 140px;
+}
+
+.hero__textButBlack {
+	background-color: #FFF;
+	opacity: 0.9;
+	width: 100%;
+	text-align: center;
+}
+
+.secondary {
+	background-color: #212529;
+}
+
+.hero__4item:hover .hero__textButBlack h2 {
+	background-color: #0FAB2C;
+	color: #FFF;
+}
+
+.hero__4item:hover .hero__textButBlack p {
+	background-color: #0FAB2C;
+	color: #FFF;
 }
 
 .hero__textButBlack h2 {
-		font-size: 16px;
+		font-size: 20px;
 		color: #000;
-		line-height: 52px;
 		font-weight: 700;
-		margin: 10px 0;
 }
 
 .hero__textButBlack p {
-	margin-bottom: 35px;
+	margin-bottom: 0px;
 	color: #000;
 }
 

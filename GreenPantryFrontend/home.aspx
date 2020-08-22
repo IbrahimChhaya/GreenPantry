@@ -56,23 +56,34 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="hero__4item set-bg" data-setbg="img/banner/banner-1.jpg">
+                                    <a href="#">
+                                    <div class="hero__4item set-bg" data-setbg="img/banner/banner-1.png">
                                         <div class="hero__textButBlack">
                                             <span></span>
-                                            <h2>Zeerak <br />Dumb</h2>
+                                            <h2>Zeerak Dumb</h2>
                                             <p>100% dumb</p>
-                                            <a href="#" class="primary-btn">SHOP NOW</a>
                                         </div>
                                      </div>
-                                    <!--<div class="banner__pic">
-                                        <img src="img/banner/banner-1.jpg" alt="">
-                                    </div>-->
+                                     </a>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="banner__pic">
-                                        <img src="img/banner/banner-2.jpg" alt="">
+                                    <div class="hero__4item set-bg" data-setbg="img/banner/banner-2.png">
+                                        <div class="hero__textButBlack secondary">
+                                            <span></span>
+                                            <h2>Ibrahim Dumb</h2>
+                                            <p>100% dumb</p>
+                                        </div>
                                     </div>
                                 </div>
+                                <!--<div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="hero__Tallitem set-bg" data-setbg="img/banner/bannerTall.png">
+                                        <div class="hero__textButBlack">
+                                            <span></span>
+                                            <h2>Zeerak Dumb</h2>
+                                            <p>100% dumb</p>
+                                        </div>
+                                    </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -81,13 +92,24 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="banner__pic">
+                                    <div class="hero__4item set-bg" data-setbg="img/banner/banner-3.png">
+                                        <div class="hero__textButBlack secondary">
+                                            <span></span>
+                                            <h2>Zeerak Dumb</h2>
+                                            <p>100% dumb</p>
+                                        </div>
+                                     </div>
+                                    <!--<div class="banner__pic">
                                         <img src="img/banner/banner-1.jpg" alt="">
-                                    </div>
+                                    </div>-->
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="banner__pic">
-                                        <img src="img/banner/banner-2.jpg" alt="">
+                                    <div class="hero__4item set-bg" data-setbg="img/banner/banner-4.png">
+                                        <div class="hero__textButBlack">
+                                            <span></span>
+                                            <h2>Ibrahim Dumb</h2>
+                                            <p>100% dumb</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
