@@ -16,16 +16,6 @@
                         </div>
                         <ul id="categoryList" runat="server">
                             <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
                         </ul>
                     </div>
                 </div>
@@ -34,6 +24,7 @@
                         <div class="hero__search__form">
                             <form action="#">
                                 <div class="hero__search__categories">
+                                    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
                                 </div>
@@ -54,7 +45,7 @@
                  <!-- Banner Begin -->
                     <div class="banner">
                         <div class="container">
-                            <div class="row">
+                          <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <a href="#">
                                     <div class="hero__4item set-bg" data-setbg="img/banner/banner-1.png">
@@ -67,6 +58,7 @@
                                      </a>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
+                                <a href="#">
                                     <div class="hero__4item set-bg" data-setbg="img/banner/banner-2.png">
                                         <div class="hero__textButBlack secondary">
                                             <span></span>
@@ -74,16 +66,8 @@
                                             <p>100% dumb</p>
                                         </div>
                                     </div>
+                                </a>
                                 </div>
-                                <!--<div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="hero__Tallitem set-bg" data-setbg="img/banner/bannerTall.png">
-                                        <div class="hero__textButBlack">
-                                            <span></span>
-                                            <h2>Zeerak Dumb</h2>
-                                            <p>100% dumb</p>
-                                        </div>
-                                    </div>
-                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -92,6 +76,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <a href="#">
                                     <div class="hero__4item set-bg" data-setbg="img/banner/banner-3.png">
                                         <div class="hero__textButBlack secondary">
                                             <span></span>
@@ -99,11 +84,10 @@
                                             <p>100% dumb</p>
                                         </div>
                                      </div>
-                                    <!--<div class="banner__pic">
-                                        <img src="img/banner/banner-1.jpg" alt="">
-                                    </div>-->
+                                    </a>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <a href="#">
                                     <div class="hero__4item set-bg" data-setbg="img/banner/banner-4.png">
                                         <div class="hero__textButBlack">
                                             <span></span>
@@ -111,6 +95,7 @@
                                             <p>100% dumb</p>
                                         </div>
                                     </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
