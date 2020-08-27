@@ -29,10 +29,10 @@
     </asp:ContentPlaceHolder>
 </head>
     <body>
-    <!-- Page Preloder 
+    <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
-    </div> -->
+    </div>
 
     <!-- Humberger Begin -->
     <div class="humberger__menu__overlay"></div>
@@ -148,6 +148,7 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
+                            <li><i class="fa fa-user"></i><span class="arrow_carrot-down"></span><a href="#" class="header__login" onclick="document.getElementById('id01').style.display='block'">My Account</a></li>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>

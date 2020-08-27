@@ -180,6 +180,7 @@ ol {
 	font-weight: 700;
 	background: #0FAB2C;
 	letter-spacing: 2px;
+	border-radius: 25px;
 }
 
 .site-btn {
@@ -191,6 +192,7 @@ ol {
 	padding: 13px 30px 12px;
 	background: #0FAB2C;
 	border: none;
+	border-radius: 25px;
 }
 
 /* Preloder */
@@ -598,6 +600,11 @@ ol {
 	margin-bottom: 0;
 }
 
+.hero__categories {
+	border: 1px solid #ebebeb;
+	border-radius: 25px;
+}
+
 .hero__categories__all {
 	background: #0FAB2C;
 	position: relative;
@@ -628,7 +635,6 @@ ol {
 }
 
 .hero__categories ul {
-	border: 1px solid #ebebeb;
 	padding-left: 40px;
 	padding-top: 10px;
 	padding-bottom: 12px;
@@ -656,6 +662,7 @@ ol {
 	border: 1px solid #ebebeb;
 	position: relative;
 	float: left;
+	border-radius: 25px;
 }
 
 .hero__search__form form .hero__search__categories {
@@ -767,7 +774,7 @@ ol {
 }
 
 .hero__textButBlack {
-	background-color: #FFF;
+	background-color: #0FAB2C;
 	opacity: 0.9;
 	width: 100%;
 	text-align: center;
@@ -777,25 +784,29 @@ ol {
 	background-color: #212529;
 }
 
+.secondary h2 p {
+	color: #000;
+}
+
 .hero__4item:hover .hero__textButBlack h2 {
-	background-color: #0FAB2C;
-	color: #FFF;
+	background-color: #FFF;
+	color: #000;
 }
 
 .hero__4item:hover .hero__textButBlack p {
-	background-color: #0FAB2C;
-	color: #FFF;
+	background-color: #FFF;
+	color: #000;
 }
 
 .hero__textButBlack h2 {
 		font-size: 20px;
-		color: #000;
+		color: #FFF;
 		font-weight: 700;
 }
 
 .hero__textButBlack p {
 	margin-bottom: 0px;
-	color: #000;
+	color: #FFF;
 }
 
 .hero__text span {
@@ -2751,6 +2762,7 @@ ol {
 	color: #1c1c1c;
 	height: 46px;
 	border: 1px solid #ededed;
+	border-radius: 25px;
 }
 
 .footer__widget form input::placeholder {
