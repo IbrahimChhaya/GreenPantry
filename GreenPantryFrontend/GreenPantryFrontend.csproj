@@ -173,6 +173,8 @@
     <Content Include="img\product\product-7.jpg" />
     <Content Include="img\product\product-8.jpg" />
     <Content Include="img\product\product-9.jpg" />
+    <Content Include="Invoice.aspx" />
+    <Content Include="Invoice.css" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-3.3.1.min.js" />
     <Content Include="js\jquery-ui.min.js" />
@@ -222,6 +224,13 @@
     </Compile>
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice.aspx.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Invoice.aspx.designer.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
