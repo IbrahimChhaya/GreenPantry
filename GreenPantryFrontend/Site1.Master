@@ -93,35 +93,6 @@
 
     <!-- Header Section Begin -->
     <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__left">
-                            <ul>
-                                <li><i class="fa fa-envelope"></i> <a class="corona" href="mailto:hello@greenpantry.me">hello@greenpantry.me</a></li>
-                                <li>Stay informed on COVID-19  <a class="corona" href="https://sacoronavirus.co.za/">www.sacoronavirus.co.za</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-envelope"></i></a>
-                            </div>
-                            <div class="header__top__right__auth">
-                                <p class="header__login" onclick="document.getElementById('id01').style.display='block'">My Account</p>
-                            </div>    
-                                <!--<a class="header__login" href="/login.aspx">  Login</a> / <a class="header__login" href="register.aspx">Register</a>
-                                <i class="fa fa-user"></i> <a href="login.aspx">Login</a> / <a href="register.aspx">Register</a>
-                            </div>-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -132,23 +103,12 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                           <!--<li class="active"><a href="./home.aspx">Home</a></li>
-                            <li><a href="./shop-grid.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="./singleproduct.aspx">Single Product</a></li>
-                                    <li><a href="./cart.aspx">Shoping Cart</a></li>
-                                    <li><a href="./checkout.aspx">Check Out</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./contact.aspx">Contact</a></li> -->
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><i class="fa fa-user"></i><span class="arrow_carrot-down"></span><a href="#" class="header__login" onclick="document.getElementById('id01').style.display='block'">My Account</a></li>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
@@ -298,6 +258,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/loginjs.js"></script>
+    <script src="js/dropdown.js"></script>
 
 </body>
 </html>
