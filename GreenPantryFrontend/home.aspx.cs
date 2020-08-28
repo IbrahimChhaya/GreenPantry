@@ -11,7 +11,7 @@ namespace GreenPantryFrontend
 {
     public partial class home : System.Web.UI.Page
     {
-        GPServiceClient SC = new GPServiceClient();
+        //GPServiceClient SC = new GPServiceClient();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,13 +19,13 @@ namespace GreenPantryFrontend
 
             //category menu --------------------------------------------------------------------
 
-            dynamic allCategories = SC.getAllCategories();
-            foreach (ProductCategory c in allCategories)
+            //dynamic allCategories = SC.getAllCategories();
+            //foreach (ProductCategory c in allCategories)
             {
-                display += "<li><a href='#'" + c.Name + ".aspx'>" + c.Name + "</a></li>";
+             //   display += "<li><a href='#'" + c.Name + ".aspx'>" + c.Name + "</a></li>";
             }
 
-            categoryList.InnerHtml = display;
+            //categoryList.InnerHtml = display;
 
             //product category slider 11111111111111111--------------------------------------------
 

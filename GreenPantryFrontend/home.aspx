@@ -22,23 +22,26 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
+                            <form>
                                 <div class="hero__search__categories">
-                                    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-                                    All Categories
+                                    <button onclick="myFunction()" class="dropbtn">All Categories</button>
                                     <span class="arrow_carrot-down"></span>
                                 </div>
                                 <input type="text">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
+                        <div id="myDropdown" class="dropdown-content">
+                                <a href="#">Link 1</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
+                            </div>
                         <div class="hero__search__phone">
                             <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
+                                <i class="fa fa-user"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5><a href="tel:0116168269">011 616 8269</a></h5>
-                                <span>support 24/7 time</span>
+                                <h5><a href="tel:0116168269">My Account</a><span class="arrow_carrot-down"></span></h5>
                             </div>
                         </div>
                     </div>

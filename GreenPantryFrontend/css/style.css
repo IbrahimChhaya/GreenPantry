@@ -29,11 +29,12 @@
 /*----------------------------------------*/
 /* Template default CSS
 /*----------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 html,
 body:not(.bodylogin) {
 	height: 100%;
-	font-family: "Cairo", sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
@@ -47,7 +48,7 @@ h6 {
 	margin: 0;
 	color: #111111;
 	font-weight: 400;
-	font-family: "Cairo", sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
 h1:not(.h1login) {
@@ -67,7 +68,7 @@ h4 {
 }
 
 h5 {
-	font-size: 18px;
+	font-size: 16px;
 }
 
 h6 {
@@ -184,7 +185,7 @@ ol {
 }
 
 .site-btn {
-	font-size: 14px;
+	font-size: 13px;
 	color: #ffffff;
 	font-weight: 800;
 	text-transform: uppercase;
@@ -610,6 +611,7 @@ ol {
 	position: relative;
 	padding: 10px 25px 10px 40px;
 	cursor: pointer;
+	border-radius: 25px;
 }
 
 .hero__categories__all i {
@@ -619,7 +621,7 @@ ol {
 }
 
 .hero__categories__all span {
-	font-size: 18px;
+	font-size: 17px;
 	font-weight: 700;
 	color: #ffffff;
 }
@@ -663,6 +665,60 @@ ol {
 	position: relative;
 	float: left;
 	border-radius: 25px;
+}
+
+.dropbtn {
+	width: 100%;
+	float: left;
+	font-size: 16px;
+	color: #1c1c1c;
+	font-weight: 700;
+	/* padding-left: 18px; */
+	padding-right: 17px;
+	/* padding-top: 11px; */
+	/* position: relative; */
+	background-color: #FFF;
+	border: none;
+	border-radius: 25px;
+}
+
+	/* Dropdown button on hover & focus */
+	.dropbtn:hover, .dropbtn:focus {
+		background-color: #2980B9;
+	}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+	/* Links inside the dropdown */
+	.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+
+		/* Change color of dropdown links on hover */
+		.dropdown-content a:hover {
+			background-color: #ddd
+		}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+	display: block;
 }
 
 .hero__search__form form .hero__search__categories {
@@ -738,6 +794,7 @@ ol {
 	color: #1c1c1c;
 	font-weight: 700;
 	margin-bottom: 5px;
+	padding-top: 15px;
 }
 	
 .hero__search__phone__text a {
@@ -799,7 +856,7 @@ ol {
 }
 
 .hero__textButBlack h2 {
-		font-size: 20px;
+		font-size: 17px;;
 		color: #FFF;
 		font-weight: 700;
 }
@@ -2702,7 +2759,7 @@ ol {
 }
 
 .footer__about ul li {
-	font-size: 16px;
+	font-size: 15px;
 	color: #1c1c1c;
 	line-height: 36px;
 	list-style: none;

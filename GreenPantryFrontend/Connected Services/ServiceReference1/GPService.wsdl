@@ -13,16 +13,35 @@
   <wsdl:message name="IGPService_getAllCategories_OutputMessage">
     <wsdl:part name="parameters" element="tns:getAllCategoriesResponse" />
   </wsdl:message>
+  <wsdl:message name="IGPService_getProductByCat_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductByCat" />
+  </wsdl:message>
+  <wsdl:message name="IGPService_getProductByCat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductByCatResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGPService">
     <wsdl:operation name="getAllCategories">
       <wsdl:input wsaw:Action="http://tempuri.org/IGPService/getAllCategories" message="tns:IGPService_getAllCategories_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGPService/getAllCategoriesResponse" message="tns:IGPService_getAllCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductByCat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGPService/getProductByCat" message="tns:IGPService_getProductByCat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGPService/getProductByCatResponse" message="tns:IGPService_getProductByCat_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGPService" type="tns:IGPService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="getAllCategories">
       <soap:operation soapAction="http://tempuri.org/IGPService/getAllCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductByCat">
+      <soap:operation soapAction="http://tempuri.org/IGPService/getProductByCat" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
