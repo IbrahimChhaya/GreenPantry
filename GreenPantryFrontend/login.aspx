@@ -33,10 +33,11 @@
 				<form class="login" action="#">
 					<h1 class="h1login" id="closePopup">Sign in</h1>
 					</br>
-					<input class="login" type="email" placeholder="Email" />
-					<input class="login" type="password" placeholder="Password" />
+					<input class="login" type="email" placeholder="Email" runat="server" ID="Email" />
+					<input class="login" type="password" placeholder="Password" runat="server" ID="Password"/>
+                    <asp:Label ID="error" runat="server" Text="Incorrect Password or Username" visible="false" ></asp:Label>
 					<a class="login" href="#">Forgot your password?</a>
-					<button class="login">Sign In</button>
+					<button class="login" runat="server" ID="btnLogin" OnClick="btnLogin_Click">Sign In</button>
 				</form>
 			</div>
 			<div class="overlay-container">
