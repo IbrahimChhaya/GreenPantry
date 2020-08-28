@@ -920,6 +920,10 @@ ol {
 	max-width: 100%;
 }
 
+.catSliderHover {
+	cursor: pointer;
+}
+
 .categories__slider.owl-carousel .owl-nav button {
 	font-size: 18px;
 	color: #1c1c1c;

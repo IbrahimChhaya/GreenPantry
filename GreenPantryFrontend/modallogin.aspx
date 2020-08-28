@@ -167,7 +167,7 @@
             
                 <div class="categories__slider owl-carousel">
                     
-                    <div class="col-lg-3" onclick="location.href='google.com'">
+                    <div class="col-lg-3 catSliderHover" onclick="location.href='google.com'">
                         <div class="featured__item">
                             <div class="featured__item__pic set-bg" data-setbg="img/categories/cat-1.jpg">
                                 <ul class="featured__item__pic__hover">

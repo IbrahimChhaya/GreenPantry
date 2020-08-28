@@ -72,7 +72,7 @@ namespace GreenPantryFrontend
 
             foreach (Product p in productsByCat)
             {
-                display += "<div class='col-lg-3'>";
+                display += "<div class='col-lg-3 catSliderHover' onclick='location.href=&#39;singleproduct.aspx?ProductID=" + p.ID + "&#39;'>";
                 display += "<div class='featured__item'>";
                 display += "<div class='featured__item__pic set-bg' data-setbg='/" + p.Image_Location + "'>";
                 display += "<ul class='featured__item__pic__hover'>";
