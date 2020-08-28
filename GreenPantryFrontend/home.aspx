@@ -12,10 +12,10 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All departments</span>
+                            <span>All Departments</span>
                         </div>
                         <ul id="categoryList" runat="server">
-                            <li><a href="#">Fresh Meat</a></li>
+                            <li><a href="/categories.aspx?CategoryID=1">Fresh Meat</a></li>
                         </ul>
                     </div>
                 </div>
