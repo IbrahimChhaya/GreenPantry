@@ -62,8 +62,8 @@
                             <div class="checkout__input">
                                 <p>Province<span>*</span></p>
 
-                                <input List="Provinces" name="Province" id="Province">
-                                <datalist id="Provinces">
+                                <input List="Provinces" name="Province" id="Province" runat="server">
+                                 <datalist>
                                  <option value="Eastern Cape">
                                  <option value="Free State">
                                  <option value="Gauteng">

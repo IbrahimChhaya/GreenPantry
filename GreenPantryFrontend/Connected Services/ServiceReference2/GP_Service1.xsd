@@ -86,6 +86,7 @@
       <xs:element minOccurs="0" name="ID" type="xs:int" />
       <xs:element minOccurs="0" name="Line1" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Line2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Province" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Suburb" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />

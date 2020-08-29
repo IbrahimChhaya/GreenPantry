@@ -247,6 +247,12 @@
   <wsdl:message name="IGP_Service_getSubCat_OutputMessage">
     <wsdl:part name="parameters" element="tns:getSubCatResponse" />
   </wsdl:message>
+  <wsdl:message name="IGP_Service_addInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:addInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addInvoiceResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGP_Service">
     <wsdl:operation name="login">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/login" message="tns:IGP_Service_login_InputMessage" />
@@ -407,6 +413,10 @@
     <wsdl:operation name="getSubCat">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getSubCat" message="tns:IGP_Service_getSubCat_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getSubCatResponse" message="tns:IGP_Service_getSubCat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addInvoice" message="tns:IGP_Service_addInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/addInvoiceResponse" message="tns:IGP_Service_addInvoice_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGP_Service" type="tns:IGP_Service">
@@ -764,6 +774,15 @@
     </wsdl:operation>
     <wsdl:operation name="getSubCat">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/getSubCat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addInvoice">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/addInvoice" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

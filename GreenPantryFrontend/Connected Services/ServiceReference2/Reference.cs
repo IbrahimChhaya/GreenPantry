@@ -1015,6 +1015,9 @@ namespace GreenPantryFrontend.ServiceReference2 {
         private string Line2Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProvinceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SuburbField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1107,6 +1110,19 @@ namespace GreenPantryFrontend.ServiceReference2 {
                 if ((object.ReferenceEquals(this.Line2Field, value) != true)) {
                     this.Line2Field = value;
                     this.RaisePropertyChanged("Line2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Province {
+            get {
+                return this.ProvinceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProvinceField, value) != true)) {
+                    this.ProvinceField = value;
+                    this.RaisePropertyChanged("Province");
                 }
             }
         }
@@ -1716,10 +1732,10 @@ namespace GreenPantryFrontend.ServiceReference2 {
         System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference2.ProductCategory[]> getAllCategoriesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getAllSubCategories", ReplyAction="http://tempuri.org/IGP_Service/getAllSubCategoriesResponse")]
-        GreenPantryFrontend.ServiceReference2.ProductCategory[] getAllSubCategories();
+        GreenPantryFrontend.ServiceReference2.SubCategory[] getAllSubCategories();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getAllSubCategories", ReplyAction="http://tempuri.org/IGP_Service/getAllSubCategoriesResponse")]
-        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference2.ProductCategory[]> getAllSubCategoriesAsync();
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference2.SubCategory[]> getAllSubCategoriesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getOrder", ReplyAction="http://tempuri.org/IGP_Service/getOrderResponse")]
         GreenPantryFrontend.ServiceReference2.Invoice getOrder(int customerId, System.DateTime datePlaced);
@@ -1800,10 +1816,10 @@ namespace GreenPantryFrontend.ServiceReference2 {
         System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference2.Address> getAddressAsync(int Address_ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/AddAdress", ReplyAction="http://tempuri.org/IGP_Service/AddAdressResponse")]
-        int AddAdress(string line1, string line2, string suburb, string city, char billing, string type, int Cus_ID);
+        int AddAdress(string line1, string line2, string suburb, string city, char billing, string type, int C_ID, string Province);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/AddAdress", ReplyAction="http://tempuri.org/IGP_Service/AddAdressResponse")]
-        System.Threading.Tasks.Task<int> AddAdressAsync(string line1, string line2, string suburb, string city, char billing, string type, int Cus_ID);
+        System.Threading.Tasks.Task<int> AddAdressAsync(string line1, string line2, string suburb, string city, char billing, string type, int C_ID, string Province);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/UpdateAddress", ReplyAction="http://tempuri.org/IGP_Service/UpdateAddressResponse")]
         int UpdateAddress(int A_ID, string line1, string line2, string suburb, string city, char billing, string type, int Cus_ID);
@@ -1900,6 +1916,12 @@ namespace GreenPantryFrontend.ServiceReference2 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getSubCat", ReplyAction="http://tempuri.org/IGP_Service/getSubCatResponse")]
         System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference2.SubCategory> getSubCatAsync(int S_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addInvoice", ReplyAction="http://tempuri.org/IGP_Service/addInvoiceResponse")]
+        int addInvoice(string status, System.DateTime date, System.DateTime deliveryDate, string notes, int Cus_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addInvoice", ReplyAction="http://tempuri.org/IGP_Service/addInvoiceResponse")]
+        System.Threading.Tasks.Task<int> addInvoiceAsync(string status, System.DateTime date, System.DateTime deliveryDate, string notes, int Cus_ID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2001,11 +2023,11 @@ namespace GreenPantryFrontend.ServiceReference2 {
             return base.Channel.getAllCategoriesAsync();
         }
         
-        public GreenPantryFrontend.ServiceReference2.ProductCategory[] getAllSubCategories() {
+        public GreenPantryFrontend.ServiceReference2.SubCategory[] getAllSubCategories() {
             return base.Channel.getAllSubCategories();
         }
         
-        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference2.ProductCategory[]> getAllSubCategoriesAsync() {
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference2.SubCategory[]> getAllSubCategoriesAsync() {
             return base.Channel.getAllSubCategoriesAsync();
         }
         
@@ -2113,12 +2135,12 @@ namespace GreenPantryFrontend.ServiceReference2 {
             return base.Channel.getAddressAsync(Address_ID);
         }
         
-        public int AddAdress(string line1, string line2, string suburb, string city, char billing, string type, int Cus_ID) {
-            return base.Channel.AddAdress(line1, line2, suburb, city, billing, type, Cus_ID);
+        public int AddAdress(string line1, string line2, string suburb, string city, char billing, string type, int C_ID, string Province) {
+            return base.Channel.AddAdress(line1, line2, suburb, city, billing, type, C_ID, Province);
         }
         
-        public System.Threading.Tasks.Task<int> AddAdressAsync(string line1, string line2, string suburb, string city, char billing, string type, int Cus_ID) {
-            return base.Channel.AddAdressAsync(line1, line2, suburb, city, billing, type, Cus_ID);
+        public System.Threading.Tasks.Task<int> AddAdressAsync(string line1, string line2, string suburb, string city, char billing, string type, int C_ID, string Province) {
+            return base.Channel.AddAdressAsync(line1, line2, suburb, city, billing, type, C_ID, Province);
         }
         
         public int UpdateAddress(int A_ID, string line1, string line2, string suburb, string city, char billing, string type, int Cus_ID) {
@@ -2247,6 +2269,14 @@ namespace GreenPantryFrontend.ServiceReference2 {
         
         public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference2.SubCategory> getSubCatAsync(int S_ID) {
             return base.Channel.getSubCatAsync(S_ID);
+        }
+        
+        public int addInvoice(string status, System.DateTime date, System.DateTime deliveryDate, string notes, int Cus_ID) {
+            return base.Channel.addInvoice(status, date, deliveryDate, notes, Cus_ID);
+        }
+        
+        public System.Threading.Tasks.Task<int> addInvoiceAsync(string status, System.DateTime date, System.DateTime deliveryDate, string notes, int Cus_ID) {
+            return base.Channel.addInvoiceAsync(status, date, deliveryDate, notes, Cus_ID);
         }
     }
 }
