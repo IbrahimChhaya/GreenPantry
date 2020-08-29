@@ -255,6 +255,7 @@
     <Content Include="register.aspx" />
     <Content Include="shop-grid.html" />
     <Content Include="singleproduct.aspx" />
+    <Content Include="subcategory.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -352,6 +353,13 @@
     </Compile>
     <Compile Include="Site2.Master.designer.cs">
       <DependentUpon>Site2.Master</DependentUpon>
+    </Compile>
+    <Compile Include="subcategory.aspx.cs">
+      <DependentUpon>subcategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subcategory.aspx.designer.cs">
+      <DependentUpon>subcategory.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

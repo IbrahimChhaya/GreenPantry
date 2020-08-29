@@ -19,8 +19,11 @@ namespace GreenPantryFrontend
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-   
-           int addressUpdate = SR.AddAdress(Line1.Value, Line2.Value, suburb.Value , town.Value, char.Parse(order.Value) ,postcode.Value,1);
+
+           int addressUpdate = SR.AddAdress(Line1.Value, Line2.Value, suburb.Value , town.Value, 'F' ,postcode.Value,1, Province.Value);
+           //int addInvoice = SR.addInvoice("Approved", DateTime.Today, DateTime.Today,order.Value, 1);
+           
+
             if(addressUpdate == 1)
             {
                 Response.Redirect("home.aspx");

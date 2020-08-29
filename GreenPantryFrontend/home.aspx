@@ -24,18 +24,12 @@
                         <div class="hero__search__form">
                             <form>
                                 <div class="hero__search__categories">
-                                    <button onclick="myFunction()" class="dropbtn">All Categories</button>
-                                    <span class="arrow_carrot-down"></span>
+                                    All Categories
                                 </div>
                                 <input type="text">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
-                        <div id="myDropdown" class="dropdown-content">
-                                <a href="#">Link 1</a>
-                                <a href="#">Link 2</a>
-                                <a href="#">Link 3</a>
-                            </div>
                         <div class="hero__search__phone">
                             <div class="hero__search__phone__icon">
                                 <i class="fa fa-user"></i>
