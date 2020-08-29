@@ -35,7 +35,7 @@
                                 <i class="fa fa-user"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5><a href="tel:0116168269">My Account</a><span class="arrow_carrot-down"></span></h5>
+                                <h5 id="myaccount" runat="server"><a href="login.aspx">Login / Register</a><span class="arrow_carrot-down"></span></h5>
                             </div>
                         </div>
                     </div>
