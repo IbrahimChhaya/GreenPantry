@@ -19,25 +19,25 @@
 	<div class="bodylogin loginPage" id="test">
 		<div class="containerlogin" id="container">
 			<div class="form-container sign-up-container">
-				<form class="login" action="#">
+				<form class="login">
 					<h1 class="h1login">Create Account</h1>
 					</br>
-					<input class="login" type="text" placeholder="Name" />
-					<input class="login" type="text" placeholder="Last name" />
-					<input class="login" type="email" placeholder="Email" />
-					<input class="login" type="password" placeholder="Password" />
-					<button class="login">Sign Up</button>
+					<input class="login" type="text" placeholder="Name" runat="server" ID="name" />
+				<input class="login" type="text" placeholder="Last name" runat="server" ID="surname"/>
+					<input class="login" type="email" placeholder="Email" runat="server" ID="RegEmail"/>
+					<input class="login" type="password" placeholder="Password" runat="server" ID="RegPassword"/>
+					<button class="login" runat="server" ID="btnRegister" OnClick="Sign Up">Sign Up</button>
 				</form>
 			</div>
 			<div class="form-container sign-in-container">
-				<form class="login">
+				<form class="login" runat="server" >
 					<h1 class="h1login" id="closePopup">Sign in</h1>
 					</br>
-					<input class="login" type="email" placeholder="Email" runat="server" ID="Email" />
-					<input class="login" type="password" placeholder="Password" runat="server" ID="Password"/>
-                    <asp:Label ID="error" runat="server" Text="Incorrect Password or Username" visible="false"></asp:Label>
+					<input class="login" type="email" placeholder="Email" runat="server" ID="Email"/>
+					<input class="login" type="password" placeholder="Password" runat="server" ID="Password" />
+                    <asp:Label ID="error" runat="server" Text="Incorrect Password or Username" visible="false" ></asp:Label>
 					<a class="login" href="#">Forgot your password?</a>
-					<button class="login" runat="server" ID="btnLogin" OnClick="btnLogin_Click">Sign In</button>
+                    <asp:button class="login" runat="server" ID="btnLogin" OnClick="btnLogin_Click" Text="Sign In" ></asp:button>
 				</form>
 			</div>
 			<div class="overlay-container">
