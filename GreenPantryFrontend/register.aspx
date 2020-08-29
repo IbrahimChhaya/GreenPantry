@@ -135,23 +135,23 @@
             padding-bottom:25px;
         }
     </style>
-
-    <div class="testText">
-        <input type="text" placeholder="First Name" />
+       <div class="testText">
+        <input type="text" placeholder="First Name" runat="server" ID="firstname" />
         </br>
         </br>
-        <input type="text" placeholder="Last Name" />
+        <input type="text" placeholder="Last Name" runat="server" ID="lastname" />
         </br>
         </br>
-        <input type="email" placeholder="Email" />
+        <input type="email" placeholder="Email" runat="server" ID="userEmail" />
         </br>
         </br>
-        <input type="password" placeholder="Password" />
+        <input type="password" placeholder="Password" runat="server" ID="userPassword"/>
         </br>
         </br>
-        <input type="password" placeholder="Confirm Password" />
+        <input type="password" placeholder="Confirm Password" runat="server" ID="cPassword" />
         </br>
         </br>
-        <button type="submit" class="site-btn">REGISTER</button>
+        <asp:button type="submit" class="site-btn" runat="server" ID="Register" OnClick="Register_Click" Text="REGISTER"></asp:button>
     </div>
+
 </asp:Content>
