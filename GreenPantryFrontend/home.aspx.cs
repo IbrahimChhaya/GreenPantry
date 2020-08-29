@@ -29,6 +29,15 @@ namespace GreenPantryFrontend
 
             categoryList.InnerHtml = display;
 
+            //my account / login register --------------------------------------------------
+
+            display = "";
+            if (Session["LoggedInUserID"] != null)
+            {
+                display += "<a href='account.aspx'>My Account</a>";
+                myaccount.InnerHtml = display;
+            }
+            
             //search box categories drop down --------------------------------------------------------------------
 
             //foreach (ProductCategory c in allCategories)
@@ -89,8 +98,8 @@ namespace GreenPantryFrontend
                 display += "<div class='featured__item'>";
                 display += "<div class='featured__item__pic set-bg' data-setbg='/" + p.Image_Location + "'>"; //onclick='location.href=&#39;singleproduct.aspx?ProductID=" + p.ID + "&#39;'>";
                 display += "<ul class='featured__item__pic__hover'>";
-                display += "<li><i class='fa fa-heart'></i></li>";
-                display += "<li><i class='fa fa-shopping-cart' id='cart' OnClick='AddToCart(" + p.ID + ")' runat='server'></i></li>";
+                display += "<li><a href='#'><i class='fa fa-heart'></i></a></li>";
+                display += "<li><a href='#'><i class='fa fa-shopping-cart'></i></a></li>";
                 display += "</ul></div>";
                 display += "<div class='featured__item__text'>";
                 display += "<h6><a href='singleproduct.aspx?ProductID=" + p.ID+ "'>" + p.Name + "</a></h6>"; //product link

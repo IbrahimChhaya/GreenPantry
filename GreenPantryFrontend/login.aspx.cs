@@ -19,6 +19,7 @@ namespace GreenPantryFrontend
         protected void Login_Click(object sender, EventArgs e)
         {
             int userID = SR.login(Email.Value, Password.Value);
+            Response.Redirect("home.aspx");
 
             if (userID == 0)
             {
@@ -27,7 +28,7 @@ namespace GreenPantryFrontend
             else
             {
                 Session["LoggedInUserID"] = userID;
-                Response.Redirect("home.aspx");
+                //Response.Redirect("home.aspx");
             }
         }
     }
