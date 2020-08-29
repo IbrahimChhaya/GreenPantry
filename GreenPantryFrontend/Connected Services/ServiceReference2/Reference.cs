@@ -2278,5 +2278,10 @@ namespace GreenPantryFrontend.ServiceReference2 {
         public System.Threading.Tasks.Task<int> addInvoiceAsync(string status, System.DateTime date, System.DateTime deliveryDate, string notes, int Cus_ID) {
             return base.Channel.addInvoiceAsync(status, date, deliveryDate, notes, Cus_ID);
         }
+
+        internal int Register(string value1, string value2, string value3, string value4, string v1, DateTime today, string v2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
