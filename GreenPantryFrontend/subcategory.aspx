@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="categories.aspx.cs" Inherits="GreenPantryFrontend.categories" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="subcategory.aspx.cs" Inherits="GreenPantryFrontend.subcategory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -10,10 +10,10 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text" id="breadcrumb" runat="server">
-                        <h2>Category Name</h2>
+                        <h2>SubCategory Name</h2>
                         <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
-                            <span>Category name</span>
+                            <span>SubCategory name</span>
                         </div>
                     </div>
                 </div>
@@ -29,9 +29,9 @@
                 <div class="col-lg-3 col-md-5">
                     <div class="sidebar">
                         <div class="sidebar__item">
-                            <h4>Filtered by Department</h4>
-                            <ul id="subcatList" runat="server">
-                                <li><a href="/subcategory.aspx?SubcategoryID=4">Fresh Meat</a></li>
+                            <h4>Filtered by</h4>
+                            <ul id="filtered" runat="server">
+                                <li>Fresh Meat</li>
                             </ul>
                         </div>
                         <div class="sidebar__item">
@@ -326,7 +326,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row" id="categoryProducts" runat="server">
+                    <div class="row" id="subProducts" runat="server">
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">

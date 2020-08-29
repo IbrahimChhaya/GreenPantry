@@ -1900,6 +1900,18 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getSubCat", ReplyAction="http://tempuri.org/IGP_Service/getSubCatResponse")]
         System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.SubCategory> getSubCatAsync(int S_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getCat", ReplyAction="http://tempuri.org/IGP_Service/getCatResponse")]
+        GreenPantryFrontend.ServiceReference1.ProductCategory getCat(int C_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getCat", ReplyAction="http://tempuri.org/IGP_Service/getCatResponse")]
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.ProductCategory> getCatAsync(int C_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getSubCatPerCat", ReplyAction="http://tempuri.org/IGP_Service/getSubCatPerCatResponse")]
+        GreenPantryFrontend.ServiceReference1.SubCategory[] getSubCatPerCat(int c_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getSubCatPerCat", ReplyAction="http://tempuri.org/IGP_Service/getSubCatPerCatResponse")]
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.SubCategory[]> getSubCatPerCatAsync(int c_ID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2247,6 +2259,22 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.SubCategory> getSubCatAsync(int S_ID) {
             return base.Channel.getSubCatAsync(S_ID);
+        }
+        
+        public GreenPantryFrontend.ServiceReference1.ProductCategory getCat(int C_ID) {
+            return base.Channel.getCat(C_ID);
+        }
+        
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.ProductCategory> getCatAsync(int C_ID) {
+            return base.Channel.getCatAsync(C_ID);
+        }
+        
+        public GreenPantryFrontend.ServiceReference1.SubCategory[] getSubCatPerCat(int c_ID) {
+            return base.Channel.getSubCatPerCat(c_ID);
+        }
+        
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.SubCategory[]> getSubCatPerCatAsync(int c_ID) {
+            return base.Channel.getSubCatPerCatAsync(c_ID);
         }
     }
 }

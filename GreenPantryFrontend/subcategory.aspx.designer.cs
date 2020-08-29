@@ -11,7 +11,7 @@ namespace GreenPantryFrontend
 {
 
 
-    public partial class categories
+    public partial class subcategory
     {
 
         /// <summary>
@@ -24,21 +24,21 @@ namespace GreenPantryFrontend
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl breadcrumb;
 
         /// <summary>
-        /// subcatList control.
+        /// filtered control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl subcatList;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl filtered;
 
         /// <summary>
-        /// categoryProducts control.
+        /// subProducts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl categoryProducts;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl subProducts;
     }
 }

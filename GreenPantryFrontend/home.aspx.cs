@@ -1,6 +1,7 @@
 ﻿using GreenPantryFrontend.ServiceReference1;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.EnterpriseServices;
 using System.Linq;
 using System.Web;
@@ -22,10 +23,22 @@ namespace GreenPantryFrontend
             dynamic allCategories = SC.getAllCategories();
             foreach (ProductCategory c in allCategories)
             {
-                display += "<li><a href='/categories.aspx?CategoryID='" + c.ID + ">" + c.Name + "</a></li>";
+
+                display += "<li><a href='/categories.aspx?CategoryID=" + c.ID + "'>" + c.Name + "</a></li>";
             }
 
             categoryList.InnerHtml = display;
+
+            //search box categories drop down --------------------------------------------------------------------
+
+            //foreach (ProductCategory c in allCategories)
+            //{
+
+            //    display += "<a href='/categories.aspx?CategoryID='" + c.ID + ">" + c.Name + "</a></li>";
+            //}
+
+            //categoryList.InnerHtml = display;
+
 
             //product category slider 11111111111111111--------------------------------------------
 
@@ -72,20 +85,43 @@ namespace GreenPantryFrontend
 
             foreach (Product p in productsByCat)
             {
-                display += "<div class='col-lg-3 catSliderHover' onclick='location.href=&#39;singleproduct.aspx?ProductID=" + p.ID + "&#39;'>";
+                display += "<div class='col-lg-3 catSliderHover'>";
                 display += "<div class='featured__item'>";
-                display += "<div class='featured__item__pic set-bg' data-setbg='/" + p.Image_Location + "'>";
+                display += "<div class='featured__item__pic set-bg' data-setbg='/" + p.Image_Location + "'>"; //onclick='location.href=&#39;singleproduct.aspx?ProductID=" + p.ID + "&#39;'>";
                 display += "<ul class='featured__item__pic__hover'>";
-                display += "<li><a href = '#'><i class='fa fa-heart'></i></a></li>";
-                display += "<li><a href = '#'><i class='fa fa-shopping-cart'></i></a></li>";
+                display += "<li><i class='fa fa-heart'></i></li>";
+                display += "<li><i class='fa fa-shopping-cart' id='cart' OnClick='AddToCart(" + p.ID + ")' runat='server'></i></li>";
                 display += "</ul></div>";
                 display += "<div class='featured__item__text'>";
-                display += "<h6><a href = '#'>" + p.Name + "</a></h6>"; //product link
-               display += "<h5> R" + p.Price + "</h5>";
+                display += "<h6><a href='singleproduct.aspx?ProductID=" + p.ID+ "'>" + p.Name + "</a></h6>"; //product link
+                display += "<h5>R" + p.Price + "</h5>";
                 display += "</div></div></div>";
             }
             display += "</div>";
             return display;
+        }
+
+        //cookies
+        private void saveToCookie(String CookieName, String content)
+        {
+            //content: productID-quantity,productID-quantity
+            Response.Cookies[CookieName].Value += content + ",";
+        }
+        private void createCookie(String CookieName, String content)
+        {
+            Response.Cookies[CookieName].Value = content + ",";
+        }
+
+        private String readCookie(String CookieName)
+        {
+            return Request.Cookies[CookieName].ToString();
+        }
+
+        //add to cart click
+        protected void AddToCart(String ProductID)
+        {
+            createCookie("cart", ProductID);
+            Debug.WriteLine(ProductID);
         }
     }
 }

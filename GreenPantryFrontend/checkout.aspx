@@ -64,11 +64,15 @@
 
                                 <input List="Provinces" name="Province" id="Province">
                                 <datalist id="Provinces">
-                                 <option value="Geuteng">
-                                 <option value="Kwazulu Natal">
-                                 <option value="FreeState">
-                                 <option value="Punjab">
-                                 <option value="Utar Pradesh">
+                                 <option value="Eastern Cape">
+                                 <option value="Free State">
+                                 <option value="Gauteng">
+                                 <option value="KwaZulu-Natal">
+                                 <option value="Limpopo">
+                                 <option value="Mpumalanga">
+                                 <option value="Northern Cape">
+                                 <option value="North West">
+                                 <option value="Western Cape">
                                  </datalist>
                             </div>
 
