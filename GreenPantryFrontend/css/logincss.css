@@ -314,3 +314,7 @@ span.psw {
         transform: scale(1)
     }
 }
+
+.loginPage {
+        background: #FFFFFF;
+}

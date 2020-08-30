@@ -206,7 +206,8 @@
                                 <i class="fa fa-user"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5 onclick="document.getElementById('id01').style.display='block'">My Account</h5><span class="arrow_carrot-down"></span>
+                                <!--<h5 onclick="document.getElementById('id01').style.display='block'">My Account</h5><span class="arrow_carrot-down"></span>-->
+                                <h5 id="account" runat="server"><a href="login.aspx">Login</a> / <a href="register2.aspx">Register</a></h5>
                             </div>
                         </div>
                     </div>

@@ -254,6 +254,7 @@
     <Content Include="login.aspx" />
     <Content Include="modallogin.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="register2.aspx" />
     <Content Include="singleproduct.aspx" />
     <Content Include="subcategory.aspx" />
     <Content Include="Web.config" />
@@ -340,6 +341,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="register2.aspx.cs">
+      <DependentUpon>register2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register2.aspx.designer.cs">
+      <DependentUpon>register2.aspx</DependentUpon>
     </Compile>
     <Compile Include="singleproduct.aspx.cs">
       <DependentUpon>singleproduct.aspx</DependentUpon>

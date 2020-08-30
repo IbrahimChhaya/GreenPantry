@@ -11,10 +11,10 @@
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
                         <h2 id="title" runat="server"></h2>
-                        <div class="breadcrumb__option">
+                        <div class="breadcrumb__option" id="productName" runat="server">
                             <a href="./index.html">Home</a>
                             <a href="./index.html">Vegetables</a>
-                            <span id="PName" runat="server">Vegetable’s Package</span>
+                            <span>Vegetable’s Package</span>
                         </div>
                     </div>
                 </div>

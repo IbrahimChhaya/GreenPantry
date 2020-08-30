@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="GreenPantryFrontend.login2" %>
-
+﻿<%@ Page Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="register2.aspx.cs" Inherits="GreenPantryFrontend.register2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -12,9 +11,9 @@
     <!-- Login form -->
     
 	<div class="bodylogin loginPage" id="test">
-		<div class="containerlogin" id="container">
+		<div class="containerlogin right-panel-active" id="container">
 			<div class="form-container sign-up-container">
-				<div class="loginForm">
+				<form class="login">
 					<h1 class="h1login">Create Account</h1>
 					</br>
 					<input class="login" type="text" placeholder="Name" runat="server" ID="name" />
@@ -22,7 +21,7 @@
 					<input class="login" type="email" placeholder="Email" runat="server" ID="RegEmail"/>
 					<input class="login" type="password" placeholder="Password" runat="server" ID="RegPassword"/>
 					<button class="login" runat="server" ID="btnRegister" OnClick="Sign Up">Sign Up</button>
-				</div>
+				</form>
 			</div>
 			<div class="form-container sign-in-container">
 				<form class="login" runat="server" >
@@ -40,14 +39,14 @@
 					<div class="overlay-panel overlay-left">
 						<h1 class="h1login">Welcome Back!</h1>
 						<p class="plogin">To keep connected with us please login with your personal info</p>
-						<button class="login ghost" id="signIn">Sign In</button>
-					</div>
+						<form action="/login.aspx">
+							<button class="login ghost" id="signIn">Sign In</button>
+						</form>
+						</div>
 					<div class="overlay-panel overlay-right">
 						<h1 class="h1login">Hello, jimo</h1>
 						<p class="plogin">ur dumb</p>
-						<form action="/register2.aspx">
-							<button class="login ghost" id="signUp">Sign Up</button>
-						</form>
+						<button class="login ghost">Sign Up</button>
 					</div>
 				</div>
 			</div>

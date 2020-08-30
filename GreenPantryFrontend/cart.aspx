@@ -50,11 +50,11 @@
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
                                             <div class="pro-qty">
-                                                <input type="text" value="1">
+                                                <input type="text" value="1" id="quantity">
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="shoping__cart__total">
+                                    <td class="shoping__cart__total" id="total">
                                         $110.00
                                     </td>
                                     <td class="shoping__cart__item__close">

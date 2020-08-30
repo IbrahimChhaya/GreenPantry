@@ -11,97 +11,88 @@ namespace GreenPantryFrontend
 {
 
 
-    public partial class home
+    public partial class register2
     {
 
         /// <summary>
-        /// categoryList control.
+        /// name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl categoryList;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText name;
 
         /// <summary>
-        /// myaccount control.
+        /// surname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl myaccount;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText surname;
 
         /// <summary>
-        /// account control.
+        /// RegEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl account;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl RegEmail;
 
         /// <summary>
-        /// banner1 control.
+        /// RegPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl banner1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword RegPassword;
 
         /// <summary>
-        /// banner2 control.
+        /// btnRegister control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl banner2;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnRegister;
 
         /// <summary>
-        /// banner3 control.
+        /// Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl banner3;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Email;
 
         /// <summary>
-        /// banner4 control.
+        /// Password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl banner4;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword Password;
 
         /// <summary>
-        /// categorySlider1 control.
+        /// error control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl categorySlider1;
+        protected global::System.Web.UI.WebControls.Label error;
 
         /// <summary>
-        /// categorySlider2 control.
+        /// btnLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl categorySlider2;
-
-        /// <summary>
-        /// categorySlider3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl categorySlider3;
+        protected global::System.Web.UI.WebControls.Button btnLogin;
     }
 }

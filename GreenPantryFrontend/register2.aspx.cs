@@ -7,15 +7,21 @@ using System.Web.UI.WebControls;
 
 namespace GreenPantryFrontend
 {
-    public partial class Site2 : System.Web.UI.MasterPage
+    public partial class register2 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["LoggedInUserID"] != null)
-            {
-                String display = "<a href='account.aspx'>My Account</a>";
-                account.InnerHtml = display;
-            }
+
+        }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnRegister_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
