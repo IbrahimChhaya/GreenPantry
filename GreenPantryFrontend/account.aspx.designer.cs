@@ -15,15 +15,6 @@ namespace GreenPantryFrontend
     {
 
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
         /// Line1 control.
         /// </summary>
         /// <remarks>
@@ -60,6 +51,15 @@ namespace GreenPantryFrontend
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword Password1;
 
         /// <summary>
+        /// Password2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword Password2;
+
+        /// <summary>
         /// PhoneNumber1 control.
         /// </summary>
         /// <remarks>
@@ -67,5 +67,14 @@ namespace GreenPantryFrontend
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl PhoneNumber1;
+
+        /// <summary>
+        /// Submit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Submit;
     }
 }
