@@ -247,11 +247,29 @@
   <wsdl:message name="IGP_Service_getSubCat_OutputMessage">
     <wsdl:part name="parameters" element="tns:getSubCatResponse" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_addInvoice_InputMessage">
-    <wsdl:part name="parameters" element="tns:addInvoice" />
+  <wsdl:message name="IGP_Service_getCat_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCat" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_addInvoice_OutputMessage">
-    <wsdl:part name="parameters" element="tns:addInvoiceResponse" />
+  <wsdl:message name="IGP_Service_getCat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getSubCatPerCat_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSubCatPerCat" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getSubCatPerCat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSubCatPerCatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_calcProductVAT_InputMessage">
+    <wsdl:part name="parameters" element="tns:calcProductVAT" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_calcProductVAT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:calcProductVATResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getProductByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductByID" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getProductByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductByIDResponse" />
   </wsdl:message>
   <wsdl:portType name="IGP_Service">
     <wsdl:operation name="login">
@@ -414,9 +432,21 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getSubCat" message="tns:IGP_Service_getSubCat_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getSubCatResponse" message="tns:IGP_Service_getSubCat_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="addInvoice">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addInvoice" message="tns:IGP_Service_addInvoice_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/addInvoiceResponse" message="tns:IGP_Service_addInvoice_OutputMessage" />
+    <wsdl:operation name="getCat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getCat" message="tns:IGP_Service_getCat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getCatResponse" message="tns:IGP_Service_getCat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSubCatPerCat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getSubCatPerCat" message="tns:IGP_Service_getSubCatPerCat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getSubCatPerCatResponse" message="tns:IGP_Service_getSubCatPerCat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="calcProductVAT">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/calcProductVAT" message="tns:IGP_Service_calcProductVAT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/calcProductVATResponse" message="tns:IGP_Service_calcProductVAT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getProductByID" message="tns:IGP_Service_getProductByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getProductByIDResponse" message="tns:IGP_Service_getProductByID_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGP_Service" type="tns:IGP_Service">
@@ -781,8 +811,35 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="addInvoice">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/addInvoice" style="document" />
+    <wsdl:operation name="getCat">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getCat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubCatPerCat">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getSubCatPerCat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calcProductVAT">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/calcProductVAT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductByID">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getProductByID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
