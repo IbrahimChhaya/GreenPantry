@@ -35,9 +35,9 @@ namespace GreenPantryFrontend
             if (Session["LoggedInUserID"] != null)
             {
                 display += "<a href='account.aspx'>My Account</a>";
-                myaccount.InnerHtml = display;
+                account.InnerHtml = display;
             }
-            
+
             //search box categories drop down --------------------------------------------------------------------
 
             //foreach (ProductCategory c in allCategories)
@@ -48,10 +48,63 @@ namespace GreenPantryFrontend
 
             //categoryList.InnerHtml = display;
 
+            //the 4 banners ---------------------------------------------------------------------
+            String caption = "These discounts dough!";
+            String tag = "25% off at the bakery this month";
+            String categoryLink = "7";
+            display = "<a href='/categories.aspx?CategoryID=" + categoryLink + "'>";
+            display += "<div class='hero__4item set-bg' data-setbg='img/banner/banner-1.png'>";
+            display += "<div class='hero__textButBlack'>";
+            display += "<span></span>";
+            display += "<h2>" + caption + "</h2>";
+            display += "<p>" + tag + "</p>";
+            display += "</div></div></a>";
+
+            banner1.InnerHtml = display;
+
+            caption = "Stock up on groceries";
+            tag = "Get all your ingredients here";
+            categoryLink = "1";
+            display = "<a href='/categories.aspx?CategoryID=" + categoryLink + "'>";
+            display += "<div class='hero__4item set-bg' data-setbg='img/banner/banner-2.png'>";
+            display += "<div class='hero__textButBlack secondary'>";
+            display += "<span></span>";
+            display += "<h2>" + caption + "</h2>";
+            display += "<p>" + tag + "</p>";
+            display += "</div></div></a>";
+
+            banner2.InnerHtml = display;
+
+            caption = "Celebrate Spring time with natural juices";
+            tag = "100% fruit juices in every flavour";
+            categoryLink = "8";
+            display = "<a href='/categories.aspx?CategoryID=" + categoryLink + "'>";
+            display += "<div class='hero__4item set-bg' data-setbg='img/banner/banner-3.png'>";
+            display += "<div class='hero__textButBlack secondary'>";
+            display += "<span></span>";
+            display += "<h2>" + caption + "</h2>";
+            display += "<p>" + tag + "</p>";
+            display += "</div></div></a>";
+
+            banner3.InnerHtml = display;
+
+            caption = "Fresh foods at fresh prices";
+            tag = "Fill up your fridge with next-day delivery";
+            categoryLink = "2";
+            display = "<a href='/categories.aspx?CategoryID=" + categoryLink + "'>";
+            display += "<div class='hero__4item set-bg' data-setbg='img/banner/banner-4.png'>";
+            display += "<div class='hero__textButBlack'>";
+            display += "<span></span>";
+            display += "<h2>" + caption + "</h2>";
+            display += "<p>" + tag + "</p>";
+            display += "</div></div></a>";
+
+            banner4.InnerHtml = display;
+
 
             //product category slider 11111111111111111--------------------------------------------
 
-            String sliderCaption = "Freshly Picked";
+            String sliderCaption = "Straight From The Fruit Tree";
 
             display = "<div class='col-lg-12'>";
             display += "<div class='hero__item set-bg' data-setbg='img/freeshipping.png'>";
@@ -76,10 +129,10 @@ namespace GreenPantryFrontend
 
             //product category slider 333333333333333333-----------------------------------------------
 
-            sliderCaption = "Baby products for Zeerak";
+            sliderCaption = "Quench Your Thirst";
 
             display = "<div class='col-lg-12'>";
-            display += categoryHelper(sliderCaption, 9);
+            display += categoryHelper(sliderCaption, 8);
 
             categorySlider3.InnerHtml = display;
         }

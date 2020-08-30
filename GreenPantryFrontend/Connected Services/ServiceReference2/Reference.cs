@@ -1940,6 +1940,12 @@ namespace GreenPantryFrontend.ServiceReference2 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getProductByID", ReplyAction="http://tempuri.org/IGP_Service/getProductByIDResponse")]
         System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference2.Product> getProductByIDAsync(int P_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getNumProductsInSub", ReplyAction="http://tempuri.org/IGP_Service/getNumProductsInSubResponse")]
+        int getNumProductsInSub(int subID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getNumProductsInSub", ReplyAction="http://tempuri.org/IGP_Service/getNumProductsInSubResponse")]
+        System.Threading.Tasks.Task<int> getNumProductsInSubAsync(int subID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2319,6 +2325,14 @@ namespace GreenPantryFrontend.ServiceReference2 {
         
         public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference2.Product> getProductByIDAsync(int P_ID) {
             return base.Channel.getProductByIDAsync(P_ID);
+        }
+        
+        public int getNumProductsInSub(int subID) {
+            return base.Channel.getNumProductsInSub(subID);
+        }
+        
+        public System.Threading.Tasks.Task<int> getNumProductsInSubAsync(int subID) {
+            return base.Channel.getNumProductsInSubAsync(subID);
         }
     }
 }

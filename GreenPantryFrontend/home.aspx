@@ -35,7 +35,8 @@
                                 <i class="fa fa-user"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5 id="myaccount" runat="server"><a href="login.aspx">Login / Register</a><span class="arrow_carrot-down"></span></h5>
+                                <!--<h5 id="myaccount" runat="server"><a href="login.aspx">Login / Register</a><span class="arrow_carrot-down"></span></h5>-->
+                                <h5 id="account" runat="server"><a href="login.aspx">Login</a> / <a href="register2.aspx">Register</a></h5>
                             </div>
                         </div>
                     </div>
@@ -43,7 +44,7 @@
                     <div class="banner">
                         <div class="container">
                           <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="col-lg-6 col-md-6 col-sm-6" id="banner1" runat="server">
                                     <a href="#">
                                     <div class="hero__4item set-bg" data-setbg="img/banner/banner-1.png">
                                         <div class="hero__textButBlack">
@@ -54,7 +55,7 @@
                                      </div>
                                      </a>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="col-lg-6 col-md-6 col-sm-6" id="banner2" runat="server">
                                 <a href="#">
                                     <div class="hero__4item set-bg" data-setbg="img/banner/banner-2.png">
                                         <div class="hero__textButBlack secondary">
@@ -72,7 +73,7 @@
                     <div class="banner">
                         <div class="container">
                             <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="col-lg-6 col-md-6 col-sm-6" id="banner3" runat="server">
                                     <a href="#">
                                     <div class="hero__4item set-bg" data-setbg="img/banner/banner-3.png">
                                         <div class="hero__textButBlack secondary">
@@ -83,7 +84,7 @@
                                      </div>
                                     </a>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="col-lg-6 col-md-6 col-sm-6" id="banner4" runat="server">
                                     <a href="#">
                                     <div class="hero__4item set-bg" data-setbg="img/banner/banner-4.png">
                                         <div class="hero__textButBlack">
