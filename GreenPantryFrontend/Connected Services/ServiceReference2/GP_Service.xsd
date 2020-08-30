@@ -24,7 +24,6 @@
         <xs:element minOccurs="0" name="surname" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="number" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="date" type="xs:dateTime" />
         <xs:element minOccurs="0" name="userType" nillable="true" type="xs:string" />
@@ -614,21 +613,45 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="addInvoice">
+  <xs:element name="getCat">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="deliveryDate" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Cus_ID" type="xs:int" />
+        <xs:element minOccurs="0" name="C_ID" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="addInvoiceResponse">
+  <xs:element name="getCatResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="addInvoiceResult" type="xs:int" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getCatResult" nillable="true" type="q19:ProductCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSubCatPerCat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="c_ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSubCatPerCatResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getSubCatPerCatResult" nillable="true" type="q20:ArrayOfSubCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="calcProductVAT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="P_ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="calcProductVATResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="calcProductVATResult" type="xs:decimal" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

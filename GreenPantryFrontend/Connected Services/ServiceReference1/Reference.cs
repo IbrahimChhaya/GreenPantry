@@ -1015,6 +1015,9 @@ namespace GreenPantryFrontend.ServiceReference1 {
         private string Line2Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProvinceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SuburbField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1107,6 +1110,19 @@ namespace GreenPantryFrontend.ServiceReference1 {
                 if ((object.ReferenceEquals(this.Line2Field, value) != true)) {
                     this.Line2Field = value;
                     this.RaisePropertyChanged("Line2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Province {
+            get {
+                return this.ProvinceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProvinceField, value) != true)) {
+                    this.ProvinceField = value;
+                    this.RaisePropertyChanged("Province");
                 }
             }
         }
@@ -1668,10 +1684,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> loginAsync(string email, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/Register", ReplyAction="http://tempuri.org/IGP_Service/RegisterResponse")]
-        int Register(string name, string surname, string email, string password, string number, string status, System.DateTime date, string userType);
+        int Register(string name, string surname, string email, string password, string status, System.DateTime date, string userType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/Register", ReplyAction="http://tempuri.org/IGP_Service/RegisterResponse")]
-        System.Threading.Tasks.Task<int> RegisterAsync(string name, string surname, string email, string password, string number, string status, System.DateTime date, string userType);
+        System.Threading.Tasks.Task<int> RegisterAsync(string name, string surname, string email, string password, string status, System.DateTime date, string userType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/UpdateUserDetails", ReplyAction="http://tempuri.org/IGP_Service/UpdateUserDetailsResponse")]
         int UpdateUserDetails(int id, string name, string surname, string email, string number);
@@ -1800,10 +1816,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Address> getAddressAsync(int Address_ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/AddAdress", ReplyAction="http://tempuri.org/IGP_Service/AddAdressResponse")]
-        int AddAdress(string line1, string line2, string suburb, string city, char billing, string type);
+        int AddAdress(string line1, string line2, string suburb, string city, char billing, string type, int C_ID, string Province);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/AddAdress", ReplyAction="http://tempuri.org/IGP_Service/AddAdressResponse")]
-        System.Threading.Tasks.Task<int> AddAdressAsync(string line1, string line2, string suburb, string city, char billing, string type);
+        System.Threading.Tasks.Task<int> AddAdressAsync(string line1, string line2, string suburb, string city, char billing, string type, int C_ID, string Province);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/UpdateAddress", ReplyAction="http://tempuri.org/IGP_Service/UpdateAddressResponse")]
         int UpdateAddress(int A_ID, string line1, string line2, string suburb, string city, char billing, string type, int Cus_ID);
@@ -1912,6 +1928,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getSubCatPerCat", ReplyAction="http://tempuri.org/IGP_Service/getSubCatPerCatResponse")]
         System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.SubCategory[]> getSubCatPerCatAsync(int c_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/calcProductVAT", ReplyAction="http://tempuri.org/IGP_Service/calcProductVATResponse")]
+        decimal calcProductVAT(int P_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/calcProductVAT", ReplyAction="http://tempuri.org/IGP_Service/calcProductVATResponse")]
+        System.Threading.Tasks.Task<decimal> calcProductVATAsync(int P_ID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1949,12 +1971,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.loginAsync(email, password);
         }
         
-        public int Register(string name, string surname, string email, string password, string number, string status, System.DateTime date, string userType) {
-            return base.Channel.Register(name, surname, email, password, number, status, date, userType);
+        public int Register(string name, string surname, string email, string password, string status, System.DateTime date, string userType) {
+            return base.Channel.Register(name, surname, email, password, status, date, userType);
         }
         
-        public System.Threading.Tasks.Task<int> RegisterAsync(string name, string surname, string email, string password, string number, string status, System.DateTime date, string userType) {
-            return base.Channel.RegisterAsync(name, surname, email, password, number, status, date, userType);
+        public System.Threading.Tasks.Task<int> RegisterAsync(string name, string surname, string email, string password, string status, System.DateTime date, string userType) {
+            return base.Channel.RegisterAsync(name, surname, email, password, status, date, userType);
         }
         
         public int UpdateUserDetails(int id, string name, string surname, string email, string number) {
@@ -2125,12 +2147,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.getAddressAsync(Address_ID);
         }
         
-        public int AddAdress(string line1, string line2, string suburb, string city, char billing, string type) {
-            return base.Channel.AddAdress(line1, line2, suburb, city, billing, type);
+        public int AddAdress(string line1, string line2, string suburb, string city, char billing, string type, int C_ID, string Province) {
+            return base.Channel.AddAdress(line1, line2, suburb, city, billing, type, C_ID, Province);
         }
         
-        public System.Threading.Tasks.Task<int> AddAdressAsync(string line1, string line2, string suburb, string city, char billing, string type) {
-            return base.Channel.AddAdressAsync(line1, line2, suburb, city, billing, type);
+        public System.Threading.Tasks.Task<int> AddAdressAsync(string line1, string line2, string suburb, string city, char billing, string type, int C_ID, string Province) {
+            return base.Channel.AddAdressAsync(line1, line2, suburb, city, billing, type, C_ID, Province);
         }
         
         public int UpdateAddress(int A_ID, string line1, string line2, string suburb, string city, char billing, string type, int Cus_ID) {
@@ -2275,6 +2297,14 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.SubCategory[]> getSubCatPerCatAsync(int c_ID) {
             return base.Channel.getSubCatPerCatAsync(c_ID);
+        }
+        
+        public decimal calcProductVAT(int P_ID) {
+            return base.Channel.calcProductVAT(P_ID);
+        }
+        
+        public System.Threading.Tasks.Task<decimal> calcProductVATAsync(int P_ID) {
+            return base.Channel.calcProductVATAsync(P_ID);
         }
     }
 }
