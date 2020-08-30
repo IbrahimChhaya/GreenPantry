@@ -2320,10 +2320,5 @@ namespace GreenPantryFrontend.ServiceReference2 {
         public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference2.Product> getProductByIDAsync(int P_ID) {
             return base.Channel.getProductByIDAsync(P_ID);
         }
-
-        internal int Register(string value1, string value2, string value3, string value4, string v1, DateTime today, string v2)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
