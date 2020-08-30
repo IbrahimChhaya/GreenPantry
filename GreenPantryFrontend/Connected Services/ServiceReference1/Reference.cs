@@ -1934,6 +1934,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/calcProductVAT", ReplyAction="http://tempuri.org/IGP_Service/calcProductVATResponse")]
         System.Threading.Tasks.Task<decimal> calcProductVATAsync(int P_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getProductByID", ReplyAction="http://tempuri.org/IGP_Service/getProductByIDResponse")]
+        GreenPantryFrontend.ServiceReference1.Product getProductByID(int P_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getProductByID", ReplyAction="http://tempuri.org/IGP_Service/getProductByIDResponse")]
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Product> getProductByIDAsync(int P_ID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2305,6 +2311,14 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<decimal> calcProductVATAsync(int P_ID) {
             return base.Channel.calcProductVATAsync(P_ID);
+        }
+        
+        public GreenPantryFrontend.ServiceReference1.Product getProductByID(int P_ID) {
+            return base.Channel.getProductByID(P_ID);
+        }
+        
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Product> getProductByIDAsync(int P_ID) {
+            return base.Channel.getProductByIDAsync(P_ID);
         }
     }
 }
