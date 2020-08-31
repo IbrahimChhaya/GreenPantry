@@ -43,11 +43,11 @@
 
         <div class ="checkout__input">
              <p>Name<span>*</span></p>
-                <input type="text" placeholder="First Name"  runat="server" id ="Line1">
+                <input type="text" placeholder="First Name"  runat="server" id ="Name">
         </div>
         <div class ="checkout__input">
              <p>Surname<span>*</span></p>
-                <input type="text" placeholder="Last Name" runat="server" id ="Line2">
+                <input type="text" placeholder="Last Name" runat="server" id ="Surname">
          </div>
          <div class ="checkout__input">
              <p>Email<span>*</span></p>
@@ -67,7 +67,7 @@
          </div>
 
         
-            <asp:Button ID="Submit" Text="Submit" runat="server" class="site-btn" /> <%--OnCLick="Submit_Click"--%> 
+            <asp:Button ID="Submit" Text="Submit" runat="server" class="site-btn"  OnCLick="Submit_Click" />
        
                 </div>
                </div>

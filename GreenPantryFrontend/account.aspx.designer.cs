@@ -15,22 +15,22 @@ namespace GreenPantryFrontend
     {
 
         /// <summary>
-        /// Line1 control.
+        /// Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Line1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Name;
 
         /// <summary>
-        /// Line2 control.
+        /// Surname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Line2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Surname;
 
         /// <summary>
         /// Email1 control.
