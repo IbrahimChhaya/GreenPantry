@@ -20,6 +20,7 @@
 				<input class="login" type="text" placeholder="Last name" runat="server" ID="surname"/>
 					<input class="login" type="email" placeholder="Email" runat="server" ID="RegEmail"/>
 					<input class="login" type="password" placeholder="Password" runat="server" ID="RegPassword"/>
+					<asp:Label ID="error" runat="server" Text="Incorrect Password or Username" visible="false" ></asp:Label>
 					<asp:button class="login" runat="server" ID="Register" OnClick="Register_Click" Text="Sign Up"></asp:button>
 				</form>
 			</div>
