@@ -20,8 +20,7 @@
       <div class="title" runat="server" id="title">
         <h1 class ="h1Inv">Invoice #1069</h1>
         <p class ="pInvoice">Issued: May 27, 2015</br>
-           Payment Due: June 27, 2015
-        </p>
+          
       </div><!--End Title-->
     </div><!--End InvoiceTop-->
 
@@ -62,16 +61,24 @@
           <tr class="tabletitle">
             <td></td>
             <td></td>
-             <td class="Rate"><h2 class="h2Inv">VAT</h2></td>
-             <td class="payment" runat="server" id="Vat"><h2 class ="h2Inv">$3,644.25</h2></td>
+             <td class="Rate"><h3 class="h2Inv">VAT</h3></td>
+             <td class="payment" runat="server" id="Vat"><h3 class ="h2Inv">$3,644.25</h3></td>
             
           </tr>
 
          <tr class="tabletitle">
             <td></td>
             <td></td>
-            <td class="Rate"><h2 class="h2Inv">Total</h2></td>
-            <td class="payment" runat="server" id="Total"><h2 class ="h2Inv">$3,644.25</h2></td>
+            <td class="Rate"><h3 class="h2Inv">Total</h3></td>
+            <td class="payment" runat="server" id="Total"><h3 class ="h2Inv">$3,644.25</h3></td>
+
+            </tr>
+
+            <tr class="tabletitle" runat="server" id="delivery" visible="false">
+            <td></td>
+            <td></td>
+            <td class="Rate"><h3 class="h2Inv">Delivery Fee</h3></td>
+            <td class="payment" runat="server" id="deliverFree"><h3 class ="h2Inv">$3,644.25</h3></td>
 
             </tr>
           
