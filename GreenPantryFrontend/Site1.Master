@@ -199,21 +199,19 @@
                     <div class="footer__widget">
                         <h6>Useful Links</h6>
                         <ul>
+                            <li><a href="#">Help</a></li>
+                            <li><a href="#">Contact Us</a></li>
                             <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
+                            <li><a href="#">Shipping & Delivery</a></li>
+                            <li><a href="#">Exchanges & Returns</a></li>
                         </ul>
-                        <h6>Useful Links</h6>
                         <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Track Orders</a></li>
+                            <li><a href="#">Invoices</a></li>
+                            <li><a href="#">Green Shopper Points</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Terms and Conditions</a></li>
                         </ul>
                     </div>
                 </div>
