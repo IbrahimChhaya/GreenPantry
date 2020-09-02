@@ -373,6 +373,7 @@
     </Compile>
     <Compile Include="Site2.Master.cs">
       <DependentUpon>Site2.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site2.Master.designer.cs">
       <DependentUpon>Site2.Master</DependentUpon>
