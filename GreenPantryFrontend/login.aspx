@@ -6,9 +6,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    </br>
-    </br>
-    </br>
+    <br />
+    <br />
+    <br />
     <!-- Login form -->
     
 	<div class="bodylogin loginPage" id="test">
@@ -16,7 +16,7 @@
 			<div class="form-container sign-up-container">
 				<div class="loginForm">
 					<h1 class="h1login">Create Account</h1>
-					</br>
+					<br />
 					<input class="login" type="text" placeholder="Name" runat="server" ID="name" />
 				<input class="login" type="text" placeholder="Last name" runat="server" ID="surname"/>
 					<input class="login" type="email" placeholder="Email" runat="server" ID="RegEmail"/>
@@ -27,7 +27,7 @@
 			<div class="form-container sign-in-container">
 				<form class="login" runat="server" >
 					<h1 class="h1login" id="closePopup">Sign in</h1>
-					</br>
+					<br />
 					<input class="login" type="email" placeholder="Email" runat="server" ID="Email"/>
 					<input class="login" type="password" placeholder="Password" runat="server" ID="Password" />
                     <asp:Label ID="error" runat="server" Text="Incorrect Password or Username" visible="false" ></asp:Label>
@@ -53,7 +53,7 @@
 			</div>
 		</div>
     </div>
-    </br>
-    </br>
-    </br>
+    <br />
+    <br />
+    <br />
 </asp:Content>
