@@ -1738,10 +1738,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.SubCategory[]> getAllSubCategoriesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getOrder", ReplyAction="http://tempuri.org/IGP_Service/getOrderResponse")]
-        GreenPantryFrontend.ServiceReference1.Invoice getOrder(int customerId, System.DateTime datePlaced);
+        GreenPantryFrontend.ServiceReference1.Invoice getOrder(int orderId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getOrder", ReplyAction="http://tempuri.org/IGP_Service/getOrderResponse")]
-        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Invoice> getOrderAsync(int customerId, System.DateTime datePlaced);
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Invoice> getOrderAsync(int orderId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addOrder", ReplyAction="http://tempuri.org/IGP_Service/addOrderResponse")]
         int addOrder(int customerId, string status, System.DateTime datePlaced, System.DateTime deliverDate, string message);
@@ -1876,10 +1876,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> UpdateListItemAsync(int id, int list_ID, int P_ID, int quantity);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getOrderedItems", ReplyAction="http://tempuri.org/IGP_Service/getOrderedItemsResponse")]
-        GreenPantryFrontend.ServiceReference1.InvoiceLine getOrderedItems(int id);
+        GreenPantryFrontend.ServiceReference1.InvoiceLine[] getOrderedItems(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getOrderedItems", ReplyAction="http://tempuri.org/IGP_Service/getOrderedItemsResponse")]
-        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.InvoiceLine> getOrderedItemsAsync(int id);
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.InvoiceLine[]> getOrderedItemsAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getProductByCat", ReplyAction="http://tempuri.org/IGP_Service/getProductByCatResponse")]
         GreenPantryFrontend.ServiceReference1.Product[] getProductByCat(int Cat_ID);
@@ -2055,12 +2055,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.getAllSubCategoriesAsync();
         }
         
-        public GreenPantryFrontend.ServiceReference1.Invoice getOrder(int customerId, System.DateTime datePlaced) {
-            return base.Channel.getOrder(customerId, datePlaced);
+        public GreenPantryFrontend.ServiceReference1.Invoice getOrder(int orderId) {
+            return base.Channel.getOrder(orderId);
         }
         
-        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Invoice> getOrderAsync(int customerId, System.DateTime datePlaced) {
-            return base.Channel.getOrderAsync(customerId, datePlaced);
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Invoice> getOrderAsync(int orderId) {
+            return base.Channel.getOrderAsync(orderId);
         }
         
         public int addOrder(int customerId, string status, System.DateTime datePlaced, System.DateTime deliverDate, string message) {
@@ -2239,11 +2239,11 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.UpdateListItemAsync(id, list_ID, P_ID, quantity);
         }
         
-        public GreenPantryFrontend.ServiceReference1.InvoiceLine getOrderedItems(int id) {
+        public GreenPantryFrontend.ServiceReference1.InvoiceLine[] getOrderedItems(int id) {
             return base.Channel.getOrderedItems(id);
         }
         
-        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.InvoiceLine> getOrderedItemsAsync(int id) {
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.InvoiceLine[]> getOrderedItemsAsync(int id) {
             return base.Channel.getOrderedItemsAsync(id);
         }
         
