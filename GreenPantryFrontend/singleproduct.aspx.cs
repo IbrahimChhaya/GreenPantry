@@ -33,7 +33,7 @@ namespace GreenPantryFrontend
             Display = "";
             //Pdetails
             Display += "<h3>" + getProducts.Name + "</h3>";
-            Display += "<div class='product__details__price'>R" + getProducts.Price + "</div>";
+            Display += "<div class='product__details__price'>R" + Math.Round(getProducts.Price, 2) + "</div>";
             Display += "<div class='product__details__quantity'>";
             Display += "<div class='quantity'>";
             Display += "<div class='pro-qty'>";
@@ -75,7 +75,7 @@ namespace GreenPantryFrontend
                 Display += "</ul></div>";
                 Display += "<div class='product__item__text'>";
                 Display += "<h6><a href='#'>" + p.Name + "</a></h6>";
-                Display += "<h5>R" + p.Price + "</h5>";
+                Display += "<h5>R" + Math.Round(p.Price, 2) + "</h5>";
                 Display += "</div></div></div>";
             }
             RelatedProducts.InnerHtml = Display;
