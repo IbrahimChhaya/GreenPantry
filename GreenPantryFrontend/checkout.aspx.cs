@@ -70,7 +70,7 @@ namespace GreenPantryFrontend
 
             if(addressUpdate == 1)
             {
-                Response.Redirect("orders.aspx");
+                Response.Redirect("home.aspx");
             }
             else if(addressUpdate == -1)
             {
