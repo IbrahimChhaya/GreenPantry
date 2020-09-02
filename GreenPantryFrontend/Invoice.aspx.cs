@@ -23,19 +23,17 @@ namespace GreenPantryFrontend
             }
             else
             {
-                
-
                 string display = " ";
 
-                display += "<h1 class ='h1Inv'>Invoice #" + invoice.ID + "</h1>";
+                display += "<h3 class ='h1Inv'>Invoice #" + invoice.ID + "</h3>";
                 display += "<p class ='pInvoice'>Issued: " + invoice.Date.Date + "</p>";
                 title.InnerHtml = display;
 
                 var user = SR.getUser(invoice.CustomerID);
 
                 display = "";
-                display += "</br></br></br><div class='clientlogo'></div></br><div class='info'><h2 class='h2Inv'>" + user.Name + "</h2>";
-                display += "<p class=' pInvoice'>"+user.Email+ "</br>"+ user.PhoneNumber+ "</br></div>";
+                display += "<h2 class='h2Inv'>" + user.Name + "</h2>";
+                display += "<p class='pInvoice'>"+user.Email+ "</br>"+ user.PhoneNumber+ "</p>";
                 clientInfo.InnerHtml = display;
 
                 display = " ";
@@ -69,9 +67,6 @@ namespace GreenPantryFrontend
                     deliverFree.InnerHtml = "<h3 class ='h2Inv'>R0.00</h3>";
                 }
             }
-
-            
-
         }
     }
 }

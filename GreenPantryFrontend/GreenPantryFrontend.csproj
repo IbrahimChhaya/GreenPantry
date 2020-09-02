@@ -74,6 +74,7 @@
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
     <Content Include="cart.aspx" />
     <Content Include="categories.aspx" />
+    <Content Include="charts.aspx" />
     <Content Include="checkout.aspx" />
     <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
@@ -281,6 +282,13 @@
     </Compile>
     <Compile Include="categories.aspx.designer.cs">
       <DependentUpon>categories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="charts.aspx.cs">
+      <DependentUpon>charts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="charts.aspx.designer.cs">
+      <DependentUpon>charts.aspx</DependentUpon>
     </Compile>
     <Compile Include="checkout.aspx.cs">
       <DependentUpon>checkout.aspx</DependentUpon>

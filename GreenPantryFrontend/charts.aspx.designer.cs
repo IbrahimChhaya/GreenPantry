@@ -11,7 +11,7 @@ namespace GreenPantryFrontend
 {
 
 
-    public partial class orders
+    public partial class charts
     {
     }
 }
