@@ -162,8 +162,7 @@
   <xs:element name="getOrder">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="customerId" type="xs:int" />
-        <xs:element minOccurs="0" name="datePlaced" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -525,7 +524,7 @@
   <xs:element name="getOrderedItemsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getOrderedItemsResult" nillable="true" type="q15:InvoiceLine" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getOrderedItemsResult" nillable="true" type="q15:ArrayOfInvoiceLine" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
