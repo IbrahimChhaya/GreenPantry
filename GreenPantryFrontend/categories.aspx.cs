@@ -29,10 +29,10 @@ namespace GreenPantryFrontend
 
             display = "";
             dynamic subcats = SC.getSubCatPerCat(int.Parse(catID));
-            int numProducts = SC.getNumProductsInSub(subcats.SubID);
+            //int numProducts = SC.getNumProductsInSub(subcats.SubID);
             foreach(SubCategory sc in subcats)
             { 
-                display += "<li><a href='/subcategory.aspx?SubcategoryID=" + sc.SubID + "'>" + sc.Name + "(" + numProducts + ")</a></li>";
+                display += "<li><a href='/subcategory.aspx?SubcategoryID=" + sc.SubID + "'>" + sc.Name + "</a></li>";
             }
             subcatList.InnerHtml = display;
 

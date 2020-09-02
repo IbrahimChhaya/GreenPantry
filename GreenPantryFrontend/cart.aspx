@@ -39,7 +39,9 @@
                                 </tr>
                             </thead>
                             <tbody  runat="server" ID="tablerow">
-                              s
+                                <asp:Label ID="pID" runat="server" Text="Incorrect Password or Username" visible="false" ></asp:Label>
+                              <span class="dec qtybtn" runat ="server" id="decQty" onclick="decQty_Click" href="cart.aspx">-</span>
+                                <div class="quantity"><div class="pro-qty"><input type ="text" value=" " runat="server" id="item_qty"></div></div>
                             </tbody>
                         </table>
                     </div>
@@ -47,9 +49,9 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="shoping__cart__btns">
-                        <a href="categories.aspx" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                        <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
+                    <div class="shoping__cart__btns" >
+                        <a href="categories.aspx?CategoryID=1" class="primary-btn cart-btn" runat="server" id="Cart_continue">CONTINUE SHOPPING</a>
+                        <a href="cart.aspx" class="primary-btn cart-btn cart-btn-right" runat="server" id="update" onclick="update_Click"><span class="icon_loading"></span>
                             Update Cart</a>
                     </div>
                 </div>
