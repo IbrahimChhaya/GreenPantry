@@ -69,7 +69,7 @@
                             </div>
                         </div>
                     </div>
-                    </br>
+                    <br />
                     <div class="banner">
                         <div class="container">
                             <div class="row">
@@ -119,7 +119,7 @@
                         </div>
                     </div>
 
-                    </br>
+                    <br />
 
                     <div class="section-title">
                         <h2>Freshly Picked</h2>
