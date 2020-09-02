@@ -39,7 +39,7 @@ namespace GreenPantryFrontend
             Display += "<div class='pro-qty'>";
             Display += "<input type = 'text' value='1' id='quantity' runat='server'>";
             Display += "</div></div></div>";
-            Display += "<asp:Button class='primary-btn' ID='addCartbtn' runat='server' Text='ADD TO CART' OnClick='addCart'></asp:Button>";
+            Display += "<a href='/singleproduct.aspx?ProductID='" + getProducts.ID + "class='primary-btn' runat='server'>ADD TO CART</a>";
             Display += "<a href = '#' class='heart-icon'><span class='icon_heart_alt'></span></a>";
             Display += "<ul>";
             if(getProducts.StockOnHand > 0)
@@ -96,20 +96,20 @@ namespace GreenPantryFrontend
             return Request.Cookies[CookieName].ToString();
         }
 
-        protected void addCartbtn_Click(object sender, EventArgs e)
-        {
-            createCookie("cart", Request.QueryString["ProductID"] + "-" + quantity.Value);
-            addCartbtn.Text = "it worked";
-            Response.Redirect("/singleproduct.aspx?ProductID=39");
-            System.Diagnostics.Debug.WriteLine(Request.QueryString["ProductID"] + "-" + quantity.Value);
-        }
+        //protected void addCartbtn_Click(object sender, EventArgs e)
+        //{
+        //    createCookie("cart", Request.QueryString["ProductID"] + "-" + quantity.Value);
+        //    addCartbtn.Text = "it worked";
+        //    Response.Redirect("/singleproduct.aspx?ProductID=39");
+        //    System.Diagnostics.Debug.WriteLine(Request.QueryString["ProductID"] + "-" + quantity.Value);
+        //}
 
-        private void addCart()
-        {
-            createCookie("cart", Request.QueryString["ProductID"] + "-" + quantity.Value);
-            addCartbtn.Text = "it worked";
-            Response.Redirect("/singleproduct.aspx?ProductID=39");
-            System.Diagnostics.Debug.WriteLine(Request.QueryString["ProductID"] + "-" + quantity.Value);
-        }
+        //private void addCart()
+        //{
+        //    createCookie("cart", Request.QueryString["ProductID"] + "-" + quantity.Value);
+        //    addCartbtn.Text = "it worked";
+        //    Response.Redirect("/singleproduct.aspx?ProductID=39");
+        //    System.Diagnostics.Debug.WriteLine(Request.QueryString["ProductID"] + "-" + quantity.Value);
+        //}
     }
 }

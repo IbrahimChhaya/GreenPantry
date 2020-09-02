@@ -47,7 +47,7 @@
                             </div>
                         </div>
                         <form id="form1" runat="server">
-                            <asp:Button class="primary-btn" ID="addCartbtn" runat="server" Text="ADD TO CART" OnClick="addCartbtn_Click"></asp:Button>
+                            <a href="/" class="primary-btn" runat="server">ADD TO CART</a>
                         </form>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
