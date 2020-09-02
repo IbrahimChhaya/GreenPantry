@@ -25,15 +25,15 @@ namespace GreenPantryFrontend
             {
                 string display = " ";
 
-                display += "<h1 class ='h1Inv'>Invoice #" + invoice.ID + "</h1>";
+                display += "<h3 class ='h1Inv'>Invoice #" + invoice.ID + "</h3>";
                 display += "<p class ='pInvoice'>Issued: " + invoice.Date.Date + "</p>";
                 title.InnerHtml = display;
 
                 var user = SR.getUser(invoice.CustomerID);
 
                 display = "";
-                display += "</br></br></br><div class='clientlogo'></div></br><div class='info'><h2 class='h2Inv'>" + user.Name + "</h2>";
-                display += "<p class='pInvoice'>"+user.Email+ "</br>"+ user.PhoneNumber+ "</br></div>";
+                display += "<h2 class='h2Inv'>" + user.Name + "</h2>";
+                display += "<p class='pInvoice'>"+user.Email+ "</br>"+ user.PhoneNumber+ "</p>";
                 clientInfo.InnerHtml = display;
 
                 display = " ";
@@ -57,14 +57,14 @@ namespace GreenPantryFrontend
 
                 decimal vat = subtotal * (decimal)(0.15);
 
-                Vat.InnerHtml = "<h2 class ='h2Inv'>R" + Math.Round(vat, 2) + "</h2>";
+                Vat.InnerHtml = "<h3 class ='h2Inv'>R" + Math.Round(vat, 2) + "</h3>";
 
-                Total.InnerHtml = "<h2 class ='h2Inv'>R"+ Math.Round(subtotal + vat, 2) +"</h2>";
+                Total.InnerHtml = "<h3 class ='h2Inv'>R"+ Math.Round(subtotal + vat, 2) +"</h3>";
 
                 if(subtotal + vat > 500)
                 {
                     delivery.Visible = true;
-                    deliverFree.InnerHtml = "<h2 class ='h2Inv'>R0.00</h3>";
+                    deliverFree.InnerHtml = "<h3 class ='h2Inv'>R0.00</h3>";
                 }
             }
         }
