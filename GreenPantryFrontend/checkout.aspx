@@ -111,9 +111,6 @@
                                 <div class="checkout__order__subtotal" id="ProductSubtotal" runat="server">Subtotal <span>$750.99</span></div>
                                 <div class="checkout__order__total" id="P_Total" runat="server">Total <span>$750.99</span></div>
                                 
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                    ut labore et dolore magna aliqua.</p>
-                                
                                 <asp:Button ID="Submit" Text="PLACE ORDER" runat="server" class="site-btn" OnCLick="Submit_Click" />
                                
                             </div>

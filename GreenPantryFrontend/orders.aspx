@@ -47,51 +47,15 @@
                 </tr>
                 <tr>
                 <td>
-                    <a href="/invoice.aspx?InvoiceID=6">2526056</a>
+                    <a href="/invoice.aspx?InvoiceID=1">1</a>
                 </td>
                 <td>
-                    <span class="short">04/07/2020</span>
+                    <span class="short">2020/09/02</span>
                 </td>
-                <td>R238</td>
+                <td>R517.50</td>
                 <td>Dispatched</td>
                 <td></td>
-                    <td><a class="site-btn" href="/invoice.aspx?InvoiceID=6">View order</a> </td>
-                </tr>
-                <tr>
-                <td>
-                    <a href="/invoice.aspx?InvoiceID=6">2505630</a>
-                </td>
-                <td>
-                    <span class="short">27/06/2020</span>
-                </td>
-                <td>R4,208</td>
-                <td>Dispatched</td>
-                <td></td>
-                    <td><a class="site-btn" href="/invoice.aspx?InvoiceID=6">View order</a> </td>
-                </tr>
-                <tr>
-                <td>
-                    <a href="/invoice.aspx?InvoiceID=6">1539399</a>
-                </td>
-                <td>
-                    <span class="short">10/03/2019</span>
-                </td>
-                <td>R254</td>
-                <td>Dispatched</td>
-                <td></td>
-                    <td><a class="site-btn" href="/invoice.aspx?InvoiceID=6">View order</a> </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="/invoice.aspx?InvoiceID=6">1373073</a>
-                    </td>
-                    <td>
-                        <span class="short">26/11/2018</span>
-                    </td>
-                    <td>R658</td>
-                    <td>Dispatched</td>
-                    <td>
-                        <td><a class="site-btn" href="/invoice.aspx?InvoiceID=6">View order</a> </td>
+                    <td><a class="site-btn" href="/invoice.aspx?InvoiceID=1">View order</a> </td>
                 </tr>
             </tbody>
         </table>
@@ -99,8 +63,8 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
                                 <h4>Your Account</h4>
-                                <div class="checkout__order__products">Account Details</div>
-                                <div class="checkout__order__products">Orders</div>
+                                <div class="checkout__order__products"><a href="account.aspx">Account Details</a></div>
+                                <div class="checkout__order__products"><a href="orders.aspx">Orders</a></div>
                             </div>
                         </div>
                     </div>
