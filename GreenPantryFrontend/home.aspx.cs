@@ -156,7 +156,7 @@ namespace GreenPantryFrontend
                 display += "</ul></div>";
                 display += "<div class='featured__item__text'>";
                 display += "<h6><a href='singleproduct.aspx?ProductID=" + p.ID+ "'>" + p.Name + "</a></h6>"; //product link
-                display += "<h5>R" + p.Price + "</h5>";
+                display += "<h5>R" + Math.Round(p.Price, 2) + "</h5>";
                 display += "</div></div></div>";
             }
             display += "</div>";

@@ -29,10 +29,10 @@ namespace GreenPantryFrontend
 
             display = "";
             dynamic subcats = SC.getSubCatPerCat(int.Parse(catID));
-            int numProducts = SC.getNumProductsInSub(subcats.SubID);
+            //int numProducts = SC.getNumProductsInSub(subcats.SubID);
             foreach(SubCategory sc in subcats)
             { 
-                display += "<li><a href='/subcategory.aspx?SubcategoryID=" + sc.SubID + "'>" + sc.Name + "(" + numProducts + ")</a></li>";
+                display += "<li><a href='/subcategory.aspx?SubcategoryID=" + sc.SubID + "'>" + sc.Name + "</a></li>";
             }
             subcatList.InnerHtml = display;
 
@@ -48,7 +48,7 @@ namespace GreenPantryFrontend
                 display += "<li><a href='#'><i class='fa fa-shopping-cart'></i></a></li></ul></div>";
                 display += "<div class='product__item__text'>";
                 display += "<h6>" + p.Name + "</h6>";
-                display += "<h5>R" + p.Price + "</h5></div></div></div>";
+                display += "<h5>R" + Math.Round(p.Price,2) + "</h5></div></div></div>";
             }
             categoryProducts.InnerHtml = display;
         }
