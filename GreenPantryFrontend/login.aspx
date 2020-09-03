@@ -43,8 +43,8 @@
 						<button class="login ghost" id="signIn">Sign In</button>
 					</div>
 					<div class="overlay-panel overlay-right">
-						<h1 class="h1login">Hello, jimo</h1>
-						<p class="plogin">ur dumb</p>
+						<h1 class="h1login">Hello there!</h1>
+						<p class="plogin">Sign in to start shopping</p>
 						<form action="/register2.aspx">
 							<button class="login ghost" id="signUp">Sign Up</button>
 						</form>
