@@ -71,6 +71,7 @@
                                 <h4>Your Account</h4>
                                 <div class="checkout__order__products"><a href="account.aspx">Account Details</a></div>
                                 <div class="checkout__order__products"><a href="orders.aspx">Orders</a></div>
+                                <div class="checkout__order__products"><a href="home.aspx" id="logout" runat="server" onserverclick="logout_Click">Logout</a></div>
                             </div>
                         </div>
                     </div>

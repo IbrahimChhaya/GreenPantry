@@ -31,5 +31,11 @@ namespace GreenPantryFrontend
                 //invoice.InnerHtml = display;
             }
         }
+
+        protected void logout_Click(object sender, EventArgs e)
+        {
+            Session["LoggedInUserID"] = null;
+            Response.Redirect("/home.aspx");
+        }
     }
 }
