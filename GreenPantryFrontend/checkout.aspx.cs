@@ -44,7 +44,7 @@ namespace GreenPantryFrontend
 
                 display += "<li>"+cartProduct.Name + " x" + qty +"<span>R"+Math.Round(cartProduct.Price*int.Parse(qty),2)+"</span></li>";
 
-                total += SR.calcProductVAT(cartProduct.ID) +subtotal;
+                total = (subtotal * (decimal)0.15) +subtotal;
 
 
             }

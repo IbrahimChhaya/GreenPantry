@@ -97,7 +97,7 @@ namespace GreenPantryFrontend
 
         protected void update_Click(object sender, EventArgs e)
         {
-            Response.Cookies["cart"].Value = "1-2, 2-3";
+           // Response.Cookies["cart"].Value = "1-2, 2-3";
             Response.Redirect("cart.aspx");
 
         }

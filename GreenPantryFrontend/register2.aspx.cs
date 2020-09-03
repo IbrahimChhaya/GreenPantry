@@ -32,11 +32,8 @@ namespace GreenPantryFrontend
             //{
                 int registered = SR.Register(name.Value, surname.Value, RegEmail.Value, RegPassword.Value, "active", DateTime.Today, "customer");
 
-            if (registered == 1)
-            {
-                Response.Redirect("home.aspx");
-            }
-            else if (registered == -1)
+          
+            if (registered == -1)
             {
                 error.Text = "Something went wrong, please try again later";
                 error.Visible = true;
@@ -44,6 +41,11 @@ namespace GreenPantryFrontend
             else if (registered == 0)
             {
                 error.Text = "The username already exists";
+            }
+            else
+            {
+                Session["LoggedInUserID"] = registered;
+                Response.Redirect("home.aspx");
             }
             //}
         }
