@@ -22,9 +22,9 @@ namespace GreenPantryFrontend
 
                 //foreach(Invoice i in invoice)
                 {
-                    display += "<td><a href='/invoice.aspx?InvoiceID=" + 1 + "'>1</a></td><td>";
+                    display += "<td><a href='/invoice.aspx?InvoiceID=" + 1 + "'></a></td><td>";
                     display += "<span class='short'>2020/09/02</span></td>";
-                    display += "<td>R517.50</td>";
+                    display += "<td>R428.00</td>";
                     display += "<td>Dispatched</td><td></td>";
                     display += "<td><a class='site-btn' href='/invoice.aspx?InvoiceID=" + 1 + "'>View order</a></td>";
                 }

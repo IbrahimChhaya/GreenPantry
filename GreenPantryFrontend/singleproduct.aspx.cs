@@ -39,7 +39,7 @@ namespace GreenPantryFrontend
             Display += "<div class='pro-qty'>";
             Display += "<input type = 'text' value='1' id='quantity' runat='server'>";
             Display += "</div></div></div>";
-            Display += "<a href='/singleproduct.aspx?ProductID='" + getProducts.ID + "class='primary-btn' runat='server'>ADD TO CART</a>";
+            Display += "<a href='/singleproduct.aspx?ProductID=" + getProducts.ID + "'class='primary-btn' runat='server'>ADD TO CART</a>";
             Display += "<a href = '#' class='heart-icon'><span class='icon_heart_alt'></span></a>";
             Display += "<ul>";
             if(getProducts.StockOnHand > 0)
