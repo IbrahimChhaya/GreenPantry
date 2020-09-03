@@ -52,7 +52,7 @@
                 <td>
                     <span class="short">2020/09/02</span>
                 </td>
-                <td>R517.50</td>
+                <td>R368.00</td>
                 <td>Processing</td>
                 <td></td>
                     <td><a class="site-btn" href="/invoice.aspx?InvoiceID=1">View order</a> </td>

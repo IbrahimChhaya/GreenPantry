@@ -76,7 +76,7 @@
 
             </tr>
 
-            <tr class="tabletitle" runat="server" id="delivery" visible="false">
+            <tr class="tabletitle" runat="server" id="delivery">
             <td></td>
             <td></td>
             <td class="Rate"><h3 class="h2Inv">Delivery Fee</h3></td>

@@ -61,11 +61,12 @@ namespace GreenPantryFrontend
 
                 Total.InnerHtml = "<h3 class ='h2Inv'>R"+ Math.Round(subtotal + vat, 2) +"</h3>";
 
-                if(subtotal + vat > 500)
+                if (subtotal + vat > 500)
                 {
-                    delivery.Visible = true;
                     deliverFree.InnerHtml = "<h3 class ='h2Inv'>R0.00</h3>";
                 }
+                else
+                    deliverFree.InnerHtml = "<h3 class ='h2Inv'>R60.00</h3>";
             }
         }
     }
