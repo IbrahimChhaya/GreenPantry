@@ -18,17 +18,21 @@ namespace GreenPantryFrontend
                 int userID = int.Parse(Session["LoggedInUserID"].ToString());
 
                 String display = "";
-                //dynamic invoice = SR.getAllCustomerOrders(userID);
+                dynamic invoice = SR.getAllCustomerOrders(userID);
 
-                //foreach(Invoice i in invoice)
+                foreach(Invoice i in invoice)
                 {
-                    display += "<td><a href='/invoice.aspx?InvoiceID=" + 1 + "'>1</a></td><td>";
-                    display += "<span class='short'>2020/09/02</span></td>";
+                    display += "<td><a href='/invoice.aspx?InvoiceID=" + invoice.ID + "'>" + invoice.ID + "</a></td><td>";
+                    display += "<span class='short'>" + invoice.Date + "</span></td>";
                     display += "<td>R517.50</td>";
                     display += "<td>Dispatched</td><td></td>";
-                    display += "<td><a class='site-btn' href='/invoice.aspx?InvoiceID=" + 1 + "'>View order</a></td>";
+                    display += "<td><a class='site-btn' href='/invoice.aspx?InvoiceID=" + invoice.ID + "'>View order</a></td>";
                 }
-                //invoice.InnerHtml = display;
+                invoice.InnerHtml = display;
+            }
+            else
+            {
+                Response.Redirect("/login.aspx");
             }
         }
 

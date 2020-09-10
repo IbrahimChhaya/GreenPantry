@@ -2681,6 +2681,7 @@
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
     <Content Include="cart.aspx" />
     <Content Include="categories.aspx" />
+    <Content Include="category.aspx" />
     <Content Include="charts.aspx" />
     <Content Include="checkout.aspx" />
     <Content Include="assets\fonts\nucleo\nucleo-icons.eot" />
@@ -3350,6 +3351,7 @@
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="login.aspx" />
     <Content Include="modallogin.aspx" />
+    <Content Include="orderdash.aspx" />
     <Content Include="orders.aspx" />
     <Content Include="products.aspx" />
     <Content Include="profile.aspx" />
@@ -3382,6 +3384,13 @@
     </Compile>
     <Compile Include="categories.aspx.designer.cs">
       <DependentUpon>categories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="category.aspx.cs">
+      <DependentUpon>category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="category.aspx.designer.cs">
+      <DependentUpon>category.aspx</DependentUpon>
     </Compile>
     <Compile Include="charts.aspx.cs">
       <DependentUpon>charts.aspx</DependentUpon>
@@ -3457,6 +3466,13 @@
       <DependentUpon>modallogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="orderdash.aspx.cs">
+      <DependentUpon>orderdash.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="orderdash.aspx.designer.cs">
+      <DependentUpon>orderdash.aspx</DependentUpon>
+    </Compile>
     <Compile Include="orders.aspx.cs">
       <DependentUpon>orders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

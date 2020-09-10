@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="order.aspx.cs" Inherits="AdminDashboard.orders" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="orderdash.aspx.cs" Inherits="GreenPantryFrontend.orderdash" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -14,7 +14,7 @@
               <h6 class="h2 text-white d-inline-block mb-0"></h6>
             </div>
             <div class="col-lg-6 col-5 text-right">
-                <h4 class="text-white">Howdy, Ibrahim!</h4>
+                <h4 class="text-white">Howdy, Ubaid!</h4>
             </div>
           </div>
         </div>
@@ -167,7 +167,7 @@
                     <th scope="row">
                       <div class="media align-items-center">
                         <a href="#" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" src="../assets/img/Products/40.jpg">
+                          <img alt="Image placeholder" src="../assets/img/Products/1.jpg">
                         </a>
                         <div class="media-body">
                           <span class="name mb-0 text-sm">Invoice #1</span>
@@ -175,17 +175,17 @@
                       </div>
                     </th>
                     <td class="budget">
-                      R4400 
+                      R368.00 
                     </td>
                     <td>
                       <span class="badge badge-dot mr-4">
                         <i class="bg-info"></i>
-                        <span class="status">on schedule</span>
+                        <span class="status">pending</span>
                       </span>
                     </td>
                     <td>
                       <div class="avatar-group">
-                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Users Name">
+                        <a href="/profile.aspx" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Ibrah Patel">
                             <i class="ni ni-circle-08"></i>
                         </a>
                       </div>
