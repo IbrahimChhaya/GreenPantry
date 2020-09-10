@@ -1946,6 +1946,18 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getNumProductsInSub", ReplyAction="http://tempuri.org/IGP_Service/getNumProductsInSubResponse")]
         System.Threading.Tasks.Task<int> getNumProductsInSubAsync(int subID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addInvoices", ReplyAction="http://tempuri.org/IGP_Service/addInvoicesResponse")]
+        int addInvoices(int customer_ID, string status, System.DateTime date, System.DateTime deliverDate, string notes);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addInvoices", ReplyAction="http://tempuri.org/IGP_Service/addInvoicesResponse")]
+        System.Threading.Tasks.Task<int> addInvoicesAsync(int customer_ID, string status, System.DateTime date, System.DateTime deliverDate, string notes);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addInvoiceLine", ReplyAction="http://tempuri.org/IGP_Service/addInvoiceLineResponse")]
+        int addInvoiceLine(int product_ID, int invoice_ID, int quantity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addInvoiceLine", ReplyAction="http://tempuri.org/IGP_Service/addInvoiceLineResponse")]
+        System.Threading.Tasks.Task<int> addInvoiceLineAsync(int product_ID, int invoice_ID, int quantity);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2333,6 +2345,22 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> getNumProductsInSubAsync(int subID) {
             return base.Channel.getNumProductsInSubAsync(subID);
+        }
+        
+        public int addInvoices(int customer_ID, string status, System.DateTime date, System.DateTime deliverDate, string notes) {
+            return base.Channel.addInvoices(customer_ID, status, date, deliverDate, notes);
+        }
+        
+        public System.Threading.Tasks.Task<int> addInvoicesAsync(int customer_ID, string status, System.DateTime date, System.DateTime deliverDate, string notes) {
+            return base.Channel.addInvoicesAsync(customer_ID, status, date, deliverDate, notes);
+        }
+        
+        public int addInvoiceLine(int product_ID, int invoice_ID, int quantity) {
+            return base.Channel.addInvoiceLine(product_ID, invoice_ID, quantity);
+        }
+        
+        public System.Threading.Tasks.Task<int> addInvoiceLineAsync(int product_ID, int invoice_ID, int quantity) {
+            return base.Channel.addInvoiceLineAsync(product_ID, invoice_ID, quantity);
         }
     }
 }
