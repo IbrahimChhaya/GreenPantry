@@ -34,7 +34,7 @@ namespace GreenPantryFrontend
         protected void Submit_Click(object sender, EventArgs e)
         {
             int updateInfo = SC.UpdateUserDetails(int.Parse(Session["LoggedInUserID"].ToString()), Name.Value, Surname.Value, Email1.Value, PhoneNumber1.Value);
-            int updatePass = SC.UpdatePassword(int.Parse(Session["LoggedInUserID"].ToString()), Password1.Value, Password2.Value);
+            //int updatePass = SC.UpdatePassword(int.Parse(Session["LoggedInUserID"].ToString()), Password1.Value, Password2.Value);
             
 
             if (updateInfo == 1)
@@ -57,6 +57,11 @@ namespace GreenPantryFrontend
             }
 
 
+        }
+        protected void logout_Click(object sender, EventArgs e)
+        {
+            Session["LoggedInUserID"] = null;
+            Response.Redirect("/home.aspx");
         }
     }
 }

@@ -66,6 +66,14 @@
                             <asp:Label ID="error" Text="An error has occurred" runat="server" Visible="false" />
                             <asp:Button ID="Submit" Text="Submit" runat="server" class="site-btn"  OnCLick="Submit_Click" />
                         </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="checkout__order">
+                                <h4>Your Account</h4>
+                                <div class="checkout__order__products"><a href="account.aspx">Account Details</a></div>
+                                <div class="checkout__order__products"><a href="orders.aspx">Orders</a></div>
+                                <div class="checkout__order__products"><a href="home.aspx" id="logout" runat="server" onserverclick="logout_Click">Logout</a></div>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>

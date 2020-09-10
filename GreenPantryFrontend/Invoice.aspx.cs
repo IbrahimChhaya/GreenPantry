@@ -14,8 +14,8 @@ namespace GreenPantryFrontend
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //replace nummber with int.Parse(Request.QueryString["OrderID"])
-            var invoice = SR.getOrder(1);
+            //replace nummber with int.Parse(Request.QueryString["InvoiceID"])
+            var invoice = SR.getOrder(int.Parse(Request.QueryString["InvoiceID"]));
 
             if(invoice == null)
             {
@@ -57,15 +57,21 @@ namespace GreenPantryFrontend
 
                 decimal vat = subtotal * (decimal)(0.15);
 
-                Vat.InnerHtml = "<h3 class ='h2Inv'>R" + Math.Round(vat, 2) + "</h3>";
+                Vat.InnerHtml = "<h2 class ='h2Inv'>R" + Math.Round(vat, 2) + "</h2>";
 
-                Total.InnerHtml = "<h3 class ='h2Inv'>R"+ Math.Round(subtotal + vat, 2) +"</h3>";
+                //Total.InnerHtml = "<h3 class ='h2Inv'>R"+ Math.Round(subtotal + vat, 2) +"</h3>";
 
-                if(subtotal + vat > 500)
+                if (subtotal + vat > 500)
                 {
-                    delivery.Visible = true;
-                    deliverFree.InnerHtml = "<h3 class ='h2Inv'>R0.00</h3>";
+                    deliverFree.InnerHtml = "<h2 class ='h2Inv'>R0.00</h2>";
+                    Total.InnerHtml = "<h2 class ='h2Inv'>R" + Math.Round(subtotal + vat, 2) + "</h2>";
                 }
+                else
+                {
+                    deliverFree.InnerHtml = "<h2 class ='h2Inv'>R60.00</h2>";
+                    Total.InnerHtml = "<h2 class ='h2Inv'>R" + Math.Round(subtotal + vat + 60, 2) + "</h2>";
+                }
+                    
             }
         }
     }

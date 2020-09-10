@@ -51,10 +51,10 @@
       <div class="tableInvoice">
         <table>
           <tr class="tabletitle">
-            <td class="item"><h3 class="h2Inv">Product</h3></td>
-            <td class="Hours"><h3 class="h2Inv">Price</h3></td>
-            <td class="Rate"><h3 class="h2Inv">Quantity</h3></td>
-            <td class="subtotal"><h3 class="h2Inv">Subtotal</h3></td>
+            <td class="item"><h2 class="h2Inv">Product</h2></td>
+            <td class="Hours"><h2 class="h2Inv">Price</h2></td>
+            <td class="Rate"><h2 class="h2Inv">Quantity</h2></td>
+            <td class="subtotal"><h2 class="h2Inv">Subtotal</h2></td>
           </tr>
 
             <tbody runat="server" id="tableRow">
@@ -63,25 +63,27 @@
           <tr class="tabletitle">
             <td></td>
             <td></td>
-             <td class="Rate"><h3 class="h2Inv">VAT</h3></td>
+             <td class="Rate"><h2 class="h2Inv">VAT</h2></td>
              <td class="payment" runat="server" id="Vat"><h2 class ="h2Inv">$3,644.25</h2></td>
             
           </tr>
 
+         <tr class="tabletitle" runat="server" id="delivery">
+            <td></td>
+            <td></td>
+            <td class="Rate"><h2 class="h2Inv">Delivery Fee</h2></td>
+            <td class="payment" runat="server" id="deliverFree"><h2 class ="h2Inv">$3,644.25</h2></td>
+        </tr>
+
          <tr class="tabletitle">
             <td></td>
             <td></td>
-            <td class="Rate"><h3 class="h2Inv">Total</h3></td>
-            <td class="payment" runat="server" id="Total"><h3 class ="h2Inv">$3,644.25</h3></td>
+            <td class="Rate"><h2 class="h2Inv">Total</h2></td>
+            <td class="payment" runat="server" id="Total"><h2 class ="h2Inv">$3,644.25</h2></td>
 
             </tr>
 
-            <tr class="tabletitle" runat="server" id="delivery" visible="false">
-            <td></td>
-            <td></td>
-            <td class="Rate"><h3 class="h2Inv">Delivery Fee</h3></td>
-            <td class="payment" runat="server" id="deliverFree"><h3 class ="h2Inv">$3,644.25</h3></td>
-        </tr>
+      
         </table>
       </div><!--End Table-->
       </div><!--End InvoiceBot-->
