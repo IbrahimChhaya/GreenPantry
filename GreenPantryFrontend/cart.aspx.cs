@@ -17,7 +17,7 @@ namespace GreenPantryFrontend
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            Response.Cookies["cart"].Value = "1-1, 2-3";
+            Response.Cookies["cart"].Value = "1-2, 5-1, 4-1, 42-1";
             dynamic cookiecontent = Request.Cookies["cart"].Value;
 
             dynamic products = cookiecontent.Split(',');
@@ -97,7 +97,7 @@ namespace GreenPantryFrontend
 
         protected void update_Click(object sender, EventArgs e)
         {
-            Response.Cookies["cart"].Value = "1-2, 2-3";
+           // Response.Cookies["cart"].Value = "1-2, 2-3";
             Response.Redirect("cart.aspx");
 
         }

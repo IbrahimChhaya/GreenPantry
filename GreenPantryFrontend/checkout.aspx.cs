@@ -16,61 +16,97 @@ namespace GreenPantryFrontend
         GP_ServiceClient SR = new GP_ServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
-            bool freeShipping = false;
-            Response.Cookies["cart"].Value = "1-1, 2-3";
-            dynamic CookieContent = Request.Cookies["cart"].Value;
-
-            dynamic products = CookieContent.Split(',');
-
-            string display = "";
-            List<decimal> totals = new List<decimal>();
-            decimal subtotal = 0;
-            decimal total = 0;
-            
-
-            foreach (dynamic p in products)
+            //if the session does not exist then redirect to home
+            if (Session["LoggedInUserID"] != null)
             {
-                
-                string[] productDetails = p.Split('-');
-                var pID = productDetails[0];
-                pIds.Add(pID);
+                bool freeShipping = false;
+                Response.Cookies["cart"].Value = "1-1, 2-3";
+                dynamic CookieContent = Request.Cookies["cart"].Value;
 
-                var cartProduct = SR.getProductByID(int.Parse(pID));
-                var qty = productDetails[1];
-                qtys.Add(qty);
-               
+                dynamic products = CookieContent.Split(',');
 
-                subtotal += cartProduct.Price * int.Parse(qty);
-
-                display += "<li>"+cartProduct.Name + " x" + qty +"<span>R"+Math.Round(cartProduct.Price*int.Parse(qty),2)+"</span></li>";
-
-                total += SR.calcProductVAT(cartProduct.ID) +subtotal;
+                string display = "";
+                List<decimal> totals = new List<decimal>();
+                decimal subtotal = 0;
+                decimal total = 0;
 
 
-            }
-            Checkout.InnerHtml = display;
-            display = "<div class='checkout__order__subtotal' id='ProductSubtotal' runat='server'>Subtotal<span>R" +Math.Round(subtotal,2) + "</span></div>";
-            ProductSubtotal.InnerHtml = display;
-            display = "<div class='checkout__order__total' id='P_Total' runat='server'>Total<span>R"+Math.Round(total,2)+"</span>";
-            P_Total.InnerHtml = display;
+                foreach (dynamic p in products)
+                {
 
-            if(total > 500)
+                    string[] productDetails = p.Split('-');
+                    var pID = productDetails[0];
+                    pIds.Add(pID);
+
+                    var cartProduct = SR.getProductByID(int.Parse(pID));
+                    var qty = productDetails[1];
+                    qtys.Add(qty);
+
+
+                    subtotal += cartProduct.Price;
+
+                    display += "<li>" + cartProduct.Name + "<span>R" + Math.Round(cartProduct.Price, 2) + "</span></li>";
+
+                    total += SR.calcProductVAT(cartProduct.ID) + subtotal;
+
+
+                }
+                Checkout.InnerHtml = display;
+                display = "<div class='checkout__order__subtotal' id='ProductSubtotal' runat='server'>Subtotal<span>R" + Math.Round(subtotal, 2) + "</span></div>";
+                ProductSubtotal.InnerHtml = display;
+                display = "<div class='checkout__order__total' id='P_Total' runat='server'>Total<span>R" + Math.Round(total, 2) + "</span>";
+                P_Total.InnerHtml = display;
+
+                if (total > 500)
+                {
+                    freeShipping = true;
+                }
+            }else
             {
-                freeShipping = true;
+                Response.Redirect("Home.aspx");
             }
 
     }
 
         protected void Submit_Click(object sender, EventArgs e)
         {
+            Response.Cookies["cart"].Value = "1-1, 2-3";
+            dynamic CookieContent = Request.Cookies["cart"].Value;           
 
-           int addressUpdate = SR.AddAdress(Line1.Value, Line2.Value, suburb.Value , town.Value, 'F' ,postcode.Value,1, Province.Value);
-           //int addInvoice = SR.addInvoice("Approved", DateTime.Today, DateTime.Today,order.Value, 1);
-           
+            int userID=0;
+            userID = Convert.ToInt32(Session["LoggedInUserID"]);
+            int addressUpdate = SR.AddAdress(Line1.Value, Line2.Value, suburb.Value , town.Value, 'F' ,postcode.Value,1, Province.Value);
 
-            if(addressUpdate == 1)
+
+            dynamic products = CookieContent.Split(',');
+         
+            if (addressUpdate == 1)
             {
-                Response.Redirect("orders.aspx");
+               
+                int addInvoice = SR.addInvoices(1,"Approved",DateTime.Now,DateTime.Now, order.Value);
+                if(addInvoice>0)
+                 {
+                    
+                    foreach (dynamic p in products)
+                    {
+                        string[] productDetails = p.Split('-');
+                        var pID = productDetails[0];
+                        pIds.Add(pID);
+
+                        var cartProduct = SR.getProductByID(int.Parse(pID));
+                        var qty = productDetails[1];
+                        qtys.Add(qty);
+
+                        int addinvLine = SR.addInvoiceLine(cartProduct.ID, addInvoice, Convert.ToInt32(qty));
+                    }
+                    Response.Redirect("orders.aspx");
+
+                 }
+                 else
+                {
+                 error.Text = "Invoice failed";
+                }
+
             }
             else if(addressUpdate == -1)
             {

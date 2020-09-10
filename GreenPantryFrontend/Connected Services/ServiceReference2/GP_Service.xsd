@@ -682,4 +682,38 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="addInvoices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customer_ID" type="xs:int" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="deliverDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addInvoicesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addInvoicesResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addInvoiceLine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="product_ID" type="xs:int" />
+        <xs:element minOccurs="0" name="invoice_ID" type="xs:int" />
+        <xs:element minOccurs="0" name="quantity" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addInvoiceLineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addInvoiceLineResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
