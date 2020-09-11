@@ -13,6 +13,8 @@ namespace GreenPantryFrontend
         GP_ServiceClient SC = new GP_ServiceClient(); 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //int.Parse(Request.QueryString["ProductID"])
             dynamic getProducts = SC.getProductByID(int.Parse(Request.QueryString["ProductID"]));
             string Display = "";
 
@@ -30,30 +32,39 @@ namespace GreenPantryFrontend
             Display += "src ='" + getProducts.Image_Location + "' alt=''>";
             PImage.InnerHtml = Display;
 
+            ///singleproduct.aspx?ProductID=" + getProducts.ID + "
             Display = "";
             //Pdetails
-            Display += "<h3>" + getProducts.Name + "</h3>";
-            Display += "<div class='product__details__price'>R" + Math.Round(getProducts.Price, 2) + "</div>";
-            Display += "<div class='product__details__quantity'>";
-            Display += "<div class='quantity'>";
-            Display += "<div class='pro-qty'>";
-            Display += "<input type = 'text' value='1' id='quantity' runat='server'>";
-            Display += "</div></div></div>";
-            Display += "<a href='/singleproduct.aspx?ProductID=" + getProducts.ID + "'class='primary-btn' runat='server'>ADD TO CART</a>";
-            Display += "<a href = '#' class='heart-icon'><span class='icon_heart_alt'></span></a>";
-            Display += "<ul>";
-            if(getProducts.StockOnHand > 0)
-                Display += "<li><b>Availability:</b> <span>" + "In Stock" +"</span></li>";
-            else
-                Display += "<li><b>Availability:</b> <span>" + "Out of Stock" + "</span></li>";
-            Display += "<li><b>Share on</b>";
-            Display += "<div class='share'>";
-            Display += "<a href = '#' ><i class='fa fa-facebook'></i></a>";
-            Display += "<a href = '#' ><i class='fa fa-twitter'></i></a>";
-            Display += "<a href = '#' ><i class='fa fa-instagram'></i></a>";
-            Display += "<a href = '#' ><i class='fa fa-pinterest'></i></a>";
-            Display += "</div></li></ul>";
-            PDetails.InnerHtml = Display;
+            // Display += "<h3>" + getProducts.Name + "</h3>";
+            // Display += "<div class='product__details__price'>R" + Math.Round(getProducts.Price, 2) + "</div>";
+            // Display += "<div class='product__details__quantity'>";
+            // Display += "<div class='quantity'>";
+            // Display += "<div class='pro-qty'>";
+            // Display += "<input type='text' value='1' id='quantity' runat='server'>";
+            // Display += "</div></div></div>";
+
+
+            //// Display += "<a href='#' class='primary-btn' runat='server' id='addToCart' OnClientClick='add_Click'>ADD TO CART</a></form>";
+            // Display += "<a href = '#' class='heart-icon'><span class='icon_heart_alt'></span></a>";
+            // Display += "<ul>";
+            // if(getProducts.StockOnHand > 0)
+            //     Display += "<li><b>Availability:</b> <span>" + "In Stock" +"</span></li>";
+            // else
+            //     Display += "<li><b>Availability:</b> <span>" + "Out of Stock" + "</span></li>";
+            // Display += "<li><b>Share on</b>";
+            // Display += "<div class='share'>";
+            // Display += "<a href = '#' ><i class='fa fa-facebook'></i></a>";
+            // Display += "<a href = '#' ><i class='fa fa-twitter'></i></a>";
+            // Display += "<a href = '#' ><i class='fa fa-instagram'></i></a>";
+            // Display += "<a href = '#' ><i class='fa fa-pinterest'></i></a>";
+            // Display += "</div></li></ul>";
+            // PDetails.InnerHtml = Display;
+
+            //Product name
+            pName.InnerHtml = getProducts.Name;
+            //Product Price
+            pPrice.InnerHtml = "R" + Math.Round(getProducts.Price, 2);
+            
 
             Display = "";
             //description
@@ -81,6 +92,34 @@ namespace GreenPantryFrontend
             RelatedProducts.InnerHtml = Display;
         }
 
+        //protected void add_Click(object sender, EventArgs e)
+        //{
+        //    int qty = Convert.ToInt32(quantity.Value);
+        //    int proID = Convert.ToInt32(Request.QueryString["ProductID"]);
+
+        //    HttpCookie cookie = Request.Cookies["cart"];
+        //    if (cookie == null)
+        //    {
+        //        cookie = new HttpCookie("cart");
+        //        cookie["cart"] = proID.ToString() + "-" + qty.ToString();
+        //        cookie.Expires = DateTime.Now.AddDays(30);
+        //        Response.Cookies.Add(cookie);
+        //    }
+        //    else
+        //    {
+        //        string str = cookie.ToString();
+        //        str += "," + proID.ToString() + "-" + qty.ToString();
+        //        Response.Cookies["cart"].Value = str;
+
+        //        //cookie.Expires = DateTime.Now.AddDays(-1);
+        //        //Response.Redirect("home.aspx");
+        //    }
+
+
+        //    //  Response.Redirect("home.aspx");
+
+        //}
+
         private void saveToCookie(String CookieName, String content)
         {
             //content: productID-quantity,productID-quantity
@@ -96,13 +135,27 @@ namespace GreenPantryFrontend
             return Request.Cookies[CookieName].ToString();
         }
 
-        //protected void addCartbtn_Click(object sender, EventArgs e)
-        //{
-        //    createCookie("cart", Request.QueryString["ProductID"] + "-" + quantity.Value);
-        //    addCartbtn.Text = "it worked";
-        //    Response.Redirect("/singleproduct.aspx?ProductID=39");
-        //    System.Diagnostics.Debug.WriteLine(Request.QueryString["ProductID"] + "-" + quantity.Value);
-        //}
+
+
+        protected void add_Click(object sender, EventArgs e)
+        {
+            if(Response.Cookies["cart"] == null)
+            {
+                createCookie("cart", Request.QueryString["ProductID"] + "-" + quantity.Value);
+                Add.Text = "it worked";
+                Response.Redirect("/singleproduct.aspx?ProductID=39");
+                System.Diagnostics.Debug.WriteLine(Request.QueryString["ProductID"] + "-" + quantity.Value);
+            }
+            else
+            {
+                string str = Request.Cookies["cart"].Value;
+
+                str += Request.QueryString["ProductID"] + "-" + quantity.Value;
+                saveToCookie("cart", str);
+
+            }
+            
+        }
 
         //private void addCart()
         //{

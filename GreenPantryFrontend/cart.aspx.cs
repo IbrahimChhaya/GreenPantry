@@ -16,52 +16,71 @@ namespace GreenPantryFrontend
         List<string> qtys = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            Response.Cookies["cart"].Value = "1-2, 5-1, 4-1, 42-1";
-            dynamic cookiecontent = Request.Cookies["cart"].Value;
-
-            dynamic products = cookiecontent.Split(',');
-
-            string display = "";
-            List<decimal> totals = new List<decimal>(); 
-
-            foreach (dynamic product in products)
+            if (Request.Cookies["cart"] == null)
             {
-                //display = " ";
-                string[] productDetails = product.Split('-');
-                var pID = productDetails[0];
-                pIds.Add(pID);
 
-                var cartProduct = SR.getProductByID(int.Parse(pID));
-                var qty = productDetails[1];
-                qtys.Add(qty);
-
-                display += "<tr><td class='shoping__cart__item'>";
-                display += "<img src ="+ cartProduct.Image_Location +" alt=''>";
-                display += "<h5><asp:Label ID='pID' runat='server' Text='"+ cartProduct.ID +"' visible='false' ></asp:Label>" + cartProduct.Name + "</h5></td><td class='shoping__cart__price'>" + Math.Round(cartProduct.Price, 2) + "</td>";
-                display += "<td class='shoping__cart__quantity'>";
-                display += "<span class='dec qtybtn' runat ='server' id='decQty' onclick='decQty_Click'><a href='cart.aspx?pId=" + pID + "'>-</a></span>";
-                display += "<div class='quantity'><div class='pro-qty'><input type = 'text' value=" + qty + " runat='server' id='item_qty'>";
-                display += "</div></div></td>";
-                display += "<td class='shoping__cart__total'>"+ Math.Round(cartProduct.Price * decimal.Parse(qty), 2) + "</td>";
-                display += "<td class='shoping__cart__item__close'><span class='icon_close'></span></td></td>";
-                tablerow.InnerHtml = display;
-
-                totals.Add(Math.Round(cartProduct.Price * decimal.Parse(qty), 2));
-
-               
             }
+            else
+            {
+                //string cookieString = Request.Cookies["cart"].Value;
+                //string[] objCartListStringSplit = cookieString.Split(',');
+                //foreach (string s in objCartListStringSplit)
+                //{
+                //    string[] ss = s.Split('-');
+                //    string productID = ss[0];
+                //    string quantity = ss[1];
+                //}
 
-            display = " ";
+                //Response.Cookies["cart"].Value = "1-2, 5-1, 4-1, 42-1";
+                dynamic cookiecontent = Request.Cookies["cart"].Value.ToString();
 
-            decimal subTotal = calcSubtotal(totals);
-            decimal VAT = subTotal * (decimal)0.15;
-            decimal carttotal = subTotal + VAT;
+                dynamic products = cookiecontent.Split(',');
+                              
+                string display = "";
+                List<decimal> totals = new List<decimal>();
 
-            display += "<h5>Cart Total</h5><ul><li>Subtotal<span>R"+ Math.Round(subTotal, 2) +"</span></li>";
-            display += "<li>VAT at 15% <span>R"+ Math.Round(VAT, 2) + "</span></li><li>Total<span>R"+ Math.Round(carttotal, 2) +"</span></li>";
-            display += "</ul><a href = 'checkout.aspx' class='primary-btn'>PROCEED TO CHECKOUT</a>";
-            cartTotal.InnerHtml = display;
+                foreach (dynamic product in products)
+                {
+                    if(!product.Equals(""))
+                    {
+                        //display = " ";
+                        string[] productDetails = product.Split('-');
+                        var pID = productDetails[0];
+                        pIds.Add(pID);
+
+                        var cartProduct = SR.getProductByID(int.Parse(pID));
+                        var qty = productDetails[1];
+                        qtys.Add(qty);
+
+                        display += "<tr><td class='shoping__cart__item'>";
+                        display += "<img src =" + cartProduct.Image_Location + " alt=''>";
+                        display += "<h5><asp:Label ID='pID' runat='server' Text='" + cartProduct.ID + "' visible='false' ></asp:Label>" + cartProduct.Name + "</h5></td><td class='shoping__cart__price'>" + Math.Round(cartProduct.Price, 2) + "</td>";
+                        display += "<td class='shoping__cart__quantity'>";
+                        display += "<span class='dec qtybtn' runat ='server' id='decQty' onclick='decQty_Click'><a href='cart.aspx?pId=" + pID + "'>-</a></span>";
+                        display += "<div class='quantity'><div class='pro-qty'><input type = 'text' value=" + qty + " runat='server' id='item_qty'>";
+                        display += "</div></div></td>";
+                        display += "<td class='shoping__cart__total'>" + Math.Round(cartProduct.Price * decimal.Parse(qty), 2) + "</td>";
+                        display += "<td class='shoping__cart__item__close'><span class='icon_close'></span></td></td>";
+                        tablerow.InnerHtml = display;
+
+                        totals.Add(Math.Round(cartProduct.Price * decimal.Parse(qty), 2));
+                    }
+                    
+
+
+                }
+
+                display = " ";
+
+                decimal subTotal = calcSubtotal(totals);
+                decimal VAT = subTotal * (decimal)0.15;
+                decimal carttotal = subTotal + VAT;
+
+                display += "<h5>Cart Total</h5><ul><li>Subtotal<span>R" + Math.Round(subTotal, 2) + "</span></li>";
+                display += "<li>VAT at 15% <span>R" + Math.Round(VAT, 2) + "</span></li><li>Total<span>R" + Math.Round(carttotal, 2) + "</span></li>";
+                display += "</ul><a href = 'checkout.aspx' class='primary-btn'>PROCEED TO CHECKOUT</a>";
+                cartTotal.InnerHtml = display;
+            }
         }
 
         private void decreaseQty(string PId)
