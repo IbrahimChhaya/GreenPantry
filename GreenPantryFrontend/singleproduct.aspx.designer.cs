@@ -51,6 +51,24 @@ namespace GreenPantryFrontend
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl PDetails;
 
         /// <summary>
+        /// pName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pName;
+
+        /// <summary>
+        /// pPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pPrice;
+
+        /// <summary>
         /// quantity control.
         /// </summary>
         /// <remarks>
@@ -69,13 +87,13 @@ namespace GreenPantryFrontend
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Submit control.
+        /// Add control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Submit;
+        protected global::System.Web.UI.WebControls.Button Add;
 
         /// <summary>
         /// Description control.

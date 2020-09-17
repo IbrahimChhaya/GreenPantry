@@ -37,8 +37,8 @@
                 </div>
                 <div class="col-lg-6 col-md-6" >
                     <div class="product__details__text" id="PDetails" runat="server">
-                        <h3 >Vetgetable’s Package</h3>
-                        <div class="product__details__price" >R50.00</div>
+                        <h3 runat="server" id="pName">Vetgetable’s Package</h3>
+                        <div class="product__details__price" runat="server" id="pPrice">R50.00</div>
                         <div class="product__details__quantity" >
                             <div class="quantity">
                                 <div class="pro-qty">
@@ -47,8 +47,9 @@
                             </div>
                         </div>
                         <form id="form1" runat="server">
-                            <!--<a href="/" class="primary-btn" runat="server">ADD TO CART</a>-->
-                            <asp:Button ID="Submit" Text="Submit" runat="server" class="site-btn"  OnCLick="Submit_Click" OnClientClick="Submit_Click" />
+<%--                            <a href="/" class="primary-btn" runat="server" id="addToCart" onclick="add_Click">ADD TO CART</a>--%>
+                            <asp:button class="site-btn" ID="Add" runat="server" Text="ADD TO CART" OnClick="add_Click"/>
+                            
                         </form>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
