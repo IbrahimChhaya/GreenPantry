@@ -20,15 +20,16 @@ namespace GreenPantryFrontend
                 String display = "";
                 dynamic invoice = SR.getAllCustomerOrders(userID);
 
-                foreach(Invoice i in invoice)
+                foreach (var inv in invoice)
                 {
-                    display += "<td><a href='/invoice.aspx?InvoiceID=" + invoice.ID + "'>" + invoice.ID + "</a></td><td>";
-                    display += "<span class='short'>" + invoice.Date + "</span></td>";
+                    display += "<tr><td><a href='/invoice.aspx?InvoiceID=" + inv.ID + "'>" + inv.ID + "</a></td><td>";
+                    display += "<span class='short'>" + inv.Date + "</span></td>";
+
                     display += "<td>R517.50</td>";
                     display += "<td>Dispatched</td><td></td>";
-                    display += "<td><a class='site-btn' href='/invoice.aspx?InvoiceID=" + invoice.ID + "'>View order</a></td>";
+                    display += "<td><a class='site-btn' href='/invoice.aspx?InvoiceID=" + inv.ID + "'>View order</a></td></tr>";
                 }
-                invoice.InnerHtml = display;
+                order.InnerHtml = display;
             }
             else
             {

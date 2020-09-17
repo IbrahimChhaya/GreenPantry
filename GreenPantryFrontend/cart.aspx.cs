@@ -32,7 +32,7 @@ namespace GreenPantryFrontend
                 //}
 
                 //Response.Cookies["cart"].Value = "1-2, 5-1, 4-1, 42-1";
-                dynamic cookiecontent = Request.Cookies["cart"].Value.ToString();
+                dynamic cookiecontent = Request.Cookies["cart"].Value;
 
                 dynamic products = cookiecontent.Split(',');
                               
