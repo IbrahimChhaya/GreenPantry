@@ -38,9 +38,11 @@ namespace GreenPantryFrontend
             Display += "<div class='quantity'>";
             Display += "<div class='pro-qty'>";
             Display += "<input type = 'text' value='1' id='quantity' runat='server'>";
-            Display += "</div></div></div>";
-            Display += "<a href='/singleproduct.aspx?ProductID=" + getProducts.ID + "'class='primary-btn' runat='server'>ADD TO CART</a>";
-            Display += "<a href = '#' class='heart-icon'><span class='icon_heart_alt'></span></a>";
+            Display += "</div></div></div><form id='form1' runat='server'>";
+            Display += "<asp:Button ID='Submit' Text='Submit' runat='server' class='site-btn'  OnClientCLick='Submit_Click'></asp:Button></form>";
+            //Display += "<a href='/singleproduct.aspx?ProductID=" + getProducts.ID + "' class='primary-btn' id='addCart' runat='server' OnServerClick='Submit_Click'>ADD TO CART</a>";
+            //Display += "<a class='primary-btn' id='addCart' runat='server' OnServerClick='Submit_Click'>ADD TO CART</a>";
+            Display += "<a href='#' class='heart-icon'><span class='icon_heart_alt'></span></a>";
             Display += "<ul>";
             if(getProducts.StockOnHand > 0)
                 Display += "<li><b>Availability:</b> <span>" + "In Stock" +"</span></li>";
@@ -53,7 +55,7 @@ namespace GreenPantryFrontend
             Display += "<a href = '#' ><i class='fa fa-instagram'></i></a>";
             Display += "<a href = '#' ><i class='fa fa-pinterest'></i></a>";
             Display += "</div></li></ul>";
-            PDetails.InnerHtml = Display;
+            //PDetails.InnerHtml = Display;
 
             Display = "";
             //description
@@ -94,6 +96,11 @@ namespace GreenPantryFrontend
         private String readCookie(String CookieName)
         {
             return Request.Cookies[CookieName].ToString();
+        }
+
+        protected void Submit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/home.aspx");
         }
 
         //protected void addCartbtn_Click(object sender, EventArgs e)

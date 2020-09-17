@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <link rel="stylesheet" href="/Invoice.css" type="text/css">
+    <link rel="stylesheet" href="/css/Invoice.css" type="text/css">
     <div class ="bodyinvoice">
     <div id="invoiceholder">
 
