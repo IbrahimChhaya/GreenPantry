@@ -1,4 +1,4 @@
-﻿using GreenPantryFrontend.ServiceReference2;
+﻿using GreenPantryFrontend.ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.Linq;

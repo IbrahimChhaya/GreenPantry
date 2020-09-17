@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="orderdash.aspx.cs" Inherits="GreenPantryFrontend.orderdash" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/dashboard/Dashboard.Master" AutoEventWireup="true" CodeBehind="users.aspx.cs" Inherits="AdminDashboard.users" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -14,7 +14,7 @@
               <h6 class="h2 text-white d-inline-block mb-0"></h6>
             </div>
             <div class="col-lg-6 col-5 text-right">
-                <h4 class="text-white">Howdy, Ubaid!</h4>
+                <h4 class="text-white">Howdy, Ibrahim!</h4>
             </div>
           </div>
         </div>
@@ -27,17 +27,17 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-              <h3 class="mb-0">Orders</h3>
+              <h3 class="mb-0">Users</h3>
             </div>
             <!-- Light table -->
             <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
+                    <th scope="col">User</th>
                     <th scope="col" class="sort" data-sort="name">Order</th>
                     <th scope="col" class="sort" data-sort="budget">Total</th>
                     <th scope="col" class="sort" data-sort="status">Status</th>
-                    <th scope="col">User</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
@@ -167,7 +167,7 @@
                     <th scope="row">
                       <div class="media align-items-center">
                         <a href="#" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" src="../assets/img/Products/1.jpg">
+                          <img alt="Image placeholder" src="../assets/img/Products/40.jpg">
                         </a>
                         <div class="media-body">
                           <span class="name mb-0 text-sm">Invoice #1</span>
@@ -175,17 +175,17 @@
                       </div>
                     </th>
                     <td class="budget">
-                      R368.00 
+                      R4400 
                     </td>
                     <td>
                       <span class="badge badge-dot mr-4">
                         <i class="bg-info"></i>
-                        <span class="status">pending</span>
+                        <span class="status">on schedule</span>
                       </span>
                     </td>
                     <td>
                       <div class="avatar-group">
-                        <a href="/profile.aspx" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Ibrah Patel">
+                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Users Name">
                             <i class="ni ni-circle-08"></i>
                         </a>
                       </div>
