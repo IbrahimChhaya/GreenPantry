@@ -40,7 +40,7 @@
                             </thead>
                             <tbody  runat="server" ID="tablerow">
                                 <asp:Label ID="pID" runat="server" Text="Incorrect Password or Username" visible="false" ></asp:Label>
-                              <span class="dec qtybtn" runat ="server" id="decQty" onclick="decQty_Click" href="cart.aspx">-</span>
+<%--                              <span class="dec qtybtn" runat ="server" id="decQty" onclick="decQty_Click" href="cart.aspx">-</span>--%>
                                 <div class="quantity"><div class="pro-qty"><input type ="text" value=" " runat="server" id="item_qty"></div></div>
                             </tbody>
                         </table>

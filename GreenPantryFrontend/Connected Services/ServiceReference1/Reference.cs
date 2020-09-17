@@ -330,6 +330,9 @@ namespace GreenPantryFrontend.ServiceReference1 {
         private int InvoiceIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private GreenPantryFrontend.ServiceReference1.Product ProductField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -383,6 +386,19 @@ namespace GreenPantryFrontend.ServiceReference1 {
                 if ((this.InvoiceIDField.Equals(value) != true)) {
                     this.InvoiceIDField = value;
                     this.RaisePropertyChanged("InvoiceID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
                 }
             }
         }
@@ -589,7 +605,13 @@ namespace GreenPantryFrontend.ServiceReference1 {
         private string NotesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> PointsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> TotalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private GreenPantryFrontend.ServiceReference1.User UserField;
@@ -683,6 +705,19 @@ namespace GreenPantryFrontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Points {
+            get {
+                return this.PointsField;
+            }
+            set {
+                if ((this.PointsField.Equals(value) != true)) {
+                    this.PointsField = value;
+                    this.RaisePropertyChanged("Points");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Status {
             get {
                 return this.StatusField;
@@ -691,6 +726,19 @@ namespace GreenPantryFrontend.ServiceReference1 {
                 if ((object.ReferenceEquals(this.StatusField, value) != true)) {
                     this.StatusField = value;
                     this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Total {
+            get {
+                return this.TotalField;
+            }
+            set {
+                if ((this.TotalField.Equals(value) != true)) {
+                    this.TotalField = value;
+                    this.RaisePropertyChanged("Total");
                 }
             }
         }
@@ -1948,16 +1996,16 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> getNumProductsInSubAsync(int subID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addInvoices", ReplyAction="http://tempuri.org/IGP_Service/addInvoicesResponse")]
-        int addInvoices(int customer_ID, string status, System.DateTime date, System.DateTime deliverDate, string notes);
+        int addInvoices(int customer_ID, string status, System.DateTime date, System.DateTime deliverDate, string notes, decimal total, int points);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addInvoices", ReplyAction="http://tempuri.org/IGP_Service/addInvoicesResponse")]
-        System.Threading.Tasks.Task<int> addInvoicesAsync(int customer_ID, string status, System.DateTime date, System.DateTime deliverDate, string notes);
+        System.Threading.Tasks.Task<int> addInvoicesAsync(int customer_ID, string status, System.DateTime date, System.DateTime deliverDate, string notes, decimal total, int points);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addInvoiceLine", ReplyAction="http://tempuri.org/IGP_Service/addInvoiceLineResponse")]
-        int addInvoiceLine(int product_ID, int invoice_ID, int quantity);
+        int addInvoiceLine(int product_ID, int invoice_ID, int quantity, decimal price);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addInvoiceLine", ReplyAction="http://tempuri.org/IGP_Service/addInvoiceLineResponse")]
-        System.Threading.Tasks.Task<int> addInvoiceLineAsync(int product_ID, int invoice_ID, int quantity);
+        System.Threading.Tasks.Task<int> addInvoiceLineAsync(int product_ID, int invoice_ID, int quantity, decimal price);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2347,20 +2395,20 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.getNumProductsInSubAsync(subID);
         }
         
-        public int addInvoices(int customer_ID, string status, System.DateTime date, System.DateTime deliverDate, string notes) {
-            return base.Channel.addInvoices(customer_ID, status, date, deliverDate, notes);
+        public int addInvoices(int customer_ID, string status, System.DateTime date, System.DateTime deliverDate, string notes, decimal total, int points) {
+            return base.Channel.addInvoices(customer_ID, status, date, deliverDate, notes, total, points);
         }
         
-        public System.Threading.Tasks.Task<int> addInvoicesAsync(int customer_ID, string status, System.DateTime date, System.DateTime deliverDate, string notes) {
-            return base.Channel.addInvoicesAsync(customer_ID, status, date, deliverDate, notes);
+        public System.Threading.Tasks.Task<int> addInvoicesAsync(int customer_ID, string status, System.DateTime date, System.DateTime deliverDate, string notes, decimal total, int points) {
+            return base.Channel.addInvoicesAsync(customer_ID, status, date, deliverDate, notes, total, points);
         }
         
-        public int addInvoiceLine(int product_ID, int invoice_ID, int quantity) {
-            return base.Channel.addInvoiceLine(product_ID, invoice_ID, quantity);
+        public int addInvoiceLine(int product_ID, int invoice_ID, int quantity, decimal price) {
+            return base.Channel.addInvoiceLine(product_ID, invoice_ID, quantity, price);
         }
         
-        public System.Threading.Tasks.Task<int> addInvoiceLineAsync(int product_ID, int invoice_ID, int quantity) {
-            return base.Channel.addInvoiceLineAsync(product_ID, invoice_ID, quantity);
+        public System.Threading.Tasks.Task<int> addInvoiceLineAsync(int product_ID, int invoice_ID, int quantity, decimal price) {
+            return base.Channel.addInvoiceLineAsync(product_ID, invoice_ID, quantity, price);
         }
     }
 }

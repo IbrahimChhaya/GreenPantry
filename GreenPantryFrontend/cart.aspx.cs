@@ -56,7 +56,7 @@ namespace GreenPantryFrontend
                         display += "<img src =" + cartProduct.Image_Location + " alt=''>";
                         display += "<h5><asp:Label ID='pID' runat='server' Text='" + cartProduct.ID + "' visible='false' ></asp:Label>" + cartProduct.Name + "</h5></td><td class='shoping__cart__price'>" + Math.Round(cartProduct.Price, 2) + "</td>";
                         display += "<td class='shoping__cart__quantity'>";
-                        display += "<span class='dec qtybtn' runat ='server' id='decQty' onclick='decQty_Click'><a href='cart.aspx?pId=" + pID + "'>-</a></span>";
+                        //display += "<span class='dec qtybtn' runat ='server' id='decQty' onclientclick='decQty_Click'><a href='cart.aspx?pId=" + pID + "'>-</a></span>";
                         display += "<div class='quantity'><div class='pro-qty'><input type = 'text' value=" + qty + " runat='server' id='item_qty'>";
                         display += "</div></div></td>";
                         display += "<td class='shoping__cart__total'>" + Math.Round(cartProduct.Price * decimal.Parse(qty), 2) + "</td>";
@@ -64,20 +64,22 @@ namespace GreenPantryFrontend
                         tablerow.InnerHtml = display;
 
                         totals.Add(Math.Round(cartProduct.Price * decimal.Parse(qty), 2));
-                    }
-                    
-
-
+                    } 
                 }
 
                 display = " ";
-
+                decimal Delivery = 0.00M;
                 decimal subTotal = calcSubtotal(totals);
-                decimal VAT = subTotal * (decimal)0.15;
+
+                //check if delivery charge applies
+                if (subTotal < 500)
+                    Delivery = 60.00M;
+                decimal VAT = subTotal * (decimal)(0.15/1.15);
                 decimal carttotal = subTotal + VAT;
 
                 display += "<h5>Cart Total</h5><ul><li>Subtotal<span>R" + Math.Round(subTotal, 2) + "</span></li>";
-                display += "<li>VAT at 15% <span>R" + Math.Round(VAT, 2) + "</span></li><li>Total<span>R" + Math.Round(carttotal, 2) + "</span></li>";
+                display += "<li>VAT at 15% <span>R" + Math.Round(VAT, 2) + "</span></li><li>Delivery Fee <span>R" + Math.Round(Delivery, 2) + "</span></li>";
+                display += "<li>Total<span>R" + Math.Round(carttotal, 2) + "</span></li>";
                 display += "</ul><a href = 'checkout.aspx' class='primary-btn'>PROCEED TO CHECKOUT</a>";
                 cartTotal.InnerHtml = display;
             }
