@@ -690,6 +690,8 @@
         <xs:element minOccurs="0" name="date" type="xs:dateTime" />
         <xs:element minOccurs="0" name="deliverDate" type="xs:dateTime" />
         <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="total" type="xs:decimal" />
+        <xs:element minOccurs="0" name="points" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -706,6 +708,7 @@
         <xs:element minOccurs="0" name="product_ID" type="xs:int" />
         <xs:element minOccurs="0" name="invoice_ID" type="xs:int" />
         <xs:element minOccurs="0" name="quantity" type="xs:int" />
+        <xs:element minOccurs="0" name="price" type="xs:decimal" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
