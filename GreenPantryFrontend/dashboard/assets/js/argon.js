@@ -842,10 +842,10 @@ var BarsChart = (function() {
 		var ordersChart = new Chart($chart, {
 			type: 'bar',
 			data: {
-				labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+				labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
 				datasets: [{
 					label: 'Sales',
-					data: [25, 20, 30, 22, 17, 29]
+					data: [10, 25, 40, 22, 17, 50]
 				}]
 			}
 		});
@@ -892,7 +892,7 @@ var SalesChart = (function() {
             ticks: {
               callback: function(value) {
                 if (!(value % 10)) {
-                  return '$' + value + 'k';
+                  return 'R' + value + 'k';
                 }
               }
             }
@@ -909,17 +909,17 @@ var SalesChart = (function() {
                 content += '<span class="popover-body-label mr-auto">' + label + '</span>';
               }
 
-              content += '<span class="popover-body-value">$' + yLabel + 'k</span>';
+              content += 'R' + yLabel + 'k';
               return content;
             }
           }
         }
       },
       data: {
-        labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
         datasets: [{
           label: 'Performance',
-          data: [0, 20, 10, 30, 15, 40, 20, 60, 60]
+          data: [50, 10, 20, 30, 35, 30, 40, 60, 60]
         }]
       }
     });

@@ -68,7 +68,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="categories.aspx">
+              <a class="nav-link" href="category.aspx">
                 <i class="ni ni-archive-2 text-yellow"></i>
                 <span class="nav-link-text">Categories</span>
               </a>
@@ -80,7 +80,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="orders.aspx">
+              <a class="nav-link" href="orderdash.aspx">
                 <i class="ni ni-laptop text-info"></i>
                 <span class="nav-link-text">Orders</span>
               </a>

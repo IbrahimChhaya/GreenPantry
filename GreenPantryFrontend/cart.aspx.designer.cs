@@ -33,15 +33,6 @@ namespace GreenPantryFrontend
         protected global::System.Web.UI.WebControls.Label pID;
 
         /// <summary>
-        /// decQty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl decQty;
-
-        /// <summary>
         /// item_qty control.
         /// </summary>
         /// <remarks>

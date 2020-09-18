@@ -55,7 +55,7 @@ namespace GreenPantryFrontend
                     subtotal += product.Price * item.Qty;
                 }
 
-                decimal vat = subtotal * (decimal)(0.15);
+                decimal vat = subtotal * (decimal)(0.15/1.15);
 
                 Vat.InnerHtml = "<h2 class ='h2Inv'>R" + Math.Round(vat, 2) + "</h2>";
 

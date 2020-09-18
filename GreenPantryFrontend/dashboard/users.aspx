@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="order.aspx.cs" Inherits="AdminDashboard.orders" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/dashboard/Dashboard.Master" AutoEventWireup="true" CodeBehind="users.aspx.cs" Inherits="AdminDashboard.users" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -27,17 +27,17 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-              <h3 class="mb-0">Orders</h3>
+              <h3 class="mb-0">Users</h3>
             </div>
             <!-- Light table -->
             <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
+                    <th scope="col">User</th>
                     <th scope="col" class="sort" data-sort="name">Order</th>
                     <th scope="col" class="sort" data-sort="budget">Total</th>
                     <th scope="col" class="sort" data-sort="status">Status</th>
-                    <th scope="col">User</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
