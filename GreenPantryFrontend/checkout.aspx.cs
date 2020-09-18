@@ -13,6 +13,8 @@ namespace GreenPantryFrontend
     {
         List<string> pIds = new List<string>();
         List<string> qtys = new List<string>();
+        decimal subtotal = 0;
+        decimal total = 0;
         GP_ServiceClient SR = new GP_ServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,8 +29,8 @@ namespace GreenPantryFrontend
 
                 string display = "";
                 List<decimal> totals = new List<decimal>();
-                decimal subtotal = 0;
-                decimal total = 0;
+                //decimal subtotal = 0;
+                //decimal total = 0;
 
 
                 foreach (dynamic p in products)
@@ -61,7 +63,7 @@ namespace GreenPantryFrontend
                 {
                     freeShipping = true;
                 }
-            }else
+             }else
             {
                 Response.Redirect("Home.aspx");
             }
@@ -83,7 +85,7 @@ namespace GreenPantryFrontend
             if (addressUpdate == 1)
             {
                
-                int addInvoice = SR.addInvoices(1,"Approved",DateTime.Now,DateTime.Now, order.Value);
+                int addInvoice = SR.addInvoices(1,"Approved",DateTime.Now,DateTime.Now, order.Value,subtotal,50); //@50 need to pass the points received from the textbox
                 if(addInvoice>0)
                  {
                     
@@ -97,7 +99,7 @@ namespace GreenPantryFrontend
                         var qty = productDetails[1];
                         qtys.Add(qty);
 
-                        int addinvLine = SR.addInvoiceLine(cartProduct.ID, addInvoice, Convert.ToInt32(qty));
+                        int addinvLine = SR.addInvoiceLine(cartProduct.ID, addInvoice, Convert.ToInt32(qty),p.Price);
                     }
                     Response.Redirect("orders.aspx");
 

@@ -96,20 +96,20 @@ namespace GreenPantryFrontend
             return Request.Cookies[CookieName].ToString();
         }
 
-        //protected void addCartbtn_Click(object sender, EventArgs e)
-        //{
-        //    createCookie("cart", Request.QueryString["ProductID"] + "-" + quantity.Value);
-        //    addCartbtn.Text = "it worked";
-        //    Response.Redirect("/singleproduct.aspx?ProductID=39");
-        //    System.Diagnostics.Debug.WriteLine(Request.QueryString["ProductID"] + "-" + quantity.Value);
-        //}
+        protected void addCartbtn_Click(object sender, EventArgs e)
+        {
+            createCookie("cart", Request.QueryString["ProductID"] + "-" + quantity.Value);
+           // addCartbtn.Text = "it worked";
+            Response.Redirect("/singleproduct.aspx?ProductID=39");
+            System.Diagnostics.Debug.WriteLine(Request.QueryString["ProductID"] + "-" + quantity.Value);
+        }
 
-        //private void addCart()
-        //{
-        //    createCookie("cart", Request.QueryString["ProductID"] + "-" + quantity.Value);
-        //    addCartbtn.Text = "it worked";
-        //    Response.Redirect("/singleproduct.aspx?ProductID=39");
-        //    System.Diagnostics.Debug.WriteLine(Request.QueryString["ProductID"] + "-" + quantity.Value);
-        //}
+        private void addCart()
+        {
+            createCookie("cart", Request.QueryString["ProductID"] + "-" + quantity.Value);
+           // addCartbtn.Text = "it worked";
+            Response.Redirect("/singleproduct.aspx?ProductID=39");
+           System.Diagnostics.Debug.WriteLine(Request.QueryString["ProductID"] + "-" + quantity.Value);
+        }
     }
 }
