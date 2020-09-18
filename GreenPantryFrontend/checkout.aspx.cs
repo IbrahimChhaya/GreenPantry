@@ -1,5 +1,5 @@
 ﻿
-using GreenPantryFrontend.ServiceReference2;
+using GreenPantryFrontend.ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,7 +65,7 @@ namespace GreenPantryFrontend
                 }
              }else
             {
-                Response.Redirect("Home.aspx");
+                Response.Redirect("login.aspx");
             }
 
     }
@@ -99,7 +99,7 @@ namespace GreenPantryFrontend
                         var qty = productDetails[1];
                         qtys.Add(qty);
 
-                        int addinvLine = SR.addInvoiceLine(cartProduct.ID, addInvoice, Convert.ToInt32(qty),p.Price);
+                        int addinvLine = SR.addInvoiceLine(cartProduct.ID, addInvoice, Convert.ToInt32(qty),cartProduct.Price);
                     }
                     Response.Redirect("orders.aspx");
 
