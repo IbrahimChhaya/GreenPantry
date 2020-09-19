@@ -33,7 +33,7 @@
             </div>
             <div class="checkout__form" runat="server">
                                 <h4>Billing Details</h4>
-                <form action="#" runat="server">
+                
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
@@ -86,6 +86,9 @@
                                 </div>
                             </div>
                             
+                   
+
+                            
                            <!-- <p> <div class="checkout__input__checkbox">
                                 <label for="diff-acc">
                                     Ship to a different address?
@@ -98,6 +101,19 @@
                                 <input type="text"
                                     placeholder="Notes about your order, e.g. special notes for delivery." class ="single-input" runat="server" id="order">
                             </div>
+              <div class="row">
+              <div class="col-lg-6">
+                    <div class="shoping__continue">
+                        <div class="shoping__discount">
+                            <h5>Discount Codes</h5>
+                            <form action="#">
+                               <input type="text" placeholder="Enter your coupon code">
+                               <button type="submit" class="site-btn">APPLY COUPON</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
@@ -110,9 +126,11 @@
                                 </ul>
                                 <div class="checkout__order__subtotal" id="ProductSubtotal" runat="server">Subtotal <span>$750.99</span></div>
                                 <div class="checkout__order__total" id="P_Total" runat="server">Total <span>$750.99</span></div>
-                                
+
+                        
+                                <form action="#" runat="server">
                                 <asp:Button ID="Submit" Text="PLACE ORDER" runat="server" class="site-btn" OnCLick="Submit_Click" />
-                               
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -120,7 +138,7 @@
                         <div class="checkout__input">
                             <asp:Label ID="error" runat="server" Text="" visible="false" ></asp:Label>
                         </div>
-                </form>
+               
             </div>
         </div>
     </section>
