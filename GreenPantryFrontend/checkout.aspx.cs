@@ -22,7 +22,7 @@ namespace GreenPantryFrontend
             if (Session["LoggedInUserID"] != null)
             {
                 bool freeShipping = false;
-                Response.Cookies["cart"].Value = "1-1, 2-3";
+                Response.Cookies["cart"].Value = "1-1,2-3";
                 dynamic CookieContent = Request.Cookies["cart"].Value;
 
                 dynamic products = CookieContent.Split(',');
@@ -63,9 +63,10 @@ namespace GreenPantryFrontend
                 {
                     freeShipping = true;
                 }
-             }else
+             }
+            else
             {
-                Response.Redirect("login.aspx");
+               Response.Redirect("login.aspx");
             }
 
     }

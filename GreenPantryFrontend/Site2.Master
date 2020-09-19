@@ -197,8 +197,8 @@
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input type="text" id ="SearchBar" runat="server">
+                                <button type="submit" class="site-btn" runat="server" id = "search" onclick="Search_Click">SEARCH</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
