@@ -1,5 +1,5 @@
 ﻿
-using GreenPantryFrontend.ServiceReference2;
+using GreenPantryFrontend.ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +22,7 @@ namespace GreenPantryFrontend
             if (Session["LoggedInUserID"] != null)
             {
                 bool freeShipping = false;
-                Response.Cookies["cart"].Value = "1-1, 2-3";
+                Response.Cookies["cart"].Value = "1-1,2-3";
                 dynamic CookieContent = Request.Cookies["cart"].Value;
 
                 dynamic products = CookieContent.Split(',');
@@ -63,9 +63,10 @@ namespace GreenPantryFrontend
                 {
                     freeShipping = true;
                 }
-             }else
+             }
+            else
             {
-                Response.Redirect("Home.aspx");
+               Response.Redirect("login.aspx");
             }
 
     }
@@ -99,7 +100,7 @@ namespace GreenPantryFrontend
                         var qty = productDetails[1];
                         qtys.Add(qty);
 
-                        int addinvLine = SR.addInvoiceLine(cartProduct.ID, addInvoice, Convert.ToInt32(qty),p.Price);
+                        int addinvLine = SR.addInvoiceLine(cartProduct.ID, addInvoice, Convert.ToInt32(qty),cartProduct.Price);
                     }
                     Response.Redirect("orders.aspx");
 
