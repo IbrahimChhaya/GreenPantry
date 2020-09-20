@@ -3312,6 +3312,7 @@
     <Content Include="js\main.js" />
     <Content Include="js\mixitup.min.js" />
     <Content Include="js\owl.carousel.min.js" />
+    <Content Include="js\shoppingcart.js" />
     <Content Include="login.aspx" />
     <Content Include="modallogin.aspx" />
     <Content Include="dashboard\orderdash.aspx" />

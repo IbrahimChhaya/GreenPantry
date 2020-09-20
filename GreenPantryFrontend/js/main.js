@@ -206,10 +206,12 @@
     proQty.prepend('<span class="dec qtybtn">-</span>');
     proQty.append('<span class="inc qtybtn">+</span>');
     proQty.on('click', '.qtybtn', function () {
-        var $button = $(this);
-        var oldValue = $button.parent().find('input').val();
+        var $button   = $(this);
+        var oldValue  = $button.parent().find('input').val();
+
         if ($button.hasClass('inc')) {
             var newVal = parseFloat(oldValue) + 1;
+
         } else {
             // Don't allow decrementing below zero
             if (oldValue > 0) {
@@ -219,6 +221,33 @@
             }
         }
         $button.parent().find('input').val(newVal);
+
+        if (window.location.pathname === "/cart.aspx") {
+            var unitValue = $button.parent().parent().parent().parent().find('.shoping__cart__price').html();
+            $button.parent().parent().parent().parent().find('.shoping__cart__total#pTotal').html((newVal * unitValue).toFixed(2));
+
+            //set quatity in cookie
+
+            const elementTotals = document.getElementsByClassName('shoping__cart__total');
+            var subTotal        = 0;
+
+            for (var i = 0; i < elementTotals.length; i++) {
+                subTotal += parseFloat(elementTotals[i].innerHTML);
+            }
+
+            $('#checkout__cart-subtotal').html(subTotal.toFixed(2));
+            alert(subtotal);
+            $('#checkout__cart-VAT').html((subtotal * (15 / 115)).toFixed(2));
+
+            if (subtotal > 500)
+                $('#checkout__cart-delivery').html(R(60).toFixed(2));
+            else
+                $('#checkout__cart-delivery').html(R(0).toFixed(2));
+
+            
+
+
+        } 
     });
 
 })(jQuery);
