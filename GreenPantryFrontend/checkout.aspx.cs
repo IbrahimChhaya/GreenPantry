@@ -1,4 +1,5 @@
-﻿using GreenPantryFrontend.ServiceReference1;
+﻿
+using GreenPantryFrontend.ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,45 +13,43 @@ namespace GreenPantryFrontend
     {
         List<string> pIds = new List<string>();
         List<string> qtys = new List<string>();
-        GP_ServiceClient SR = new GP_ServiceClient();
-
+        decimal subtotal = 0;
         decimal total = 0;
+        GP_ServiceClient SR = new GP_ServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
             //if the session does not exist then redirect to home
             if (Session["LoggedInUserID"] != null)
             {
                 bool freeShipping = false;
-               // Response.Cookies["cart"].Value = "1-1, 2-3";
+                Response.Cookies["cart"].Value = "1-1,2-3";
                 dynamic CookieContent = Request.Cookies["cart"].Value;
 
                 dynamic products = CookieContent.Split(',');
 
                 string display = "";
                 List<decimal> totals = new List<decimal>();
-                decimal subtotal = 0;
-                
+                //decimal subtotal = 0;
+                //decimal total = 0;
 
 
                 foreach (dynamic p in products)
                 {
-                    if (!p.Equals(""))
-                    {
-                        string[] productDetails = p.Split('-');
-                        var pID = productDetails[0];
-                        pIds.Add(pID);
 
-                        var cartProduct = SR.getProductByID(int.Parse(pID));
-                        var qty = productDetails[1];
-                        qtys.Add(qty);
+                    string[] productDetails = p.Split('-');
+                    var pID = productDetails[0];
+                    pIds.Add(pID);
+
+                    var cartProduct = SR.getProductByID(int.Parse(pID));
+                    var qty = productDetails[1];
+                    qtys.Add(qty);
 
 
-                        subtotal += cartProduct.Price;
+                    subtotal += cartProduct.Price;
 
-                        display += "<li>" + cartProduct.Name + "<span>R" + Math.Round(cartProduct.Price, 2) + "</span></li>";
+                    display += "<li>" + cartProduct.Name + "<span>R" + Math.Round(cartProduct.Price, 2) + "</span></li>";
 
-                        total += SR.calcProductVAT(cartProduct.ID) + subtotal;
-                    }
+                    total += SR.calcProductVAT(cartProduct.ID) + subtotal;
 
 
                 }
@@ -64,21 +63,22 @@ namespace GreenPantryFrontend
                 {
                     freeShipping = true;
                 }
-            }else
+             }
+            else
             {
-                Response.Redirect("Home.aspx");
+               Response.Redirect("login.aspx");
             }
 
     }
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            //Response.Cookies["cart"].Value = "1-1, 2-3";
+            Response.Cookies["cart"].Value = "1-1, 2-3";
             dynamic CookieContent = Request.Cookies["cart"].Value;           
 
             int userID=0;
             userID = Convert.ToInt32(Session["LoggedInUserID"]);
-            int addressUpdate = SR.AddAdress(Line1.Value, Line2.Value, suburb.Value , town.Value, 'F' ,postcode.Value,userID, Province.Value);
+            int addressUpdate = SR.AddAdress(Line1.Value, Line2.Value, suburb.Value , town.Value, 'F' ,postcode.Value,1, Province.Value);
 
 
             dynamic products = CookieContent.Split(',');
@@ -86,26 +86,23 @@ namespace GreenPantryFrontend
             if (addressUpdate == 1)
             {
                
-                int addInvoice = SR.addInvoices(userID,"Approved",DateTime.Now,DateTime.Now, order.Value);
+                int addInvoice = SR.addInvoices(1,"Approved",DateTime.Now,DateTime.Now, order.Value,subtotal,50); //@50 need to pass the points received from the textbox
                 if(addInvoice>0)
                  {
                     
                     foreach (dynamic p in products)
                     {
-                        if (!p.Equals(""))
-                        {
-                            string[] productDetails = p.Split('-');
-                            var pID = productDetails[0];
-                            pIds.Add(pID);
+                        string[] productDetails = p.Split('-');
+                        var pID = productDetails[0];
+                        pIds.Add(pID);
 
-                            var cartProduct = SR.getProductByID(int.Parse(pID));
-                            var qty = productDetails[1];
-                            qtys.Add(qty);
+                        var cartProduct = SR.getProductByID(int.Parse(pID));
+                        var qty = productDetails[1];
+                        qtys.Add(qty);
 
-                            int addinvLine = SR.addInvoiceLine(cartProduct.ID, addInvoice, Convert.ToInt32(qty));
-                        }
+                        int addinvLine = SR.addInvoiceLine(cartProduct.ID, addInvoice, Convert.ToInt32(qty),cartProduct.Price);
                     }
-                    Response.Redirect("orders.aspx?Total=" + total);
+                    Response.Redirect("orders.aspx");
 
                  }
                  else

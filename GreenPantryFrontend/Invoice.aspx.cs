@@ -56,7 +56,10 @@ namespace GreenPantryFrontend
                 }
 
                 decimal vat = subtotal * (decimal)(0.15/1.15);
+               
 
+                Subtotal.InnerHtml = "<h2 class ='h2Inv'>R"+Math.Round(subtotal,2)+"</h2>";
+                subtotal = subtotal - vat;
                 Vat.InnerHtml = "<h2 class ='h2Inv'>R" + Math.Round(vat, 2) + "</h2>";
 
                 //Total.InnerHtml = "<h3 class ='h2Inv'>R"+ Math.Round(subtotal + vat, 2) +"</h3>";
@@ -64,7 +67,7 @@ namespace GreenPantryFrontend
                 if (subtotal + vat > 500)
                 {
                     deliverFree.InnerHtml = "<h2 class ='h2Inv'>R0.00</h2>";
-                    Total.InnerHtml = "<h2 class ='h2Inv'>R" + Math.Round(subtotal + vat, 2) + "</h2>";
+                    Total.InnerHtml = "<h2 class ='h2Inv'>R" + Math.Round(subtotal+vat, 2) + "</h2>";
                 }
                 else
                 {

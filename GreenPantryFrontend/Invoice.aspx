@@ -15,6 +15,7 @@
     
     <div id="invoice-top">
       <div class="logo">
+          <img src="img/GPlogo.png">
         </div>
       <div class="info">
         <h2 class="h2Inv">Green Pantry</h2>
@@ -59,14 +60,16 @@
 
             <tbody runat="server" id="tableRow">
             </tbody>
-            
-          <tr class="tabletitle">
+            <!--Subtotal-->
+            <tr class="tabletitle">
             <td></td>
             <td></td>
-             <td class="Rate"><h2 class="h2Inv">VAT</h2></td>
-             <td class="payment" runat="server" id="Vat"><h2 class ="h2Inv">$3,644.25</h2></td>
+             <td class="Rate"><h2 class="h2Inv">Sub Total</h2></td>
+             <td class="payment" runat="server" id="Subtotal"><h2 class ="h2Inv">$3,644.25</h2></td>
             
           </tr>
+            
+       
 
          <tr class="tabletitle" runat="server" id="delivery">
             <td></td>
@@ -82,6 +85,14 @@
             <td class="payment" runat="server" id="Total"><h2 class ="h2Inv">$3,644.25</h2></td>
 
             </tr>
+
+            <tr class="tabletitle">
+            <td></td>
+            <td></td>
+             <td class="Rate"><h2 class="h2Inv">VAT Included</h2></td>
+             <td class="payment" runat="server" id="Vat"><h2 class ="h2Inv">$3,644.25</h2></td>
+            
+          </tr>
 
       
         </table>

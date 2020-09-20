@@ -82,6 +82,7 @@ namespace GreenPantryFrontend
         private void createCookie(String CookieName, String content)
         {
             Response.Cookies[CookieName].Value = content + ",";
+            Response.Cookies[CookieName].Expires = DateTime.Now.AddDays(30);
         }
 
         private String readCookie(String CookieName)
@@ -93,19 +94,20 @@ namespace GreenPantryFrontend
 
         protected void add_Click(object sender, EventArgs e)
         {
-            if(Response.Cookies["cart"] == null)
-            {
-                createCookie("cart", Request.QueryString["ProductID"] + "-" + quantity.Value);
-                Add.Text = "it worked";
-                Response.Redirect("/singleproduct.aspx?ProductID=39");
-                System.Diagnostics.Debug.WriteLine(Request.QueryString["ProductID"] + "-" + quantity.Value);
-            }
-            else
+            if(Request.Cookies["cart"] != null)
             {
                 string str = Request.Cookies["cart"].Value;
 
                 str += Request.QueryString["ProductID"] + "-" + quantity.Value;
                 saveToCookie("cart", str);
+               
+            }
+            else
+            {
+                createCookie("cart", Request.QueryString["ProductID"] + "-" + quantity.Value);
+               // Add.Text = "it worked";
+                Response.Redirect("/singleproduct.aspx?ProductID=39");
+               // System.Diagnostics.Debug.WriteLine(Request.QueryString["ProductID"] + "-" + quantity.Value);
 
             }
             

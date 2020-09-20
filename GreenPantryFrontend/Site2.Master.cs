@@ -33,5 +33,15 @@ namespace GreenPantryFrontend
 
             categoryList.InnerHtml = display;
         }
+
+        protected void Search_Click(object sender,EventArgs e)
+        {
+          
+            string userInput = SearchBar.Value;
+
+            Response.Redirect("Results.aspx?Search=" + userInput);
+
+
+        }
     }
 }
