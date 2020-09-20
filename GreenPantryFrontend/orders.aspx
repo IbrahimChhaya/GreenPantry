@@ -5,7 +5,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <!-- Breadcrumb Section Begin -->
+ <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
@@ -36,31 +36,33 @@
                                     </div>
                                 </div>
                             </div>
-        <table>
-             <tr>
-                    <th>#</th>
-                    <th>Date</th>
-                    <th>Total</th>
-                    <th>Status</th>
-                    <th></th>
-                </tr>
-            <tbody runat="server" id="order">
+                            <div>
+                                <table class="table orderTable">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Date</th>
+                                            <th>Total</th>
+                                            <th>Status</th>
+                                            <th></th>
+                                        </tr>
+                                    <tbody runat="server" id="order">
                
-                <tr>
-                <td>
-                    <a href="/invoice.aspx?InvoiceID=1">1</a>
-                </td>
-                <td>
-                    <span class="short">2020/09/02</span>
-                </td>
-                <td>R428.00</td>
-                <td>Processing</td>
-                <td></td>
-                    <td><a class="site-btn" href="/invoice.aspx?InvoiceID=1">View order</a> </td>
-                </tr>
-            </tbody>
-        </table>
+                                        <tr>
+                                        <td>
+                                            <a href="/invoice.aspx?InvoiceID=1">1</a>
+                                        </td>
+                                        <td>
+                                            <span class="short">2020/09/02</span>
+                                        </td>
+                                        <td>R428.00</td>
+                                        <td>Processing</td>
+                                        <td></td>
+                                            <td><a class="site-btn" href="/invoice.aspx?InvoiceID=1">View order</a> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                        </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
                                 <h4>Your Account</h4>
@@ -75,4 +77,4 @@
         </div>
     </section>
     <!-- Checkout Section End -->
-    </asp:Content>
+</asp:Content>
