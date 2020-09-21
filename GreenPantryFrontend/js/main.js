@@ -221,13 +221,12 @@
             }
         }
         $button.parent().find('input').val(newVal);
-
+     
         if (window.location.pathname === "/cart.aspx") {
             var unitValue = $button.parent().parent().parent().parent().find('.shoping__cart__price').html();
             $button.parent().parent().parent().parent().find('.shoping__cart__total#pTotal').html((newVal * unitValue).toFixed(2));
 
-            var unitID = $button.parent().parent().parent().parent().find('.cart__item-id').text();
-            alert(unitID);
+            var unitID = $button.parent().parent().parent().parent().find('.cart__item-id').html();
 
             //update cookie
             var cookie = document.cookie.split("=");
@@ -239,7 +238,8 @@
                 cVal = cVal.replace(unitID + "-" + oldValue + ",", "");
             }
             document.cookie = "cart=" + cVal;
-            window.location = "cart.aspx";
+            if(newVal <= 0)
+                 indow.location = "cart.aspx";
 
             //change totals
             const elementTotals = document.getElementsByClassName('shoping__cart__total');

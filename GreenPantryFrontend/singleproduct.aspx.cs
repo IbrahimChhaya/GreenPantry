@@ -59,10 +59,10 @@ namespace GreenPantryFrontend
                     Display += "<div class='product__item__pic set-bg' data-setbg='" + p.Image_Location + "'>";
                     Display += "<ul class='product__item__pic__hover'>";
                     Display += "<li><a href='#'><i class='fa fa-heart'></i></a></li>";
-                    Display += "<li><a href='#'><i class='fa fa-shopping-cart'></i></a></li>";
+                    Display += "<li><a href='singleproduct.aspx?ProductID=" + p.ID + "'><i class='fa fa-shopping-cart'></i></a></li>";
                     Display += "</ul></div>";
                     Display += "<div class='product__item__text'>";
-                    Display += "<h6><a href='#'>" + p.Name + "</a></h6>";
+                    Display += "<h6><a href='singleproduct.aspx?ProductID=" + p.ID + "'>" + p.Name + "</a></h6>";
                     Display += "<h5>R" + Math.Round(p.Price, 2) + "</h5>";
                     Display += "</div></div></div>";
                 }
@@ -98,17 +98,14 @@ namespace GreenPantryFrontend
             {
                 string str = Request.Cookies["cart"].Value;
 
-                str += Request.QueryString["ProductID"] + "-" + quantity.Value;
+                str += Request.QueryString["ProductID"] + "-" + item_qty.Value;
                 saveToCookie("cart", str);
                
             }
             else
             {
-                createCookie("cart", Request.QueryString["ProductID"] + "-" + quantity.Value);
-               // Add.Text = "it worked";
-                Response.Redirect("/singleproduct.aspx?ProductID=39");
-               // System.Diagnostics.Debug.WriteLine(Request.QueryString["ProductID"] + "-" + quantity.Value);
-
+                createCookie("cart", Request.QueryString["ProductID"] + "-" + item_qty.Value);
+                Response.Redirect("home.aspx");
             }
             
         }
