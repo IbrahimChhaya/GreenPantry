@@ -54,10 +54,8 @@ namespace GreenPantryFrontend
 
                         display += "<tr><td class='shoping__cart__item'>";
                         display += "<img src =" + cartProduct.Image_Location + " alt=''>";
-                        display += "<h5><asp:Label ID='pID' runat='server' Text='" + cartProduct.ID + "' visible='false' ></asp:Label>" + cartProduct.Name + "</h5></td><td class='shoping__cart__price'>" + Math.Round(cartProduct.Price, 2) + "</td>";
-
+                        display += "<h5><asp:Label class='cart__item-id' ID='pID' runat='server' Text='" + cartProduct.ID + "' visible='false' ></asp:Label>" + cartProduct.Name + "</h5></td><td class='shoping__cart__price'>" + Math.Round(cartProduct.Price, 2) + "</td>";
                         display += "<td class='shoping__cart__quantity'>";
-                        //display += "<span class='dec qtybtn' runat ='server' id='decQty' onclientclick='decQty_Click'><a href='cart.aspx?pId=" + pID + "'>-</a></span>";
                         display += "<div class='quantity'><div class='pro-qty'><input type = 'text' value=" + qty + " runat='server' id='item_qty'>";
                         display += "</div></div></td>";
                         display += "<td class='shoping__cart__total' id='pTotal'>" + Math.Round(cartProduct.Price * decimal.Parse(qty), 2) + "</td>";
@@ -76,7 +74,7 @@ namespace GreenPantryFrontend
                 if (subTotal < 500)
                     Delivery = 60.00M;
                 decimal VAT = subTotal * (decimal)(0.15/1.15);
-                decimal carttotal = subTotal;
+                decimal carttotal = subTotal + Delivery;
 
                 display += "<h5>Cart Total</h5><ul><li>Subtotal<span id='checkout__cart-subtotal'>R" + Math.Round(subTotal, 2) + "</span></li>";
                 display += "<li>VAT at 15% <span id='checkout__cart-VAT'>R" + Math.Round(VAT, 2) + "</span></li><li>Delivery Fee <span id='checkout__cart-delivery'>R" + Math.Round(Delivery, 2) + "</span></li>";

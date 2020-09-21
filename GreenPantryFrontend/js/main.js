@@ -226,8 +226,22 @@
             var unitValue = $button.parent().parent().parent().parent().find('.shoping__cart__price').html();
             $button.parent().parent().parent().parent().find('.shoping__cart__total#pTotal').html((newVal * unitValue).toFixed(2));
 
-            //set quatity in cookie
+            var unitID = $button.parent().parent().parent().parent().find('.cart__item-id').text();
+            alert(unitID);
 
+            //update cookie
+            var cookie = document.cookie.split("=");
+            var cVal = cookie[1];
+            if (newVal > 0) {
+                cVal = cVal.replace(unitID + "-" + oldValue, unitID + "-" + newVal);
+            }
+            else {
+                cVal = cVal.replace(unitID + "-" + oldValue + ",", "");
+            }
+            document.cookie = "cart=" + cVal;
+            window.location = "cart.aspx";
+
+            //change totals
             const elementTotals = document.getElementsByClassName('shoping__cart__total');
             var subTotal        = 0;
 
@@ -235,18 +249,23 @@
                 subTotal += parseFloat(elementTotals[i].innerHTML);
             }
 
-            $('#checkout__cart-subtotal').html(subTotal.toFixed(2));
-            alert(subtotal);
-            $('#checkout__cart-VAT').html((subtotal * (15 / 115)).toFixed(2));
+            $('#checkout__cart-subtotal').text("R" + subTotal.toFixed(2));
 
-            if (subtotal > 500)
-                $('#checkout__cart-delivery').html(R(60).toFixed(2));
-            else
-                $('#checkout__cart-delivery').html(R(0).toFixed(2));
+            //calculate VAT
+            var VAT = subTotal * 15 / 115;
+            $('#checkout__cart-VAT').text("R" + (VAT).toFixed(2));
 
-            
+            //calculate delivery fee
+            var deliveryFee = 0;
+            if (subTotal < 500)
+                deliveryFee = 60;
+            if (subTotal === 0)
+                deliveryFee = 0;
+            $('#checkout__cart-delivery').text("R" + (deliveryFee).toFixed(2));
 
-
+            //calculate total
+            var total = subTotal + deliveryFee;
+            $('#checkout__cart-total').text("R" + total.toFixed(2));
         } 
     });
 
