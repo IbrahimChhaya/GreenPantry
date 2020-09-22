@@ -2006,12 +2006,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addInvoiceLine", ReplyAction="http://tempuri.org/IGP_Service/addInvoiceLineResponse")]
         System.Threading.Tasks.Task<int> addInvoiceLineAsync(int product_ID, int invoice_ID, int quantity, decimal price);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/searchProducts", ReplyAction="http://tempuri.org/IGP_Service/searchProductsResponse")]
-        GreenPantryFrontend.ServiceReference1.Product[] searchProducts(string input);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/searchProducts", ReplyAction="http://tempuri.org/IGP_Service/searchProductsResponse")]
-        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Product[]> searchProductsAsync(string input);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2415,14 +2409,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> addInvoiceLineAsync(int product_ID, int invoice_ID, int quantity, decimal price) {
             return base.Channel.addInvoiceLineAsync(product_ID, invoice_ID, quantity, price);
-        }
-        
-        public GreenPantryFrontend.ServiceReference1.Product[] searchProducts(string input) {
-            return base.Channel.searchProducts(input);
-        }
-        
-        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Product[]> searchProductsAsync(string input) {
-            return base.Channel.searchProductsAsync(input);
         }
     }
 }

@@ -289,12 +289,6 @@
   <wsdl:message name="IGP_Service_addInvoiceLine_OutputMessage">
     <wsdl:part name="parameters" element="tns:addInvoiceLineResponse" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_searchProducts_InputMessage">
-    <wsdl:part name="parameters" element="tns:searchProducts" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_searchProducts_OutputMessage">
-    <wsdl:part name="parameters" element="tns:searchProductsResponse" />
-  </wsdl:message>
   <wsdl:portType name="IGP_Service">
     <wsdl:operation name="login">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/login" message="tns:IGP_Service_login_InputMessage" />
@@ -483,10 +477,6 @@
     <wsdl:operation name="addInvoiceLine">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addInvoiceLine" message="tns:IGP_Service_addInvoiceLine_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/addInvoiceLineResponse" message="tns:IGP_Service_addInvoiceLine_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="searchProducts">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/searchProducts" message="tns:IGP_Service_searchProducts_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/searchProductsResponse" message="tns:IGP_Service_searchProducts_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGP_Service" type="tns:IGP_Service">
@@ -907,15 +897,6 @@
     </wsdl:operation>
     <wsdl:operation name="addInvoiceLine">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/addInvoiceLine" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="searchProducts">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/searchProducts" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
