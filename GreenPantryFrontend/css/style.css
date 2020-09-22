@@ -2295,6 +2295,11 @@ ol {
 	column-rule: #b2b2b2;
 }
 
+.useThisDumbass {
+	color: #1c1c1c;
+	margin-bottom: 20px;
+}
+
 .checkout__input {
 	margin-bottom: 24px;
 }
@@ -2376,6 +2381,61 @@ ol {
 	transform: rotate(127deg);
 	content: "";
 	opacity: 0;
+}
+
+.gpLabel {
+	margin-bottom: .5rem;
+	font-size: 13.5px;
+	float: left;
+	padding: 3px 4px 0px 0px;
+	color: #1c1c1c;
+	font-weight: 600;
+}
+
+.gpLabel2 {
+	margin-bottom: .5rem;
+	font-size: 13.5px;
+	float: left;
+	padding: 3px 30px 10px 0px;
+	color: #1c1c1c;
+	font-weight: 600;
+}
+
+.gpP {
+	font-weight: 700 !important;
+	color: #0FAB2C !important;
+}
+
+.gpInput {
+	width: 31px;
+	color: #0FAB2C;
+	font-weight: 700;
+	border: none;
+	height: 18px;
+}
+
+.apply-btn {
+	font-size: 13px;
+	color: #ffffff !important;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 13px 110px 12px;
+	background: #0FAB2C;
+	border: none;
+	border-radius: 25px;
+}
+
+.placeOrder {
+	font-size: 13px;
+	color: #ffffff;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 13px 90px 12px;
+	background: #0FAB2C;
+	border: none;
+	border-radius: 25px;
 }
 
 .checkout__order {

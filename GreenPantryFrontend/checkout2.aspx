@@ -53,27 +53,44 @@
                             <div class="checkout__input">
                                 <p>Address<span>*</span></p>
                                 <input type="text" placeholder="Street Address" class="checkout__input__add" id="line1" runat="server">
-                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)" id="line2" runat="server">
+                                <input type="text" placeholder="Apartment, suite, unit, ect (optional)" id="line2" runat="server">
                             </div>
                             <div class="checkout__input">
                                 <p>Suburb<span>*</span></p>
-                                <input type="text" id="suburb" runat="server">
+                                <input type="text" placeholder="Suburb" id="suburb" runat="server">
                             </div>
                             <div class="checkout__input">
                                 <p>Town/City<span>*</span></p>
-                                <input type="text" id="town" runat="server">
+                                <input type="text" placeholder="Town or City" id="town" runat="server">
                             </div>
                             <div class="checkout_input">
-                                <select name="cars" id="cars">
-                                    <option value="volvo">Volvo</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="opel">Opel</option>
-                                    <option value="audi">Audi</option>
+                                <p style="color: #1c1c1c;margin-bottom: 20px;">Province<span>*</span></p>
+                                <select name="province" id="provincesList">
+                                    <option value="Province" disabled selected hidden>Province</option>
+                                    <option value="Eastern Cape">Eastern Cape</option>
+                                    <option value="Free State">Free State</option>
+                                    <option value="Gauteng">Gauteng</option>
+                                    <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                                    <option value="Limpopo">Limpopo</option>
+                                    <option value="Mpumalanga">Mpumalanga</option>
+                                    <option value="Northern Cape">Northern Cape</option>
+                                    <option value="North West">North West</option>
+                                    <option value="Western Cape">Western Cape</option>
                                 </select>
                             </div>
+
+                            <br />
+                            <br />
+                            <br />
+
                             <div class="checkout__input">
                                 <p>Postcode / ZIP<span>*</span></p>
-                                <input type="text" id="postcode" runat="server">
+                                <input type="text" Placeholder="Postal Code" id="postcode" runat="server">
+                            </div>
+
+                            <div class="checkout__input">
+                                <p>Phone Number<span>*</span></p>
+                                <input type="number" Placeholder="Phone Number" id="number" runat="server">
                             </div>
 
                             <div class="checkout__input">
@@ -81,8 +98,29 @@
                                 <input type="text"
                                     placeholder="Notes about your order, e.g. special notes for delivery.">
                             </div>
+                            <!--<div class="checkout__input__checkbox">
+                                <p style="color: #1c1c1c;margin-bottom: 20px;">Use Points?</p>
+                                <label for="acc">
+                                    Points Available: 5
+                                    <input type="checkbox" id="acc">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>-->
                         </div>
+
                         <div class="col-lg-4 col-md-6">
+                            
+                            <div class="checkout__order">
+                                <h4>Green Points</h4>
+                                <label class="gpLabel">Green Points available in Rands:</label><p class="gpP">R500</p>
+                                <label class="gpLabel2">Amount you'd like to spend:</label> 
+                                <p class="gpP">R<input type="text" id="Text2" runat="server" class="gpInput"></p>
+                                <a class="apply-btn">Redeem</a>                            
+                            </div>
+
+                            <br />
+                            <br />
+
                             <div class="checkout__order">
                                 <h4>Your Order</h4>
                                 <div class="checkout__order__products">Products <span>Total</span></div>
@@ -95,7 +133,7 @@
                                 <div class="checkout__order__total" id="orderTotal" runat="server">Total <span>$750.99</span></div>
 
                                 <asp:Label ID="error" Text="An error has occurred" runat="server" Visible="false" />
-                                <asp:Button text="PLACE ORDER" class="site-btn" ID="btnOrder" runat="server" OnClick="btnOrder_Click"></asp:Button>
+                                <asp:Button text="PLACE ORDER" class="placeOrder" ID="btnOrder" runat="server" OnClick="btnOrder_Click"></asp:Button>
                             </div>
                         </div>
                     </div>
