@@ -79,7 +79,7 @@ namespace GreenPantryFrontend
                 display += "<h5>Cart Total</h5><ul><li>Subtotal<span id='checkout__cart-subtotal'>R" + Math.Round(subTotal, 2) + "</span></li>";
                 display += "<li>VAT at 15% <span id='checkout__cart-VAT'>R" + Math.Round(VAT, 2) + "</span></li><li>Delivery Fee <span id='checkout__cart-delivery'>R" + Math.Round(Delivery, 2) + "</span></li>";
                 display += "<li>Total<span id='checkout__cart-total'>R" + Math.Round(carttotal, 2) + "</span></li>";
-                display += "</ul><a href = 'checkout.aspx' class='primary-btn'>PROCEED TO CHECKOUT</a>";
+                display += "</ul><a href = 'checkout2.aspx' class='primary-btn'>PROCEED TO CHECKOUT</a>";
                 cartTotal.InnerHtml = display;
             }
         }

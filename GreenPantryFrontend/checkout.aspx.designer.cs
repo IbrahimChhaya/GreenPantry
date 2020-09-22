@@ -96,6 +96,24 @@ namespace GreenPantryFrontend
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ProductSubtotal;
 
         /// <summary>
+        /// deliveryCharge control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl deliveryCharge;
+
+        /// <summary>
+        /// usrPoints control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl usrPoints;
+
+        /// <summary>
         /// P_Total control.
         /// </summary>
         /// <remarks>
