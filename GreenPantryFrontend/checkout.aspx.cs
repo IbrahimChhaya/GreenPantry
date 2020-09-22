@@ -22,7 +22,7 @@ namespace GreenPantryFrontend
            // if (Session["LoggedInUserID"] != null)
            // {
                 bool freeShipping = false;
-                Response.Cookies["cart"].Value = "1-1,2-3";
+               // Response.Cookies["cart"].Value = "1-1,2-3";
                 dynamic CookieContent = Request.Cookies["cart"].Value;
 
                 dynamic products = CookieContent.Split(',');
@@ -35,22 +35,23 @@ namespace GreenPantryFrontend
 
                 foreach (dynamic p in products)
                 {
+                    if (!p.Equals(""))
+                    {
+                        string[] productDetails = p.Split('-');
+                        var pID = productDetails[0];
+                        pIds.Add(pID);
 
-                    string[] productDetails = p.Split('-');
-                    var pID = productDetails[0];
-                    pIds.Add(pID);
-
-                    var cartProduct = SR.getProductByID(int.Parse(pID));
-                    var qty = productDetails[1];
-                    qtys.Add(qty);
+                        var cartProduct = SR.getProductByID(int.Parse(pID));
+                        var qty = productDetails[1];
+                        qtys.Add(qty);
 
 
-                    subtotal += cartProduct.Price;
+                        subtotal += cartProduct.Price;
 
-                    display += "<li>" + cartProduct.Name + "<span>R" + Math.Round(cartProduct.Price, 2) + "</span></li>";
+                        display += "<li>" + cartProduct.Name + "<span>R" + Math.Round(cartProduct.Price, 2) + "</span></li>";
 
-                    total += SR.calcProductVAT(cartProduct.ID) + subtotal;
-
+                        total += SR.calcProductVAT(cartProduct.ID) + subtotal;
+                    }
 
                 }
                 Checkout.InnerHtml = display;
@@ -73,7 +74,7 @@ namespace GreenPantryFrontend
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            Response.Cookies["cart"].Value = "1-1, 2-3";
+            //Response.Cookies["cart"].Value = "1-1, 2-3";
             dynamic CookieContent = Request.Cookies["cart"].Value;           
 
             int userID=0;
@@ -92,15 +93,18 @@ namespace GreenPantryFrontend
                     
                     foreach (dynamic p in products)
                     {
-                        string[] productDetails = p.Split('-');
-                        var pID = productDetails[0];
-                        pIds.Add(pID);
+                        if (!p.Equals(""))
+                        {
+                            string[] productDetails = p.Split('-');
+                            var pID = productDetails[0];
+                            pIds.Add(pID);
 
-                        var cartProduct = SR.getProductByID(int.Parse(pID));
-                        var qty = productDetails[1];
-                        qtys.Add(qty);
+                            var cartProduct = SR.getProductByID(int.Parse(pID));
+                            var qty = productDetails[1];
+                            qtys.Add(qty);
 
-                        int addinvLine = SR.addInvoiceLine(cartProduct.ID, addInvoice, Convert.ToInt32(qty),cartProduct.Price);
+                            int addinvLine = SR.addInvoiceLine(cartProduct.ID, addInvoice, Convert.ToInt32(qty), cartProduct.Price);
+                        }
                     }
                     Response.Redirect("orders.aspx");
 

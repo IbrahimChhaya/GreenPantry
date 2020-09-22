@@ -7,38 +7,38 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AdminDashboard
+namespace GreenPantryFrontend
 {
 
 
-    public partial class dashboard
+    public partial class results
     {
 
         /// <summary>
-        /// traffic control.
+        /// breadcrumb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl traffic;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl breadcrumb;
 
         /// <summary>
-        /// trafficChange control.
+        /// subcatList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl trafficChange;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl subcatList;
 
         /// <summary>
-        /// chart1Li control.
+        /// categoryProducts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chart1Li;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl categoryProducts;
     }
 }

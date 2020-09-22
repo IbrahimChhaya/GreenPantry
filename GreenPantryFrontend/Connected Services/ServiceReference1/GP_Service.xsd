@@ -733,4 +733,91 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="addPoints">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Cust_ID" type="xs:int" />
+        <xs:element minOccurs="0" name="points" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPointsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addPointsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePoints">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="point_id" type="xs:int" />
+        <xs:element minOccurs="0" name="Cust_ID" type="xs:int" />
+        <xs:element minOccurs="0" name="points" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatePointsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatePointsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpointbyID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="point_ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpointbyIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getpointbyIDResult" nillable="true" type="q23:Point" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpointbyUserID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Cus_ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpointbyUserIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getpointbyUserIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpointIDbyUserID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Cus_ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getpointIDbyUserIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getpointIDbyUserIDResult" nillable="true" type="q24:Point" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCategorybyProductID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="p_ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCategorybyProductIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getCategorybyProductIDResult" nillable="true" type="q25:ProductCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

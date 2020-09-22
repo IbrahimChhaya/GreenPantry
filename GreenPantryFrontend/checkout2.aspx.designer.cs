@@ -11,106 +11,97 @@ namespace GreenPantryFrontend
 {
 
 
-    public partial class singleproduct
+    public partial class checkout2
     {
 
         /// <summary>
-        /// title control.
+        /// line1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl title;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText line1;
 
         /// <summary>
-        /// productName control.
+        /// line2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl productName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText line2;
 
         /// <summary>
-        /// PImage control.
+        /// suburb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PImage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText suburb;
 
         /// <summary>
-        /// PDetails control.
+        /// town control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PDetails;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText town;
 
         /// <summary>
-        /// pName control.
+        /// postcode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText postcode;
 
         /// <summary>
-        /// pPrice control.
+        /// checkoutItems control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pPrice;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl checkoutItems;
 
         /// <summary>
-        /// item_qty control.
+        /// orderSubtotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText item_qty;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl orderSubtotal;
 
         /// <summary>
-        /// form1 control.
+        /// orderTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl orderTotal;
 
         /// <summary>
-        /// Add control.
+        /// error control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Add;
+        protected global::System.Web.UI.WebControls.Label error;
 
         /// <summary>
-        /// Description control.
+        /// btnOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Description;
-
-        /// <summary>
-        /// RelatedProducts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RelatedProducts;
+        protected global::System.Web.UI.WebControls.Button btnOrder;
     }
 }
