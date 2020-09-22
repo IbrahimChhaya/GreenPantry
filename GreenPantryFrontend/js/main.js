@@ -239,7 +239,7 @@
             }
             document.cookie = "cart=" + cVal;
             if(newVal <= 0)
-                 indow.location = "cart.aspx";
+                 window.location = "cart.aspx";
 
             //change totals
             const elementTotals = document.getElementsByClassName('shoping__cart__total');
