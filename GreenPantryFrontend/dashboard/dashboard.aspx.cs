@@ -21,6 +21,9 @@ namespace AdminDashboard
             //if(trafficPercent > 0)
             //  trafficChange.InnerHtml = "<i class='fa fa-arrow-up'></i> 3.48%
 
+         
+
+
         }
-    }
+}
 }

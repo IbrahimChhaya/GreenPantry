@@ -19,8 +19,8 @@ namespace GreenPantryFrontend
         protected void Page_Load(object sender, EventArgs e)
         {
             //if the session does not exist then redirect to home
-            if (Session["LoggedInUserID"] != null)
-            {
+           // if (Session["LoggedInUserID"] != null)
+           // {
                 bool freeShipping = false;
                 Response.Cookies["cart"].Value = "1-1,2-3";
                 dynamic CookieContent = Request.Cookies["cart"].Value;
@@ -63,11 +63,11 @@ namespace GreenPantryFrontend
                 {
                     freeShipping = true;
                 }
-             }
-            else
-            {
-               Response.Redirect("login.aspx");
-            }
+            // }
+           // else
+            //{
+            //  Response.Redirect("login.aspx");
+            //}
 
     }
 
