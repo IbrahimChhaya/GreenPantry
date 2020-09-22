@@ -19,13 +19,14 @@ namespace GreenPantryFrontend
             if (Session["LoggedInUserID"] != null)
             {
                 var user = SC.getUser(Convert.ToInt32(Session["LoggedInUserID"]));
+                var points = SC.getpointbyUserID(user.ID);  
                 if (user.UserType.Equals("admin"))
                 {
                     account.InnerHtml = "<a href='/dashboard/dashboard.aspx'>Dashboard</a>";
                 }
                 else
                 {
-                    display = "<a href='account.aspx'>My Account</a>";
+                    display = "<a href='account.aspx'>My Account (" + points + ")</a>";
                     account.InnerHtml = display;
                 }
                 
