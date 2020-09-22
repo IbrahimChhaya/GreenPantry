@@ -289,6 +289,48 @@
   <wsdl:message name="IGP_Service_addInvoiceLine_OutputMessage">
     <wsdl:part name="parameters" element="tns:addInvoiceLineResponse" />
   </wsdl:message>
+  <wsdl:message name="IGP_Service_searchProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:searchProducts" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_searchProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:searchProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addPoints_InputMessage">
+    <wsdl:part name="parameters" element="tns:addPoints" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addPoints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addPointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updatePoints_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePoints" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updatePoints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getpointbyID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getpointbyID" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getpointbyID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getpointbyIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getpointbyUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getpointbyUserID" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getpointbyUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getpointbyUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getpointIDbyUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getpointIDbyUserID" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getpointIDbyUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getpointIDbyUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getCategorybyProductID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCategorybyProductID" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getCategorybyProductID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCategorybyProductIDResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGP_Service">
     <wsdl:operation name="login">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/login" message="tns:IGP_Service_login_InputMessage" />
@@ -477,6 +519,34 @@
     <wsdl:operation name="addInvoiceLine">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addInvoiceLine" message="tns:IGP_Service_addInvoiceLine_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/addInvoiceLineResponse" message="tns:IGP_Service_addInvoiceLine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="searchProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/searchProducts" message="tns:IGP_Service_searchProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/searchProductsResponse" message="tns:IGP_Service_searchProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addPoints">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addPoints" message="tns:IGP_Service_addPoints_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/addPointsResponse" message="tns:IGP_Service_addPoints_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePoints">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/updatePoints" message="tns:IGP_Service_updatePoints_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/updatePointsResponse" message="tns:IGP_Service_updatePoints_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getpointbyID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getpointbyID" message="tns:IGP_Service_getpointbyID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getpointbyIDResponse" message="tns:IGP_Service_getpointbyID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getpointbyUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getpointbyUserID" message="tns:IGP_Service_getpointbyUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getpointbyUserIDResponse" message="tns:IGP_Service_getpointbyUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getpointIDbyUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getpointIDbyUserID" message="tns:IGP_Service_getpointIDbyUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getpointIDbyUserIDResponse" message="tns:IGP_Service_getpointIDbyUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategorybyProductID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getCategorybyProductID" message="tns:IGP_Service_getCategorybyProductID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getCategorybyProductIDResponse" message="tns:IGP_Service_getCategorybyProductID_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGP_Service" type="tns:IGP_Service">
@@ -897,6 +967,69 @@
     </wsdl:operation>
     <wsdl:operation name="addInvoiceLine">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/addInvoiceLine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchProducts">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/searchProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPoints">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/addPoints" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePoints">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/updatePoints" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getpointbyID">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getpointbyID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getpointbyUserID">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getpointbyUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getpointIDbyUserID">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getpointIDbyUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategorybyProductID">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getCategorybyProductID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

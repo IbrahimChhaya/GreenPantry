@@ -2006,6 +2006,48 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addInvoiceLine", ReplyAction="http://tempuri.org/IGP_Service/addInvoiceLineResponse")]
         System.Threading.Tasks.Task<int> addInvoiceLineAsync(int product_ID, int invoice_ID, int quantity, decimal price);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/searchProducts", ReplyAction="http://tempuri.org/IGP_Service/searchProductsResponse")]
+        GreenPantryFrontend.ServiceReference1.Product[] searchProducts(string input);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/searchProducts", ReplyAction="http://tempuri.org/IGP_Service/searchProductsResponse")]
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Product[]> searchProductsAsync(string input);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addPoints", ReplyAction="http://tempuri.org/IGP_Service/addPointsResponse")]
+        int addPoints(int Cust_ID, int points);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addPoints", ReplyAction="http://tempuri.org/IGP_Service/addPointsResponse")]
+        System.Threading.Tasks.Task<int> addPointsAsync(int Cust_ID, int points);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updatePoints", ReplyAction="http://tempuri.org/IGP_Service/updatePointsResponse")]
+        int updatePoints(int point_id, int Cust_ID, int points);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updatePoints", ReplyAction="http://tempuri.org/IGP_Service/updatePointsResponse")]
+        System.Threading.Tasks.Task<int> updatePointsAsync(int point_id, int Cust_ID, int points);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getpointbyID", ReplyAction="http://tempuri.org/IGP_Service/getpointbyIDResponse")]
+        GreenPantryFrontend.ServiceReference1.Point getpointbyID(int point_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getpointbyID", ReplyAction="http://tempuri.org/IGP_Service/getpointbyIDResponse")]
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Point> getpointbyIDAsync(int point_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getpointbyUserID", ReplyAction="http://tempuri.org/IGP_Service/getpointbyUserIDResponse")]
+        int getpointbyUserID(int Cus_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getpointbyUserID", ReplyAction="http://tempuri.org/IGP_Service/getpointbyUserIDResponse")]
+        System.Threading.Tasks.Task<int> getpointbyUserIDAsync(int Cus_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getpointIDbyUserID", ReplyAction="http://tempuri.org/IGP_Service/getpointIDbyUserIDResponse")]
+        GreenPantryFrontend.ServiceReference1.Point getpointIDbyUserID(int Cus_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getpointIDbyUserID", ReplyAction="http://tempuri.org/IGP_Service/getpointIDbyUserIDResponse")]
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Point> getpointIDbyUserIDAsync(int Cus_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getCategorybyProductID", ReplyAction="http://tempuri.org/IGP_Service/getCategorybyProductIDResponse")]
+        GreenPantryFrontend.ServiceReference1.ProductCategory getCategorybyProductID(int p_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getCategorybyProductID", ReplyAction="http://tempuri.org/IGP_Service/getCategorybyProductIDResponse")]
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.ProductCategory> getCategorybyProductIDAsync(int p_ID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2409,6 +2451,62 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> addInvoiceLineAsync(int product_ID, int invoice_ID, int quantity, decimal price) {
             return base.Channel.addInvoiceLineAsync(product_ID, invoice_ID, quantity, price);
+        }
+        
+        public GreenPantryFrontend.ServiceReference1.Product[] searchProducts(string input) {
+            return base.Channel.searchProducts(input);
+        }
+        
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Product[]> searchProductsAsync(string input) {
+            return base.Channel.searchProductsAsync(input);
+        }
+        
+        public int addPoints(int Cust_ID, int points) {
+            return base.Channel.addPoints(Cust_ID, points);
+        }
+        
+        public System.Threading.Tasks.Task<int> addPointsAsync(int Cust_ID, int points) {
+            return base.Channel.addPointsAsync(Cust_ID, points);
+        }
+        
+        public int updatePoints(int point_id, int Cust_ID, int points) {
+            return base.Channel.updatePoints(point_id, Cust_ID, points);
+        }
+        
+        public System.Threading.Tasks.Task<int> updatePointsAsync(int point_id, int Cust_ID, int points) {
+            return base.Channel.updatePointsAsync(point_id, Cust_ID, points);
+        }
+        
+        public GreenPantryFrontend.ServiceReference1.Point getpointbyID(int point_ID) {
+            return base.Channel.getpointbyID(point_ID);
+        }
+        
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Point> getpointbyIDAsync(int point_ID) {
+            return base.Channel.getpointbyIDAsync(point_ID);
+        }
+        
+        public int getpointbyUserID(int Cus_ID) {
+            return base.Channel.getpointbyUserID(Cus_ID);
+        }
+        
+        public System.Threading.Tasks.Task<int> getpointbyUserIDAsync(int Cus_ID) {
+            return base.Channel.getpointbyUserIDAsync(Cus_ID);
+        }
+        
+        public GreenPantryFrontend.ServiceReference1.Point getpointIDbyUserID(int Cus_ID) {
+            return base.Channel.getpointIDbyUserID(Cus_ID);
+        }
+        
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Point> getpointIDbyUserIDAsync(int Cus_ID) {
+            return base.Channel.getpointIDbyUserIDAsync(Cus_ID);
+        }
+        
+        public GreenPantryFrontend.ServiceReference1.ProductCategory getCategorybyProductID(int p_ID) {
+            return base.Channel.getCategorybyProductID(p_ID);
+        }
+        
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.ProductCategory> getCategorybyProductIDAsync(int p_ID) {
+            return base.Channel.getCategorybyProductIDAsync(p_ID);
         }
     }
 }

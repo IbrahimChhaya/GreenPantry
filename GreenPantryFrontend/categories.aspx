@@ -12,7 +12,7 @@
                     <div class="breadcrumb__text" id="breadcrumb" runat="server">
                         <h2>Category Name</h2>
                         <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
+                            <a href="./home.aspx">Home</a>
                             <span>Category name</span>
                         </div>
                     </div>
