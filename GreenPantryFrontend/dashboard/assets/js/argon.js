@@ -878,7 +878,9 @@ var SalesChart = (function() {
   // Methods
 
   function init($chart) {
-
+	  //var label = document.getElementById('Label1');
+	  //label = label.split(",");
+	  
     var salesChart = new Chart($chart, {
       type: 'line',
       options: {
@@ -914,15 +916,17 @@ var SalesChart = (function() {
             }
           }
         }
-      },
+		},
       data: {
-        labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+		  labels: ["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
         datasets: [{
           label: 'Performance',
           data: [50, 10, 20, 30, 35, 30, 40, 60, 60]
         }]
       }
     });
+
+	  
 
     // Save to jQuery object
 

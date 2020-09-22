@@ -34,8 +34,16 @@ namespace GreenPantryFrontend
             display = "";
             if (Session["LoggedInUserID"] != null)
             {
-                display += "<a href='account.aspx'>My Account</a>";
-                account.InnerHtml = display;
+                var user = SC.getUser(Convert.ToInt32(Session["LoggedInUserID"]));
+                if (user.UserType.Equals("admin"))
+                {
+                    account.InnerHtml = "<a href='/dashboard/dashboard.aspx'>Dashboard</a>";
+                }
+                else
+                {
+                    display += "<a href='account.aspx'>My Account</a>";
+                    account.InnerHtml = display;
+                }
             }
 
             //search box categories drop down --------------------------------------------------------------------
