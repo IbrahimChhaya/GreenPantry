@@ -30,18 +30,15 @@ namespace GreenPantryFrontend
 
                 display += "<li><a href='/categories.aspx?CategoryID=" + c.ID + "'>" + c.Name + "</a></li>";
             }
-
             categoryList.InnerHtml = display;
+
+
         }
 
         protected void Search_Click(object sender,EventArgs e)
         {
-          
-            string userInput = SearchBar.Value;
-
-            Response.Redirect("Results.aspx?Search=" + userInput);
-
-
+            string userInput = searchText.Value;
+            Response.Redirect("/results.aspx?Search=" + userInput);
         }
     }
 }

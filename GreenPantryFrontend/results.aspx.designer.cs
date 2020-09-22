@@ -11,52 +11,34 @@ namespace GreenPantryFrontend
 {
 
 
-    public partial class cart
+    public partial class results
     {
 
         /// <summary>
-        /// tablerow control.
+        /// breadcrumb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tablerow;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl breadcrumb;
 
         /// <summary>
-        /// pID control.
+        /// subcatList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label pID;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl subcatList;
 
         /// <summary>
-        /// Cart_continue control.
+        /// categoryProducts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor Cart_continue;
-
-        /// <summary>
-        /// update control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor update;
-
-        /// <summary>
-        /// cartTotal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cartTotal;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl categoryProducts;
     }
 }
