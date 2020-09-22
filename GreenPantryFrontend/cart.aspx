@@ -39,9 +39,33 @@
                                 </tr>
                             </thead>
                             <tbody  runat="server" ID="tablerow">
+
+                               <%-- <tr>
+                                    <td class="shoping__cart__item">
+                                        <img src="img/cart/cart-1.jpg" alt="">
+                                        <h5>Vegetable’s Package</h5>
+                                    </td>
+                                    <td class="shoping__cart__price">
+                                        $55.00
+                                    </td>
+                                    <td class="shoping__cart__quantity">
+                                        <div class="quantity">
+                                            <div class="pro-Cartqty">
+                                                <span class="dec qtybtn" runat ="server" id="decQty" ><a href="" onclick="decQty_Click(1,2)">-</a></span>
+                                                <input type="text" value="1" runat ="server"  id="item_qty" oninput="decreaseQty()">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="shoping__cart__total">
+                                        $110.00
+                                    </td>
+                                    <td class="shoping__cart__item__close">
+                                        <span class="icon_close"></span>
+                                    </td>
+                                </tr>--%>
                                 <asp:Label ID="pID" runat="server" Text="Incorrect Password or Username" visible="false" ></asp:Label>
 <%--                              <span class="dec qtybtn" runat ="server" id="decQty" onclick="decQty_Click" href="cart.aspx">-</span>--%>
-                                <div class="quantity"><div class="pro-qty"><input type ="text" value=" " runat="server" id="item_qty"></div></div>
+<%--                                <div class="quantity"><div class="pro-qty"><input type ="text" value=" " runat="server" id="item_qty"></div></div>--%>
                             </tbody>
                         </table>
                     </div>

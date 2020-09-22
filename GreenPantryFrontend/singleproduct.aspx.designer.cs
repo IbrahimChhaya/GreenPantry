@@ -69,13 +69,13 @@ namespace GreenPantryFrontend
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pPrice;
 
         /// <summary>
-        /// quantity control.
+        /// item_qty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText quantity;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText item_qty;
 
         /// <summary>
         /// form1 control.

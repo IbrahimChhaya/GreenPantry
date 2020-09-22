@@ -206,10 +206,12 @@
     proQty.prepend('<span class="dec qtybtn">-</span>');
     proQty.append('<span class="inc qtybtn">+</span>');
     proQty.on('click', '.qtybtn', function () {
-        var $button = $(this);
-        var oldValue = $button.parent().find('input').val();
+        var $button   = $(this);
+        var oldValue  = $button.parent().find('input').val();
+
         if ($button.hasClass('inc')) {
             var newVal = parseFloat(oldValue) + 1;
+
         } else {
             // Don't allow decrementing below zero
             if (oldValue > 0) {
@@ -219,6 +221,52 @@
             }
         }
         $button.parent().find('input').val(newVal);
+     
+        if (window.location.pathname === "/cart.aspx") {
+            var unitValue = $button.parent().parent().parent().parent().find('.shoping__cart__price').html();
+            $button.parent().parent().parent().parent().find('.shoping__cart__total#pTotal').html((newVal * unitValue).toFixed(2));
+
+            var unitID = $button.parent().parent().parent().parent().find('.cart__item-id').html();
+
+            //update cookie
+            var cookie = document.cookie.split("=");
+            var cVal = cookie[1];
+            if (newVal > 0) {
+                cVal = cVal.replace(unitID + "-" + oldValue, unitID + "-" + newVal);
+            }
+            else {
+                cVal = cVal.replace(unitID + "-" + oldValue + ",", "");
+            }
+            document.cookie = "cart=" + cVal;
+            if(newVal <= 0)
+                 window.location = "cart.aspx";
+
+            //change totals
+            const elementTotals = document.getElementsByClassName('shoping__cart__total');
+            var subTotal        = 0;
+
+            for (var i = 0; i < elementTotals.length; i++) {
+                subTotal += parseFloat(elementTotals[i].innerHTML);
+            }
+
+            $('#checkout__cart-subtotal').text("R" + subTotal.toFixed(2));
+
+            //calculate VAT
+            var VAT = subTotal * 15 / 115;
+            $('#checkout__cart-VAT').text("R" + (VAT).toFixed(2));
+
+            //calculate delivery fee
+            var deliveryFee = 0;
+            if (subTotal < 500)
+                deliveryFee = 60;
+            if (subTotal === 0)
+                deliveryFee = 0;
+            $('#checkout__cart-delivery').text("R" + (deliveryFee).toFixed(2));
+
+            //calculate total
+            var total = subTotal + deliveryFee;
+            $('#checkout__cart-total').text("R" + total.toFixed(2));
+        } 
     });
 
 })(jQuery);
