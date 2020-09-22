@@ -11,7 +11,6 @@ namespace GreenPantryFrontend
     public partial class categories : System.Web.UI.Page
     {
         GP_ServiceClient SC = new GP_ServiceClient();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             String display = "";

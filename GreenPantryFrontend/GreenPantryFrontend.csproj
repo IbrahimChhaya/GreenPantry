@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="account.aspx" />
+    <Content Include="checkout2.aspx" />
     <Content Include="dashboard\assets\css\argon.css" />
     <Content Include="dashboard\assets\css\argon.min.css" />
     <Content Include="dashboard\assets\css\bootstrap\bootstrap-grid.css" />
@@ -3321,6 +3322,7 @@
     <Content Include="register.aspx" />
     <Content Include="register2.aspx" />
     <Content Include="dashboard\reports.aspx" />
+    <Content Include="results.aspx" />
     <Content Include="singleproduct.aspx" />
     <Content Include="subcategory.aspx" />
     <Content Include="dashboard\users.aspx" />
@@ -3347,6 +3349,13 @@
     </Compile>
     <Compile Include="categories.aspx.designer.cs">
       <DependentUpon>categories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="checkout2.aspx.cs">
+      <DependentUpon>checkout2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkout2.aspx.designer.cs">
+      <DependentUpon>checkout2.aspx</DependentUpon>
     </Compile>
     <Compile Include="dashboard\category.aspx.cs">
       <DependentUpon>category.aspx</DependentUpon>
@@ -3473,6 +3482,13 @@
     </Compile>
     <Compile Include="dashboard\reports.aspx.designer.cs">
       <DependentUpon>reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="results.aspx.cs">
+      <DependentUpon>results.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="results.aspx.designer.cs">
+      <DependentUpon>results.aspx</DependentUpon>
     </Compile>
     <Compile Include="singleproduct.aspx.cs">
       <DependentUpon>singleproduct.aspx</DependentUpon>
