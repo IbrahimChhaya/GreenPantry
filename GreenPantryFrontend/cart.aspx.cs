@@ -84,44 +84,6 @@ namespace GreenPantryFrontend
             }
         }
 
-        //private void decreaseQty(string PId)
-        //{
-        //    dynamic cookie = Request.Cookies["cart"].Value;
-
-        //    dynamic cSplit = cookie.Split(",");
-
-        //    string valueToChange = PId + "-" + (item_qty.Value);
-        //    int indexchanged = 0;
-
-        //    for (int i = 0; i < cSplit.length; ++i)
-        //    {
-        //        string[] pro = cSplit[i];
-        //        if (pro.Contains(PId))
-        //        {
-        //            pro.SetValue(PId + "-" + (int.Parse(item_qty.Value) - 1), i);
-        //            indexchanged = i;
-        //            break;
-        //        }
-        //    }
-
-        //    }
-            //protected void decQty_Click(object sender, EventArgs e)
-            //{
-            //    int pId = Convert.ToInt32(Request.QueryString["pId"]);
-
-            //    dynamic cookiecontent = Request.Cookies["cart"].Values;
-
-            //    var qty = item_qty.Value;
-
-            //}
-
-            protected void update_Click(object sender, EventArgs e)
-        {
-           // Response.Cookies["cart"].Value = "1-2, 2-3";
-            Response.Redirect("cart.aspx");
-
-        }
-
         private decimal calcSubtotal(List<decimal> totals)
         {
             decimal subTotal = 0;

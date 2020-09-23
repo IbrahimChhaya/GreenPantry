@@ -4,7 +4,7 @@
 
   <!-- Main content -->
   <div class="main-content" id="panel">
-   
+  
     <!-- Header -->
     <div class="header bg-primary pb-6">
       <div class="container-fluid">
@@ -124,14 +124,16 @@
                 </div>
                 <div class="col" runat="server" id="chart1Li">
                   <ul class="nav nav-pills justify-content-end">
-                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"labels": ["I", "Hope", "This", "Works", "Jun", "Jul", "Aug", "Sep"],"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="R" data-suffix="k">
-                        <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
-                        <span class="d-none d-md-block">Month</span>
-                        <span class="d-md-none">M</span>
-                      </a>
+                    <li id="salesMonthToggle" class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"labels": ["I", "Hope", "This", "Works", "Jun", "Jul", "Aug", "Sep"],"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="R" data-suffix="k">
+                     <form runat="server">
+                        <a OnClick="monthlyChart()" class="nav-link py-2 px-3 active" data-toggle="tab">
+                            <span class="d-none d-md-block">Month</span>
+                            <span class="d-md-none">M</span>
+                        </a>
+                    </form>
                     </li>
-                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"labels": ["I", "Hope", "This", "Works", "Jun", "Jul", "Aug", "Sep"],"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="R" data-suffix="k">
-                      <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                    <li class="nav-item" id="weekToggle" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"labels": ["I", "Hope", "This", "Works", "Jun", "Jul", "Aug", "Sep"],"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="R" data-suffix="k">
+                      <a OnClick="weeklyChart()" href="#" class="nav-link py-2 px-3" data-toggle="tab">
                         <span class="d-none d-md-block">Week</span>
                         <span class="d-md-none">W</span>
                       </a>
@@ -144,7 +146,7 @@
               <!-- Chart -->
               <div class="chart">
                 <!-- Chart wrapper -->
-                <canvas id="chart-sales-dark" class="chart-canvas"></canvas>
+                <canvas id="chart-sales" class="chart-canvas"></canvas>
               </div>
             </div>
           </div>
@@ -389,5 +391,51 @@
       </div>
     </div>
 </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (e) {
+            monthlyChart();
+        })
+
+        function monthlyChart() {
+            refreshChart(<%= jsonObj %>, [12, 19, 3, 55, 22, 63, 17, 58]);
+        }
+
+        function weeklyChart() {
+            refreshChart(<%= jsonObj %>, [42, 19, 53, 5, 12, 23, 77, 46]);
+        }
+
+        function refreshChart(chartLabels, chartData) {
+            var ctx = document.getElementById('chart-sales');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: chartLabels,
+                    datasets: [{
+                        label: 'test',
+                        data: chartData,
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            type: 'category',
+                            labels: chartLabels,
+                            ticks: {
+                                callback: function (value, index, values) {
+                                    return value.slice(0,5) + '...';
+                                }
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+    </script>
 </asp:Content>
       
