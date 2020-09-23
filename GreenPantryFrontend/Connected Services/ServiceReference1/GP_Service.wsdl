@@ -343,6 +343,24 @@
   <wsdl:message name="IGP_Service_salesPerWeek_OutputMessage">
     <wsdl:part name="parameters" element="tns:salesPerWeekResponse" />
   </wsdl:message>
+  <wsdl:message name="IGP_Service_percentageSaleChanger_InputMessage">
+    <wsdl:part name="parameters" element="tns:percentageSaleChanger" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_percentageSaleChanger_OutputMessage">
+    <wsdl:part name="parameters" element="tns:percentageSaleChangerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_NumsalesPerWeek_InputMessage">
+    <wsdl:part name="parameters" element="tns:NumsalesPerWeek" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_NumsalesPerWeek_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NumsalesPerWeekResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_NumSaleChange_InputMessage">
+    <wsdl:part name="parameters" element="tns:NumSaleChange" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_NumSaleChange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NumSaleChangeResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGP_Service">
     <wsdl:operation name="login">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/login" message="tns:IGP_Service_login_InputMessage" />
@@ -567,6 +585,18 @@
     <wsdl:operation name="salesPerWeek">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/salesPerWeek" message="tns:IGP_Service_salesPerWeek_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/salesPerWeekResponse" message="tns:IGP_Service_salesPerWeek_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="percentageSaleChanger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/percentageSaleChanger" message="tns:IGP_Service_percentageSaleChanger_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/percentageSaleChangerResponse" message="tns:IGP_Service_percentageSaleChanger_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NumsalesPerWeek">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/NumsalesPerWeek" message="tns:IGP_Service_NumsalesPerWeek_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/NumsalesPerWeekResponse" message="tns:IGP_Service_NumsalesPerWeek_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NumSaleChange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/NumSaleChange" message="tns:IGP_Service_NumSaleChange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/NumSaleChangeResponse" message="tns:IGP_Service_NumSaleChange_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGP_Service" type="tns:IGP_Service">
@@ -1068,6 +1098,33 @@
     </wsdl:operation>
     <wsdl:operation name="salesPerWeek">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/salesPerWeek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="percentageSaleChanger">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/percentageSaleChanger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NumsalesPerWeek">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/NumsalesPerWeek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NumSaleChange">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/NumSaleChange" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

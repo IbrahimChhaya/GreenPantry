@@ -44,7 +44,7 @@
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">
                 <!-- Card body -->
-                <div class="card-body">
+                <div class="card-body" id="newUsr" runat="server">
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
@@ -66,7 +66,7 @@
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">
                 <!-- Card body -->
-                <div class="card-body">
+                <div class="card-body" id="Salesperweek" runat="server">
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
