@@ -1967,6 +1967,24 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/salesPerWeek", ReplyAction="http://tempuri.org/IGP_Service/salesPerWeekResponse")]
         System.Threading.Tasks.Task<decimal> salesPerWeekAsync(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageSaleChanger", ReplyAction="http://tempuri.org/IGP_Service/percentageSaleChangerResponse")]
+        double percentageSaleChanger(System.DateTime currentDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageSaleChanger", ReplyAction="http://tempuri.org/IGP_Service/percentageSaleChangerResponse")]
+        System.Threading.Tasks.Task<double> percentageSaleChangerAsync(System.DateTime currentDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumsalesPerWeek", ReplyAction="http://tempuri.org/IGP_Service/NumsalesPerWeekResponse")]
+        int NumsalesPerWeek(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumsalesPerWeek", ReplyAction="http://tempuri.org/IGP_Service/NumsalesPerWeekResponse")]
+        System.Threading.Tasks.Task<int> NumsalesPerWeekAsync(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumSaleChange", ReplyAction="http://tempuri.org/IGP_Service/NumSaleChangeResponse")]
+        double NumSaleChange(System.DateTime currentDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumSaleChange", ReplyAction="http://tempuri.org/IGP_Service/NumSaleChangeResponse")]
+        System.Threading.Tasks.Task<double> NumSaleChangeAsync(System.DateTime currentDate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2442,6 +2460,30 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<decimal> salesPerWeekAsync(System.DateTime date) {
             return base.Channel.salesPerWeekAsync(date);
+        }
+        
+        public double percentageSaleChanger(System.DateTime currentDate) {
+            return base.Channel.percentageSaleChanger(currentDate);
+        }
+        
+        public System.Threading.Tasks.Task<double> percentageSaleChangerAsync(System.DateTime currentDate) {
+            return base.Channel.percentageSaleChangerAsync(currentDate);
+        }
+        
+        public int NumsalesPerWeek(System.DateTime date) {
+            return base.Channel.NumsalesPerWeek(date);
+        }
+        
+        public System.Threading.Tasks.Task<int> NumsalesPerWeekAsync(System.DateTime date) {
+            return base.Channel.NumsalesPerWeekAsync(date);
+        }
+        
+        public double NumSaleChange(System.DateTime currentDate) {
+            return base.Channel.NumSaleChange(currentDate);
+        }
+        
+        public System.Threading.Tasks.Task<double> NumSaleChangeAsync(System.DateTime currentDate) {
+            return base.Channel.NumSaleChangeAsync(currentDate);
         }
     }
 }

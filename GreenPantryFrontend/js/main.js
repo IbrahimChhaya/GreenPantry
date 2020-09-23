@@ -269,4 +269,46 @@
         } 
     });
 
+    /*-------------------
+        Cart item close
+    --------------------- */
+    var proClose = $('.icon_close');
+    //$('.icon_close').on('click', function(){alert("entered")})
+    $('.icon_close').on('click', function () {
+        alert("Function was entered");
+        var $button = $(this);
+        var unitID = $button.parent().parent().parent().parent().parent().parent().parent().find('.cart__item-id').html();
+        var unitQty = $button.parent().parent().parent().parent().parent().parent().parent().find('input').val();
+
+        //get cookie value
+        var cookie = getCookie("cart");
+        alert(document.cookie);
+        alert("Cookie Value:" + cookie);
+
+        //var cVal = cookie[1];
+       // cVal = cVal.replace(unitID + "-" + unitQty + ",", "");
+       // document.cookie = "cart=" + cVal;
+
+        var cVal = cookie.replace(unitID + "-" + unitQty + ",", "");
+        document.cookie = "cart=" + cVal;
+        alert(cVal);
+
+        //refresh page
+        window.location = "/cart.aspx";
+    });
+
+    function getCookie(name) {
+        var cookieArr = document.cookie.split(";");
+
+        for (var i = 0; i < cookieArr.length; i++) {
+            var singleCookie = cookieArr[i].split("=");
+
+            if (name == singleCookie[0].trim()) {
+                return decodeURIComponent(singleCookie[1]);
+            }
+        }
+
+        return null;
+    }
+
 })(jQuery);
