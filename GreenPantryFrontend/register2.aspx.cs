@@ -47,7 +47,7 @@ namespace GreenPantryFrontend
                 Session["LoggedInUserID"] = registered;
 
                 //int userID = Convert.ToInt32(Session["LoggedInUserID"]);
-                int addpoint = SR.addPoints(registered, 50);
+                int addpoint = SR.updatePoints(registered, 50);
                 if(addpoint ==1)
                 {
                     Response.Redirect("home.aspx");

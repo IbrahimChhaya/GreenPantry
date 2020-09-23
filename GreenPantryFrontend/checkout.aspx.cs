@@ -33,7 +33,7 @@ namespace GreenPantryFrontend
                 //decimal total = 0;
 
                 //getting the userpoints
-                int points = SR.getpointbyUserID(userID);
+                //int points = SR.getpointbyUserID(userID);
                 foreach (dynamic p in products)
                 {
                     if (!p.Equals(""))
@@ -56,6 +56,7 @@ namespace GreenPantryFrontend
                     }
 
                 }
+                int points = 0;
                 total = total - Convert.ToDecimal(points * 0.05);
 
                 Checkout.InnerHtml = display;
@@ -98,7 +99,8 @@ namespace GreenPantryFrontend
             userID = Convert.ToInt32(Session["LoggedInUserID"]);
             int addressUpdate = SR.AddAdress(Line1.Value, Line2.Value, suburb.Value , town.Value, 'F' ,postcode.Value,userID, Province.Value);
 
-            int points = SR.getpointbyUserID(userID);
+            //int points = SR.getpointbyUserID(userID);
+            int points = 0;
             dynamic products = CookieContent.Split(',');
          
             if (addressUpdate == 1)
@@ -108,7 +110,7 @@ namespace GreenPantryFrontend
                 //@50 need to pass the points received from the textbox
                 if(addInvoice>0)
                  {
-                    dynamic point = SR.getpointIDbyUserID(userID);
+                    //dynamic point = SR.getpointIDbyUserID(userID);
 
                     foreach (dynamic p in products)
                     {
@@ -125,11 +127,11 @@ namespace GreenPantryFrontend
                         {
                             if ((cartProduct.Price*Convert.ToDecimal(qty)) > 300)
                             {
-                                int updatepoints = SR.updatePoints(point.PointID, userID, point.Points+30);
+                                ///int updatepoints = SR.updatePoints(point.PointID, userID, point.Points+30);
                             }
                             else
                             {
-                                int updatepoints = SR.updatePoints(point.PointID, userID, point.Points+10);
+                                //int updatepoints = SR.updatePoints(point.PointID, userID, point.Points+10);
                             }
                         }
 

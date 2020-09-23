@@ -33,10 +33,10 @@ namespace GreenPantryFrontend
 
                 display = "";
                 display += "<h2 class='h2Inv'>" + user.Name + "</h2>";
-                display += "<p class='pInvoice'>"+user.Email+ "</br>"+ user.PhoneNumber+ "</p>";
+                display += "<p class='pInvoice'>"+ user.Email + "</br>"+ user.PhoneNumber + "</p>";
                 clientInfo.InnerHtml = display;
 
-                display = " ";
+                display = "";
 
                 dynamic invoiceItems = SR.getOrderedItems(invoice.ID);
 
@@ -54,25 +54,34 @@ namespace GreenPantryFrontend
 
                     subtotal += product.Price * item.Qty;
                 }
-
+                Subtotal.InnerHtml = "<h2 class ='h2Inv'>R" + Math.Round(subtotal, 2) + "</h2>";
+                
                 decimal vat = subtotal * (decimal)(0.15/1.15);
                
-
-                Subtotal.InnerHtml = "<h2 class ='h2Inv'>R"+Math.Round(subtotal,2)+"</h2>";
-                subtotal = subtotal - vat;
                 Vat.InnerHtml = "<h2 class ='h2Inv'>R" + Math.Round(vat, 2) + "</h2>";
 
-                //Total.InnerHtml = "<h3 class ='h2Inv'>R"+ Math.Round(subtotal + vat, 2) +"</h3>";
+                if (invoice.Points > 0)
+                {
+                    display = "";
+                    display += "<tr class='tabletitle; runat='server' id='points'><td></td><td></td>";
+                    display += "<td class='Rate'><h2 class='h2Inv'>Points Used</h2></td>";
+                    display += "<td class='payment' runat='server' id='pointsAmount'><h2 class ='h2Inv'>R" + invoice.Points + ".00</h2></td></tr>";
+                    pointsDiv.InnerHtml = display;
+                }
+                else
+                {
+                    pointsDiv.InnerHtml = "";
+                }
 
-                if (subtotal + vat > 500)
+                if (subtotal > 500)
                 {
                     deliverFree.InnerHtml = "<h2 class ='h2Inv'>R0.00</h2>";
-                    Total.InnerHtml = "<h2 class ='h2Inv'>R" + Math.Round(subtotal+vat, 2) + "</h2>";
+                    Total.InnerHtml = "<h2 class ='h2Inv'>R" + Math.Round((subtotal - invoice.Points), 2) + "</h2>";
                 }
                 else
                 {
                     deliverFree.InnerHtml = "<h2 class ='h2Inv'>R60.00</h2>";
-                    Total.InnerHtml = "<h2 class ='h2Inv'>R" + Math.Round(subtotal + vat + 60, 2) + "</h2>";
+                    Total.InnerHtml = "<h2 class ='h2Inv'>R" + Math.Round((subtotal + 60 - invoice.Points), 2) + "</h2>";
                 }
                     
             }
