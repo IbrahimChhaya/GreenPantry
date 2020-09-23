@@ -1632,12 +1632,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IGP_Service")]
     public interface IGP_Service {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumSaleChange", ReplyAction="http://tempuri.org/IGP_Service/NumSaleChangeResponse")]
-        double NumSaleChange(System.DateTime currentDate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumSaleChange", ReplyAction="http://tempuri.org/IGP_Service/NumSaleChangeResponse")]
-        System.Threading.Tasks.Task<double> NumSaleChangeAsync(System.DateTime currentDate);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/login", ReplyAction="http://tempuri.org/IGP_Service/loginResponse")]
         int login(string email, string password);
         
@@ -1974,42 +1968,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/salesPerWeek", ReplyAction="http://tempuri.org/IGP_Service/salesPerWeekResponse")]
         System.Threading.Tasks.Task<decimal> salesPerWeekAsync(System.DateTime date);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addCategory", ReplyAction="http://tempuri.org/IGP_Service/addCategoryResponse")]
-        int addCategory(int id, string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addCategory", ReplyAction="http://tempuri.org/IGP_Service/addCategoryResponse")]
-        System.Threading.Tasks.Task<int> addCategoryAsync(int id, string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addSubCategory", ReplyAction="http://tempuri.org/IGP_Service/addSubCategoryResponse")]
-        int addSubCategory(int id, string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addSubCategory", ReplyAction="http://tempuri.org/IGP_Service/addSubCategoryResponse")]
-        System.Threading.Tasks.Task<int> addSubCategoryAsync(int id, string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateSubCategories", ReplyAction="http://tempuri.org/IGP_Service/updateSubCategoriesResponse")]
-        int updateSubCategories(int id, string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateSubCategories", ReplyAction="http://tempuri.org/IGP_Service/updateSubCategoriesResponse")]
-        System.Threading.Tasks.Task<int> updateSubCategoriesAsync(int id, string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateCategories", ReplyAction="http://tempuri.org/IGP_Service/updateCategoriesResponse")]
-        int updateCategories(int id, string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateCategories", ReplyAction="http://tempuri.org/IGP_Service/updateCategoriesResponse")]
-        System.Threading.Tasks.Task<int> updateCategoriesAsync(int id, string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/removeSubCategory", ReplyAction="http://tempuri.org/IGP_Service/removeSubCategoryResponse")]
-        int removeSubCategory(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/removeSubCategory", ReplyAction="http://tempuri.org/IGP_Service/removeSubCategoryResponse")]
-        System.Threading.Tasks.Task<int> removeSubCategoryAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/removeCategory", ReplyAction="http://tempuri.org/IGP_Service/removeCategoryResponse")]
-        int removeCategory(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/removeCategory", ReplyAction="http://tempuri.org/IGP_Service/removeCategoryResponse")]
-        System.Threading.Tasks.Task<int> removeCategoryAsync(int id);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageSaleChanger", ReplyAction="http://tempuri.org/IGP_Service/percentageSaleChangerResponse")]
         double percentageSaleChanger(System.DateTime currentDate);
         
@@ -2021,6 +1979,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumsalesPerWeek", ReplyAction="http://tempuri.org/IGP_Service/NumsalesPerWeekResponse")]
         System.Threading.Tasks.Task<int> NumsalesPerWeekAsync(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumSaleChange", ReplyAction="http://tempuri.org/IGP_Service/NumSaleChangeResponse")]
+        double NumSaleChange(System.DateTime currentDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumSaleChange", ReplyAction="http://tempuri.org/IGP_Service/NumSaleChangeResponse")]
+        System.Threading.Tasks.Task<double> NumSaleChangeAsync(System.DateTime currentDate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2048,14 +2012,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public GP_ServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public double NumSaleChange(System.DateTime currentDate) {
-            return base.Channel.NumSaleChange(currentDate);
-        }
-        
-        public System.Threading.Tasks.Task<double> NumSaleChangeAsync(System.DateTime currentDate) {
-            return base.Channel.NumSaleChangeAsync(currentDate);
         }
         
         public int login(string email, string password) {
@@ -2506,54 +2462,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.salesPerWeekAsync(date);
         }
         
-        public int addCategory(int id, string name) {
-            return base.Channel.addCategory(id, name);
-        }
-        
-        public System.Threading.Tasks.Task<int> addCategoryAsync(int id, string name) {
-            return base.Channel.addCategoryAsync(id, name);
-        }
-        
-        public int addSubCategory(int id, string name) {
-            return base.Channel.addSubCategory(id, name);
-        }
-        
-        public System.Threading.Tasks.Task<int> addSubCategoryAsync(int id, string name) {
-            return base.Channel.addSubCategoryAsync(id, name);
-        }
-        
-        public int updateSubCategories(int id, string name) {
-            return base.Channel.updateSubCategories(id, name);
-        }
-        
-        public System.Threading.Tasks.Task<int> updateSubCategoriesAsync(int id, string name) {
-            return base.Channel.updateSubCategoriesAsync(id, name);
-        }
-        
-        public int updateCategories(int id, string name) {
-            return base.Channel.updateCategories(id, name);
-        }
-        
-        public System.Threading.Tasks.Task<int> updateCategoriesAsync(int id, string name) {
-            return base.Channel.updateCategoriesAsync(id, name);
-        }
-        
-        public int removeSubCategory(int id) {
-            return base.Channel.removeSubCategory(id);
-        }
-        
-        public System.Threading.Tasks.Task<int> removeSubCategoryAsync(int id) {
-            return base.Channel.removeSubCategoryAsync(id);
-        }
-        
-        public int removeCategory(int id) {
-            return base.Channel.removeCategory(id);
-        }
-        
-        public System.Threading.Tasks.Task<int> removeCategoryAsync(int id) {
-            return base.Channel.removeCategoryAsync(id);
-        }
-        
         public double percentageSaleChanger(System.DateTime currentDate) {
             return base.Channel.percentageSaleChanger(currentDate);
         }
@@ -2568,6 +2476,14 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> NumsalesPerWeekAsync(System.DateTime date) {
             return base.Channel.NumsalesPerWeekAsync(date);
+        }
+        
+        public double NumSaleChange(System.DateTime currentDate) {
+            return base.Channel.NumSaleChange(currentDate);
+        }
+        
+        public System.Threading.Tasks.Task<double> NumSaleChangeAsync(System.DateTime currentDate) {
+            return base.Channel.NumSaleChangeAsync(currentDate);
         }
     }
 }

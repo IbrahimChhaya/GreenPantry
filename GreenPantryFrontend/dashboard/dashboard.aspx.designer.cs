@@ -33,6 +33,24 @@ namespace AdminDashboard
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl trafficChange;
 
         /// <summary>
+        /// newUsr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl newUsr;
+
+        /// <summary>
+        /// Salesperweek control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Salesperweek;
+
+        /// <summary>
         /// chart1Li control.
         /// </summary>
         /// <remarks>

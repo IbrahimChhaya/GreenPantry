@@ -3230,6 +3230,7 @@
     <Content Include="css\slicknav.min.css" />
     <Content Include="css\style.css" />
     <Content Include="dashboard\dashboard.aspx" />
+    <Content Include="dashboard\userorders.aspx" />
     <Content Include="fonts\ElegantIcons.svg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="dashboard\gulpfile.js" />
@@ -3404,6 +3405,13 @@
     </Compile>
     <Compile Include="dashboard\Dashboard.Master.designer.cs">
       <DependentUpon>Dashboard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\userorders.aspx.cs">
+      <DependentUpon>userorders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard\userorders.aspx.designer.cs">
+      <DependentUpon>userorders.aspx</DependentUpon>
     </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
