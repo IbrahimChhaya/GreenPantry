@@ -37,6 +37,35 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="addUserNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="number" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addUserNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addUserNumberResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="removeUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="UpdateUserDetails">
     <xs:complexType>
       <xs:sequence>
@@ -733,25 +762,9 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="addPoints">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="Cust_ID" type="xs:int" />
-        <xs:element minOccurs="0" name="points" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="addPointsResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="addPointsResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="updatePoints">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="point_id" type="xs:int" />
         <xs:element minOccurs="0" name="Cust_ID" type="xs:int" />
         <xs:element minOccurs="0" name="points" type="xs:int" />
       </xs:sequence>
@@ -764,45 +777,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="getpointbyID">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="point_ID" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getpointbyIDResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getpointbyIDResult" nillable="true" type="q23:Point" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getpointbyUserID">
+  <xs:element name="getUserPoints">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="Cus_ID" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="getpointbyUserIDResponse">
+  <xs:element name="getUserPointsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="getpointbyUserIDResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getpointIDbyUserID">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="Cus_ID" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getpointIDbyUserIDResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getpointIDbyUserIDResult" nillable="true" type="q24:Point" />
+        <xs:element minOccurs="0" name="getUserPointsResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -816,7 +801,49 @@
   <xs:element name="getCategorybyProductIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getCategorybyProductIDResult" nillable="true" type="q25:ProductCategory" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getCategorybyProductIDResult" nillable="true" type="q23:ProductCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="usersperWeek">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="currentDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="usersperWeekResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usersperWeekResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="percentageUserChange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="currentDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="percentageUserChangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="percentageUserChangeResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="salesPerWeek">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="salesPerWeekResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="salesPerWeekResult" type="xs:decimal" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

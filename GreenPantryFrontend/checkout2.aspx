@@ -65,7 +65,7 @@
                             </div>
                             <div class="checkout_input">
                                 <p style="color: #1c1c1c;margin-bottom: 20px;">Province<span>*</span></p>
-                                <select name="province" id="provincesList">
+                                <select name="province" id="provincesList" runat="server">
                                     <option value="Province" disabled selected hidden>Province</option>
                                     <option value="Eastern Cape">Eastern Cape</option>
                                     <option value="Free State">Free State</option>
@@ -96,26 +96,19 @@
                             <div class="checkout__input">
                                 <p>Order notes<span>*</span></p>
                                 <input type="text"
-                                    placeholder="Notes about your order, e.g. special notes for delivery.">
+                                    placeholder="Notes about your order, e.g. special notes for delivery." id="notes" runat="server">
                             </div>
-                            <!--<div class="checkout__input__checkbox">
-                                <p style="color: #1c1c1c;margin-bottom: 20px;">Use Points?</p>
-                                <label for="acc">
-                                    Points Available: 5
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>-->
                         </div>
 
                         <div class="col-lg-4 col-md-6">
                             
                             <div class="checkout__order">
                                 <h4>Green Points</h4>
-                                <label class="gpLabel">Green Points available in Rands:</label><p class="gpP">R500</p>
+                                <label class="gpLabel">Green Points available in Rands:</label><p class="gpP" id="pointsAvailable" runat="server">R500</p>
                                 <label class="gpLabel2">Amount you'd like to spend:</label> 
-                                <p class="gpP">R<input type="text" id="Text2" runat="server" class="gpInput"></p>
-                                <a class="apply-btn">Redeem</a>                            
+                                <p class="gpP">R<input type="text" id="pointsUsed" runat="server" class="gpInput" value="0"></p>
+                                <asp:Button text="REDEEM" class="apply-btn" ID="Redeem" runat="server" OnClick="btnRedeem_Click"></asp:Button>
+                                <label id="pointsError" runat="server" visible="false">bruh</label>
                             </div>
 
                             <br />
@@ -130,6 +123,11 @@
                                     <li>Organic Bananas <span>$53.99</span></li>
                                 </ul>
                                 <div class="checkout__order__subtotal" id="orderSubtotal" runat="server">Subtotal <span>$750.99</span></div>
+                                <div id="pointsDisplay" runat="server">
+                                    <!--<div class="checkout__order__userpoints" id="orderPoints" runat="server">Points <span>Rhella</span></div>-->
+                                </div>
+                                <div class="checkout__order__shipping" id="orderVAT" runat="server">VAT <span>R60</span></div>
+                                <div class="checkout__order__shipping" id="orderShipping" runat="server">Delivery <span>R60</span></div>
                                 <div class="checkout__order__total" id="orderTotal" runat="server">Total <span>$750.99</span></div>
 
                                 <asp:Label ID="error" Text="An error has occurred" runat="server" Visible="false" />

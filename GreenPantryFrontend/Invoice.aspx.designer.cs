@@ -51,6 +51,33 @@ namespace GreenPantryFrontend
         protected global::System.Web.UI.HtmlControls.HtmlTableCell Subtotal;
 
         /// <summary>
+        /// pointsDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pointsDiv;
+
+        /// <summary>
+        /// points control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow points;
+
+        /// <summary>
+        /// pointsAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell pointsAmount;
+
+        /// <summary>
         /// delivery control.
         /// </summary>
         /// <remarks>

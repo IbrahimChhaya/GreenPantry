@@ -22,9 +22,14 @@ namespace GreenPantryFrontend
 
                 foreach (var inv in invoice)
                 {
+                    int delivery = 0;
+                    if(inv.Total < 500)
+                    {
+                        delivery = 60;
+                    }
                     display += "<tr><td><a href='/invoice.aspx?InvoiceID=" + inv.ID + "'>" + inv.ID + "</a></td><td>";
                     display += "<span class='short'>" + inv.Date + "</span></td>";
-                    display += "<td>R" + Math.Round(inv.Total, 2) + "</td>";
+                    display += "<td>R" + Math.Round((inv.Total + delivery - inv.Points), 2) + "</td>";
                     display += "<td>Dispatched</td><td></td>";
                     display += "<td><a class='site-btn' href='/invoice.aspx?InvoiceID=" + inv.ID + "'>View order</a></td></tr>";
                 }
