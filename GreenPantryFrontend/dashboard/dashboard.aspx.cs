@@ -43,11 +43,62 @@ namespace AdminDashboard
             {
                 display.Add(c.Name);
             }
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            jsonObj = serializer.Serialize(display);
             //cats = Array.ConvertAll((ProductCategory[])categories, Convert.ToString);
             List<double> profits = new List<double>();
 
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            jsonObj = serializer.Serialize(display);
+            string Display = "";
+            //Displaying the users perweek and the change in percentange
+            double userChange = SR.percentageUserChange(DateTime.Now);
+            int usrperweek = SR.usersperWeek(DateTime.Now);
+            Display += "<div class='row'><div class='col'>";
+            Display += "<h5 class='card-title text-uppercase text-muted mb-0'>New users</h5>";
+            //display += "<span class='h2 font-weight-bold mb-0'>5</span>";
+            Display += "<span class='h2 font-weight-bold mb-0'>"+ usrperweek + "</span></div>";
+            Display += "<div class='col-auto'>";
+            Display += "<div class='icon icon-shape bg-gradient-orange text-white rounded-circle shadow'>";
+            Display += "<i class='ni ni-chart-pie-35'></i></div></div></div><p class='mt-3 mb-0 text-sm'>";
+            Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i>"+ userChange +"%</span>";
+            Display += "<span class='text-nowrap'>Since last week</span></p>";
+            newUsr.InnerHtml = Display;
+
+            decimal salesperweek = SR.salesPerWeek(DateTime.Now);
+            int NumbSalesPerWeek = SR.NumsalesPerWeek(DateTime.Now);
+            double percentageChange = SR.NumSaleChange(DateTime.Now);
+            double saleChange = SR.percentageSaleChanger(DateTime.Now);
+            Display = "";
+            Display += "<div class='row'>";
+            Display += "<div class='col'>";
+            Display += "<h5 class='card-title text-uppercase text-muted mb-0'>Sales</h5>";
+            Display += "<span class='h2 font-weight-bold mb-0'>"+NumbSalesPerWeek+"</span></div>";
+            Display += "<div class='col-auto'>";
+            Display += "<div class='icon icon-shape bg-gradient-green text-white rounded-circle shadow'>";
+            Display += "<i class='ni ni-money-coins'></i></div></div></div>";
+            Display += "<p class='mt-3 mb-0 text-sm'>";
+            Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i> "+Math.Round(percentageChange,2)+"%</span>";
+            Display += "<span class='text-nowrap'>Since last week</span></p>";
+            Salesperweek.InnerHtml = Display;
+
+            Display = "";
+            double perc = SR.percProductSales(DateTime.Now, 1);
+            int NumProducts = SR.numProductSales(DateTime.Now, 1);
+            Display += "<div class='row'>";
+            Display += "<div class='col'>";
+            Display += "<h5 class='card-title text-uppercase text-muted mb-0'>Product</h5>";
+            Display += "<span class='h2 font-weight-bold mb-0'>"+NumProducts+"</span></div>";
+            Display += "<div class='col-auto'>";
+            Display += "<div class='icon icon-shape bg-gradient-info text-white rounded-circle shadow'>";
+            Display += "<i class='ni ni-chart-bar-32'></i></div></div></div>";
+            Display += "<p class='mt-3 mb-0 text-sm'>";
+            Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i>"+ perc+ "%</span>";
+            Display += "<span class='text-nowrap'>Since last week hau</span></p>";
+            productSales.InnerHtml = Display;
+
+
+
+
+
 
             //foreach(var c in categories)
             //{
