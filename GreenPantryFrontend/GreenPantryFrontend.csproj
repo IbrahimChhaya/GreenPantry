@@ -86,91 +86,6 @@
     <Content Include="dashboard\assets\img\brand\white.png" />
     <Content Include="dashboard\assets\img\icons\common\github.svg" />
     <Content Include="dashboard\assets\img\icons\common\google.svg" />
-    <Content Include="dashboard\assets\img\Products\1.jpg" />
-    <Content Include="dashboard\assets\img\Products\13.jpg" />
-    <Content Include="dashboard\assets\img\Products\14.jpg" />
-    <Content Include="dashboard\assets\img\Products\15.jpg" />
-    <Content Include="dashboard\assets\img\Products\16.jpg" />
-    <Content Include="dashboard\assets\img\Products\17.jpg" />
-    <Content Include="dashboard\assets\img\Products\18.jpg" />
-    <Content Include="dashboard\assets\img\Products\19.jpg" />
-    <Content Include="dashboard\assets\img\Products\2.png" />
-    <Content Include="dashboard\assets\img\Products\20.jpg" />
-    <Content Include="dashboard\assets\img\Products\21.jpg" />
-    <Content Include="dashboard\assets\img\Products\22.jpg" />
-    <Content Include="dashboard\assets\img\Products\24.jpg" />
-    <Content Include="dashboard\assets\img\Products\25.jpg" />
-    <Content Include="dashboard\assets\img\Products\26.jpg" />
-    <Content Include="dashboard\assets\img\Products\27.jpg" />
-    <Content Include="dashboard\assets\img\Products\28.jpg" />
-    <Content Include="dashboard\assets\img\Products\29.jpg" />
-    <Content Include="dashboard\assets\img\Products\3.jpg" />
-    <Content Include="dashboard\assets\img\Products\30.jpg" />
-    <Content Include="dashboard\assets\img\Products\32.jpg" />
-    <Content Include="dashboard\assets\img\Products\33.jpg" />
-    <Content Include="dashboard\assets\img\Products\34.jpg" />
-    <Content Include="dashboard\assets\img\Products\35.jpg" />
-    <Content Include="dashboard\assets\img\Products\36.jpg" />
-    <Content Include="dashboard\assets\img\Products\37.jpg" />
-    <Content Include="dashboard\assets\img\Products\38.jpg" />
-    <Content Include="dashboard\assets\img\Products\39.jpg" />
-    <Content Include="dashboard\assets\img\Products\4.jpg" />
-    <Content Include="dashboard\assets\img\Products\40.jpg" />
-    <Content Include="dashboard\assets\img\Products\41.jpg" />
-    <Content Include="dashboard\assets\img\Products\42.jpg" />
-    <Content Include="dashboard\assets\img\Products\43.jpg" />
-    <Content Include="dashboard\assets\img\Products\45.jpg" />
-    <Content Include="dashboard\assets\img\Products\46.jpg" />
-    <Content Include="dashboard\assets\img\Products\47.jpg" />
-    <Content Include="dashboard\assets\img\Products\48.jpg" />
-    <Content Include="dashboard\assets\img\Products\49.jpg" />
-    <Content Include="dashboard\assets\img\Products\5.jpg" />
-    <Content Include="dashboard\assets\img\Products\50.jpg" />
-    <Content Include="dashboard\assets\img\Products\51.jpg" />
-    <Content Include="dashboard\assets\img\Products\52.jpg" />
-    <Content Include="dashboard\assets\img\Products\53.jpg" />
-    <Content Include="dashboard\assets\img\Products\54.jpg" />
-    <Content Include="dashboard\assets\img\Products\55.jpg" />
-    <Content Include="dashboard\assets\img\Products\56.jpg" />
-    <Content Include="dashboard\assets\img\Products\57.jpg" />
-    <Content Include="dashboard\assets\img\Products\58.jpg" />
-    <Content Include="dashboard\assets\img\Products\59.jpg" />
-    <Content Include="dashboard\assets\img\Products\6.jpg" />
-    <Content Include="dashboard\assets\img\Products\60.jpg" />
-    <Content Include="dashboard\assets\img\Products\62.jpg" />
-    <Content Include="dashboard\assets\img\Products\63.jpg" />
-    <Content Include="dashboard\assets\img\Products\64.jpg" />
-    <Content Include="dashboard\assets\img\Products\65.jpg" />
-    <Content Include="dashboard\assets\img\Products\66.jpg" />
-    <Content Include="dashboard\assets\img\Products\67.jpg" />
-    <Content Include="dashboard\assets\img\Products\69.jpg" />
-    <Content Include="dashboard\assets\img\Products\7.jpg" />
-    <Content Include="dashboard\assets\img\Products\70.jpg" />
-    <Content Include="dashboard\assets\img\Products\71.jpg" />
-    <Content Include="dashboard\assets\img\Products\72.jpg" />
-    <Content Include="dashboard\assets\img\Products\75.jpg" />
-    <Content Include="dashboard\assets\img\Products\76.jpg" />
-    <Content Include="dashboard\assets\img\Products\77.jpg" />
-    <Content Include="dashboard\assets\img\Products\78.jpg" />
-    <Content Include="dashboard\assets\img\Products\79.jpg" />
-    <Content Include="dashboard\assets\img\Products\80.jpg" />
-    <Content Include="dashboard\assets\img\Products\81.jpg" />
-    <Content Include="dashboard\assets\img\Products\82.jpg" />
-    <Content Include="dashboard\assets\img\Products\83.jpg" />
-    <Content Include="dashboard\assets\img\Products\84.jpg" />
-    <Content Include="dashboard\assets\img\Products\85.jpg" />
-    <Content Include="dashboard\assets\img\Products\86.jpg" />
-    <Content Include="dashboard\assets\img\Products\87.jpg" />
-    <Content Include="dashboard\assets\img\Products\88.jpg" />
-    <Content Include="dashboard\assets\img\Products\89.jpg" />
-    <Content Include="dashboard\assets\img\Products\90.jpg" />
-    <Content Include="dashboard\assets\img\Products\91.jpg" />
-    <Content Include="dashboard\assets\img\Products\92.jpg" />
-    <Content Include="dashboard\assets\img\Products\93.jpg" />
-    <Content Include="dashboard\assets\img\Products\94.jpg" />
-    <Content Include="dashboard\assets\img\Products\95.jpg" />
-    <Content Include="dashboard\assets\img\Products\96.jpg" />
-    <Content Include="dashboard\assets\img\Products\97.jpg" />
     <Content Include="dashboard\assets\img\theme\angular.jpg" />
     <Content Include="dashboard\assets\img\theme\bootstrap.jpg" />
     <Content Include="dashboard\assets\img\theme\img-1-1000x600.jpg" />
@@ -3206,13 +3121,16 @@
     <Content Include="Connected Services\ServiceReference1\GreenPantryFrontend.ServiceReference1.InvoiceLine.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\GreenPantryFrontend.ServiceReference1.ListItem.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\ServiceReference1\GreenPantryFrontend.ServiceReference1.SubCategory.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\ServiceReference1\GreenPantryFrontend.ServiceReference1.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ServiceReference1\GP_Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\ServiceReference1\GreenPantryFrontend.ServiceReference1.ListProduct.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\ServiceReference1\Reference.svcmap">
@@ -3275,6 +3193,109 @@
     <Content Include="img\latest-product\lp-3.jpg" />
     <Content Include="img\logo.png" />
     <Content Include="img\payment-item.png" />
+    <Content Include="img\Products\1.jpg" />
+    <Content Include="img\Products\100.jpg" />
+    <Content Include="img\Products\101.jpg" />
+    <Content Include="img\Products\102.jpg" />
+    <Content Include="img\Products\103.jpg" />
+    <Content Include="img\Products\104.jpg" />
+    <Content Include="img\Products\105.jpg" />
+    <Content Include="img\Products\115.jpg" />
+    <Content Include="img\Products\116.jpg" />
+    <Content Include="img\Products\117.jpg" />
+    <Content Include="img\Products\119.jpg" />
+    <Content Include="img\Products\120.jpg" />
+    <Content Include="img\Products\121.jpg" />
+    <Content Include="img\Products\13.jpg" />
+    <Content Include="img\Products\130.jpg" />
+    <Content Include="img\Products\131.jpg" />
+    <Content Include="img\Products\132.jpg" />
+    <Content Include="img\Products\133.jpg" />
+    <Content Include="img\Products\14.jpg" />
+    <Content Include="img\Products\15.jpg" />
+    <Content Include="img\Products\16.jpg" />
+    <Content Include="img\Products\17.jpg" />
+    <Content Include="img\Products\18.jpg" />
+    <Content Include="img\Products\19.jpg" />
+    <Content Include="img\Products\2.png" />
+    <Content Include="img\Products\20.jpg" />
+    <Content Include="img\Products\21.jpg" />
+    <Content Include="img\Products\22.jpg" />
+    <Content Include="img\Products\24.jpg" />
+    <Content Include="img\Products\25.jpg" />
+    <Content Include="img\Products\26.jpg" />
+    <Content Include="img\Products\27.jpg" />
+    <Content Include="img\Products\28.jpg" />
+    <Content Include="img\Products\29.jpg" />
+    <Content Include="img\Products\3.jpg" />
+    <Content Include="img\Products\30.jpg" />
+    <Content Include="img\Products\32.jpg" />
+    <Content Include="img\Products\33.jpg" />
+    <Content Include="img\Products\34.jpg" />
+    <Content Include="img\Products\35.jpg" />
+    <Content Include="img\Products\36.jpg" />
+    <Content Include="img\Products\37.jpg" />
+    <Content Include="img\Products\38.jpg" />
+    <Content Include="img\Products\39.jpg" />
+    <Content Include="img\Products\4.jpg" />
+    <Content Include="img\Products\40.jpg" />
+    <Content Include="img\Products\41.jpg" />
+    <Content Include="img\Products\42.jpg" />
+    <Content Include="img\Products\43.jpg" />
+    <Content Include="img\Products\45.jpg" />
+    <Content Include="img\Products\46.jpg" />
+    <Content Include="img\Products\47.jpg" />
+    <Content Include="img\Products\48.jpg" />
+    <Content Include="img\Products\49.jpg" />
+    <Content Include="img\Products\5.jpg" />
+    <Content Include="img\Products\50.jpg" />
+    <Content Include="img\Products\51.jpg" />
+    <Content Include="img\Products\52.jpg" />
+    <Content Include="img\Products\53.jpg" />
+    <Content Include="img\Products\54.jpg" />
+    <Content Include="img\Products\55.jpg" />
+    <Content Include="img\Products\56.jpg" />
+    <Content Include="img\Products\57.jpg" />
+    <Content Include="img\Products\58.jpg" />
+    <Content Include="img\Products\59.jpg" />
+    <Content Include="img\Products\6.jpg" />
+    <Content Include="img\Products\60.jpg" />
+    <Content Include="img\Products\62.jpg" />
+    <Content Include="img\Products\63.jpg" />
+    <Content Include="img\Products\64.jpg" />
+    <Content Include="img\Products\65.jpg" />
+    <Content Include="img\Products\66.jpg" />
+    <Content Include="img\Products\67.jpg" />
+    <Content Include="img\Products\69.jpg" />
+    <Content Include="img\Products\7.jpg" />
+    <Content Include="img\Products\70.jpg" />
+    <Content Include="img\Products\71.jpg" />
+    <Content Include="img\Products\72.jpg" />
+    <Content Include="img\Products\75.jpg" />
+    <Content Include="img\Products\76.jpg" />
+    <Content Include="img\Products\77.jpg" />
+    <Content Include="img\Products\78.jpg" />
+    <Content Include="img\Products\79.jpg" />
+    <Content Include="img\Products\80.jpg" />
+    <Content Include="img\Products\81.jpg" />
+    <Content Include="img\Products\82.jpg" />
+    <Content Include="img\Products\83.jpg" />
+    <Content Include="img\Products\84.jpg" />
+    <Content Include="img\Products\85.jpg" />
+    <Content Include="img\Products\86.jpg" />
+    <Content Include="img\Products\87.jpg" />
+    <Content Include="img\Products\88.jpg" />
+    <Content Include="img\Products\89.jpg" />
+    <Content Include="img\Products\90.jpg" />
+    <Content Include="img\Products\91.jpg" />
+    <Content Include="img\Products\92.jpg" />
+    <Content Include="img\Products\93.jpg" />
+    <Content Include="img\Products\94.jpg" />
+    <Content Include="img\Products\95.jpg" />
+    <Content Include="img\Products\96.jpg" />
+    <Content Include="img\Products\97.jpg" />
+    <Content Include="img\Products\98.jpg" />
+    <Content Include="img\Products\99.jpg" />
     <Content Include="img\product\details\product-details-1.jpg" />
     <Content Include="img\product\details\product-details-2.jpg" />
     <Content Include="img\product\details\product-details-3.jpg" />
@@ -3302,8 +3323,8 @@
     <Content Include="img\product\product-7.jpg" />
     <Content Include="img\product\product-8.jpg" />
     <Content Include="img\product\product-9.jpg" />
-    <Content Include="Invoice.aspx" />
-    <Content Include="css\Invoice.css" />
+    <Content Include="invoice.aspx" />
+    <Content Include="css\invoice.css" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\dropdown.js" />
     <Content Include="js\jquery-3.3.1.min.js" />
@@ -3420,12 +3441,12 @@
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Invoice.aspx.cs">
-      <DependentUpon>Invoice.aspx</DependentUpon>
+    <Compile Include="invoice.aspx.cs">
+      <DependentUpon>invoice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Invoice.aspx.designer.cs">
-      <DependentUpon>Invoice.aspx</DependentUpon>
+    <Compile Include="invoice.aspx.designer.cs">
+      <DependentUpon>invoice.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

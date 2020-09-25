@@ -193,5 +193,10 @@ namespace GreenPantryFrontend
             createCookie("cart", ProductID);
             Debug.WriteLine(ProductID);
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/results.aspx?Search=" + searchText.Value);
+        }
     }
 }

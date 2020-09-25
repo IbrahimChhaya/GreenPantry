@@ -16,7 +16,7 @@ namespace GreenPantryFrontend.dashboard
             //get the user ID from url parameters
             // int userID = Convert.ToInt32(Request.QueryString["userID"]);
             int userID = 1;
-            dynamic invoice = SR.getAllCustomerOrders(userID);
+            dynamic invoice = SR.getAllCustomerInvoices(userID);
 
             string display = "";
             foreach(var inv in invoice)

@@ -30,7 +30,7 @@ namespace GreenPantryFrontend
             //}
             //else
             //{
-                int registered = SR.Register(name.Value, surname.Value, RegEmail.Value, RegPassword.Value, "active", DateTime.Today, "customer");
+                int registered = SR.register(name.Value, surname.Value, RegEmail.Value, RegPassword.Value, "active", DateTime.Today, "customer");
 
           
             if (registered == -1)

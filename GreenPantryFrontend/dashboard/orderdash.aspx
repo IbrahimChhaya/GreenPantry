@@ -14,7 +14,7 @@
               <h6 class="h2 text-white d-inline-block mb-0"></h6>
             </div>
             <div class="col-lg-6 col-5 text-right">
-                <h4 class="text-white">Howdy, Ubaid!</h4>
+                <h4 class="text-white">Hello, Admin!</h4>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@
                     <th scope="col"></th>
                   </tr>
                 </thead>
-                <tbody class="list">
+                <tbody class="list" id="orderID" runat="server">
                   <tr>
                     <th scope="row">
                       <div class="media align-items-center">
@@ -125,26 +125,28 @@
                   </tr>
                   <tr>
                     <th scope="row">
+
+                        <%--starts here--%>
                       <div class="media align-items-center">
                         <a href="#" class="avatar rounded-circle mr-3">
                           <img alt="Image placeholder" src="../assets/img/Products/17.jpg">
                         </a>
-                        <div class="media-body">
+                        <div class="media-body" id="invoicenumberID" runat="server">  <%--invoice number--%>
                           <span class="name mb-0 text-sm">Invoice #789</span>
                         </div>
                       </div>
                     </th>
-                    <td class="budget">
+                    <td class="budget" id="budgetID" runat="server" >     <%--budget--%>
                       R3150 
                     </td>
                     <td>
                       <span class="badge badge-dot mr-4">
                         <i class="bg-danger"></i>
-                        <span class="status">delayed</span>
+                        <span class="status" id ="statusID" runat="server">delayed</span>    <%-- status--%>
                       </span>
                     </td>
                     <td>
-                      <div class="avatar-group">
+                      <div class="avatar-group" id="avatarID" runat="server">   <%-- avatar--%>
                         <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Users Name">
                             <i class="ni ni-circle-08"></i>
                         </a>

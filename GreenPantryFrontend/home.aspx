@@ -22,12 +22,12 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form>
+                            <form runat="server">
                                 <div class="hero__search__categories">
                                     All Categories
                                 </div>
-                                <input type="text">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input type="text" id="searchText" runat="server">
+                                <button type="submit" class="site-btn" id="btnSearch" runat="server" onserverclick="btnSearch_Click">SEARCH</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">

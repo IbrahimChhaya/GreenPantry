@@ -42,7 +42,7 @@ namespace GreenPantryFrontend
                         var pID = productDetails[0];
                         pIds.Add(pID);
 
-                        var cartProduct = SR.getProductByID(int.Parse(pID));
+                        var cartProduct = SR.getProduct(int.Parse(pID));
                         var qty = productDetails[1];
                         qtys.Add(qty);
 
@@ -112,13 +112,14 @@ namespace GreenPantryFrontend
         {
             dynamic CookieContent = Request.Cookies["cart"].Value;
             int userID = Convert.ToInt32(Session["LoggedInUserID"]);
-            int addressUpdate = SR.AddAdress(line1.Value, line2.Value, suburb.Value, town.Value, 'F', postcode.Value, userID, provincesList.Value);
+            int addressUpdate = SR.addAddress(line1.Value, line2.Value, suburb.Value, town.Value, 'F', postcode.Value, userID, provincesList.Value);
+            int phoneNumber = SR.addUserNumber(userID, number.Value);
             
             dynamic products = CookieContent.Split(',');
 
-            if (addressUpdate == 1)
+            if (addressUpdate == 1 && phoneNumber.Equals(1))
             {
-                int addInvoice = SR.addInvoices(userID, "Pending", DateTime.Now, DateTime.Now, notes.Value, subtotal, pointsRedeemed);
+                int addInvoice = SR.addInvoice(userID, "Pending", DateTime.Now, DateTime.Now, notes.Value, subtotal, pointsRedeemed);
                 points = points - pointsRedeemed;
                 if(addInvoice > 0)
                 {
@@ -131,7 +132,7 @@ namespace GreenPantryFrontend
                             var pID = productDetails[0];
                             pIds.Add(pID);
 
-                            var cartProduct = SR.getProductByID(int.Parse(pID));
+                            var cartProduct = SR.getProduct(int.Parse(pID));
                             var qty = productDetails[1];
                             qtys.Add(qty);
 
@@ -161,16 +162,10 @@ namespace GreenPantryFrontend
                     error.Text ="Invoice failed";
                 }
             }
-            else if (addressUpdate == -1)
+            else
             {
                 error.Visible = true;
                 error.Text = "Something went wrong";
-            }
-            else if (addressUpdate == 0)
-            {
-                //Allow user to update his address
-                error.Visible = true;
-                error.Text = "Address already exists";
             }
         }
     }
