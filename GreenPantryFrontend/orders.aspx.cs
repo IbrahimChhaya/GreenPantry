@@ -18,7 +18,7 @@ namespace GreenPantryFrontend
                 int userID = int.Parse(Session["LoggedInUserID"].ToString());
 
                 String display = "";
-                dynamic invoice = SR.getAllCustomerOrders(userID);
+                dynamic invoice = SR.getAllCustomerInvoices(userID);
 
                 foreach (var inv in invoice)
                 {

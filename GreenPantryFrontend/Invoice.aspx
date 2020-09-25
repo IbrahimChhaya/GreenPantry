@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="Invoice.aspx.cs" Inherits="GreenPantryFrontend.Invoice" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="invoice.aspx.cs" Inherits="GreenPantryFrontend.Invoice" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 

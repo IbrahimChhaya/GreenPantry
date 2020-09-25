@@ -17,7 +17,7 @@ namespace GreenPantryFrontend
             //int.Parse(Request.QueryString["ProductID"])
             if (Request.QueryString["ProductID"] != null)
             {
-                dynamic getProducts = SC.getProductByID(int.Parse(Request.QueryString["ProductID"]));
+                dynamic getProducts = SC.getProduct(int.Parse(Request.QueryString["ProductID"]));
                 string Display = "";
 
                 dynamic getSub = SC.getSubCat(getProducts.SubCategoryID);

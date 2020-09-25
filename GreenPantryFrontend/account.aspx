@@ -53,11 +53,11 @@
                             </div>
                             <div class ="checkout__input">
                                 <p>Old Password<span>*</span></p>
-                                <input type="Password" placeholder="Old Password" runat="server" id ="Password1">
+                                <input type="Password" placeholder="Current Password" runat="server" id ="oldPassword">
                             </div>
                             <div class ="checkout__input">
                                 <p>New Password<span>*</span></p>
-                                <input type="Password" placeholder="New Password" runat="server" id ="Password2">
+                                <input type="Password" placeholder="New Password" runat="server" id ="newPassword">
                             </div>
                             <div class ="checkout__input">
                                 <p>Phone Number<span>*</span></p>

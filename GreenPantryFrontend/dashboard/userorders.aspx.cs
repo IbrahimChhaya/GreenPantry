@@ -14,7 +14,7 @@ namespace GreenPantryFrontend.dashboard
         protected void Page_Load(object sender, EventArgs e)
         {
             int userID = 1;
-            dynamic invoice = SR.getAllCustomerOrders(userID);
+            dynamic invoice = SR.getAllCustomerInvoices(userID);
 
             string display = "";
             foreach(var inv in invoice)

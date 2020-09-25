@@ -33,31 +33,31 @@ namespace GreenPantryFrontend
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            int updateInfo = SC.UpdateUserDetails(int.Parse(Session["LoggedInUserID"].ToString()), Name.Value, Surname.Value, Email1.Value, PhoneNumber1.Value);
-            //int updatePass = SC.UpdatePassword(int.Parse(Session["LoggedInUserID"].ToString()), Password1.Value, Password2.Value);
+            int updateInfo = SC.updateUserDetails(int.Parse(Session["LoggedInUserID"].ToString()), Name.Value, Surname.Value, Email1.Value, PhoneNumber1.Value, oldPassword.Value, newPassword.Value);
             
-
             if (updateInfo == 1)
             {
                 Response.Redirect("account.aspx");
+                error.Visible = true;
+                error.Text = "Account updated";
             }
             else if (updateInfo == 0)
-            {
-                error.Text = "Something went wrong";
-            }
-            else if (updateInfo == -1)
             {
                 error.Text = "An error has ocurred";
                 error.Visible = true;
             }
-            else if (updateInfo == -2)
+            else if (updateInfo == -1)
             {
                 error.Text = "Email already in use";
                 error.Visible = true;
             }
-
-
+            else if(updateInfo.Equals(-2))
+            {
+                error.Text = "Incorrect current password";
+                error.Visible = true;
+            }
         }
+
         protected void logout_Click(object sender, EventArgs e)
         {
             Session["LoggedInUserID"] = null;

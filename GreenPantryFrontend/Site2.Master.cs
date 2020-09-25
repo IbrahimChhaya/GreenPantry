@@ -40,8 +40,6 @@ namespace GreenPantryFrontend
                 display += "<li><a href='/categories.aspx?CategoryID=" + c.ID + "'>" + c.Name + "</a></li>";
             }
             categoryList.InnerHtml = display;
-
-
         }
 
         protected void Search_Click(object sender,EventArgs e)

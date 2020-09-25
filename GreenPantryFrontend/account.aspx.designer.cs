@@ -42,22 +42,22 @@ namespace GreenPantryFrontend
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Email1;
 
         /// <summary>
-        /// Password1 control.
+        /// oldPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword Password1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword oldPassword;
 
         /// <summary>
-        /// Password2 control.
+        /// newPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword Password2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword newPassword;
 
         /// <summary>
         /// PhoneNumber1 control.

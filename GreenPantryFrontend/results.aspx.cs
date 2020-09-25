@@ -16,8 +16,8 @@ namespace GreenPantryFrontend
         {
             String display = "";
 
-            //String search = Request.QueryString["Search"];
-            String search = "bread";
+            String search = Request.QueryString["Search"];
+            //String search = "bread";
             var inputSearch = this.Master.FindControl("searchText") as HtmlInputText;
             inputSearch.Value = search;
 

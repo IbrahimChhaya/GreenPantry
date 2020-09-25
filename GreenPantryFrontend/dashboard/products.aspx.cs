@@ -14,15 +14,15 @@ namespace AdminDashboard
         protected void Page_Load(object sender, EventArgs e)
         {
             int currentPage = int.Parse(Request.QueryString["Page"]);
-
+            //int currentPage = 2;
             String display = "";
 
             dynamic products = SR.getAllProducts();
             int numProduct = products.Length;
-            decimal pages = Math.Ceiling(Convert.ToDecimal(numProduct / 10));
+            double roundUpPages = Math.Ceiling(numProduct / 10.00);
+            int totalPages = (int)roundUpPages;
 
-            //for the page numbers, onclick next/previous page change numbers (from 1,2,3 to 4,5,6) on numbers a href
-            
+            //get 10 products per page
             dynamic list = GetPage(products, currentPage, 10);
             foreach (Product p in list)
             {
@@ -49,8 +49,89 @@ namespace AdminDashboard
                 display += "<a class='dropdown-item' href='#'>Another action</a>";
                 display += "<a class='dropdown-item' href='#'>Something else here</a>";
                 display += "</div></div></td></tr>";
-            }    
+            }
             productList.InnerHtml = display;
+
+            //page numbers
+            //previous button
+            display = "";
+            if (currentPage.Equals(1))
+            {
+                display += "<li class='page-item disabled'>";
+                display += "<a class='page-link' href='#' tabindex='-1'>";
+                display += "<i class='fas fa-angle-left'></i></a></li>";
+            }
+            else
+            {
+                display += "<li class='page-item'>";
+                display += "<a class='page-link' href='/dashboard/products.aspx?Page=" + (currentPage - 1) + "' tabindex='-1'>";
+                display += "<i class='fas fa-angle-left'></i></a></li>";
+            }
+
+            //if current page is 1
+            if (currentPage.Equals(1))
+            {
+                for (int i = 1; i <= 3; i++)
+                {
+                    if (i.Equals(1))
+                    {
+                        display += "<li class='page-item active'>";
+                    }
+                    else
+                    {
+                        display += "<li class='page-item'>";
+                    }
+                    display += "<a class='page-link' href='/dashboard/products.aspx?Page=" + i + "'>" + i + "</a></li>";
+                }
+            }
+            //else
+            else if (currentPage.Equals(totalPages))
+            {
+                for (int i = totalPages - 2; i <= totalPages; i++)
+                {
+                    if (i.Equals(totalPages))
+                    {
+                        display += "<li class='page-item active'>";
+                    }
+                    else
+                    {
+                        display += "<li class='page-item'>";
+                    }
+                    display += "<a class='page-link' href='/dashboard/products.aspx?Page=" + i + "'>" + i + "</a></li>";
+                }
+            }
+            else
+            {
+                for (int i = currentPage - 1; i <= currentPage + 1; i++)
+                {
+                    if (i > 0 && i <= totalPages)
+                    {
+                        if(i.Equals(currentPage))
+                        { 
+                            display += "<li class='page-item active'>";
+                        }
+                        else
+                        {
+                            display += "<li class='page-item'>";
+                        }
+                        display += "<a class='page-link' href='/dashboard/products.aspx?Page=" + i + "'>" + i + "</a></li>";
+                    }
+                }
+            }
+            //next button
+            if (currentPage.Equals(totalPages))
+            {
+                display += "<li class='page-item disabled'>";
+                display += "<a class='page-link' href='#'>";
+                display += "<i class='fas fa-angle-right'></i></a></li>";
+            }
+            else
+            {
+                display += "<li class='page-item'>";
+                display += "<a class='page-link' href='/dashboard/products.aspx?Page=" + (currentPage + 1) + "'>";
+                display += "<i class='fas fa-angle-right'></i></a></li>";
+            }
+            pageNumbers.InnerHtml = display;
         }
 
         static IList<Product> GetPage(IList<Product> list, int pageNumber, int pageSize = 10)

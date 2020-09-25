@@ -18,10 +18,15 @@ namespace GreenPantryFrontend
         {
             if (Request.Cookies["cart"] == null)
             {
-
+                emptyCart.Visible = true;
+                crumbSection.Visible = false;
+                cartSection.Visible = false;
             }
             else
             {
+                emptyCart.Visible = false;
+                crumbSection.Visible = true;
+                cartSection.Visible = true;
                 //string cookieString = Request.Cookies["cart"].Value;
                 //string[] objCartListStringSplit = cookieString.Split(',');
                 //foreach (string s in objCartListStringSplit)
@@ -48,7 +53,7 @@ namespace GreenPantryFrontend
                         var pID = productDetails[0];
                         pIds.Add(pID);
 
-                        var cartProduct = SR.getProductByID(int.Parse(pID));
+                        var cartProduct = SR.getProduct(int.Parse(pID));
                         var qty = productDetails[1];
                         qtys.Add(qty);
 
@@ -94,6 +99,5 @@ namespace GreenPantryFrontend
 
             return subTotal;
         }
-        
     }
 }

@@ -15,7 +15,7 @@ namespace GreenPantryFrontend
         protected void Page_Load(object sender, EventArgs e)
         {
             string Display = ""; 
-            dynamic orders = SC.getAllOrders();
+            dynamic orders = SC.getAllInvoices();
 
             foreach(var i in orders)
             {

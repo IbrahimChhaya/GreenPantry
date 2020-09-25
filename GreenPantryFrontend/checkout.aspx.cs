@@ -43,7 +43,7 @@ namespace GreenPantryFrontend
                         var pID = productDetails[0];
                         pIds.Add(pID);
 
-                        var cartProduct = SR.getProductByID(int.Parse(pID));
+                        var cartProduct = SR.getProduct(int.Parse(pID));
                         var qty = productDetails[1];
                         qtys.Add(qty);
 
@@ -97,7 +97,7 @@ namespace GreenPantryFrontend
 
             int userID=0;
             userID = Convert.ToInt32(Session["LoggedInUserID"]);
-            int addressUpdate = SR.AddAdress(Line1.Value, Line2.Value, suburb.Value , town.Value, 'F' ,postcode.Value,userID, Province.Value);
+            int addressUpdate = SR.addAddress(Line1.Value, Line2.Value, suburb.Value , town.Value, 'F' ,postcode.Value,userID, Province.Value);
 
             //int points = SR.getpointbyUserID(userID);
             int points = 0;
@@ -105,7 +105,7 @@ namespace GreenPantryFrontend
          
             if (addressUpdate == 1)
             {
-                int addInvoice = SR.addInvoices(userID, "Approved",DateTime.Now,DateTime.Now, order.Value,subtotal, points);
+                int addInvoice = SR.addInvoice(userID, "Approved", DateTime.Now, DateTime.Now, order.Value, subtotal, points);
                 points = 0;
                 //@50 need to pass the points received from the textbox
                 if(addInvoice>0)
@@ -118,7 +118,7 @@ namespace GreenPantryFrontend
                         var pID = productDetails[0];
                         pIds.Add(pID);
 
-                        var cartProduct = SR.getProductByID(int.Parse(pID));
+                        var cartProduct = SR.getProduct(int.Parse(pID));
                         var qty = productDetails[1];
                         qtys.Add(qty);
 
@@ -134,7 +134,6 @@ namespace GreenPantryFrontend
                                 //int updatepoints = SR.updatePoints(point.PointID, userID, point.Points+10);
                             }
                         }
-
 
                         int addinvLine = SR.addInvoiceLine(cartProduct.ID, addInvoice, Convert.ToInt32(qty),cartProduct.Price);
                     }

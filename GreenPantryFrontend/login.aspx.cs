@@ -13,7 +13,17 @@ namespace GreenPantryFrontend
         GP_ServiceClient SR = new GP_ServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string reset = Request.QueryString["Reset"];
+            if (reset == null)
+            {
+                loginDiv.Visible = true;
+                resetDiv.Visible = false;
+            }
+            else if(reset.Equals("true"))
+            {
+                loginDiv.Visible = false;
+                resetDiv.Visible = true;
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -40,7 +50,7 @@ namespace GreenPantryFrontend
             //}
             //else
             //{
-                int registered = SR.Register(name.Value, surname.Value, RegEmail.Value, RegPassword.Value, "active", DateTime.Today, "customer");
+                int registered = SR.register(name.Value, surname.Value, RegEmail.Value, RegPassword.Value, "active", DateTime.Today, "customer");
 
                 if (registered == 1)
                 {
@@ -56,6 +66,11 @@ namespace GreenPantryFrontend
                     error.Text = "The username already exists";
                 }
             //}
+        }
+
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            resetText.InnerText = "Password reset link was sent. \r\n Please check your email for instructions.";
         }
     }
 }

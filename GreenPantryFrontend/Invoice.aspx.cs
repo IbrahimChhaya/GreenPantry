@@ -15,7 +15,7 @@ namespace GreenPantryFrontend
         protected void Page_Load(object sender, EventArgs e)
         {
             //replace nummber with int.Parse(Request.QueryString["InvoiceID"])
-            var invoice = SR.getOrder(int.Parse(Request.QueryString["InvoiceID"]));
+            var invoice = SR.getInvoice(int.Parse(Request.QueryString["InvoiceID"]));
 
             if(invoice == null)
             {
@@ -38,7 +38,7 @@ namespace GreenPantryFrontend
 
                 display = "";
 
-                dynamic invoiceItems = SR.getOrderedItems(invoice.ID);
+                dynamic invoiceItems = SR.getAllInvoiceLines(invoice.ID);
 
                 decimal subtotal = 0;
 
