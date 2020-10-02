@@ -18,6 +18,7 @@ namespace GreenPantryFrontend
 
             if (Session["LoggedInUserID"] != null)
             {
+                listIcon.Visible = true;
                 var user = SC.getUser(Convert.ToInt32(Session["LoggedInUserID"]));
                 if (user.UserType.Equals("admin"))
                 {
@@ -28,11 +29,14 @@ namespace GreenPantryFrontend
                     display = "<a href='account.aspx'>My Account</a>";
                     account.InnerHtml = display;
                 }
-                
             }
-            
-            //category menu --------------------------------------------------------------------
+            else
+            {
+                listIcon.Visible = false;
+            }
 
+            //category menu --------------------------------------------------------------------
+            display = "";
             dynamic allCategories = SC.getAllCategories();
             foreach (ProductCategory c in allCategories)
             {

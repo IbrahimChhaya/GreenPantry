@@ -1878,9 +1878,14 @@ ol {
 .product__details__text .heart-icon {
 	display: inline-block;
 	font-size: 16px;
-	color: #6f6f6f;
+	color: #1c1c1c;
 	padding: 13px 16px 13px;
 	background: #f5f5f5;
+	border-radius: 25px;
+}
+
+.iconSize {
+	font-size: 17px;
 }
 
 .product__details__text ul {
@@ -1934,6 +1939,7 @@ ol {
 	text-align: center;
 	background: #f5f5f5;
 	margin-bottom: 5px;
+	border-radius: 25px!important;
 }
 
 .pro-qty input {
@@ -2099,13 +2105,14 @@ ol {
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__item {
-	width: 200px;
+	width: 630px;
 	text-align: left;
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__item img {
 	display: inline-block;
 	margin-right: 25px;
+	width: 150px;
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__item h5 {
@@ -2319,7 +2326,7 @@ ol {
 	border: 1px solid #ebebeb;
 	padding-left: 20px;
 	font-size: 16px;
-	color: #b2b2b2;
+	color: #6f6f6f;
 	border-radius: 4px;
 }
 

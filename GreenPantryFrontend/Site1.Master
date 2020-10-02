@@ -109,7 +109,7 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span></span></a></li>
+                            <li><a href="shoppinglist.aspx" id="listIcon" runat="server"><i class="fa fa-list"></i></a></li>
                             <li><a href="cart.aspx"><i class="fa fa-shopping-bag"></i> <span></span></a></li>
                         </ul>
                     </div>

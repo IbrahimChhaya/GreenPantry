@@ -28,8 +28,9 @@ namespace GreenPantryFrontend
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            int userID = SR.login(Email.Value, Password.Value);
-
+            String email = Email.Value;
+            int userID = SR.login(email.ToLower(), Password.Value);
+           
             if (userID != 0)
             {
                 Session["LoggedInUserID"] = userID;
@@ -39,6 +40,7 @@ namespace GreenPantryFrontend
             {
                 error.Visible = true;
             }
+
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
@@ -50,22 +52,22 @@ namespace GreenPantryFrontend
             //}
             //else
             //{
-                int registered = SR.register(name.Value, surname.Value, RegEmail.Value, RegPassword.Value, "active", DateTime.Today, "customer");
+            String email = RegEmail.Value;
+            int registered = SR.register(name.Value, surname.Value, email.ToLower(), RegPassword.Value, "active", DateTime.Today, "customer");
 
-                if (registered == 1)
-                {
-                    Response.Redirect("home.aspx");
-                }
-                else if (registered == -1)
-                {
-                    error.Text = "Something went wrong, please try again later";
-                    error.Visible = true;
-                }
-                else if (registered == 0)
-                {
-                    error.Text = "The username already exists";
-                }
-            //}
+            if (registered == 1)
+            {
+                Response.Redirect("home.aspx");
+            }
+            else if (registered == -1)
+            {
+                error.Text = "Something went wrong, please try again later";
+                error.Visible = true;
+            }
+            else if (registered == 0)
+            {
+                error.Text = "The username already exists";
+            }
         }
 
         protected void btnReset_Click(object sender, EventArgs e)

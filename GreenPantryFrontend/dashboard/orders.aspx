@@ -1,25 +1,7 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/dashboard/Dashboard.Master" AutoEventWireup="true" CodeBehind="orderdash.aspx.cs" Inherits="GreenPantryFrontend.orderdash" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/dashboard/Dashboard.Master" AutoEventWireup="true" CodeBehind="orders.aspx.cs" Inherits="GreenPantryFrontend.orderdash" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-  <!-- Main content -->
-  <div class="main-content" id="panel">
-    
-    <!-- Header -->
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-            <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0"></h6>
-            </div>
-            <div class="col-lg-6 col-5 text-right">
-                <h4 class="text-white">Hello, Admin!</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- Page content -->
     <div class="container-fluid mt--6">
       <div class="row">
@@ -37,6 +19,7 @@
                     <th scope="col" class="sort" data-sort="name">Order</th>
                     <th scope="col" class="sort" data-sort="budget">Total</th>
                     <th scope="col" class="sort" data-sort="status">Status</th>
+                    <th scope="col" class="sort" data-sort="budget">Date</th>
                     <th scope="col">User</th>
                     <th scope="col"></th>
                   </tr>
@@ -60,6 +43,11 @@
                       <span class="badge badge-dot mr-4">
                         <i class="bg-warning"></i>
                         <span class="status">pending</span>
+                      </span>
+                    </td>
+                    <td>
+                      <span class="budget">
+                        2020/15/08
                       </span>
                     </td>
                     <td>
@@ -278,5 +266,4 @@
         </div>
       </div>
         </div>
-    </div>
 </asp:Content>

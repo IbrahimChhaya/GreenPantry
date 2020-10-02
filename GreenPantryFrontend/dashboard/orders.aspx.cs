@@ -24,7 +24,7 @@ namespace GreenPantryFrontend
                 Display += "<th scope = 'row'>";
                 Display += "<div class='media align-items-center'>";
                 Display += "<div class='media-body'>";
-                Display += "<span class='name mb-0 text-sm'>Invoice #" + i.ID + "</span>";
+                Display += "<span class='name mb-0 text-sm'>#" + i.ID + "</span>";
                 Display += "</div></div></th>";
                 Display += "<td class='budget'>";
                 Display += "R" + Math.Round(i.Total,2);
@@ -32,9 +32,10 @@ namespace GreenPantryFrontend
                 Display += "<span class='badge badge-dot mr-4'>";
                 Display += "<i class='bg-warning'></i>";
                 Display += "<span class='status'>" + i.Status + "</span>";
-                Display += "</span></td><td>";
-                Display += "<div class='avatar-group'>";
-                Display += "<a href = '#' class='avatar avatar-sm rounded-circle' data-toggle='tooltip' data-original-title=" + getuser.Name +">";
+                Display += "</span></td>";
+                Display += "<td><span class='budget'>" + i.Date.ToString("d") + "</span></td>";
+                Display += "<td><div class='avatar-group'>";
+                Display += "<a href='#' class='avatar avatar-sm rounded-circle' data-toggle='tooltip' data-original-title=" + getuser.Name +">";
                 Display += "<i class='ni ni-circle-08'></i>";
                 Display += "</a></div></td>"; 
                 Display += "<td class='text-right'>";
@@ -47,7 +48,6 @@ namespace GreenPantryFrontend
                 Display += "<a class='dropdown-item' href='#'>Another action</a>";
                 Display += "<a class='dropdown-item' href='#'>Something else here</a>";
                 Display += "</div></div></td></tr>";
-                
             }
             orderID.InnerHtml = Display;
         }

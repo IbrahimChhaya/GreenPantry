@@ -11,7 +11,14 @@ namespace GreenPantryFrontend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session["LoggedInUserID"] == null)
+            {
+                listIcon.Visible = false;
+            }
+            else
+            {
+                listIcon.Visible = true;
+            }
         }
     }
 }

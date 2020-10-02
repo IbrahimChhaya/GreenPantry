@@ -24,7 +24,7 @@
                         <div class="hero__search__form">
                             <form runat="server">
                                 <div class="hero__search__categories">
-                                    All Categories
+                                    All Departments
                                 </div>
                                 <input type="text" id="searchText" runat="server">
                                 <button type="submit" class="site-btn" id="btnSearch" runat="server" onserverclick="btnSearch_Click">SEARCH</button>

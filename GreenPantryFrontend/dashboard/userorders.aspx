@@ -1,32 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/dashboard/Dashboard.Master" AutoEventWireup="true" CodeBehind="userorders.aspx.cs" Inherits="GreenPantryFrontend.dashboard.userorders" %>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">     
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <!-- Main content -->
-  <div class="main-content" id="panel">
-    
-    <!-- Header -->
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-            <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0"></h6>
-            </div>
-            <div class="col-lg-6 col-5 text-right">
-                <h4 class="text-white">Howdy, Zeerak!</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- Page content -->
     <div class="container-fluid mt--6">
       <div class="row">
         <div class="col">
           <div class="card">
             <!-- Card header -->
-            <div class="card-header border-0">
+            <div class="card-header border-0" id="userIDOrders" runat="server">
               <h3 class="mb-0">User Orders</h3>
             </div>
             <!-- Light table -->
@@ -277,6 +259,5 @@
         </div>
       </div>
         </div>
-    </div>
 
 </asp:Content>

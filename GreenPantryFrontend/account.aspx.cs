@@ -33,13 +33,13 @@ namespace GreenPantryFrontend
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            int updateInfo = SC.updateUserDetails(int.Parse(Session["LoggedInUserID"].ToString()), Name.Value, Surname.Value, Email1.Value, PhoneNumber1.Value, oldPassword.Value, newPassword.Value);
+            int updateInfo = SC.updateUserDetails(int.Parse(Session["LoggedInUserID"].ToString()), Name.Value, Surname.Value, Email1.Value, PhoneNumber1.Value);
             
             if (updateInfo == 1)
             {
-                Response.Redirect("account.aspx");
+                //Response.Redirect("account.aspx");
                 error.Visible = true;
-                error.Text = "Account updated";
+                error.Text = "Account updated :)";
             }
             else if (updateInfo == 0)
             {
@@ -51,10 +51,33 @@ namespace GreenPantryFrontend
                 error.Text = "Email already in use";
                 error.Visible = true;
             }
-            else if(updateInfo.Equals(-2))
+        }
+
+        protected void updatePass_Click(object sender, EventArgs e)
+        {
+            if (newPass.Value.Equals(confirmPass.Value))
             {
-                error.Text = "Incorrect current password";
+                int updatePass = SC.updatePassword(int.Parse(Session["LoggedInUserID"].ToString()), oldPass.Value, newPass.Value);
+                if(updatePass.Equals(1))
+                {
+                    error.Text = "Password updated :)";
+                    error.Visible = true;
+                }
+                else if(updatePass.Equals(-2))
+                {
+                    error.Text = "Current password incorrect";
+                    error.Visible = true;
+                }
+                else
+                {
+                    error.Text = "An error has ocurred";
+                    error.Visible = true;
+                }
+            }
+            else
+            {
                 error.Visible = true;
+                error.Text = "New and confirm password do not match";
             }
         }
 
