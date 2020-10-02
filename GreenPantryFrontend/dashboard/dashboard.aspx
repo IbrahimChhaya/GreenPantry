@@ -73,7 +73,7 @@
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">
                 <!-- Card body -->
-                <div class="card-body">
+                <div class="card-body" id="productSales" runat="server">
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
