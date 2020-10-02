@@ -57,7 +57,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/dashboard.aspx">
+              <a class="nav-link" href="dashboard.aspx">
                 <i class="ni ni-tv-2 text-orange"></i>
                 <span class="nav-link-text">Dashboard</span>
               </a>
@@ -81,7 +81,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="orderdash.aspx">
+              <a class="nav-link" href="orders.aspx">
                 <i class="ni ni-laptop text-info"></i>
                 <span class="nav-link-text">Orders</span>
               </a>
@@ -116,29 +116,9 @@
     </div>
   </nav>
     
-  <!-- Main content -->
-  <div class="main-content" id="panel">
-    
-    <!-- Header -->
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-            <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0"></h6>
-            </div>
-            <div class="col-lg-6 col-5 text-right">
-                <h4 class="text-white" id="howdy" runat="server">Howdy, Ubaid!</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+  <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 
 </asp:ContentPlaceHolder>
-
-</div>
 
 <!-- Footer -->
     <footer class="footer pt-0">

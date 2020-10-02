@@ -11,7 +11,7 @@ namespace AdminDashboard
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            howdy.InnerHtml = "Howdy, Coulter";
+            //howdy.InnerHtml = "Howdy, Coulter";
         }
     }
 }
