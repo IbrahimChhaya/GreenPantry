@@ -4,20 +4,39 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:53900/GP_Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:53900/GP_Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:53900/GP_Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
+      <xsd:import schemaLocation="http://localhost:53900/GP_Service.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:53900/GP_Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IGP_Service_getMonthDates_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMonthDates" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getMonthDates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMonthDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_numProductSales_InputMessage">
+    <wsdl:part name="parameters" element="tns:numProductSales" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_numProductSales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:numProductSalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_percProductSales_InputMessage">
+    <wsdl:part name="parameters" element="tns:percProductSales" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_percProductSales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:percProductSalesResponse" />
+  </wsdl:message>
   <wsdl:message name="IGP_Service_login_InputMessage">
     <wsdl:part name="parameters" element="tns:login" />
   </wsdl:message>
   <wsdl:message name="IGP_Service_login_OutputMessage">
     <wsdl:part name="parameters" element="tns:loginResponse" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_Register_InputMessage">
-    <wsdl:part name="parameters" element="tns:Register" />
+  <wsdl:message name="IGP_Service_register_InputMessage">
+    <wsdl:part name="parameters" element="tns:register" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_Register_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  <wsdl:message name="IGP_Service_register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:registerResponse" />
   </wsdl:message>
   <wsdl:message name="IGP_Service_addUserNumber_InputMessage">
     <wsdl:part name="parameters" element="tns:addUserNumber" />
@@ -31,17 +50,41 @@
   <wsdl:message name="IGP_Service_removeUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:removeUserResponse" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_UpdateUserDetails_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateUserDetails" />
+  <wsdl:message name="IGP_Service_updateUserDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateUserDetails" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_UpdateUserDetails_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateUserDetailsResponse" />
+  <wsdl:message name="IGP_Service_updateUserDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateUserDetailsResponse" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_UpdatePassword_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdatePassword" />
+  <wsdl:message name="IGP_Service_updatePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePassword" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_UpdatePassword_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdatePasswordResponse" />
+  <wsdl:message name="IGP_Service_updatePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUser" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getNumUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:getNumUsers" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getNumUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getNumUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updatePoints_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePoints" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updatePoints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getUserPoints_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserPoints" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getUserPoints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserPointsResponse" />
   </wsdl:message>
   <wsdl:message name="IGP_Service_addNewProduct_InputMessage">
     <wsdl:part name="parameters" element="tns:addNewProduct" />
@@ -67,161 +110,17 @@
   <wsdl:message name="IGP_Service_removeProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:removeProductResponse" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_getAllCategories_InputMessage">
-    <wsdl:part name="parameters" element="tns:getAllCategories" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getAllCategories_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getAllCategoriesResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getAllSubCategories_InputMessage">
-    <wsdl:part name="parameters" element="tns:getAllSubCategories" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getAllSubCategories_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getAllSubCategoriesResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getOrder_InputMessage">
-    <wsdl:part name="parameters" element="tns:getOrder" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getOrder_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getOrderResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_addOrder_InputMessage">
-    <wsdl:part name="parameters" element="tns:addOrder" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_addOrder_OutputMessage">
-    <wsdl:part name="parameters" element="tns:addOrderResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_UpdateOrder_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateOrder" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_UpdateOrder_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateOrderResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getAllOrders_InputMessage">
-    <wsdl:part name="parameters" element="tns:getAllOrders" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getAllOrders_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getAllOrdersResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getAllCustomerOrders_InputMessage">
-    <wsdl:part name="parameters" element="tns:getAllCustomerOrders" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getAllCustomerOrders_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getAllCustomerOrdersResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getUsersPerDay_InputMessage">
-    <wsdl:part name="parameters" element="tns:getUsersPerDay" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getUsersPerDay_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getUsersPerDayResponse" />
-  </wsdl:message>
   <wsdl:message name="IGP_Service_getProduct_InputMessage">
     <wsdl:part name="parameters" element="tns:getProduct" />
   </wsdl:message>
   <wsdl:message name="IGP_Service_getProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:getProductResponse" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_UpdateStock_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateStock" />
+  <wsdl:message name="IGP_Service_updateStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateStock" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_UpdateStock_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateStockResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_AddItemsToShoppingList_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddItemsToShoppingList" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_AddItemsToShoppingList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddItemsToShoppingListResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getUser_InputMessage">
-    <wsdl:part name="parameters" element="tns:getUser" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getUser_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getUserResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getNumUsers_InputMessage">
-    <wsdl:part name="parameters" element="tns:getNumUsers" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getNumUsers_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getNumUsersResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_CalculateProfit_InputMessage">
-    <wsdl:part name="parameters" element="tns:CalculateProfit" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_CalculateProfit_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CalculateProfitResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getAddress_InputMessage">
-    <wsdl:part name="parameters" element="tns:getAddress" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getAddress_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getAddressResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_AddAdress_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddAdress" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_AddAdress_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddAdressResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_UpdateAddress_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateAddress" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_UpdateAddress_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateAddressResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getCard_InputMessage">
-    <wsdl:part name="parameters" element="tns:getCard" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getCard_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getCardResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_AddCard_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddCard" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_AddCard_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddCardResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_UpdateCards_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateCards" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_UpdateCards_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateCardsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getDevice_InputMessage">
-    <wsdl:part name="parameters" element="tns:getDevice" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getDevice_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getDeviceResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_AddDevices_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddDevices" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_AddDevices_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddDevicesResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getListItem_InputMessage">
-    <wsdl:part name="parameters" element="tns:getListItem" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getListItem_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getListItemResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_AddListItems_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddListItems" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_AddListItems_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddListItemsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_UpdateListItem_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateListItem" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_UpdateListItem_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateListItemResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getOrderedItems_InputMessage">
-    <wsdl:part name="parameters" element="tns:getOrderedItems" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getOrderedItems_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getOrderedItemsResponse" />
+  <wsdl:message name="IGP_Service_updateStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateStockResponse" />
   </wsdl:message>
   <wsdl:message name="IGP_Service_getProductByCat_InputMessage">
     <wsdl:part name="parameters" element="tns:getProductByCat" />
@@ -234,6 +133,192 @@
   </wsdl:message>
   <wsdl:message name="IGP_Service_getProductBySubCat_OutputMessage">
     <wsdl:part name="parameters" element="tns:getProductBySubCatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_searchProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:searchProducts" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_searchProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:searchProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getAllCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllCategories" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getAllCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getCat_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCat" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getCat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getCategorybyProductID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCategorybyProductID" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getCategorybyProductID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCategorybyProductIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:addCategory" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updateCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateCategories" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updateCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getAllSubCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllSubCategories" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getAllSubCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllSubCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getSubCat_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSubCat" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getSubCat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSubCatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getSubCatPerCat_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSubCatPerCat" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getSubCatPerCat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSubCatPerCatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addSubCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:addSubCategory" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addSubCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addSubCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updateSubCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateSubCategories" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updateSubCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateSubCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:getInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:addInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updateInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updateInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getAllInvoices_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllInvoices" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getAllInvoices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllInvoicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getAllCustomerInvoices_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllCustomerInvoices" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getAllCustomerInvoices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllCustomerInvoicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getAllInvoiceLines_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllInvoiceLines" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getAllInvoiceLines_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllInvoiceLinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addToList_InputMessage">
+    <wsdl:part name="parameters" element="tns:addToList" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addToList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addToListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getList_InputMessage">
+    <wsdl:part name="parameters" element="tns:getList" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updateList_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateList" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updateList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_removeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeList" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_removeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAddress" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:addAddress" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updateAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateAddress" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updateAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCard" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:addCard" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updateCards_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateCards" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updateCards_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateCardsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDevice" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addDevices_InputMessage">
+    <wsdl:part name="parameters" element="tns:addDevices" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_addDevices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getUsersPerDay_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUsersPerDay" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getUsersPerDay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUsersPerDayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_calculateProfit_InputMessage">
+    <wsdl:part name="parameters" element="tns:calculateProfit" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_calculateProfit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:calculateProfitResponse" />
   </wsdl:message>
   <wsdl:message name="IGP_Service_profitPerProduct_InputMessage">
     <wsdl:part name="parameters" element="tns:profitPerProduct" />
@@ -253,35 +338,11 @@
   <wsdl:message name="IGP_Service_profitPerCat_OutputMessage">
     <wsdl:part name="parameters" element="tns:profitPerCatResponse" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_getSubCat_InputMessage">
-    <wsdl:part name="parameters" element="tns:getSubCat" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getSubCat_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getSubCatResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getCat_InputMessage">
-    <wsdl:part name="parameters" element="tns:getCat" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getCat_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getCatResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getSubCatPerCat_InputMessage">
-    <wsdl:part name="parameters" element="tns:getSubCatPerCat" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getSubCatPerCat_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getSubCatPerCatResponse" />
-  </wsdl:message>
   <wsdl:message name="IGP_Service_calcProductVAT_InputMessage">
     <wsdl:part name="parameters" element="tns:calcProductVAT" />
   </wsdl:message>
   <wsdl:message name="IGP_Service_calcProductVAT_OutputMessage">
     <wsdl:part name="parameters" element="tns:calcProductVATResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getProductByID_InputMessage">
-    <wsdl:part name="parameters" element="tns:getProductByID" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getProductByID_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getProductByIDResponse" />
   </wsdl:message>
   <wsdl:message name="IGP_Service_getNumProductsInSub_InputMessage">
     <wsdl:part name="parameters" element="tns:getNumProductsInSub" />
@@ -289,41 +350,11 @@
   <wsdl:message name="IGP_Service_getNumProductsInSub_OutputMessage">
     <wsdl:part name="parameters" element="tns:getNumProductsInSubResponse" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_addInvoices_InputMessage">
-    <wsdl:part name="parameters" element="tns:addInvoices" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_addInvoices_OutputMessage">
-    <wsdl:part name="parameters" element="tns:addInvoicesResponse" />
-  </wsdl:message>
   <wsdl:message name="IGP_Service_addInvoiceLine_InputMessage">
     <wsdl:part name="parameters" element="tns:addInvoiceLine" />
   </wsdl:message>
   <wsdl:message name="IGP_Service_addInvoiceLine_OutputMessage">
     <wsdl:part name="parameters" element="tns:addInvoiceLineResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_searchProducts_InputMessage">
-    <wsdl:part name="parameters" element="tns:searchProducts" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_searchProducts_OutputMessage">
-    <wsdl:part name="parameters" element="tns:searchProductsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_updatePoints_InputMessage">
-    <wsdl:part name="parameters" element="tns:updatePoints" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_updatePoints_OutputMessage">
-    <wsdl:part name="parameters" element="tns:updatePointsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getUserPoints_InputMessage">
-    <wsdl:part name="parameters" element="tns:getUserPoints" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getUserPoints_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getUserPointsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getCategorybyProductID_InputMessage">
-    <wsdl:part name="parameters" element="tns:getCategorybyProductID" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getCategorybyProductID_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getCategorybyProductIDResponse" />
   </wsdl:message>
   <wsdl:message name="IGP_Service_usersperWeek_InputMessage">
     <wsdl:part name="parameters" element="tns:usersperWeek" />
@@ -336,6 +367,12 @@
   </wsdl:message>
   <wsdl:message name="IGP_Service_percentageUserChange_OutputMessage">
     <wsdl:part name="parameters" element="tns:percentageUserChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getWeekDates_InputMessage">
+    <wsdl:part name="parameters" element="tns:getWeekDates" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getWeekDates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getWeekDatesResponse" />
   </wsdl:message>
   <wsdl:message name="IGP_Service_salesPerWeek_InputMessage">
     <wsdl:part name="parameters" element="tns:salesPerWeek" />
@@ -361,14 +398,38 @@
   <wsdl:message name="IGP_Service_NumSaleChange_OutputMessage">
     <wsdl:part name="parameters" element="tns:NumSaleChangeResponse" />
   </wsdl:message>
+  <wsdl:message name="IGP_Service_calcCategoryTotalSales_InputMessage">
+    <wsdl:part name="parameters" element="tns:calcCategoryTotalSales" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_calcCategoryTotalSales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:calcCategoryTotalSalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_calcSalesPerDay_InputMessage">
+    <wsdl:part name="parameters" element="tns:calcSalesPerDay" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_calcSalesPerDay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:calcSalesPerDayResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGP_Service">
+    <wsdl:operation name="getMonthDates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getMonthDates" message="tns:IGP_Service_getMonthDates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getMonthDatesResponse" message="tns:IGP_Service_getMonthDates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="numProductSales">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/numProductSales" message="tns:IGP_Service_numProductSales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/numProductSalesResponse" message="tns:IGP_Service_numProductSales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="percProductSales">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/percProductSales" message="tns:IGP_Service_percProductSales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/percProductSalesResponse" message="tns:IGP_Service_percProductSales_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="login">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/login" message="tns:IGP_Service_login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/loginResponse" message="tns:IGP_Service_login_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Register">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/Register" message="tns:IGP_Service_Register_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/RegisterResponse" message="tns:IGP_Service_Register_OutputMessage" />
+    <wsdl:operation name="register">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/register" message="tns:IGP_Service_register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/registerResponse" message="tns:IGP_Service_register_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="addUserNumber">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addUserNumber" message="tns:IGP_Service_addUserNumber_InputMessage" />
@@ -378,13 +439,29 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/removeUser" message="tns:IGP_Service_removeUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/removeUserResponse" message="tns:IGP_Service_removeUser_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateUserDetails">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/UpdateUserDetails" message="tns:IGP_Service_UpdateUserDetails_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/UpdateUserDetailsResponse" message="tns:IGP_Service_UpdateUserDetails_OutputMessage" />
+    <wsdl:operation name="updateUserDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/updateUserDetails" message="tns:IGP_Service_updateUserDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/updateUserDetailsResponse" message="tns:IGP_Service_updateUserDetails_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdatePassword">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/UpdatePassword" message="tns:IGP_Service_UpdatePassword_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/UpdatePasswordResponse" message="tns:IGP_Service_UpdatePassword_OutputMessage" />
+    <wsdl:operation name="updatePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/updatePassword" message="tns:IGP_Service_updatePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/updatePasswordResponse" message="tns:IGP_Service_updatePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getUser" message="tns:IGP_Service_getUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getUserResponse" message="tns:IGP_Service_getUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getNumUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getNumUsers" message="tns:IGP_Service_getNumUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getNumUsersResponse" message="tns:IGP_Service_getNumUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePoints">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/updatePoints" message="tns:IGP_Service_updatePoints_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/updatePointsResponse" message="tns:IGP_Service_updatePoints_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserPoints">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getUserPoints" message="tns:IGP_Service_getUserPoints_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getUserPointsResponse" message="tns:IGP_Service_getUserPoints_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="addNewProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addNewProduct" message="tns:IGP_Service_addNewProduct_InputMessage" />
@@ -402,109 +479,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/removeProduct" message="tns:IGP_Service_removeProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/removeProductResponse" message="tns:IGP_Service_removeProduct_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="getAllCategories">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getAllCategories" message="tns:IGP_Service_getAllCategories_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getAllCategoriesResponse" message="tns:IGP_Service_getAllCategories_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getAllSubCategories">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getAllSubCategories" message="tns:IGP_Service_getAllSubCategories_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getAllSubCategoriesResponse" message="tns:IGP_Service_getAllSubCategories_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getOrder">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getOrder" message="tns:IGP_Service_getOrder_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getOrderResponse" message="tns:IGP_Service_getOrder_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="addOrder">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addOrder" message="tns:IGP_Service_addOrder_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/addOrderResponse" message="tns:IGP_Service_addOrder_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateOrder">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/UpdateOrder" message="tns:IGP_Service_UpdateOrder_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/UpdateOrderResponse" message="tns:IGP_Service_UpdateOrder_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getAllOrders">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getAllOrders" message="tns:IGP_Service_getAllOrders_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getAllOrdersResponse" message="tns:IGP_Service_getAllOrders_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getAllCustomerOrders">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getAllCustomerOrders" message="tns:IGP_Service_getAllCustomerOrders_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getAllCustomerOrdersResponse" message="tns:IGP_Service_getAllCustomerOrders_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getUsersPerDay">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getUsersPerDay" message="tns:IGP_Service_getUsersPerDay_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getUsersPerDayResponse" message="tns:IGP_Service_getUsersPerDay_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="getProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getProduct" message="tns:IGP_Service_getProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getProductResponse" message="tns:IGP_Service_getProduct_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateStock">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/UpdateStock" message="tns:IGP_Service_UpdateStock_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/UpdateStockResponse" message="tns:IGP_Service_UpdateStock_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddItemsToShoppingList">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/AddItemsToShoppingList" message="tns:IGP_Service_AddItemsToShoppingList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/AddItemsToShoppingListResponse" message="tns:IGP_Service_AddItemsToShoppingList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getUser">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getUser" message="tns:IGP_Service_getUser_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getUserResponse" message="tns:IGP_Service_getUser_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getNumUsers">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getNumUsers" message="tns:IGP_Service_getNumUsers_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getNumUsersResponse" message="tns:IGP_Service_getNumUsers_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CalculateProfit">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/CalculateProfit" message="tns:IGP_Service_CalculateProfit_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/CalculateProfitResponse" message="tns:IGP_Service_CalculateProfit_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getAddress">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getAddress" message="tns:IGP_Service_getAddress_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getAddressResponse" message="tns:IGP_Service_getAddress_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddAdress">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/AddAdress" message="tns:IGP_Service_AddAdress_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/AddAdressResponse" message="tns:IGP_Service_AddAdress_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateAddress">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/UpdateAddress" message="tns:IGP_Service_UpdateAddress_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/UpdateAddressResponse" message="tns:IGP_Service_UpdateAddress_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getCard">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getCard" message="tns:IGP_Service_getCard_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getCardResponse" message="tns:IGP_Service_getCard_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddCard">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/AddCard" message="tns:IGP_Service_AddCard_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/AddCardResponse" message="tns:IGP_Service_AddCard_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateCards">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/UpdateCards" message="tns:IGP_Service_UpdateCards_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/UpdateCardsResponse" message="tns:IGP_Service_UpdateCards_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getDevice">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getDevice" message="tns:IGP_Service_getDevice_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getDeviceResponse" message="tns:IGP_Service_getDevice_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddDevices">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/AddDevices" message="tns:IGP_Service_AddDevices_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/AddDevicesResponse" message="tns:IGP_Service_AddDevices_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getListItem">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getListItem" message="tns:IGP_Service_getListItem_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getListItemResponse" message="tns:IGP_Service_getListItem_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddListItems">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/AddListItems" message="tns:IGP_Service_AddListItems_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/AddListItemsResponse" message="tns:IGP_Service_AddListItems_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateListItem">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/UpdateListItem" message="tns:IGP_Service_UpdateListItem_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/UpdateListItemResponse" message="tns:IGP_Service_UpdateListItem_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getOrderedItems">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getOrderedItems" message="tns:IGP_Service_getOrderedItems_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getOrderedItemsResponse" message="tns:IGP_Service_getOrderedItems_OutputMessage" />
+    <wsdl:operation name="updateStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/updateStock" message="tns:IGP_Service_updateStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/updateStockResponse" message="tns:IGP_Service_updateStock_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getProductByCat">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getProductByCat" message="tns:IGP_Service_getProductByCat_InputMessage" />
@@ -513,6 +494,130 @@
     <wsdl:operation name="getProductBySubCat">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getProductBySubCat" message="tns:IGP_Service_getProductBySubCat_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getProductBySubCatResponse" message="tns:IGP_Service_getProductBySubCat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="searchProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/searchProducts" message="tns:IGP_Service_searchProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/searchProductsResponse" message="tns:IGP_Service_searchProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getAllCategories" message="tns:IGP_Service_getAllCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getAllCategoriesResponse" message="tns:IGP_Service_getAllCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getCat" message="tns:IGP_Service_getCat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getCatResponse" message="tns:IGP_Service_getCat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategorybyProductID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getCategorybyProductID" message="tns:IGP_Service_getCategorybyProductID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getCategorybyProductIDResponse" message="tns:IGP_Service_getCategorybyProductID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addCategory" message="tns:IGP_Service_addCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/addCategoryResponse" message="tns:IGP_Service_addCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/updateCategories" message="tns:IGP_Service_updateCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/updateCategoriesResponse" message="tns:IGP_Service_updateCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllSubCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getAllSubCategories" message="tns:IGP_Service_getAllSubCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getAllSubCategoriesResponse" message="tns:IGP_Service_getAllSubCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSubCat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getSubCat" message="tns:IGP_Service_getSubCat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getSubCatResponse" message="tns:IGP_Service_getSubCat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSubCatPerCat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getSubCatPerCat" message="tns:IGP_Service_getSubCatPerCat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getSubCatPerCatResponse" message="tns:IGP_Service_getSubCatPerCat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addSubCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addSubCategory" message="tns:IGP_Service_addSubCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/addSubCategoryResponse" message="tns:IGP_Service_addSubCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSubCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/updateSubCategories" message="tns:IGP_Service_updateSubCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/updateSubCategoriesResponse" message="tns:IGP_Service_updateSubCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getInvoice" message="tns:IGP_Service_getInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getInvoiceResponse" message="tns:IGP_Service_getInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addInvoice" message="tns:IGP_Service_addInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/addInvoiceResponse" message="tns:IGP_Service_addInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/updateInvoice" message="tns:IGP_Service_updateInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/updateInvoiceResponse" message="tns:IGP_Service_updateInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllInvoices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getAllInvoices" message="tns:IGP_Service_getAllInvoices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getAllInvoicesResponse" message="tns:IGP_Service_getAllInvoices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllCustomerInvoices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getAllCustomerInvoices" message="tns:IGP_Service_getAllCustomerInvoices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getAllCustomerInvoicesResponse" message="tns:IGP_Service_getAllCustomerInvoices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllInvoiceLines">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getAllInvoiceLines" message="tns:IGP_Service_getAllInvoiceLines_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getAllInvoiceLinesResponse" message="tns:IGP_Service_getAllInvoiceLines_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addToList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addToList" message="tns:IGP_Service_addToList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/addToListResponse" message="tns:IGP_Service_addToList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getList" message="tns:IGP_Service_getList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getListResponse" message="tns:IGP_Service_getList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/updateList" message="tns:IGP_Service_updateList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/updateListResponse" message="tns:IGP_Service_updateList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/removeList" message="tns:IGP_Service_removeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/removeListResponse" message="tns:IGP_Service_removeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getAddress" message="tns:IGP_Service_getAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getAddressResponse" message="tns:IGP_Service_getAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addAddress" message="tns:IGP_Service_addAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/addAddressResponse" message="tns:IGP_Service_addAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/updateAddress" message="tns:IGP_Service_updateAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/updateAddressResponse" message="tns:IGP_Service_updateAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getCard" message="tns:IGP_Service_getCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getCardResponse" message="tns:IGP_Service_getCard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addCard" message="tns:IGP_Service_addCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/addCardResponse" message="tns:IGP_Service_addCard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateCards">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/updateCards" message="tns:IGP_Service_updateCards_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/updateCardsResponse" message="tns:IGP_Service_updateCards_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getDevice" message="tns:IGP_Service_getDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getDeviceResponse" message="tns:IGP_Service_getDevice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addDevices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addDevices" message="tns:IGP_Service_addDevices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/addDevicesResponse" message="tns:IGP_Service_addDevices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUsersPerDay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getUsersPerDay" message="tns:IGP_Service_getUsersPerDay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getUsersPerDayResponse" message="tns:IGP_Service_getUsersPerDay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="calculateProfit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/calculateProfit" message="tns:IGP_Service_calculateProfit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/calculateProfitResponse" message="tns:IGP_Service_calculateProfit_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="profitPerProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/profitPerProduct" message="tns:IGP_Service_profitPerProduct_InputMessage" />
@@ -526,53 +631,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/profitPerCat" message="tns:IGP_Service_profitPerCat_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/profitPerCatResponse" message="tns:IGP_Service_profitPerCat_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="getSubCat">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getSubCat" message="tns:IGP_Service_getSubCat_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getSubCatResponse" message="tns:IGP_Service_getSubCat_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getCat">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getCat" message="tns:IGP_Service_getCat_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getCatResponse" message="tns:IGP_Service_getCat_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getSubCatPerCat">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getSubCatPerCat" message="tns:IGP_Service_getSubCatPerCat_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getSubCatPerCatResponse" message="tns:IGP_Service_getSubCatPerCat_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="calcProductVAT">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/calcProductVAT" message="tns:IGP_Service_calcProductVAT_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/calcProductVATResponse" message="tns:IGP_Service_calcProductVAT_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getProductByID">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getProductByID" message="tns:IGP_Service_getProductByID_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getProductByIDResponse" message="tns:IGP_Service_getProductByID_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getNumProductsInSub">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getNumProductsInSub" message="tns:IGP_Service_getNumProductsInSub_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getNumProductsInSubResponse" message="tns:IGP_Service_getNumProductsInSub_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="addInvoices">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addInvoices" message="tns:IGP_Service_addInvoices_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/addInvoicesResponse" message="tns:IGP_Service_addInvoices_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="addInvoiceLine">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/addInvoiceLine" message="tns:IGP_Service_addInvoiceLine_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/addInvoiceLineResponse" message="tns:IGP_Service_addInvoiceLine_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="searchProducts">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/searchProducts" message="tns:IGP_Service_searchProducts_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/searchProductsResponse" message="tns:IGP_Service_searchProducts_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="updatePoints">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/updatePoints" message="tns:IGP_Service_updatePoints_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/updatePointsResponse" message="tns:IGP_Service_updatePoints_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getUserPoints">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getUserPoints" message="tns:IGP_Service_getUserPoints_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getUserPointsResponse" message="tns:IGP_Service_getUserPoints_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getCategorybyProductID">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getCategorybyProductID" message="tns:IGP_Service_getCategorybyProductID_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getCategorybyProductIDResponse" message="tns:IGP_Service_getCategorybyProductID_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="usersperWeek">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/usersperWeek" message="tns:IGP_Service_usersperWeek_InputMessage" />
@@ -581,6 +650,10 @@
     <wsdl:operation name="percentageUserChange">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/percentageUserChange" message="tns:IGP_Service_percentageUserChange_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/percentageUserChangeResponse" message="tns:IGP_Service_percentageUserChange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getWeekDates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getWeekDates" message="tns:IGP_Service_getWeekDates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getWeekDatesResponse" message="tns:IGP_Service_getWeekDates_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="salesPerWeek">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/salesPerWeek" message="tns:IGP_Service_salesPerWeek_InputMessage" />
@@ -598,9 +671,44 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/NumSaleChange" message="tns:IGP_Service_NumSaleChange_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/NumSaleChangeResponse" message="tns:IGP_Service_NumSaleChange_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="calcCategoryTotalSales">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/calcCategoryTotalSales" message="tns:IGP_Service_calcCategoryTotalSales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/calcCategoryTotalSalesResponse" message="tns:IGP_Service_calcCategoryTotalSales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="calcSalesPerDay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/calcSalesPerDay" message="tns:IGP_Service_calcSalesPerDay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/calcSalesPerDayResponse" message="tns:IGP_Service_calcSalesPerDay_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGP_Service" type="tns:IGP_Service">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getMonthDates">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getMonthDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="numProductSales">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/numProductSales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="percProductSales">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/percProductSales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="login">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/login" style="document" />
       <wsdl:input>
@@ -610,8 +718,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Register">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/Register" style="document" />
+    <wsdl:operation name="register">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/register" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -637,8 +745,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateUserDetails">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/UpdateUserDetails" style="document" />
+    <wsdl:operation name="updateUserDetails">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/updateUserDetails" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -646,8 +754,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdatePassword">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/UpdatePassword" style="document" />
+    <wsdl:operation name="updatePassword">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/updatePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNumUsers">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getNumUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePoints">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/updatePoints" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserPoints">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getUserPoints" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -691,78 +835,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getAllCategories">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getAllCategories" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getAllSubCategories">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getAllSubCategories" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getOrder">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getOrder" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="addOrder">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/addOrder" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateOrder">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/UpdateOrder" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getAllOrders">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getAllOrders" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getAllCustomerOrders">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getAllCustomerOrders" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getUsersPerDay">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getUsersPerDay" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="getProduct">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/getProduct" style="document" />
       <wsdl:input>
@@ -772,152 +844,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateStock">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/UpdateStock" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddItemsToShoppingList">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/AddItemsToShoppingList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getUser">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getUser" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getNumUsers">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getNumUsers" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CalculateProfit">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/CalculateProfit" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getAddress">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getAddress" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddAdress">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/AddAdress" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateAddress">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/UpdateAddress" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getCard">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getCard" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddCard">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/AddCard" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateCards">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/UpdateCards" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getDevice">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getDevice" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddDevices">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/AddDevices" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getListItem">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getListItem" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddListItems">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/AddListItems" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateListItem">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/UpdateListItem" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getOrderedItems">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getOrderedItems" style="document" />
+    <wsdl:operation name="updateStock">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/updateStock" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -936,6 +864,285 @@
     </wsdl:operation>
     <wsdl:operation name="getProductBySubCat">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/getProductBySubCat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchProducts">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/searchProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllCategories">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getAllCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCat">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getCat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategorybyProductID">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getCategorybyProductID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCategory">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/addCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCategories">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/updateCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllSubCategories">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getAllSubCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubCat">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getSubCat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubCatPerCat">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getSubCatPerCat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSubCategory">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/addSubCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSubCategories">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/updateSubCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvoice">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addInvoice">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/addInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateInvoice">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/updateInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllInvoices">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getAllInvoices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllCustomerInvoices">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getAllCustomerInvoices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllInvoiceLines">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getAllInvoiceLines" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addToList">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/addToList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getList">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateList">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/updateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeList">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/removeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAddress">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAddress">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/addAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAddress">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/updateAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCard">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCard">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/addCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCards">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/updateCards" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDevice">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addDevices">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/addDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsersPerDay">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getUsersPerDay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calculateProfit">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/calculateProfit" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -970,44 +1177,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getSubCat">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getSubCat" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getCat">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getCat" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getSubCatPerCat">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getSubCatPerCat" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="calcProductVAT">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/calcProductVAT" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getProductByID">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getProductByID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1024,53 +1195,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="addInvoices">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/addInvoices" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="addInvoiceLine">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/addInvoiceLine" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="searchProducts">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/searchProducts" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="updatePoints">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/updatePoints" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getUserPoints">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getUserPoints" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getCategorybyProductID">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getCategorybyProductID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1089,6 +1215,15 @@
     </wsdl:operation>
     <wsdl:operation name="percentageUserChange">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/percentageUserChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWeekDates">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getWeekDates" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1125,6 +1260,24 @@
     </wsdl:operation>
     <wsdl:operation name="NumSaleChange">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/NumSaleChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calcCategoryTotalSales">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/calcCategoryTotalSales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calcSalesPerDay">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/calcSalesPerDay" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

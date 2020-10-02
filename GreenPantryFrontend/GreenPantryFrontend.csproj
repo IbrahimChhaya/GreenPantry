@@ -3605,7 +3605,6 @@
     <Content Include="Source\SlickNav-master.zip" />
     <Content Include="Site1.Master" />
     <Content Include="Site2.Master" />
-    <None Include="Properties\PublishProfiles\GreenPantry - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

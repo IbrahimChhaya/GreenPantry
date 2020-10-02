@@ -25,6 +25,7 @@
     <MetadataFile FileName="GP_Service.xsd" MetadataType="Schema" ID="a1ce3ba5-9bad-4f3e-95ad-21a9a2f5132f" SourceId="1" SourceUrl="http://localhost:53900/GP_Service.svc?xsd=xsd0" />
     <MetadataFile FileName="GP_Service.wsdl" MetadataType="Wsdl" ID="e44ce422-6641-472c-afa1-ee0f76adf632" SourceId="1" SourceUrl="http://localhost:53900/GP_Service.svc?wsdl" />
     <MetadataFile FileName="GP_Service.disco" MetadataType="Disco" ID="451ba263-1ea2-47c6-a352-f83351094b29" SourceId="1" SourceUrl="http://localhost:53900/GP_Service.svc?disco" />
+    <MetadataFile FileName="GP_Service3.xsd" MetadataType="Schema" ID="a5bc5c8d-674d-43fb-9429-fc8ff4921c78" SourceId="1" SourceUrl="http://localhost:53900/GP_Service.svc?xsd=xsd3" />
     <MetadataFile FileName="GP_Service1.xsd" MetadataType="Schema" ID="8822b11a-2cc6-4e5b-b2b2-0b6451bccd68" SourceId="1" SourceUrl="http://localhost:53900/GP_Service.svc?xsd=xsd2" />
     <MetadataFile FileName="GP_Service2.xsd" MetadataType="Schema" ID="1a7d345a-e8e8-4b1b-bdff-c0575e17827a" SourceId="1" SourceUrl="http://localhost:53900/GP_Service.svc?xsd=xsd1" />
   </Metadata>
