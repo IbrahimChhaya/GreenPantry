@@ -1,6 +1,7 @@
 ﻿using GreenPantryFrontend.ServiceReference1;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -29,6 +30,16 @@ namespace GreenPantryFrontend
                     account.InnerHtml = display;
                 }
                 
+            }
+            //TRAFFIC --------------------------------------------------------------------------
+            string currentPage = Path.GetFileName(Request.Path);
+            if(Session["TrafficUser"]==null)
+            {
+                int addTraffic = SC.addTraffic(currentPage, DateTime.Now,1);
+                Session["TrafficUser"] = addTraffic;
+            }else
+            {
+                int addTraffic = SC.addTraffic(currentPage, DateTime.Now,0);
             }
             
             //category menu --------------------------------------------------------------------
