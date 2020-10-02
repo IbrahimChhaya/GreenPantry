@@ -13,8 +13,15 @@ namespace GreenPantryFrontend
         GP_ServiceClient SC = new GP_ServiceClient(); 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["LoggedInUserID"] == null)
+            {
+                listIcon.Visible = false;
+            }
+            else
+            {
+                listIcon.Visible = true;
+            }
 
-            //int.Parse(Request.QueryString["ProductID"])
             if (Request.QueryString["ProductID"] != null)
             {
                 dynamic getProducts = SC.getProduct(int.Parse(Request.QueryString["ProductID"]));
@@ -34,7 +41,7 @@ namespace GreenPantryFrontend
                 Display += "src ='" + getProducts.Image_Location + "' alt=''>";
                 PImage.InnerHtml = Display;
 
-                ///singleproduct.aspx?ProductID=" + getProducts.ID + "
+                //singleproduct.aspx?ProductID=" + getProducts.ID + "
                 Display = "";
 
                 //Product name
@@ -45,7 +52,7 @@ namespace GreenPantryFrontend
 
                 Display = "";
                 //description
-                Display += "<h6> Products Infomation </h6>";
+                Display += "<h6>Products Infomation</h6>";
                 Display += "<p>" + getProducts.Name + "</p>";
                 Description.InnerHtml = Display;
 
@@ -65,6 +72,12 @@ namespace GreenPantryFrontend
                     Display += "<h6><a href='singleproduct.aspx?ProductID=" + p.ID + "'>" + p.Name + "</a></h6>";
                     Display += "<h5>R" + Math.Round(p.Price, 2) + "</h5>";
                     Display += "</div></div></div>";
+                    if(p.StockOnHand.Equals(0))
+                    {
+                        stock.InnerHtml = "Out of Stock";
+                        Add.Enabled = false;
+                        listIcon.Visible = false;
+                    }
                 }
                 RelatedProducts.InnerHtml = Display;
             }
@@ -90,8 +103,6 @@ namespace GreenPantryFrontend
             return Request.Cookies[CookieName].ToString();
         }
 
-
-
         protected void add_Click(object sender, EventArgs e)
         {
             if(Request.Cookies["cart"] != null)
@@ -99,16 +110,31 @@ namespace GreenPantryFrontend
                 string str = Request.Cookies["cart"].Value;
 
                 str += Request.QueryString["ProductID"] + "-" + item_qty.Value;
-                saveToCookie("cart", str);
-               
+                saveToCookie("cart", str);               
             }
             else
             {
                 createCookie("cart", Request.QueryString["ProductID"] + "-" + item_qty.Value);
                 Response.Redirect("home.aspx");
             }
-            
         }
 
+        protected void listIcon_ServerClick(object sender, EventArgs e)
+        {
+            int addToList = SC.addToList(int.Parse(Session["LoggedInUserID"].ToString()), int.Parse(Request.QueryString["ProductID"]), int.Parse(item_qty.Value));
+            if(addToList.Equals(1))
+            {
+               listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> Added to Shopping List";
+            }
+            else if(addToList.Equals(0))
+            {
+                listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> Added to Shopping List";
+            }
+            else
+            {
+                listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> An error occured";
+            }
+            //finish this function yo
+        }
     }
 }

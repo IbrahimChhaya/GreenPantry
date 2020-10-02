@@ -36,7 +36,7 @@
 				</form>
 			</div>
 			<div class="form-container sign-in-container" id="resetDiv" runat="server" visible="false">
-				<form class="login" runat="server" >
+				<form class="login" runat="server">
 					<h1 class="h1login">Forgot password?</h1>
 					<br />
 					<span id="resetText" runat="server">We'll email you a link to reset your password</span>

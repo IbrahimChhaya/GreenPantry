@@ -52,7 +52,7 @@
                                             <a href="/invoice.aspx?InvoiceID=1">1</a>
                                         </td>
                                         <td>
-                                            <span class="short">2020/09/02</span>
+                                            2020/09/02
                                         </td>
                                         <td>R428.00</td>
                                         <td>Processing</td>

@@ -27,8 +27,9 @@ namespace GreenPantryFrontend
                     {
                         delivery = 60;
                     }
-                    display += "<tr><td><a href='/invoice.aspx?InvoiceID=" + inv.ID + "'>" + inv.ID + "</a></td><td>";
-                    display += "<span class='short'>" + inv.Date + "</span></td>";
+                    DateTime date = inv.Date;
+                    display += "<tr><td><a href='/invoice.aspx?InvoiceID=" + inv.ID + "'>" + inv.ID + "</a></td>";
+                    display += "<td>" + date.ToString("d") + "</td>";
                     display += "<td>R" + Math.Round((inv.Total + delivery - inv.Points), 2) + "</td>";
                     display += "<td>Dispatched</td><td></td>";
                     display += "<td><a class='site-btn' href='/invoice.aspx?InvoiceID=" + inv.ID + "'>View order</a></td></tr>";

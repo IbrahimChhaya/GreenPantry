@@ -17,6 +17,7 @@ namespace GreenPantryFrontend.dashboard
             // int userID = Convert.ToInt32(Request.QueryString["userID"]);
             int userID = 1;
             dynamic invoice = SR.getAllCustomerInvoices(userID);
+            userIDOrders.InnerHtml = "User #" + userID + "'s Orders";
 
             string display = "";
             foreach(var inv in invoice)
@@ -40,9 +41,7 @@ namespace GreenPantryFrontend.dashboard
                 display += "<a class='dropdown-item' href='#'>Cancel</a>";
                 display += "<a class='dropdown-item' href='#'>Do something else</a>";
                 display += "</div></div></td></tr>";
-              
             }
-
             InvoiceNumber.InnerHtml = display;
         }
     }
