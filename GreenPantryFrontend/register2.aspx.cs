@@ -30,9 +30,8 @@ namespace GreenPantryFrontend
             //}
             //else
             //{
-                int registered = SR.register(name.Value, surname.Value, RegEmail.Value, RegPassword.Value, "active", DateTime.Today, "customer");
-
-          
+            string email = RegEmail.Value;
+            int registered = SR.register(name.Value, surname.Value, email.ToLower(), RegPassword.Value, "active", DateTime.Today, "customer");
             if (registered == -1)
             {
                 error.Text = "Something went wrong, please try again later";
@@ -46,15 +45,12 @@ namespace GreenPantryFrontend
             {
                 Session["LoggedInUserID"] = registered;
 
-                //int userID = Convert.ToInt32(Session["LoggedInUserID"]);
                 int addpoint = SR.updatePoints(registered, 50);
-                if(addpoint ==1)
+                if(addpoint == 1)
                 {
                     Response.Redirect("home.aspx");
                 }
-                
             }
-            //}
         }
     }
 }

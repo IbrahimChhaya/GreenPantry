@@ -3130,7 +3130,7 @@
     <None Include="Connected Services\ServiceReference1\GP_Service3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Connected Services\ServiceReference1\GreenPantryFrontend.ServiceReference1.ListProduct.datasource">
+    <Content Include="Connected Services\ServiceReference1\GreenPantryFrontend.ServiceReference1.ShoppingList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\ServiceReference1\GP_Service31.xsd">
@@ -3341,7 +3341,7 @@
     <Content Include="js\shoppingcart.js" />
     <Content Include="login.aspx" />
     <Content Include="modallogin.aspx" />
-    <Content Include="dashboard\orderdash.aspx" />
+    <Content Include="dashboard\orders.aspx" />
     <Content Include="orders.aspx" />
     <Content Include="dashboard\products.aspx" />
     <Content Include="dashboard\profile.aspx" />
@@ -3349,6 +3349,7 @@
     <Content Include="register2.aspx" />
     <Content Include="dashboard\reports.aspx" />
     <Content Include="results.aspx" />
+    <Content Include="shoppinglist.aspx" />
     <Content Include="singleproduct.aspx" />
     <Content Include="subcategory.aspx" />
     <Content Include="dashboard\users.aspx" />
@@ -3466,12 +3467,12 @@
       <DependentUpon>modallogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
-    <Compile Include="dashboard\orderdash.aspx.cs">
-      <DependentUpon>orderdash.aspx</DependentUpon>
+    <Compile Include="dashboard\orders.aspx.cs">
+      <DependentUpon>orders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="dashboard\orderdash.aspx.designer.cs">
-      <DependentUpon>orderdash.aspx</DependentUpon>
+    <Compile Include="dashboard\orders.aspx.designer.cs">
+      <DependentUpon>orders.aspx</DependentUpon>
     </Compile>
     <Compile Include="orders.aspx.cs">
       <DependentUpon>orders.aspx</DependentUpon>
@@ -3522,6 +3523,13 @@
     </Compile>
     <Compile Include="results.aspx.designer.cs">
       <DependentUpon>results.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="shoppinglist.aspx.cs">
+      <DependentUpon>shoppinglist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shoppinglist.aspx.designer.cs">
+      <DependentUpon>shoppinglist.aspx</DependentUpon>
     </Compile>
     <Compile Include="singleproduct.aspx.cs">
       <DependentUpon>singleproduct.aspx</DependentUpon>

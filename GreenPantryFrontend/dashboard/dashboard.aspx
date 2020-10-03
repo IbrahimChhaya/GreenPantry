@@ -2,8 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-  <!-- Main content -->
-  <div class="main-content" id="panel">
+    <div class="main-content" id="panel">
   
     <!-- Header -->
     <div class="header bg-primary pb-6">
@@ -17,14 +16,15 @@
                 <h4 class="text-white">Howdy, Ubaid!</h4>
             </div>  
           </div>
+
           <!-- Card stats -->
           <div class="row">
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">
                 <!-- Card body -->
-                <div class="card-body">
+                <div class="card-body"  id="traffic" runat="server">
                   <div class="row">
-                    <div class="col" id="traffic" runat="server">
+                    <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Total traffic</h5>
                       <span class="h2 font-weight-bold mb-0">897</span>
                     </div>
@@ -192,7 +192,7 @@
                     <th scope="col">Bounce rate</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody  id="pageTraffic" runat="server">
                   <tr>
                     <th scope="row">
                       /argon/
@@ -389,7 +389,6 @@
       </div>
     </div>
 </div>
-
     <script>
         document.addEventListener("DOMContentLoaded", function (e) {
             monthlyChart();

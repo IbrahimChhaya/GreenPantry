@@ -73,15 +73,18 @@ namespace AdminDashboard
             {
                 for (int i = 1; i <= 3; i++)
                 {
-                    if (i.Equals(1))
+                    if (i <= totalPages)
                     {
-                        display += "<li class='page-item active'>";
+                        if (i.Equals(1))
+                        {
+                            display += "<li class='page-item active'>";
+                        }
+                        else
+                        {
+                            display += "<li class='page-item'>";
+                        }
+                        display += "<a class='page-link' href='/dashboard/products.aspx?Page=" + i + "'>" + i + "</a></li>";
                     }
-                    else
-                    {
-                        display += "<li class='page-item'>";
-                    }
-                    display += "<a class='page-link' href='/dashboard/products.aspx?Page=" + i + "'>" + i + "</a></li>";
                 }
             }
             //else

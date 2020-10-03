@@ -11,106 +11,79 @@ namespace GreenPantryFrontend
 {
 
 
-    public partial class account
+    public partial class shoppinglist
     {
 
         /// <summary>
-        /// error control.
+        /// emptyCart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label error;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl emptyCart;
 
         /// <summary>
-        /// Name control.
+        /// crumbSection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Name;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl crumbSection;
 
         /// <summary>
-        /// Surname control.
+        /// cartSection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Surname;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cartSection;
 
         /// <summary>
-        /// Email1 control.
+        /// tablerow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Email1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tablerow;
 
         /// <summary>
-        /// PhoneNumber1 control.
+        /// item_qty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl PhoneNumber1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText item_qty;
 
         /// <summary>
-        /// Submit control.
+        /// Cart_continue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Submit;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor Cart_continue;
 
         /// <summary>
-        /// A1 control.
+        /// update control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A1;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor update;
 
         /// <summary>
-        /// oldPass control.
+        /// cartTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword oldPass;
-
-        /// <summary>
-        /// newPass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword newPass;
-
-        /// <summary>
-        /// confirmPass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword confirmPass;
-
-        /// <summary>
-        /// updatePass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button updatePass;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cartTotal;
     }
 }

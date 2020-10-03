@@ -1,6 +1,7 @@
 ﻿using GreenPantryFrontend.ServiceReference1;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,6 +19,7 @@ namespace GreenPantryFrontend
 
             if (Session["LoggedInUserID"] != null)
             {
+                listIcon.Visible = true;
                 var user = SC.getUser(Convert.ToInt32(Session["LoggedInUserID"]));
                 if (user.UserType.Equals("admin"))
                 {
@@ -28,11 +30,24 @@ namespace GreenPantryFrontend
                     display = "<a href='account.aspx'>My Account</a>";
                     account.InnerHtml = display;
                 }
-                
+            }
+            else
+            {
+                listIcon.Visible = false;
+            }
+            //TRAFFIC --------------------------------------------------------------------------
+            string currentPage = Path.GetFileName(Request.Path);
+            if(Session["TrafficUser"]==null)
+            {
+                int addTraffic = SC.addTraffic(currentPage, DateTime.Now,1);
+                Session["TrafficUser"] = addTraffic;
+            }else
+            {
+                int addTraffic = SC.addTraffic(currentPage, DateTime.Now,0);
             }
             
             //category menu --------------------------------------------------------------------
-
+            display = "";
             dynamic allCategories = SC.getAllCategories();
             foreach (ProductCategory c in allCategories)
             {

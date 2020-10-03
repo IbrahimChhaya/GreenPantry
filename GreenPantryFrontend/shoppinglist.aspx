@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="cart.aspx.cs" Inherits="GreenPantryFrontend.cart" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="shoppinglist.aspx.cs" Inherits="GreenPantryFrontend.shoppinglist" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -68,7 +68,7 @@
             <polygon id="diamond" stroke="#C46F82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" points="886 705 889 708 886 711 883 708"></polygon>
             <path d="M736,577 C737.65825,577 739,578.34175 739,580 C739,578.34175 740.34175,577 742,577 C740.34175,577 739,575.65825 739,574 C739,575.65825 737.65825,577 736,577 Z" id="bubble-rounded" stroke="#3CBC83" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
         </svg>
-        <h3>Your shopping cart is empty</h3>
+        <h3>Your shopping list is empty</h3>
         <br />
         <a href="home.aspx" class="site-btn">Continue Shopping</a>
         <br />
@@ -82,10 +82,10 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Shopping Cart</h2>
+                        <h2>Shopping List</h2>
                         <div class="breadcrumb__option">
                             <a href="./home.aspx">Home</a>
-                            <span>Shopping Cart</span>
+                            <span>Shopping List</span>
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
     </section>
     <!-- Breadcrumb Section End -->
 
-    <!-- Shoping Cart Section Begin -->
+    <!-- Shoping List Section Begin -->
     <section class="shoping-cart spad" id="cartSection" runat="server">
         <div class="container">
             <div class="row">
@@ -137,6 +137,29 @@
                                 </tr>--%>
 <%--                              <span class="dec qtybtn" runat ="server" id="decQty" onclick="decQty_Click" href="cart.aspx">-</span>--%>
 <%--                                <div class="quantity"><div class="pro-qty"><input type ="text" value=" " runat="server" id="item_qty"></div></div>--%>
+                            <tr>
+                                <td class='shoping__cart__item'>";
+                                    <img src =" + product.Image_Location + " alt=''>";
+                                    <h5>product.Name</h5>
+                                </td>
+                                <td class='shoping__cart__price'>
+                                    product.Price
+                                </td>
+                                <td class='shoping__cart__quantity'>
+                                    <div class='quantity'>
+                                        <div class='pro-qty'>
+                                            <input type='text' value=" + s.Quantity + " runat='server' id='item_qty'>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class='shoping__cart__total' id='pTotal'>
+                                    product.Price
+                                </td>
+                                <td class='shoping__cart__item__close'>
+                                    <span class='icon_close'></span>
+                                </td>
+                            </tr>
+                            
                             </tbody>
                         </table>
                     </div>
@@ -150,24 +173,17 @@
                             Update Cart</a>
                     </div>
                 </div>
-<%--                <div class="col-lg-6">
-                    <div class="shoping__continue">
-                        <div class="shoping__discount">
-                            <h5>Discount Codes</h5>
-                            <form action="#">
-                                <input type="text" placeholder="Enter your coupon code">
-                                <button type="submit" class="site-btn">APPLY COUPON</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>--%>
                 <div class="col-lg-6">
                     <div class="shoping__checkout" runat="server" ID="cartTotal">
-                      
+                        <ul>
+                            <li>Subtotal <span>$454.98</span></li>
+                            <li>Total <span>$454.98</span></li>
+                        </ul>
+                        <a href="cart.aspx" class="primary-btn">SEND TO CART</a>  
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Shoping Cart Section End -->
+    <!-- Shoping List Section End -->
     </asp:Content>

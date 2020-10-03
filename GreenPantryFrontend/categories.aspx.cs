@@ -36,6 +36,7 @@ namespace GreenPantryFrontend
             subcatList.InnerHtml = display;
 
             display = "";
+            decimal high = 0;
             dynamic products = SC.getProductByCat(int.Parse(catID));
             foreach(Product p in products)
             {
@@ -48,8 +49,18 @@ namespace GreenPantryFrontend
                 display += "<div class='product__item__text'>";
                 display += "<h6>" + p.Name + "</h6>";
                 display += "<h5>R" + Math.Round(p.Price,2) + "</h5></div></div></div>";
+                if (p.Price > high)
+                    high = p.Price;
             }
             categoryProducts.InnerHtml = display;
+
+            display = "";
+            display += "<div class='price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content'";
+            display += "data-min='0' data-max='"+ high + "'>";
+            display += "<div class='ui-slider-range ui-corner-all ui-widget-header'></div>";
+            display += "<span tabindex='0' class='ui-slider-handle ui-corner-all ui-state-default'></span>";
+            display += "<span tabindex='0' class='ui-slider-handle ui-corner-all ui-state-default'></span></div>";
+            //maxPrice.InnerHtml = display;
         }
 
         private void saveToCookie(String CookieName, String content)
@@ -65,6 +76,11 @@ namespace GreenPantryFrontend
         private String readCookie(String CookieName)
         {
             return Request.Cookies[CookieName].ToString();
+        }
+
+        protected void btnFilterPrice_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("home.aspx");
         }
     }
 }

@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-  <!-- Main content -->
+    <!-- Main content -->
   <div class="main-content" id="panel">
     
     <!-- Header -->
@@ -20,6 +20,7 @@
         </div>
       </div>
     </div>
+
     <!-- Page content -->
     <div class="container-fluid mt--6">
       <div class="row">
@@ -276,5 +277,5 @@
         </div>
       </div>
         </div>
-    </div>
+      </div>
 </asp:Content>

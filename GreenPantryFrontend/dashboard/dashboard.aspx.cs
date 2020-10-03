@@ -91,7 +91,7 @@ namespace AdminDashboard
             Display += "<div class='col-auto'>";
             Display += "<div class='icon icon-shape bg-gradient-orange text-white rounded-circle shadow'>";
             Display += "<i class='ni ni-chart-pie-35'></i></div></div></div><p class='mt-3 mb-0 text-sm'>";
-            Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i>"+ userChange +"%</span>";
+            Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i> "+ userChange +"%</span>";
             Display += "<span class='text-nowrap'>Since last week</span></p>";
             newUsr.InnerHtml = Display;
 
@@ -123,10 +123,37 @@ namespace AdminDashboard
             Display += "<div class='icon icon-shape bg-gradient-info text-white rounded-circle shadow'>";
             Display += "<i class='ni ni-chart-bar-32'></i></div></div></div>";
             Display += "<p class='mt-3 mb-0 text-sm'>";
-            Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i>"+ perc+ "%</span>";
+            Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i> "+ Math.Round(perc,2)+ "%</span>";
             Display += "<span class='text-nowrap'>Since last week hau</span></p>";
             productSales.InnerHtml = Display;
 
+            Display = "";
+            int weeklyTraffic = SR.trafficPerWeek(DateTime.Now);
+            double percentage = SR.TrafficChange(DateTime.Now);
+            Display +="<div class='row'>";
+            Display +="<div class='col'><h5 class='card-title text-uppercase text-muted mb-0'>Total traffic</h5>";
+            Display +="<span class='h2 font-weight-bold mb-0'>"+weeklyTraffic+"</span></div>";
+            Display +="<div class='col-auto'>";
+            Display +="<div class='icon icon-shape bg-gradient-red text-white rounded-circle shadow'>";
+            Display +="<i class='ni ni-active-40'></i></div></div></div>";
+            Display +="<p class='mt-3 mb-0 text-sm'>";
+            Display +="<span class='text-success mr-2' id='trafficChange' runat='server'><i class='fa fa-arrow-up'></i> "+Math.Round(percentage,2)+"%</span>";
+            Display +="<span class='text-nowrap'>Since last week</span></p>";
+            traffic.InnerHtml = Display;
+
+            dynamic toppages = SR.topPages();
+
+            Display = "";
+            foreach(String s in toppages)
+            {
+                int singlePageTraffic = SR.singlePageTraffic(s);
+                int uniquevisitor = SR.singlePageUniqueTraffic(s);
+                Display += "<tr><th scope='row'>" + s+"</th>";
+                Display += "<td>"+singlePageTraffic+"</td>";
+                Display += "<td>"+ uniquevisitor + "</td>";
+                Display += "<td><i class='fas fa-arrow-up text-success mr-3'></i> dunno%</td></tr>";
+            }
+            pageTraffic.InnerHtml = Display;
 
 
 
