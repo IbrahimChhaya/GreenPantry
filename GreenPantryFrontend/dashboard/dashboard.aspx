@@ -122,18 +122,16 @@
                   <h6 class="text-muted text-uppercase ls-1 mb-1">Overview</h6>
                   <h5 class="h3 mb-0">Sales value</h5>
                 </div>
-                <div class="col" runat="server" id="chart1Li">
+                <div class="col">
                   <ul class="nav nav-pills justify-content-end">
-                    <li id="salesMonthToggle" class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"labels": ["I", "Hope", "This", "Works", "Jun", "Jul", "Aug", "Sep"],"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="R" data-suffix="k">
-                     <form runat="server">
-                        <a OnClick="monthlyChart()" class="nav-link py-2 px-3 active" data-toggle="tab">
+                    <li class="nav-item mr-2 mr-md-0">
+                        <a OnClick="monthlyChart()" href="#" class="nav-link py-2 px-3 active"  data-toggle="tab">
                             <span class="d-none d-md-block">Month</span>
                             <span class="d-md-none">M</span>
                         </a>
-                    </form>
                     </li>
-                    <li class="nav-item" id="weekToggle" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"labels": ["I", "Hope", "This", "Works", "Jun", "Jul", "Aug", "Sep"],"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="R" data-suffix="k">
-                      <a OnClick="weeklyChart()" href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                    <li class="nav-item">
+                      <a OnClick="weeklyChart()" href="#" class="nav-link py-2 px-3"  data-toggle="tab">
                         <span class="d-none d-md-block">Week</span>
                         <span class="d-md-none">W</span>
                       </a>
@@ -144,7 +142,7 @@
             </div>
             <div class="card-body">
               <!-- Chart -->
-              <div class="chart">
+              <div class="chart" id="sales-chart-parent">
                 <!-- Chart wrapper -->
                 <canvas id="chart-sales" class="chart-canvas"></canvas>
               </div>
@@ -164,7 +162,7 @@
             <div class="card-body">
               <!-- Chart -->
               <div class="chart">
-                <canvas id="chart-bars" class="chart-canvas"></canvas>
+                <canvas id="chart-category-sales" class="chart-canvas"></canvas>
               </div>
             </div>
           </div>
@@ -395,24 +393,33 @@
     <script>
         document.addEventListener("DOMContentLoaded", function (e) {
             monthlyChart();
+            //createChart();
+            categoriesChart();
         })
 
         function monthlyChart() {
-            refreshChart(<%= jsonObj %>, [12, 19, 3, 55, 22, 63, 17, 58]);
+            refreshChart(<%= jsonMonthDates %>, <%= jsonMonthSales %>);
         }
 
         function weeklyChart() {
-            refreshChart(<%= jsonObj %>, [42, 19, 53, 5, 12, 23, 77, 46]);
+            refreshChart(<%= jsonWeekDays %>, <%= jsonWeekSales %>);
         }
 
         function refreshChart(chartLabels, chartData) {
-            var ctx = document.getElementById('chart-sales');
+            $('#chart-sales').remove(); //remove canvas (delete altogether)
+            //create a new canvas
+            $('#sales-chart-parent').append('<canvas id="chart-sales" class="chart-canvas"></canvas>');
+
+            //get canvas context
+            var ctx = document.getElementById('chart-sales').getContext("2d");
+
+            //draw chart
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: chartLabels,
                     datasets: [{
-                        label: 'test',
+                        label: 'Sales',
                         data: chartData,
                     }]
                 },
@@ -423,16 +430,83 @@
                             labels: chartLabels,
                             ticks: {
                                 callback: function (value, index, values) {
-                                    return value.slice(0,5) + '...';
+                                    return value.slice(8, 10);
                                 }
                             }
                         }],
                         yAxes: [{
                             ticks: {
-                                beginAtZero: true
+                                beginAtZero: true,
+
+                                callback: function (value) {
+                                    return 'R' + value;
+                                }
                             }
                         }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function (item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                content += 'R' + yLabel;
+                                return content;
+                            }
+                        }
                     }
+                }
+            });
+
+        }
+        
+        function categoriesChart() {
+            var ctx = document.getElementById('chart-category-sales');
+            var barChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: <%= jsonCategories %>,
+                    datasets: [{
+                        label: 'Sales',
+                        data: <%= jsonCatSales %>,
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            type: 'category',
+                            labels: <%= jsonCategories %>,
+                            ticks: {
+                                callback: function (value, index, values) {
+                                    return value.slice(0, 5);
+                                }
+                            }
+                        }],
+
+                        yAxes: [{
+                            ticks: {
+                                callback: function (value) {
+                                    return 'R' + value;
+                                }
+                            }
+                        }]
+                    },
+                     tooltips: {
+                        callbacks: {
+                            label: function (tooltipItem, data) {
+                                var label = data.datasets[tooltipItem.datasetIndex].label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += 'R' + tooltipItem.yLabel;
+                                return label;
+
+                                //return tooltipItem.yLabel + ':R' + tooltipItem.xLabel;
+                            }
+                        }
+                     }
+
                 }
             });
         }
