@@ -23,8 +23,10 @@ namespace GreenPantryFrontend
             dynamic allCategories = SC.getAllCategories();
             foreach (ProductCategory c in allCategories)
             {
-
-                display += "<li><a href='/categories.aspx?CategoryID=" + c.ID + "'>" + c.Name + "</a></li>";
+                if (c.Status.Equals("active"))
+                {
+                    display += "<li><a href='/categories.aspx?CategoryID=" + c.ID + "'>" + c.Name + "</a></li>";
+                }
             }
 
             categoryList.InnerHtml = display;
