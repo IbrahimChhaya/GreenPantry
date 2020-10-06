@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -12,11 +13,18 @@ namespace GreenPantryFrontend
     {
         GP_ServiceClient SC = new GP_ServiceClient();
 
+        public string jsonProducts;
         protected void Page_Load(object sender, EventArgs e)
         {
-            String display = "";
+            if(Request.QueryString["SubcategoryID"] == null)
+            {
+                Response.Redirect("home.aspx");
+            }
+            else
+            {
+                String display = "";
 
-            String subID = Request.QueryString["SubcategoryID"];
+                String subID = Request.QueryString["SubcategoryID"];
 
             dynamic subcat = SC.getSubCat(int.Parse(subID));
 
@@ -38,7 +46,7 @@ namespace GreenPantryFrontend
                 filtered.InnerHtml = display;
             }
 
-            //products-------------------------------------------------------------
+                //products-------------------------------------------------------------
 
             display = "";
             dynamic products = SC.getProductBySubCat(int.Parse(subID));

@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,11 +13,18 @@ namespace GreenPantryFrontend
     public partial class categories : System.Web.UI.Page
     {
         GP_ServiceClient SC = new GP_ServiceClient();
+
+        public string jsonProducts;
         protected void Page_Load(object sender, EventArgs e)
         {
-            String display = "";
+            if(Request.QueryString["CategoryID"] == null)
+            {
+                Response.Redirect("home.aspx");
+            }
+            else { 
+                String display = "";
 
-            String catID = Request.QueryString["CategoryID"];
+                String catID = Request.QueryString["CategoryID"];
 
             dynamic category = SC.getCat(int.Parse(catID));
             if (category.Status.Equals("active"))
@@ -64,13 +73,26 @@ namespace GreenPantryFrontend
             }
             categoryProducts.InnerHtml = display;
 
-            display = "";
-            display += "<div class='price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content'";
-            display += "data-min='0' data-max='"+ high + "'>";
-            display += "<div class='ui-slider-range ui-corner-all ui-widget-header'></div>";
-            display += "<span tabindex='0' class='ui-slider-handle ui-corner-all ui-state-default'></span>";
-            display += "<span tabindex='0' class='ui-slider-handle ui-corner-all ui-state-default'></span></div>";
-            //maxPrice.InnerHtml = display;
+                display = "";
+                display += "<div class='price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content'";
+                display += "data-min='0' data-max='"+ high + "'>";
+                display += "<div class='ui-slider-range ui-corner-all ui-widget-header'></div>";
+                display += "<span tabindex='0' class='ui-slider-handle ui-corner-all ui-state-default'></span>";
+                display += "<span tabindex='0' class='ui-slider-handle ui-corner-all ui-state-default'></span></div>";
+
+            }
+        }
+
+        //function to get all products
+        public string getProducts()
+        {
+            Product[] products = SC.getProductByCat(Convert.ToInt32(Request.QueryString["CategoryID"]));
+            //create js serialized object to pass to js
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            jsonProducts = serializer.Serialize(products);
+            //jsonProducts = products;
+            return jsonProducts;
+
         }
 
         private void saveToCookie(String CookieName, String content)
