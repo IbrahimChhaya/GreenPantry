@@ -167,18 +167,22 @@
         maxamount = $("#maxamount"),
         minPrice = rangeSlider.data('min'),
         maxPrice = rangeSlider.data('max');
+   // debugger
+
     rangeSlider.slider({
         range: true,
         min: minPrice,
         max: maxPrice,
         values: [minPrice, maxPrice],
         slide: function (event, ui) {
-            minamount.val('$' + ui.values[0]);
-            maxamount.val('$' + ui.values[1]);
+            minamount.val('R' + ui.values[0]);
+            maxamount.val('R' + ui.values[1]);
+
         }
     });
-    minamount.val('$' + rangeSlider.slider("values", 0));
-    maxamount.val('$' + rangeSlider.slider("values", 1));
+    minamount.val('R' + rangeSlider.slider("values", 0));
+    maxamount.val('R' + rangeSlider.slider("values", 1));
+
 
     /*--------------------------
         Select
@@ -221,13 +225,25 @@
             }
         }
         $button.parent().find('input').val(newVal);
-     
+
+        var unitValue = $button.parent().parent().parent().parent().find('.shoping__cart__price').html();
+        $button.parent().parent().parent().parent().find('.shoping__cart__total#pTotal').html((newVal * unitValue).toFixed(2));
+        debugger
+
+        var unitID = $button.parent().parent().parent().parent().find('.cart__item-id').html();
+
+        //change totals
+        const elementTotals = document.getElementsByClassName('shoping__cart__total');
+        var subTotal = 0;
+
+        for (var i = 0; i < elementTotals.length; i++) {
+            subTotal += parseFloat(elementTotals[i].innerHTML);
+        }
+
+        $('#checkout__cart-total').text("R" + subTotal.toFixed(2));
+
         if (window.location.pathname === "/cart.aspx") {
-            var unitValue = $button.parent().parent().parent().parent().find('.shoping__cart__price').html();
-            $button.parent().parent().parent().parent().find('.shoping__cart__total#pTotal').html((newVal * unitValue).toFixed(2));
-
-            var unitID = $button.parent().parent().parent().parent().find('.cart__item-id').html();
-
+            
             //update cookie
             var cookie = document.cookie.split("=");
             var cVal = cookie[1];
@@ -241,13 +257,7 @@
             if(newVal <= 0)
                  window.location = "cart.aspx";
 
-            //change totals
-            const elementTotals = document.getElementsByClassName('shoping__cart__total');
-            var subTotal        = 0;
-
-            for (var i = 0; i < elementTotals.length; i++) {
-                subTotal += parseFloat(elementTotals[i].innerHTML);
-            }
+            
 
             $('#checkout__cart-subtotal').text("R" + subTotal.toFixed(2));
 
@@ -275,23 +285,15 @@
     var proClose = $('.icon_close');
     //$('.icon_close').on('click', function(){alert("entered")})
     $('.icon_close').on('click', function () {
-        alert("Function was entered");
         var $button = $(this);
         var unitID = $button.parent().parent().parent().parent().parent().parent().parent().find('.cart__item-id').html();
         var unitQty = $button.parent().parent().parent().parent().parent().parent().parent().find('input').val();
 
         //get cookie value
         var cookie = getCookie("cart");
-        alert(document.cookie);
-        alert("Cookie Value:" + cookie);
-
-        //var cVal = cookie[1];
-       // cVal = cVal.replace(unitID + "-" + unitQty + ",", "");
-       // document.cookie = "cart=" + cVal;
 
         var cVal = cookie.replace(unitID + "-" + unitQty + ",", "");
         document.cookie = "cart=" + cVal;
-        alert(cVal);
 
         //refresh page
         window.location = "/cart.aspx";
