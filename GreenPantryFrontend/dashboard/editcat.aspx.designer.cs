@@ -7,128 +7,119 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GreenPantryFrontend
+namespace GreenPantryFrontend.dashboard
 {
 
 
-    public partial class checkout
+    public partial class editcat
     {
 
         /// <summary>
-        /// Line1 control.
+        /// editName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Line1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl editName;
 
         /// <summary>
-        /// Line2 control.
+        /// updateCat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Line2;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor updateCat;
 
         /// <summary>
-        /// suburb control.
+        /// Details control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText suburb;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Details;
 
         /// <summary>
-        /// town control.
+        /// name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText town;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText name;
 
         /// <summary>
-        /// Province control.
+        /// CategoryStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Province;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CategoryStatus;
 
         /// <summary>
-        /// postcode control.
+        /// statusSelect control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText postcode;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect statusSelect;
 
         /// <summary>
-        /// order control.
+        /// Number1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText order;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Number1;
 
         /// <summary>
-        /// dateTimePicker control.
+        /// Number2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText dateTimePicker;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Number2;
 
         /// <summary>
-        /// Checkout control.
+        /// subcatList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Checkout;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl subcatList;
 
         /// <summary>
-        /// ProductSubtotal control.
+        /// subcatSelect control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ProductSubtotal;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect subcatSelect;
 
         /// <summary>
-        /// P_Total control.
+        /// description control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl P_Total;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea description;
 
         /// <summary>
-        /// Submit control.
+        /// statusDropdown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Submit;
-
-        /// <summary>
-        /// error control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label error;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl statusDropdown;
     }
 }

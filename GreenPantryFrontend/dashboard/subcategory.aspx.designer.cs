@@ -7,21 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AdminDashboard
+namespace GreenPantryFrontend.dashboard
 {
 
 
-    public partial class categories
+    public partial class subcategory
     {
 
         /// <summary>
-        /// catList control.
+        /// productList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl catList;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl productList;
 
         /// <summary>
         /// trafficChange control.

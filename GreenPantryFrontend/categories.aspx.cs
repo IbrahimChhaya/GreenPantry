@@ -26,30 +26,34 @@ namespace GreenPantryFrontend
 
                 String catID = Request.QueryString["CategoryID"];
 
-                dynamic category = SC.getCat(int.Parse(catID));
-
+            dynamic category = SC.getCat(int.Parse(catID));
+            if (category.Status.Equals("active"))
+            {
                 display += "<h2>" + category.Name + "</h2>";
                 display += "<div class='breadcrumb__option'>";
-                display +=  "<a href='./home.aspx'>Home</a>";
+                display += "<a href='./home.aspx'>Home</a>";
                 display += "<span>" + category.Name + "</span></div>";
 
                 breadcrumb.InnerHtml = display;
-
-                display = "";
-                dynamic subcats = SC.getSubCatPerCat(int.Parse(catID));
-                //int numProducts = SC.getNumProductsInSub(subcats.SubID);
-                foreach(SubCategory sc in subcats)
-                { 
+            }
+            display = "";
+            dynamic subcats = SC.getSubCatPerCat(int.Parse(catID));
+            //int numProducts = SC.getNumProductsInSub(subcats.SubID);
+            foreach(SubCategory sc in subcats)
+            {
+                if (sc.Status.Equals("active"))
+                {
                     display += "<li><a href='/subcategory.aspx?SubcategoryID=" + sc.SubID + "'>" + sc.Name + "</a></li>";
                 }
-                subcatList.InnerHtml = display;
+            }
+            subcatList.InnerHtml = display;
 
-                display = "";
-                decimal high = 0;
-                dynamic products = SC.getProductByCat(int.Parse(catID));
-            
-
-                foreach(Product p in products)
+            display = "";
+            decimal high = 0;
+            dynamic products = SC.getProductByCat(int.Parse(catID));
+            foreach(Product p in products)
+            {
+                if (p.Status.Equals("active"))
                 {
                     display += "<div class='col-lg-4 col-md-6 col-sm-6'>";
                     display += "<div class='product__item' onclick='location.href=&#39;singleproduct.aspx?ProductID=" + p.ID + "&#39;'>";
@@ -59,9 +63,15 @@ namespace GreenPantryFrontend
                     display += "<li><a href='#'><i class='fa fa-shopping-cart'></i></a></li></ul></div>";
                     display += "<div class='product__item__text'>";
                     display += "<h6>" + p.Name + "</h6>";
-                    display += "<h5>R" + Math.Round(p.Price,2) + "</h5></div></div></div>";
+                    display += "<h5>R" + Math.Round(p.Price, 2) + "</h5></div></div></div>";
+                    if (p.Price > high)
+                    {
+                        high = p.Price;
+                    }
                 }
-                categoryProducts.InnerHtml = display;
+                   
+            }
+            categoryProducts.InnerHtml = display;
 
                 display = "";
                 display += "<div class='price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content'";

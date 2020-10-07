@@ -342,4 +342,6 @@
         return null;
     }
 
+    flatpickr(".dateTimePicker", {});
+
 })(jQuery);

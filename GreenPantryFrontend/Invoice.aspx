@@ -6,9 +6,12 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="/css/Invoice.css" type="text/css">
+
     <div class ="bodyinvoice">
+
         <div id="invoiceholder">
             <div id="headerimage">
+>
             </div>
             <div id="invoice" class="effect2">
                 <div id="invoice-top">
@@ -19,14 +22,21 @@
                         <h2 class="h2Inv">Green Pantry</h2>
                             <p class ="pInvoice">011 616 8269</p>
                     </div><!--End Info-->
+                    <div style="float:right">
+                        <a href="javascript:window.print()">
+                        <i class="fa fa-print fa-2x" style="color:#0FAB2C"></i>
+                        </a>
+                    </div>
       
                     <div class="title" runat="server" id="title">
                         <h3 class ="h1Inv">Invoice #1069</h3>
                         <p class ="pInvoice">Issued: May 27, 2015</p>
                     </div><!--End Title-->
+
+                   
                 </div><!--End InvoiceTop-->
                 <div id="invoice-mid">      
-                    <div class="clientlogo"></div>
+                   <!-- <div class="clientlogo"></div>-->
                         <div class="info" runat="server" id="clientInfo">
                             <h2 class="h2Inv">Client Name</h2>
                             <p class="pInvoice">JohnDoe@gmail.com
@@ -45,7 +55,7 @@
                                 <td class="subtotal"><h2 class="h2Inv">Subtotal</h2></td>
                             </tr>
                             <tbody runat="server" id="tableRow">
-                                
+>
                             </tbody>
                             <!--Subtotal-->
                             <tr class="tabletitle">

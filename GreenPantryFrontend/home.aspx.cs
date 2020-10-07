@@ -23,8 +23,10 @@ namespace GreenPantryFrontend
             dynamic allCategories = SC.getAllCategories();
             foreach (ProductCategory c in allCategories)
             {
-
-                display += "<li><a href='/categories.aspx?CategoryID=" + c.ID + "'>" + c.Name + "</a></li>";
+                if (c.Status.Equals("active"))
+                {
+                    display += "<li><a href='/categories.aspx?CategoryID=" + c.ID + "'>" + c.Name + "</a></li>";
+                }
             }
 
             categoryList.InnerHtml = display;
@@ -155,17 +157,20 @@ namespace GreenPantryFrontend
 
             foreach (Product p in productsByCat)
             {
-                display += "<div class='col-lg-3 catSliderHover'>";
-                display += "<div class='featured__item'>";
-                display += "<div class='featured__item__pic set-bg' data-setbg='/" + p.Image_Location + "'>"; //onclick='location.href=&#39;singleproduct.aspx?ProductID=" + p.ID + "&#39;'>";
-                display += "<ul class='featured__item__pic__hover'>";
-                display += "<li><a href='#'><i class='fa fa-heart'></i></a></li>";
-                display += "<li><a href='singleproduct.aspx?ProductID=" + p.ID + "'><i class='fa fa-shopping-cart'></i></a></li>";
-                display += "</ul></div>";
-                display += "<div class='featured__item__text'>";
-                display += "<h6><a href='singleproduct.aspx?ProductID=" + p.ID+ "'>" + p.Name + "</a></h6>"; //product link
-                display += "<h5>R" + Math.Round(p.Price, 2) + "</h5>";
-                display += "</div></div></div>";
+                if (p.Status.Equals("active"))
+                {
+                    display += "<div class='col-lg-3 catSliderHover'>";
+                    display += "<div class='featured__item'>";
+                    display += "<div class='featured__item__pic set-bg' data-setbg='/" + p.Image_Location + "'>"; //onclick='location.href=&#39;singleproduct.aspx?ProductID=" + p.ID + "&#39;'>";
+                    display += "<ul class='featured__item__pic__hover'>";
+                    display += "<li><a href='#'><i class='fa fa-heart'></i></a></li>";
+                    display += "<li><a href='singleproduct.aspx?ProductID=" + p.ID + "'><i class='fa fa-shopping-cart'></i></a></li>";
+                    display += "</ul></div>";
+                    display += "<div class='featured__item__text'>";
+                    display += "<h6><a href='singleproduct.aspx?ProductID=" + p.ID + "'>" + p.Name + "</a></h6>"; //product link
+                    display += "<h5>R" + Math.Round(p.Price, 2) + "</h5>";
+                    display += "</div></div></div>";
+                }
             }
             display += "</div>";
             return display;

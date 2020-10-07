@@ -11,124 +11,106 @@ namespace GreenPantryFrontend
 {
 
 
-    public partial class checkout
+    public partial class Invoice
     {
 
         /// <summary>
-        /// Line1 control.
+        /// title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Line1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl title;
 
         /// <summary>
-        /// Line2 control.
+        /// clientInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Line2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl clientInfo;
 
         /// <summary>
-        /// suburb control.
+        /// tableRow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText suburb;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tableRow;
 
         /// <summary>
-        /// town control.
+        /// Subtotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText town;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell Subtotal;
 
         /// <summary>
-        /// Province control.
+        /// pointsDiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Province;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pointsDiv;
 
         /// <summary>
-        /// postcode control.
+        /// points control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText postcode;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow points;
 
         /// <summary>
-        /// order control.
+        /// pointsAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText order;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell pointsAmount;
 
         /// <summary>
-        /// dateTimePicker control.
+        /// delivery control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText dateTimePicker;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow delivery;
 
         /// <summary>
-        /// Checkout control.
+        /// deliverFree control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Checkout;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell deliverFree;
 
         /// <summary>
-        /// ProductSubtotal control.
+        /// Total control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ProductSubtotal;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell Total;
 
         /// <summary>
-        /// P_Total control.
+        /// Vat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl P_Total;
-
-        /// <summary>
-        /// Submit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Submit;
-
-        /// <summary>
-        /// error control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label error;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell Vat;
     }
 }

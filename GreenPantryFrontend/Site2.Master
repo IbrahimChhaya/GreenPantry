@@ -244,15 +244,14 @@
                         <h6>Useful Links</h6>
                         <ul>
                             <li><a href="#">Help</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="contact.aspx">Contact Us</a></li>
                             <li><a href="#">About Us</a></li>
                             <li><a href="#">Shipping & Delivery</a></li>
                             <li><a href="#">Exchanges & Returns</a></li>
                         </ul>
                         <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Track Orders</a></li>
-                            <li><a href="#">Invoices</a></li>
+                            <li><a href="account.aspx">My Account</a></li>
+                            <li><a href="orders.aspx">Track Orders</a></li>
                             <li><a href="#">Green Shopper Points</a></li>
                             <li><a href="#">FAQ</a></li>
                             <li><a href="#">Terms and Conditions</a></li>
@@ -265,7 +264,7 @@
                         <p>Get E-mail updates about our latest shop and special offers.</p>
                         <form action="#">
                             <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
+                            <button type="submit" onclick="Email_sender" runat="server" class="site-btn">Subscribe</button>
                         </form>
                         <div class="footer__widget__social">
                             <a href="#"><i class="fa fa-facebook"></i></a>

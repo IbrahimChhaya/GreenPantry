@@ -69,7 +69,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="category.aspx">
+              <a class="nav-link" href="category.aspx?Page=1">
                 <i class="ni ni-archive-2 text-yellow"></i>
                 <span class="nav-link-text">Categories</span>
               </a>
