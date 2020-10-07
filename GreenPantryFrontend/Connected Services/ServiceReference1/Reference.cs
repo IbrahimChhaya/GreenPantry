@@ -1832,10 +1832,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> addSubCategoryAsync(int id, string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateSubCategories", ReplyAction="http://tempuri.org/IGP_Service/updateSubCategoriesResponse")]
-        int updateSubCategories(int id, string name, string status);
+        int updateSubCategories(int id, int cat_ID, string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateSubCategories", ReplyAction="http://tempuri.org/IGP_Service/updateSubCategoriesResponse")]
-        System.Threading.Tasks.Task<int> updateSubCategoriesAsync(int id, string name, string status);
+        System.Threading.Tasks.Task<int> updateSubCategoriesAsync(int id, int cat_ID, string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getInvoice", ReplyAction="http://tempuri.org/IGP_Service/getInvoiceResponse")]
         GreenPantryFrontend.ServiceReference1.Invoice getInvoice(int InvoiceID);
@@ -1940,10 +1940,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Device> getDeviceAsync(int D_ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addDevices", ReplyAction="http://tempuri.org/IGP_Service/addDevicesResponse")]
-        int addDevices(string os);
+        int addDevices(int cust_ID, string useragent);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addDevices", ReplyAction="http://tempuri.org/IGP_Service/addDevicesResponse")]
-        System.Threading.Tasks.Task<int> addDevicesAsync(string os);
+        System.Threading.Tasks.Task<int> addDevicesAsync(int cust_ID, string useragent);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getUsersPerDay", ReplyAction="http://tempuri.org/IGP_Service/getUsersPerDayResponse")]
         int getUsersPerDay(System.DateTime day);
@@ -2379,12 +2379,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.addSubCategoryAsync(id, name, status);
         }
         
-        public int updateSubCategories(int id, string name, string status) {
-            return base.Channel.updateSubCategories(id, name, status);
+        public int updateSubCategories(int id, int cat_ID, string name, string status) {
+            return base.Channel.updateSubCategories(id, cat_ID, name, status);
         }
         
-        public System.Threading.Tasks.Task<int> updateSubCategoriesAsync(int id, string name, string status) {
-            return base.Channel.updateSubCategoriesAsync(id, name, status);
+        public System.Threading.Tasks.Task<int> updateSubCategoriesAsync(int id, int cat_ID, string name, string status) {
+            return base.Channel.updateSubCategoriesAsync(id, cat_ID, name, status);
         }
         
         public GreenPantryFrontend.ServiceReference1.Invoice getInvoice(int InvoiceID) {
@@ -2523,12 +2523,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.getDeviceAsync(D_ID);
         }
         
-        public int addDevices(string os) {
-            return base.Channel.addDevices(os);
+        public int addDevices(int cust_ID, string useragent) {
+            return base.Channel.addDevices(cust_ID, useragent);
         }
         
-        public System.Threading.Tasks.Task<int> addDevicesAsync(string os) {
-            return base.Channel.addDevicesAsync(os);
+        public System.Threading.Tasks.Task<int> addDevicesAsync(int cust_ID, string useragent) {
+            return base.Channel.addDevicesAsync(cust_ID, useragent);
         }
         
         public int getUsersPerDay(System.DateTime day) {

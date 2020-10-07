@@ -33,6 +33,16 @@ namespace GreenPantryFrontend
                 List<decimal> totals = new List<decimal>();
            
                 points = SR.getUserPoints(userID);
+                if(points == 0)
+                {
+                    noPoints.Visible = true;
+                    Redeem.Visible = false;
+                }
+                else
+                {
+                    noPoints.Visible = false;
+                    Redeem.Visible = true;
+                }
                 decimal VAT = 0;
                 foreach (dynamic p in products)
                 {
@@ -119,7 +129,7 @@ namespace GreenPantryFrontend
 
             if (addressUpdate == 1 && phoneNumber.Equals(1))
             {
-                int addInvoice = SR.addInvoice(userID, "Pending", DateTime.Now, DateTime.Now, notes.Value, subtotal, pointsRedeemed);
+                int addInvoice = SR.addInvoice(userID, "Pending", DateTime.Now, Convert.ToDateTime(dateTimeID.Value), notes.Value, subtotal, pointsRedeemed);
                 points = points - pointsRedeemed;
                 if(addInvoice > 0)
                 {

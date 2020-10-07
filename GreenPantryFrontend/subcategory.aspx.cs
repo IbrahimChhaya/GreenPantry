@@ -63,10 +63,8 @@ namespace GreenPantryFrontend
                         display += "<div class='product__item__text'>";
                         display += "<h6>" + p.Name + "</h6>";
                         display += "<h5>R" + Math.Round(p.Price, 2) + "</h5></div></div></div>";
-         
                     }
                 }
-                 
                 subProducts.InnerHtml = display;
             }
         }

@@ -1,6 +1,9 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="checkout2.aspx.cs" Inherits="GreenPantryFrontend.checkout2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" type="text/css" href="css/datePicker.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -98,6 +101,27 @@
                                 <input type="text"
                                     placeholder="Notes about your order, e.g. special notes for delivery." id="notes" runat="server">
                             </div>
+
+                            <div class="checkout__input">
+                                <p>Delivery Date Time<span>*</span></p>
+                                <div class="dateTimePicker">
+                                    <input type="text" runat="server" id="dateTimeID" data-input>
+                                    <a class="input-button" title="toggle"data-toggle>
+                                        <i class="icon-calendar"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+<script>
+    flatpickr(".dateTimePicker",
+        {
+            enableTime: true,
+            dateFormat: "d-m-Y H:i",
+            time_24hr: true,
+            wrap: true
+        });
+</script>
+
                         </div>
 
                         <div class="col-lg-4 col-md-6">
@@ -107,6 +131,7 @@
                                 <label class="gpLabel">Green Points available in Rands:</label><p class="gpP" id="pointsAvailable" runat="server">R500</p>
                                 <label class="gpLabel2">Amount you'd like to spend:</label> 
                                 <p class="gpP">R<input type="text" id="pointsUsed" runat="server" class="gpInput" value="0"></p>
+                                <asp:Button text="NOT ENOUGH POINTS" class="noPoints-btn" ID="noPoints" runat="server" Visible="false"></asp:Button>
                                 <asp:Button text="REDEEM" class="apply-btn" ID="Redeem" runat="server" OnClick="btnRedeem_Click"></asp:Button>
                                 <label id="pointsError" runat="server" visible="false">bruh</label>
                             </div>

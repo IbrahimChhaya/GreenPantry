@@ -26,8 +26,7 @@ namespace GreenPantryFrontend.dashboard
             dynamic list = GetPage(subcategories, currentPage, 10);
             foreach (SubCategory p in list)
             {
-                if (p.Status.Equals("active"))
-                {
+
                     display += "<tr><th scope='row'>";
                     display += "<div class='media align-items-center'>";
                     // display += "<a href='#' class='avatar rounded-circle mr-3'>";
@@ -38,7 +37,7 @@ namespace GreenPantryFrontend.dashboard
                     display += "<td class='budget'>";
                     //display += "R" + p.Status + "</td><td>";
                     display += "<span class='badge badge-dot mr-4'>";
-                    display += "<i class='bg-warning'></i>";
+                   // display += "<i class='bg-warning'></i>";
                     display += "<span class='status'>" + p.Status + "</span>";
                     display += "</span></td><td>";
                     // display += "<span class='text-success mr-2' id='trafficChange' runat='server'><i class='fa fa-arrow-up'>Active</i></span></td>";
@@ -51,7 +50,7 @@ namespace GreenPantryFrontend.dashboard
                     display += "<a class='dropdown-item' href='#'>Another action</a>";
                     display += "<a class='dropdown-item' href='#'>Something else here</a>";
                     display += "</div></div></td></tr>";
-                }
+                
             }
             productList.InnerHtml = display;
 

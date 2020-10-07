@@ -1,9 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/dashboard/Dashboard.Master" AutoEventWireup="true" CodeBehind="category.aspx.cs" Inherits="AdminDashboard.categories" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-  
-    <!-- Main content -->
+      <!-- Main content -->
   <div class="main-content" id="panel">
     
     <!-- Header -->
@@ -29,39 +27,33 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-              <h3 class="mb-0">Product Categories</h3>
+              <h3 class="mb-0">Categories</h3>
             </div>
             <!-- Light table -->
             <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col" class="sort" data-sort="name">Product Category</th>
+                    <th scope="col" class="sort" data-sort="name">Category</th>
                     <th scope="col" class="sort" data-sort="budget"></th>
-                    <th scope="col" class="sort" data-sort="status">Status</th>
-                    <th scope="col"></th>
+                    <th scope="col" class="sort" data-sort="status"></th>
+                    <th scope="col">Sales Per Week</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
-                <tbody class="list" id="productList" runat="server">
+                <tbody class="list" id="catList" runat="server">
                   <tr>
                     <th scope="row">
                       <div class="media align-items-center">
-                        <a href="#" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" src="../assets/img/Products/3.jpg">
-                        </a>
                         <div class="media-body">
-                          <span class="name mb-0 text-sm">Bamboo Towels</span>
+                          <span class="name mb-0 text-sm">Bakery, bread and sum</span>
                         </div>
                       </div>
                     </th>
                     <td class="budget">
-                      R2500 
                     </td>
                     <td>
                       <span class="badge badge-dot mr-4">
-                        <i class="bg-warning"></i>
-                        <span class="status">10</span>
                       </span>
                     </td>
                     <td>
@@ -274,6 +266,5 @@
         </div>
       </div>
         </div>
-      </div>
-   
+   </div>
 </asp:Content>

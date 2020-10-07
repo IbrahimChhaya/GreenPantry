@@ -33,16 +33,18 @@ namespace GreenPantryFrontend
             dynamic results = SC.searchProducts(search);
             foreach (Product p in results)
             {
-                display += "<div class='col-lg-4 col-md-6 col-sm-6'>";
-                display += "<div class='product__item' onclick='location.href=&#39;singleproduct.aspx?ProductID=" + p.ID + "&#39;'>";
-                display += "<div class='product__item__pic set-bg' data-setbg='" + p.Image_Location + "'>";
-                display += "<ul class='product__item__pic__hover'>";
-                display += "<li><a href='#'><i class='fa fa-heart'></i></a></li>";
-                display += "<li><a href='#'><i class='fa fa-shopping-cart'></i></a></li></ul></div>";
-                display += "<div class='product__item__text'>";
-                display += "<h6>" + p.Name + "</h6>";
-                display += "<h5>R" + Math.Round(p.Price, 2) + "</h5></div></div></div>";
-
+                if (p.Status.Equals("active"))
+                {
+                    display += "<div class='col-lg-4 col-md-6 col-sm-6'>";
+                    display += "<div class='product__item' onclick='location.href=&#39;singleproduct.aspx?ProductID=" + p.ID + "&#39;'>";
+                    display += "<div class='product__item__pic set-bg' data-setbg='" + p.Image_Location + "'>";
+                    display += "<ul class='product__item__pic__hover'>";
+                    display += "<li><a href='#'><i class='fa fa-heart'></i></a></li>";
+                    display += "<li><a href='#'><i class='fa fa-shopping-cart'></i></a></li></ul></div>";
+                    display += "<div class='product__item__text'>";
+                    display += "<h6>" + p.Name + "</h6>";
+                    display += "<h5>R" + Math.Round(p.Price, 2) + "</h5></div></div></div>";
+                }
 
                 //get subcategories of search result --------
                 String display2 = "";
@@ -53,7 +55,10 @@ namespace GreenPantryFrontend
 
                 foreach (SubCategory sc in subcats)
                 {
-                    display2 += "<li><a href='/subcategory.aspx?SubcategoryID=" + sc.SubID + "'>" + sc.Name + "</a></li>";
+                    if (sc.Status.Equals("active"))
+                    {
+                        display2 += "<li><a href='/subcategory.aspx?SubcategoryID=" + sc.SubID + "'>" + sc.Name + "</a></li>";
+                    }
                 }
                 subcatList.InnerHtml = display2;
             }

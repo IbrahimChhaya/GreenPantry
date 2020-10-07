@@ -87,6 +87,15 @@ namespace GreenPantryFrontend
         protected global::System.Web.UI.HtmlControls.HtmlInputText notes;
 
         /// <summary>
+        /// dateTimeID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText dateTimeID;
+
+        /// <summary>
         /// pointsAvailable control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace GreenPantryFrontend
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText pointsUsed;
+
+        /// <summary>
+        /// noPoints control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button noPoints;
 
         /// <summary>
         /// Redeem control.
