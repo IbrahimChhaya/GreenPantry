@@ -40,18 +40,19 @@ namespace GreenPantryFrontend
                     foreach (ShoppingList s in list)
                     {
                         dynamic product = SR.getProduct(s.ProductID);
-
-                        display += "<tr><td class='shoping__cart__item'>";
-                        display += "<img src =" + product.Image_Location + " alt=''>";
-                        display += "<h5>" + product.Name + "</h5></td><td class='shoping__cart__price'>" + Math.Round(product.Price, 2) + "</td>";
-                        display += "<td class='shoping__cart__quantity'>";
-                        display += "<div class='quantity'><div class='pro-qty'><input type='text' value=" + s.Quantity + " runat='server' id='item_qty'>";
-                        display += "</div></div></td>";
-                        display += "<td class='shoping__cart__total' id='pTotal'>" + Math.Round((product.Price * s.Quantity), 2) + "</td>";
-                        display += "<td class='shoping__cart__item__close'><span class='icon_close'></span></td></tr>";
-                        tablerow.InnerHtml = display;
-
-                        totals.Add(Math.Round((product.Price * s.Quantity), 2));
+                        if (product.Status.Equals("active"))
+                        {
+                            display += "<tr><td class='shoping__cart__item'>";
+                            display += "<img src =" + product.Image_Location + " alt=''>";
+                            display += "<h5>" + product.Name + "</h5></td><td class='shoping__cart__price'>" + Math.Round(product.Price, 2) + "</td>";
+                            display += "<td class='shoping__cart__quantity'>";
+                            display += "<div class='quantity'><div class='pro-qty'><input type='text' value=" + s.Quantity + " runat='server' id='item_qty'>";
+                            display += "</div></div></td>";
+                            display += "<td class='shoping__cart__total' id='pTotal'>" + Math.Round((product.Price * s.Quantity), 2) + "</td>";
+                            display += "<td class='shoping__cart__item__close'><span class='icon_close'></span></td></tr>";
+                            tablerow.InnerHtml = display;
+                            totals.Add(Math.Round((product.Price * s.Quantity), 2));
+                        }     
                     }
 
                     display = "";
