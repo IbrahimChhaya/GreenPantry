@@ -2433,6 +2433,18 @@ ol {
 	border-radius: 25px;
 }
 
+.noPoints-btn {
+	font-size: 13px;
+	color: #ffffff !important;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 13px 65px 12px;
+	background: #E9E9E9;
+	border: none;
+	border-radius: 25px;
+}
+
 .placeOrder {
 	font-size: 13px;
 	color: #ffffff;

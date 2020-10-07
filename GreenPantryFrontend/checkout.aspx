@@ -1,6 +1,10 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="checkout.aspx.cs" Inherits="GreenPantryFrontend.checkout" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -101,6 +105,12 @@
                                 <input type="text"
                                     placeholder="Notes about your order, e.g. special notes for delivery." class ="single-input" runat="server" id="order">
                             </div>
+                            <script>flatpickr("#dateTimePicker", {});</script>
+                            <div class="checkout__input">
+                                <p>Delivery Date Time<span>*</span></p>
+                                <input type="text" class="dateTimePicker" runat="server" id="dateTimePicker">
+                            </div>
+
               <div class="row">
               <div class="col-lg-6">
                     <div class="shoping__continue">

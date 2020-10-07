@@ -33,33 +33,6 @@ namespace GreenPantryFrontend
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl subcatList;
 
         /// <summary>
-        /// minamount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText minamount;
-
-        /// <summary>
-        /// maxamount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText maxamount;
-
-        /// <summary>
-        /// btnFilterPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFilterPrice;
-
-        /// <summary>
         /// categoryProducts control.
         /// </summary>
         /// <remarks>

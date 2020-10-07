@@ -71,6 +71,7 @@
   <ItemGroup>
     <Content Include="account.aspx" />
     <Content Include="checkout2.aspx" />
+    <Content Include="css\datePicker.css" />
     <Content Include="dashboard\assets\css\argon.css" />
     <Content Include="dashboard\assets\css\argon.min.css" />
     <Content Include="dashboard\assets\css\bootstrap\bootstrap-grid.css" />
@@ -3133,6 +3134,9 @@
     <Content Include="Connected Services\ServiceReference1\GreenPantryFrontend.ServiceReference1.ShoppingList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\ServiceReference1\GP_Service31.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -3148,6 +3152,8 @@
     <Content Include="css\slicknav.min.css" />
     <Content Include="css\style.css" />
     <Content Include="dashboard\dashboard.aspx" />
+    <Content Include="dashboard\editcat.aspx" />
+    <Content Include="dashboard\editproduct.aspx" />
     <Content Include="dashboard\userorders.aspx" />
     <Content Include="fonts\ElegantIcons.svg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -3335,7 +3341,6 @@
     <Content Include="js\main.js" />
     <Content Include="js\mixitup.min.js" />
     <Content Include="js\owl.carousel.min.js" />
-    <Content Include="js\shoppingcart.js" />
     <Content Include="login.aspx" />
     <Content Include="modallogin.aspx" />
     <Content Include="dashboard\orders.aspx" />
@@ -3427,6 +3432,20 @@
     </Compile>
     <Compile Include="dashboard\Dashboard.Master.designer.cs">
       <DependentUpon>Dashboard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\editcat.aspx.cs">
+      <DependentUpon>editcat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard\editcat.aspx.designer.cs">
+      <DependentUpon>editcat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\editproduct.aspx.cs">
+      <DependentUpon>editproduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard\editproduct.aspx.designer.cs">
+      <DependentUpon>editproduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="dashboard\userorders.aspx.cs">
       <DependentUpon>userorders.aspx</DependentUpon>

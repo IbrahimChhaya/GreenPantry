@@ -1708,16 +1708,16 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> getUserPointsAsync(int Cus_ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addNewProduct", ReplyAction="http://tempuri.org/IGP_Service/addNewProductResponse")]
-        int addNewProduct(string name, int SubID, double price, double cost, int stockQty, string imgLocation);
+        int addNewProduct(string name, int SubID, double price, double cost, int stockQty, string imgLocation, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addNewProduct", ReplyAction="http://tempuri.org/IGP_Service/addNewProductResponse")]
-        System.Threading.Tasks.Task<int> addNewProductAsync(string name, int SubID, double price, double cost, int stockQty, string imgLocation);
+        System.Threading.Tasks.Task<int> addNewProductAsync(string name, int SubID, double price, double cost, int stockQty, string imgLocation, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateProduct", ReplyAction="http://tempuri.org/IGP_Service/updateProductResponse")]
-        int updateProduct(int id, string name, int SubId, double price, double cost, string imgLocation);
+        int updateProduct(int id, string name, int SubId, double price, double cost, string imgLocation, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateProduct", ReplyAction="http://tempuri.org/IGP_Service/updateProductResponse")]
-        System.Threading.Tasks.Task<int> updateProductAsync(int id, string name, int SubId, double price, double cost, string imgLocation);
+        System.Threading.Tasks.Task<int> updateProductAsync(int id, string name, int SubId, double price, double cost, string imgLocation, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getAllProducts", ReplyAction="http://tempuri.org/IGP_Service/getAllProductsResponse")]
         GreenPantryFrontend.ServiceReference1.Product[] getAllProducts();
@@ -1780,16 +1780,16 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.ProductCategory> getCategorybyProductIDAsync(int p_ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addCategory", ReplyAction="http://tempuri.org/IGP_Service/addCategoryResponse")]
-        int addCategory(int id, string name);
+        int addCategory(int id, string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addCategory", ReplyAction="http://tempuri.org/IGP_Service/addCategoryResponse")]
-        System.Threading.Tasks.Task<int> addCategoryAsync(int id, string name);
+        System.Threading.Tasks.Task<int> addCategoryAsync(int id, string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateCategories", ReplyAction="http://tempuri.org/IGP_Service/updateCategoriesResponse")]
-        int updateCategories(int id, string name);
+        int updateCategories(int id, string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateCategories", ReplyAction="http://tempuri.org/IGP_Service/updateCategoriesResponse")]
-        System.Threading.Tasks.Task<int> updateCategoriesAsync(int id, string name);
+        System.Threading.Tasks.Task<int> updateCategoriesAsync(int id, string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getAllSubCategories", ReplyAction="http://tempuri.org/IGP_Service/getAllSubCategoriesResponse")]
         GreenPantryFrontend.ServiceReference1.SubCategory[] getAllSubCategories();
@@ -1810,16 +1810,16 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.SubCategory[]> getSubCatPerCatAsync(int c_ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addSubCategory", ReplyAction="http://tempuri.org/IGP_Service/addSubCategoryResponse")]
-        int addSubCategory(int id, string name);
+        int addSubCategory(int id, string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addSubCategory", ReplyAction="http://tempuri.org/IGP_Service/addSubCategoryResponse")]
-        System.Threading.Tasks.Task<int> addSubCategoryAsync(int id, string name);
+        System.Threading.Tasks.Task<int> addSubCategoryAsync(int id, string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateSubCategories", ReplyAction="http://tempuri.org/IGP_Service/updateSubCategoriesResponse")]
-        int updateSubCategories(int id, string name);
+        int updateSubCategories(int id, string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateSubCategories", ReplyAction="http://tempuri.org/IGP_Service/updateSubCategoriesResponse")]
-        System.Threading.Tasks.Task<int> updateSubCategoriesAsync(int id, string name);
+        System.Threading.Tasks.Task<int> updateSubCategoriesAsync(int id, string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getInvoice", ReplyAction="http://tempuri.org/IGP_Service/getInvoiceResponse")]
         GreenPantryFrontend.ServiceReference1.Invoice getInvoice(int InvoiceID);
@@ -2219,20 +2219,20 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.getUserPointsAsync(Cus_ID);
         }
         
-        public int addNewProduct(string name, int SubID, double price, double cost, int stockQty, string imgLocation) {
-            return base.Channel.addNewProduct(name, SubID, price, cost, stockQty, imgLocation);
+        public int addNewProduct(string name, int SubID, double price, double cost, int stockQty, string imgLocation, string status) {
+            return base.Channel.addNewProduct(name, SubID, price, cost, stockQty, imgLocation, status);
         }
         
-        public System.Threading.Tasks.Task<int> addNewProductAsync(string name, int SubID, double price, double cost, int stockQty, string imgLocation) {
-            return base.Channel.addNewProductAsync(name, SubID, price, cost, stockQty, imgLocation);
+        public System.Threading.Tasks.Task<int> addNewProductAsync(string name, int SubID, double price, double cost, int stockQty, string imgLocation, string status) {
+            return base.Channel.addNewProductAsync(name, SubID, price, cost, stockQty, imgLocation, status);
         }
         
-        public int updateProduct(int id, string name, int SubId, double price, double cost, string imgLocation) {
-            return base.Channel.updateProduct(id, name, SubId, price, cost, imgLocation);
+        public int updateProduct(int id, string name, int SubId, double price, double cost, string imgLocation, string status) {
+            return base.Channel.updateProduct(id, name, SubId, price, cost, imgLocation, status);
         }
         
-        public System.Threading.Tasks.Task<int> updateProductAsync(int id, string name, int SubId, double price, double cost, string imgLocation) {
-            return base.Channel.updateProductAsync(id, name, SubId, price, cost, imgLocation);
+        public System.Threading.Tasks.Task<int> updateProductAsync(int id, string name, int SubId, double price, double cost, string imgLocation, string status) {
+            return base.Channel.updateProductAsync(id, name, SubId, price, cost, imgLocation, status);
         }
         
         public GreenPantryFrontend.ServiceReference1.Product[] getAllProducts() {
@@ -2315,20 +2315,20 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.getCategorybyProductIDAsync(p_ID);
         }
         
-        public int addCategory(int id, string name) {
-            return base.Channel.addCategory(id, name);
+        public int addCategory(int id, string name, string status) {
+            return base.Channel.addCategory(id, name, status);
         }
         
-        public System.Threading.Tasks.Task<int> addCategoryAsync(int id, string name) {
-            return base.Channel.addCategoryAsync(id, name);
+        public System.Threading.Tasks.Task<int> addCategoryAsync(int id, string name, string status) {
+            return base.Channel.addCategoryAsync(id, name, status);
         }
         
-        public int updateCategories(int id, string name) {
-            return base.Channel.updateCategories(id, name);
+        public int updateCategories(int id, string name, string status) {
+            return base.Channel.updateCategories(id, name, status);
         }
         
-        public System.Threading.Tasks.Task<int> updateCategoriesAsync(int id, string name) {
-            return base.Channel.updateCategoriesAsync(id, name);
+        public System.Threading.Tasks.Task<int> updateCategoriesAsync(int id, string name, string status) {
+            return base.Channel.updateCategoriesAsync(id, name, status);
         }
         
         public GreenPantryFrontend.ServiceReference1.SubCategory[] getAllSubCategories() {
@@ -2355,20 +2355,20 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.getSubCatPerCatAsync(c_ID);
         }
         
-        public int addSubCategory(int id, string name) {
-            return base.Channel.addSubCategory(id, name);
+        public int addSubCategory(int id, string name, string status) {
+            return base.Channel.addSubCategory(id, name, status);
         }
         
-        public System.Threading.Tasks.Task<int> addSubCategoryAsync(int id, string name) {
-            return base.Channel.addSubCategoryAsync(id, name);
+        public System.Threading.Tasks.Task<int> addSubCategoryAsync(int id, string name, string status) {
+            return base.Channel.addSubCategoryAsync(id, name, status);
         }
         
-        public int updateSubCategories(int id, string name) {
-            return base.Channel.updateSubCategories(id, name);
+        public int updateSubCategories(int id, string name, string status) {
+            return base.Channel.updateSubCategories(id, name, status);
         }
         
-        public System.Threading.Tasks.Task<int> updateSubCategoriesAsync(int id, string name) {
-            return base.Channel.updateSubCategoriesAsync(id, name);
+        public System.Threading.Tasks.Task<int> updateSubCategoriesAsync(int id, string name, string status) {
+            return base.Channel.updateSubCategoriesAsync(id, name, status);
         }
         
         public GreenPantryFrontend.ServiceReference1.Invoice getInvoice(int InvoiceID) {

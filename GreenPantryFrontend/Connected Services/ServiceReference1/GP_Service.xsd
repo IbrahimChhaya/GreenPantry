@@ -308,6 +308,7 @@
         <xs:element minOccurs="0" name="cost" type="xs:double" />
         <xs:element minOccurs="0" name="stockQty" type="xs:int" />
         <xs:element minOccurs="0" name="imgLocation" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -327,6 +328,7 @@
         <xs:element minOccurs="0" name="price" type="xs:double" />
         <xs:element minOccurs="0" name="cost" type="xs:double" />
         <xs:element minOccurs="0" name="imgLocation" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -479,6 +481,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="id" type="xs:int" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -494,6 +497,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="id" type="xs:int" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -549,6 +553,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="id" type="xs:int" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -564,6 +569,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="id" type="xs:int" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

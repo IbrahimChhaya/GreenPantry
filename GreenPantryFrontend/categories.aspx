@@ -45,13 +45,13 @@
                                     </div>
                                 <div class="range-slider">
                                     <div class="price-input">
-                                        <input type="text" id="minamount" runat="server">
-                                        <input type="text" id="maxamount" runat="server">                                        
+                                        <input type="text" id="minamount" /> <%--runat="server">--%>
+                                        <input type="text" id="maxamount" /><%--runat="server">--%>                                        
                                     </div>
                                 </div>
-                                <form runat="server">
+<%--                                <form runat="server">
                                     <asp:Button Text="Filter" class="site-btn" ID="btnFilterPrice" OnClick="btnFilterPrice_Click" runat="server" />
-                                </form>
+                                </form>--%>
                             </div>
                         </div>
                         <!--<div class="sidebar__item sidebar__item__color--option">

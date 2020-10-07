@@ -146,8 +146,6 @@
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns" >
                         <a href="home.aspx" class="primary-btn cart-btn" runat="server" id="Cart_continue">CONTINUE SHOPPING</a>
-                        <a href="cart.aspx" class="primary-btn cart-btn cart-btn-right" runat="server" id="update" onclick="update_Click"><span class="icon_loading"></span>
-                            Update Cart</a>
                     </div>
                 </div>
 <%--                <div class="col-lg-6">
