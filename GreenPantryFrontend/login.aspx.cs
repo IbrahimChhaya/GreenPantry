@@ -34,7 +34,9 @@ namespace GreenPantryFrontend
             if (userID != 0)
             {
                 Session["LoggedInUserID"] = userID;
+                int addDevice = SR.addDevices(userID, Request.Browser.Platform);
                 Response.Redirect("home.aspx");
+               
             }
             else
             {
@@ -58,6 +60,7 @@ namespace GreenPantryFrontend
             if (registered == 1)
             {
                 Response.Redirect("home.aspx");
+
             }
             else if (registered == -1)
             {

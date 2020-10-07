@@ -46,7 +46,8 @@ namespace GreenPantryFrontend
                 Session["LoggedInUserID"] = registered;
 
                 int addpoint = SR.updatePoints(registered, 50);
-                if(addpoint == 1)
+                int addDevice = SR.addDevices(registered, Request.Browser.Platform);
+                if (addpoint == 1)
                 {
                     Response.Redirect("home.aspx");
                 }
