@@ -1714,10 +1714,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> addNewProductAsync(string name, int SubID, double price, double cost, int stockQty, string imgLocation, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateProduct", ReplyAction="http://tempuri.org/IGP_Service/updateProductResponse")]
-        int updateProduct(int id, string name, int SubId, double price, double cost, string imgLocation, string status);
+        int updateProduct(int id, string name, int SubId, double price, double cost, string imgLocation, string status, int stock);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateProduct", ReplyAction="http://tempuri.org/IGP_Service/updateProductResponse")]
-        System.Threading.Tasks.Task<int> updateProductAsync(int id, string name, int SubId, double price, double cost, string imgLocation, string status);
+        System.Threading.Tasks.Task<int> updateProductAsync(int id, string name, int SubId, double price, double cost, string imgLocation, string status, int stock);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getAllProducts", ReplyAction="http://tempuri.org/IGP_Service/getAllProductsResponse")]
         GreenPantryFrontend.ServiceReference1.Product[] getAllProducts();
@@ -2227,12 +2227,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.addNewProductAsync(name, SubID, price, cost, stockQty, imgLocation, status);
         }
         
-        public int updateProduct(int id, string name, int SubId, double price, double cost, string imgLocation, string status) {
-            return base.Channel.updateProduct(id, name, SubId, price, cost, imgLocation, status);
+        public int updateProduct(int id, string name, int SubId, double price, double cost, string imgLocation, string status, int stock) {
+            return base.Channel.updateProduct(id, name, SubId, price, cost, imgLocation, status, stock);
         }
         
-        public System.Threading.Tasks.Task<int> updateProductAsync(int id, string name, int SubId, double price, double cost, string imgLocation, string status) {
-            return base.Channel.updateProductAsync(id, name, SubId, price, cost, imgLocation, status);
+        public System.Threading.Tasks.Task<int> updateProductAsync(int id, string name, int SubId, double price, double cost, string imgLocation, string status, int stock) {
+            return base.Channel.updateProductAsync(id, name, SubId, price, cost, imgLocation, status, stock);
         }
         
         public GreenPantryFrontend.ServiceReference1.Product[] getAllProducts() {
