@@ -48,7 +48,7 @@ namespace AdminDashboard
                     display += "<a class='dropdown-item' href='#'>Something else here</a></div></div></td></tr>";
                 }
              }
-              productList.InnerHtml = display;
+              catList.InnerHtml = display;
 
              display = "";
               if (currentPage.Equals(1))
