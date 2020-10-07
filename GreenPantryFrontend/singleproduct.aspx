@@ -58,10 +58,10 @@
                             <li><b>Availability</b> <span id="stock" runat="server">In Stock</span></li>
                             <li><b>Share on</b>
                                 <div class="share">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u=greenpantry.me/singleproduct.aspx?ProductID=1"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://twitter.com/share?text=ProductName&url=greenpantry.me/singleproduct.aspx?ProductID=1"><i class="fa fa-twitter"></i></a>
+                                    <a href="https://www.instagram.com/sharer/sharer.php?u=greenpantry.me/singleproduct.aspx?ProductID=1"><i class="fa fa-instagram"></i></a>
+                                    <a href="https://pinterest.com/pin/create/button/?url=greenpantry.me/singleproduct.aspx?ProductID=1&media=productImage&description=productName"><i class="fa fa-pinterest"></i></a>
                                 </div>
                             </li>
                         </ul>
