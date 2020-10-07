@@ -2177,6 +2177,8 @@ ol {
 
 .primary-btn.cart-btn.cart-btn-right {
 	float: right;
+	background: #0fab2c;
+	color: white;
 }
 
 .shoping__discount {

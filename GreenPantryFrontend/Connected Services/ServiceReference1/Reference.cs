@@ -1876,10 +1876,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> updateListAsync(int userID, int P_ID, int quantity);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/removeList", ReplyAction="http://tempuri.org/IGP_Service/removeListResponse")]
-        int removeList(int userID, int productID);
+        int removeList(int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/removeList", ReplyAction="http://tempuri.org/IGP_Service/removeListResponse")]
-        System.Threading.Tasks.Task<int> removeListAsync(int userID, int productID);
+        System.Threading.Tasks.Task<int> removeListAsync(int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getAddress", ReplyAction="http://tempuri.org/IGP_Service/getAddressResponse")]
         GreenPantryFrontend.ServiceReference1.Address getAddress(int Address_ID);
@@ -2443,12 +2443,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.updateListAsync(userID, P_ID, quantity);
         }
         
-        public int removeList(int userID, int productID) {
-            return base.Channel.removeList(userID, productID);
+        public int removeList(int userID) {
+            return base.Channel.removeList(userID);
         }
         
-        public System.Threading.Tasks.Task<int> removeListAsync(int userID, int productID) {
-            return base.Channel.removeListAsync(userID, productID);
+        public System.Threading.Tasks.Task<int> removeListAsync(int userID) {
+            return base.Channel.removeListAsync(userID);
         }
         
         public GreenPantryFrontend.ServiceReference1.Address getAddress(int Address_ID) {

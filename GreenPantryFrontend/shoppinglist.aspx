@@ -167,9 +167,14 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
+                    <form runat="server">
                     <div class="shoping__cart__btns" >
                         <a href="home.aspx" class="primary-btn cart-btn" runat="server" id="Cart_continue">CONTINUE SHOPPING</a>
+                        <asp:LinkButton class="primary-btn cart-btn cart-btn-right" runat="server" onclick="update_Click"><span class="icon_loading"></span>
+                            Save Changes</asp:LinkButton>
+
                     </div>
+                    </form>
                 </div>
                 <div class="col-lg-6">
                     <div class="shoping__checkout" runat="server" ID="cartTotal">
@@ -184,4 +189,4 @@
         </div>
     </section>
     <!-- Shoping List Section End -->
-    </asp:Content>
+</asp:Content>

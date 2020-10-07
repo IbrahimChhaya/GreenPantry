@@ -59,7 +59,7 @@ namespace GreenPantryFrontend
 
                         display += "<tr><td class='shoping__cart__item'>";
                         display += "<img src =" + cartProduct.Image_Location + " alt=''>";
-                        display += "<h5><asp:Label class='cart__item-id' ID='pID' runat='server' Text='" + cartProduct.ID + "' visible='false' >" + cartProduct.ID + "</asp:Label>" + cartProduct.Name + "</h5></td><td class='shoping__cart__price'>" + Math.Round(cartProduct.Price, 2) + "</td>";
+                        display += "<h5><input class='cart__item-id' ID='pID' runat='server' value='" + cartProduct.ID + "' hidden/>" + cartProduct.Name + "</h5></td><td class='shoping__cart__price'>" + Math.Round(cartProduct.Price, 2) + "</td>";
                         display += "<td class='shoping__cart__quantity'>";
                         display += "<div class='quantity'><div class='pro-qty'><input type = 'text' value=" + qty + " runat='server' id='item_qty'>";
                         display += "</div></div></td>";
