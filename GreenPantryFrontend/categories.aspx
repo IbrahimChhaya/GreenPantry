@@ -45,13 +45,16 @@
                                     </div>
                                 <div class="range-slider">
                                     <div class="price-input">
-                                        <input type="text" id="minamount" /> <%--runat="server">--%>
-                                        <input type="text" id="maxamount" /><%--runat="server">--%>                                        
+                                        <input type="text" id="minamount" />
+                                        <input type="text" id="maxamount" />                                       
                                     </div>
                                 </div>
-<%--                                <form runat="server">
-                                    <asp:Button Text="Filter" class="site-btn" ID="btnFilterPrice" OnClick="btnFilterPrice_Click" runat="server" />
-                                </form>--%>
+                           
+                                <div>
+                                    <a class="site-btn" href="#" OnClick="updateProductsList()" style="width: 100%; text-align:center">
+                                        <span>Apply Filter</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <!--<div class="sidebar__item sidebar__item__color--option">
@@ -329,7 +332,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row" id="categoryProducts" runat="server">
+                    <div class="row catPros" id="categoryProducts" runat="server" > <%--//data-products="<%=jsonProducts %>"--%>
+                        
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
@@ -521,5 +525,33 @@
             </div>
         </div>
     </section>
-    <!-- Product Section End -->    
+    <!-- Product Section End --> 
+    <script>
+        function updateProductsList() {
+
+            var products = <%= getProducts() %>;
+            var display = "";
+            var minimumPrice = $('#minamount').val().replace('R', '')
+            var maximumPrice = $('#maxamount').val().replace('R', '')
+            debugger
+            $('#ContentPlaceHolder1_categoryProducts').html(" ");
+
+            for (var i = 0; i < products.length; i++) {
+
+                if (products[i].Price >= minimumPrice && products[i].Price <= maximumPrice) {
+                    display += "<div class='col-lg-4 col-md-6 col-sm-6'>";
+                    display += "<div class='product__item' onclick='location.href=&#39;singleproduct.aspx?ProductID=" + products[i].ID + "&#39;'>";
+                    display += "<div class='product__item__pic set-bg' data-setbg='" + products[i].Image_Location + "' style='background-image: url(&quot;"+ products[i].Image_Location+ "&quot;);'>";
+                    display += "<ul class='product__item__pic__hover'>";
+                    display += "<li><a href='#'><i class='fa fa-heart'></i></a></li>";
+                    display += "<li><a href='#'><i class='fa fa-shopping-cart'></i></a></li></ul></div>";
+                    display += "<div class='product__item__text'>";
+                    display += "<h6>" + products[i].Name + "</h6>";
+                    display += "<h5>R" + (products[i].Price).toFixed(2) + "</h5></div></div></div>";
+                }
+            }
+
+            $('#ContentPlaceHolder1_categoryProducts').html(display);
+        }
+    </script>
 </asp:Content>

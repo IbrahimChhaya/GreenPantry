@@ -38,7 +38,7 @@
                             <h4>Price</h4>
                             <div class="price-range-wrap">
                                 <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                    data-min="10" data-max="540">
+                                    data-min="0" data-max="540">
                                     <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
                                     <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                                     <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
@@ -48,6 +48,11 @@
                                         <input type="text" id="minamount">
                                         <input type="text" id="maxamount">
                                     </div>
+                                </div>
+                                <div>
+                                    <a class="site-btn" href="#" OnClick="updateProductsList()" style="width: 100%; text-align:center">
+                                        <span>Apply Filter</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -518,5 +523,34 @@
             </div>
         </div>
     </section>
-    <!-- Product Section End -->    
+    <!-- Product Section End -->   
+    
+     <script>
+        function updateProductsList() {
+     
+            var products = <%= getProducts() %>;
+            var display = "";
+            var minimumPrice = $('#minamount').val().replace('R', '')
+            var maximumPrice = $('#maxamount').val().replace('R', '')
+            debugger
+            $('#ContentPlaceHolder1_subProducts').html(" ");
+
+            for (var i = 0; i < products.length; i++) {
+
+                if (products[i].Price >= minimumPrice && products[i].Price <= maximumPrice) {
+                    display += "<div class='col-lg-4 col-md-6 col-sm-6'>";
+                    display += "<div class='product__item' onclick='location.href=&#39;singleproduct.aspx?ProductID=" + products[i].ID + "&#39;'>";
+                    display += "<div class='product__item__pic set-bg' data-setbg='" + products[i].Image_Location + "' style='background-image: url(&quot;"+ products[i].Image_Location+ "&quot;);'>";
+                    display += "<ul class='product__item__pic__hover'>";
+                    display += "<li><a href='#'><i class='fa fa-heart'></i></a></li>";
+                    display += "<li><a href='#'><i class='fa fa-shopping-cart'></i></a></li></ul></div>";
+                    display += "<div class='product__item__text'>";
+                    display += "<h6>" + products[i].Name + "</h6>";
+                    display += "<h5>R" + (products[i].Price).toFixed(2) + "</h5></div></div></div>";
+                }
+            }
+
+            $('#ContentPlaceHolder1_subProducts').html(display);
+        }
+     </script>
 </asp:Content>

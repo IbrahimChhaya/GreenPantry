@@ -13,12 +13,12 @@ namespace AdminDashboard
     {
         GP_ServiceClient SR = new GP_ServiceClient();
 
-        protected ProductCategory[] categories;
-
-        protected List<string> display = new List<string>();
-        protected string[] cats;
-        protected int[] whatever = new int[5];
-        protected string jsonObj;
+        protected string jsonCategories;
+        protected string jsonCatSales;
+        protected string jsonMonthDates;
+        protected string jsonMonthSales;
+        protected string jsonWeekDays;
+        protected string jsonWeekSales;
         protected void Page_Load(object sender, EventArgs e)
         {
             //int trafficNum = SR.getVisitors();
@@ -31,22 +31,54 @@ namespace AdminDashboard
             //if(trafficPercent > 0)
             //  trafficChange.InnerHtml = "<i class='fa fa-arrow-up'></i> 3.48%
 
-            whatever[0] = 1;
-            whatever[1] = 1;
-            whatever[2] = 1;
-            whatever[3] = 1;
-            whatever[4] = 1;
-           // whatever = whatever.ToString();
+            /*Graph data --START*/
+            List<string> display = new List<string>();
+            List<decimal> catSales = new List<decimal>();
+
+            dynamic categories = SR.getAllCategories();
 
             categories = SR.getAllCategories();
             foreach(var c in categories)
             {
                 display.Add(c.Name);
+                var catTotal = SR.calcCategoryTotalSales(c.ID);
+                catSales.Add(catTotal);
             }
             JavaScriptSerializer serializer = new JavaScriptSerializer();
-            jsonObj = serializer.Serialize(display);
-            //cats = Array.ConvertAll((ProductCategory[])categories, Convert.ToString);
-            List<double> profits = new List<double>();
+            jsonCategories = serializer.Serialize(display);
+            jsonCatSales = serializer.Serialize(catSales);
+
+
+            dynamic monthDates = SR.getMonthDates(new DateTime(2020, 09, 24));
+
+            List<string> dates = new List<string>();
+
+            List<decimal> salesMonthDays = new List<decimal>();
+            foreach (DateTime d in monthDates)
+            {
+                var daySales = SR.calcSalesPerDay(d.Date);
+                salesMonthDays.Add(daySales);
+                dates.Add(d.ToShortDateString());
+            }
+
+            jsonMonthDates = serializer.Serialize(dates);
+            jsonMonthSales = serializer.Serialize(salesMonthDays);
+
+            dynamic weekDates = SR.getWeekDates(new DateTime(2020, 09, 24));
+            List<string> wDays = new List<string>();
+            List<decimal> weekSales = new List<decimal>();
+
+            foreach (DateTime d in weekDates)
+            {
+                var wDaySales = SR.calcSalesPerDay(d.Date);
+                weekSales.Add(wDaySales);
+                wDays.Add(d.Date.ToShortDateString());
+            }
+
+            jsonWeekDays = serializer.Serialize(wDays);
+            jsonWeekSales = serializer.Serialize(weekSales);
+            /*Graph data --END*/
+
 
             string Display = "";
             //Displaying the users perweek and the change in percentange
@@ -122,29 +154,6 @@ namespace AdminDashboard
                 Display += "<td><i class='fas fa-arrow-up text-success mr-3'></i> dunno%</td></tr>";
             }
             pageTraffic.InnerHtml = Display;
-
-
-
-
-
-            //foreach(var c in categories)
-            //{
-            //    var profit = SR.profitPerCat(c.ID);
-            //    profits.Add(profit);
-            //}" + categories[3].Name + "
-
-            //display += "<ul class='nav nav-pills justify-content-end'>";
-            //display += "<li class='nav-item mr-2 mr-md-0' data-toggle='chart' data-target='#chart-sales-dark'";
-            //display += "data-update='{\"data\":{\"labels\":[\"" + categories[0].Name + "\",\"" + categories[1].Name + "\",\"" + categories[2].Name + "\",\"" + categories[3].Name + "\",\"" + categories[4].Name + "\",\"" + categories[5].Name + "\",\"" + categories[6].Name + "\",\"" + categories[7].Name + "\"],\"datasets\":[{\"data\":[0,20,10,30,15,40,20,60,60]}]}}' data-prefix='R' data-suffix='k'>";
-            //display += "<a href='#' class='nav-link py-2 px-3 active' data-toggle='tab'>";
-            //display += "<span class='d-none d-md-block'>Month</span><span class='d-md-none'>M</span></a></li>";
-            //display += "<li class='nav-item' data-toggle='chart' data-target='#chart-sales-dark' data-update='{\"data\":{\"labels\":[\"This\",\"Is\",\"Going\",\"be\",\"The\",\"Death\",\"Of\",\"me\"],";
-            //display += "\"datasets\":[{\"data\":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix='R' data-suffix='k'>";
-            //display += "<a href='#' class='nav-link py-2 px-3' data-toggle='tab'>";
-            //display += "<span class='d-none d-md-block'>Week</span><span class='d-md-none'>W</span></a></li> </ul>";
-
-            //chart1Li.InnerHtml = display;
-
         }
     }
 }
