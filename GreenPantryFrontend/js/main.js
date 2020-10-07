@@ -228,9 +228,8 @@
 
         var unitValue = $button.parent().parent().parent().parent().find('.shoping__cart__price').html();
         $button.parent().parent().parent().parent().find('.shoping__cart__total#pTotal').html((newVal * unitValue).toFixed(2));
-        debugger
 
-        var unitID = $button.parent().parent().parent().parent().find('.cart__item-id').html();
+        var unitID = $button.parent().parent().parent().parent().find('.cart__item-id').val();
 
         //change totals
         const elementTotals = document.getElementsByClassName('shoping__cart__total');
@@ -241,6 +240,7 @@
         }
 
         $('#checkout__cart-total').text("R" + subTotal.toFixed(2));
+
 
         if (window.location.pathname === "/cart.aspx") {
             
@@ -255,9 +255,7 @@
             }
             document.cookie = "cart=" + cVal;
             if(newVal <= 0)
-                 window.location = "cart.aspx";
-
-            
+                $button.parent().parent().parent().parent().remove();
 
             $('#checkout__cart-subtotal').text("R" + subTotal.toFixed(2));
 
@@ -277,6 +275,24 @@
             var total = subTotal + deliveryFee;
             $('#checkout__cart-total').text("R" + total.toFixed(2));
         } 
+
+        //on list page
+        if (window.location.pathname === "/shoppinglist.aspx") {
+            var listCookie = getCookie("list");
+            var cVal = listCookie; 
+
+            if (newVal > 0) {
+                cVal = cVal.replace(unitID + "-" + oldValue, unitID + "-" + newVal);
+            }
+            else {
+                cVal = cVal.replace(unitID + "-" + oldValue + ",", "");
+            }
+
+            document.cookie = "list=" + cVal;
+
+            if (newVal <= 0)
+                $button.parent().parent().parent().parent().remove();
+        }
     });
 
     /*-------------------
@@ -284,19 +300,32 @@
     --------------------- */
     var proClose = $('.icon_close');
     //$('.icon_close').on('click', function(){alert("entered")})
-    $('.icon_close').on('click', function () {
+    $('.icon_close').on('click', function (event, target) {
         var $button = $(this);
-        var unitID = $button.parent().parent().parent().parent().parent().parent().parent().find('.cart__item-id').html();
-        var unitQty = $button.parent().parent().parent().parent().parent().parent().parent().find('input').val();
+        var unitID = $button.parent().parent().find('.cart__item-id').val();
+        var unitQty = $button.parent().parent().find('input#item_qty').val();
 
-        //get cookie value
-        var cookie = getCookie("cart");
+        if (window.location.pathname === "/cart.aspx") {
+            //get cookie value
+            var cookie = getCookie("cart");
 
-        var cVal = cookie.replace(unitID + "-" + unitQty + ",", "");
-        document.cookie = "cart=" + cVal;
+            var cVal = cookie.replace(unitID + "-" + unitQty + ",", "");
+            document.cookie = "cart=" + cVal;
 
-        //refresh page
-        window.location = "/cart.aspx";
+            //refresh page
+            window.location = "/cart.aspx";
+        }
+        else if (window.location.pathname === "/shoppinglist.aspx") {
+            //get list cookie
+            var listCookie = getCookie("list");
+
+            //update cookie value (i.e remove this product from cookie)
+            var cookieVal = listCookie.replace(unitID + "-" + unitQty + ",", "");
+            document.cookie = "list=" + cookieVal;
+
+            $button.parent().parent().remove();
+        }
+        
     });
 
     function getCookie(name) {

@@ -62,5 +62,11 @@ namespace GreenPantryFrontend
             string userInput = searchText.Value;
             Response.Redirect("/results.aspx?Search=" + userInput);
         }
+
+        protected void Email_sender(object sender, EventArgs e)
+        {
+            SC.newsletter("ubaidkagdi123@gmail.com", "ubaidkagdi123@gmail.com", "Welcome to newslater", "hey", "smtp.gmail.com"); 
+        }
+        
     }
 }
