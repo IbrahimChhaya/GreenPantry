@@ -14,15 +14,13 @@ namespace GreenPantryFrontend.dashboard
         String imagePath = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //load the product with URL parameter product ID
-            //if(Request.QueryString["ProductID"] == null)
-            //{
-            //    Response.Redirect("dashboard.aspx");
-            //}
-            //else
+            if (Request.QueryString["ProductID"] == null)
             {
-                String display = "";
-                int productID = 1; // int.Parse(Request.QueryString["ProductID"].ToString());
+                Response.Redirect("dashboard.aspx");
+            }
+            else
+            {
+                int productID = int.Parse(Request.QueryString["ProductID"].ToString());
                 dynamic product = SC.getProduct(productID);
                 if (!IsPostBack)
                 {
@@ -30,22 +28,13 @@ namespace GreenPantryFrontend.dashboard
                     imgPath.InnerHtml = "<img src='../" + product.Image_Location + "' alt='Image placeholder' class='card-img-top'>";
                     name.Value = product.Name;
                     stock.Value = product.StockOnHand.ToString();
-                    description.Value = product.Name; //.Description;
+                    description.Value = product.Description;
                     
                     cost.Value = Math.Round(product.Cost, 2).ToString().Replace(",", ".");
                     price.Value = Math.Round(product.Price, 2).ToString().Replace(",", ".");
 
                     dynamic subcats = SC.getAllSubCategories();
                     dynamic subcat = SC.getSubCat(product.SubCategoryID);
-                    //display = "";
-                    //display += "<label for='subcatSelect' class='form-control-label'>SubCategory</label>";
-                    //display += "<select class='form-control' id='subcatSelect' runat='server' name='subcatSelect'>";
-                    //display += "<option value='-1' disabled selected hidden>" + subcat.Name + "</option>";
-                    //foreach (SubCategory s in subcats)
-                    //{
-                    //    display += "<option value='" + s.SubID + "'>" + s.Name + "</option>";
-                    //}
-                    //subcatList.InnerHtml = display + "</select>";
 
                     dropdownSub.Items.Add(subcat.Name);
                     foreach(SubCategory s in subcats)
@@ -53,7 +42,6 @@ namespace GreenPantryFrontend.dashboard
                         if(s.SubID != subcat.SubID)
                             dropdownSub.Items.Add(s.Name);
                     }
-
 
                     if(product.Status.Equals("active"))
                     {
@@ -88,7 +76,7 @@ namespace GreenPantryFrontend.dashboard
         protected void updateProduct_ServerClick(object sender, EventArgs e)
         {
             //update the product using imagePath global var
-            int productID = 1; // int.Parse(Request.QueryString["ProductID"].ToString());
+            int productID = int.Parse(Request.QueryString["ProductID"].ToString());
             dynamic product = SC.getProduct(productID);
             int subID = 0;
 
@@ -111,7 +99,7 @@ namespace GreenPantryFrontend.dashboard
                 double dblCost = Convert.ToDouble(cost.Value.Replace('.', ','));
                 string img = product.Image_Location;
                 string stat = dropdownStatus.Text.ToLower();
-                int update = SC.updateProduct(productID, strName, subID, dblPrice, dblCost, img, stat, stockNum);
+                int update = SC.updateProduct(productID, strName, subID, dblPrice, dblCost, img, stat, stockNum, product.Description);
                 if(update.Equals(1))
                 {
                     error.Visible = true;
@@ -125,7 +113,12 @@ namespace GreenPantryFrontend.dashboard
             }
             else
             {
-                int update = SC.updateProduct(productID, name.Value, subID, Convert.ToDouble(price.Value), Convert.ToDouble(cost.Value), imagePath, dropdownStatus.Text.ToLower(), int.Parse(stock.Value));
+                int stockNum = int.Parse(stock.Value);
+                String strName = name.Value;
+                double dblPrice = Convert.ToDouble(price.Value.Replace('.', ','));
+                double dblCost = Convert.ToDouble(cost.Value.Replace('.', ','));
+                string stat = dropdownStatus.Text.ToLower();
+                int update = SC.updateProduct(productID, strName, subID, dblPrice, dblCost, imagePath, stat, stockNum, product.Description);
                 if (update.Equals(1))
                 {
                     error.Visible = true;
@@ -137,11 +130,6 @@ namespace GreenPantryFrontend.dashboard
                     error.InnerText = "An error occurred";
                 }
             }
-        }
-
-        protected void removeProduct_ServerClick(object sender, EventArgs e)
-        {
-
         }
     }
 }

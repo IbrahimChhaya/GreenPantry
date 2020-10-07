@@ -31,11 +31,13 @@ namespace GreenPantryFrontend.dashboard
                     display += "<option value='0'>Inactive</option></select>";
                     CategoryStatus.InnerHtml = display;
                 }
-            }else if(Request.QueryString["type"].ToString().Equals("Cat"))
+            }
+            else if(Request.QueryString["type"].ToString().Equals("Cat"))
             {
                  if(!IsPostBack)
                  {
                      dynamic category = SC.getAllCategories();
+                    //bruh get all categories?
                      Details.InnerText = "SubCategory Details";
                      editName.InnerText = "Edit " + category.Name;
                      name.Value = category.Value;
@@ -45,7 +47,6 @@ namespace GreenPantryFrontend.dashboard
                      display += "<option value='1'>Active</option>";
                      display += "<option value='0'>Inactive</option></select>";
                      CategoryStatus.InnerHtml = display;
-
                  }
             }
         }
@@ -53,32 +54,38 @@ namespace GreenPantryFrontend.dashboard
         protected void updateCat_ServerClick(object sender, EventArgs e)
         {
             int ID = 1;   //int.Parse(Request.QueryString["CatID"].ToString());
+            dynamic sub = SC.getSubCat(ID);
             if (Request.QueryString["type"].ToString().Equals("SubCat"))
             {
- 
-                    int updateSubcat = SC.updateSubCategories(ID,2, name.Value, statusSelect.Value);//2 - refers to the category ID
-                    if(updateSubcat==1)
-                    {
-                       //Successfully updated
-                    }else
-                    {
-                        //error message
-                    } 
+                int updateSubcat = SC.updateSubCategories(ID, sub.CategoryID, name.Value, statusSelect.Value);//2 - refers to the category ID
+                if(updateSubcat == 1)
+                {
+                    //Successfully updated
+                    error.Visible = true;
+                    error.InnerText = "Category updated";
+                }else
+                {
+                    //error message
+                    error.Visible = true;
+                    error.InnerText = "An error occurred";
+                } 
             }
             else if (Request.QueryString["type"].ToString().Equals("Cat"))
             {
-
-                    int updateCategory = SC.updateCategories(ID, name.Value, statusSelect.Value);
-                    if(updateCategory==1)
-                    {
-                        //updated Successfully
-                    }else
-                    {
-                        //show error
-                    }
+                int updateCategory = SC.updateCategories(ID, name.Value, statusSelect.Value);
+                if(updateCategory == 1)
+                {
+                    //updated Successfully
+                    error.Visible = true;
+                    error.InnerText = "Category updated";
+                }
+                else
+                {
+                    //show error
+                    error.Visible = true;
+                    error.InnerText = "An error occurred";
+                }
             }
-
-
         }
     }
 }
