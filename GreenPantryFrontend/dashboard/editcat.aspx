@@ -37,7 +37,7 @@
             </div>
             <div class="card-body">
               <form runat="server">
-                <h6 class="heading-small text-muted mb-4">Product Details</h6>
+                <h6 class="heading-small text-muted mb-4" id="Details" runat="server">Category Details</h6>
                 <div class="pl-lg-4">
                   <div class="row">
                     <div class="col-lg-6">
@@ -47,9 +47,9 @@
                       </div>
                     </div>
                       <div class="col-lg-6">
-                        <div class="form-group" id="Div1" runat="server">
+                        <div class="form-group" id="CategoryStatus" runat="server">
                             <label for="statusSelect" class="form-control-label">Status</label>
-                            <select class="form-control" id="statusSelect">
+                            <select class="form-control" id="statusSelect" runat="server">
                                 <option value="-1" disabled selected hidden>Active</option>
                                 <option value="1">Active</option>
                                 <option value="0">Inactive</option>

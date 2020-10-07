@@ -25,8 +25,6 @@ namespace AdminDashboard
 
              foreach(ProductCategory p in list)
              {
-                if (p.Status.Equals("active"))
-                {
                     display += "<tr><th scope='row'>";
                     display += "<div class='media align-items-center'>";
                     //display += "<a href='#' class='avatar rounded-circle mr-3'>";
@@ -46,7 +44,7 @@ namespace AdminDashboard
                     display += "<a class='dropdown-item' href='#'>Action</a>";
                     display += "<a class='dropdown-item' href='#'>Another action</a>";
                     display += "<a class='dropdown-item' href='#'>Something else here</a></div></div></td></tr>";
-                }
+                
              }
               catList.InnerHtml = display;
 

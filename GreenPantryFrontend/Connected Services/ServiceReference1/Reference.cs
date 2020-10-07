@@ -1816,10 +1816,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> addSubCategoryAsync(int id, string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateSubCategories", ReplyAction="http://tempuri.org/IGP_Service/updateSubCategoriesResponse")]
-        int updateSubCategories(int id, string name, string status);
+        int updateSubCategories(int id, int cat_ID, string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateSubCategories", ReplyAction="http://tempuri.org/IGP_Service/updateSubCategoriesResponse")]
-        System.Threading.Tasks.Task<int> updateSubCategoriesAsync(int id, string name, string status);
+        System.Threading.Tasks.Task<int> updateSubCategoriesAsync(int id, int cat_ID, string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getInvoice", ReplyAction="http://tempuri.org/IGP_Service/getInvoiceResponse")]
         GreenPantryFrontend.ServiceReference1.Invoice getInvoice(int InvoiceID);
@@ -2363,12 +2363,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.addSubCategoryAsync(id, name, status);
         }
         
-        public int updateSubCategories(int id, string name, string status) {
-            return base.Channel.updateSubCategories(id, name, status);
+        public int updateSubCategories(int id, int cat_ID, string name, string status) {
+            return base.Channel.updateSubCategories(id, cat_ID, name, status);
         }
         
-        public System.Threading.Tasks.Task<int> updateSubCategoriesAsync(int id, string name, string status) {
-            return base.Channel.updateSubCategoriesAsync(id, name, status);
+        public System.Threading.Tasks.Task<int> updateSubCategoriesAsync(int id, int cat_ID, string name, string status) {
+            return base.Channel.updateSubCategoriesAsync(id, cat_ID, name, status);
         }
         
         public GreenPantryFrontend.ServiceReference1.Invoice getInvoice(int InvoiceID) {
