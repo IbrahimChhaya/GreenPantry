@@ -35,9 +35,9 @@
                 <thead class="thead-light">
                   <tr>
                     <th scope="col" class="sort" data-sort="name">Category</th>
-                    <th scope="col" class="sort" data-sort="budget"></th>
-                    <th scope="col" class="sort" data-sort="status"></th>
-                    <th scope="col">Sales Per Week</th>
+                    <th scope="col" class="sort" data-sort="budget">Sales Per Week</th>
+                    <th scope="col" class="sort" data-sort="status">Status</th>
+                    <th scope="col"></th>
                     <th scope="col"></th>
                   </tr>
                 </thead>

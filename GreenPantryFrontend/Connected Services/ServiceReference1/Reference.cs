@@ -1669,11 +1669,35 @@ namespace GreenPantryFrontend.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/topPages", ReplyAction="http://tempuri.org/IGP_Service/topPagesResponse")]
         System.Threading.Tasks.Task<string[]> topPagesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/newsletter", ReplyAction="http://tempuri.org/IGP_Service/newsletterResponse")]
-        void newsletter(string senderemail, string subscriberemail, string subject, string body, string password, string smtp);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageCategorySales", ReplyAction="http://tempuri.org/IGP_Service/percentageCategorySalesResponse")]
+        double percentageCategorySales(System.DateTime currentDate, int Cat_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageCategorySales", ReplyAction="http://tempuri.org/IGP_Service/percentageCategorySalesResponse")]
+        System.Threading.Tasks.Task<double> percentageCategorySalesAsync(System.DateTime currentDate, int Cat_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/numProductSalesperCategory", ReplyAction="http://tempuri.org/IGP_Service/numProductSalesperCategoryResponse")]
+        int numProductSalesperCategory(System.DateTime currentDate, int Cat_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/numProductSalesperCategory", ReplyAction="http://tempuri.org/IGP_Service/numProductSalesperCategoryResponse")]
+        System.Threading.Tasks.Task<int> numProductSalesperCategoryAsync(System.DateTime currentDate, int Cat_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageSubCategorySales", ReplyAction="http://tempuri.org/IGP_Service/percentageSubCategorySalesResponse")]
+        double percentageSubCategorySales(System.DateTime currentDate, int SubCat_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageSubCategorySales", ReplyAction="http://tempuri.org/IGP_Service/percentageSubCategorySalesResponse")]
+        System.Threading.Tasks.Task<double> percentageSubCategorySalesAsync(System.DateTime currentDate, int SubCat_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/numProductSalesperSubCategory", ReplyAction="http://tempuri.org/IGP_Service/numProductSalesperSubCategoryResponse")]
+        int numProductSalesperSubCategory(System.DateTime currentDate, int SubCat_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/numProductSalesperSubCategory", ReplyAction="http://tempuri.org/IGP_Service/numProductSalesperSubCategoryResponse")]
+        System.Threading.Tasks.Task<int> numProductSalesperSubCategoryAsync(System.DateTime currentDate, int SubCat_ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/newsletter", ReplyAction="http://tempuri.org/IGP_Service/newsletterResponse")]
-        System.Threading.Tasks.Task newsletterAsync(string senderemail, string subscriberemail, string subject, string body, string password, string smtp);
+        void newsletter(string senderemail, string subscriberemail, string subject, string body, string smtp);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/newsletter", ReplyAction="http://tempuri.org/IGP_Service/newsletterResponse")]
+        System.Threading.Tasks.Task newsletterAsync(string senderemail, string subscriberemail, string subject, string body, string smtp);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/login", ReplyAction="http://tempuri.org/IGP_Service/loginResponse")]
         int login(string email, string password);
@@ -1742,10 +1766,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> addNewProductAsync(string name, int SubID, double price, double cost, int stockQty, string imgLocation, string status, string description);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateProduct", ReplyAction="http://tempuri.org/IGP_Service/updateProductResponse")]
-        int updateProduct(int id, string name, int SubId, double price, double cost, string imgLocation, string status, string description);
+        int updateProduct(int id, string name, int SubId, double price, double cost, string imgLocation, string status, int stock, string description);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateProduct", ReplyAction="http://tempuri.org/IGP_Service/updateProductResponse")]
-        System.Threading.Tasks.Task<int> updateProductAsync(int id, string name, int SubId, double price, double cost, string imgLocation, string status, string description);
+        System.Threading.Tasks.Task<int> updateProductAsync(int id, string name, int SubId, double price, double cost, string imgLocation, string status, int stock, string description);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getAllProducts", ReplyAction="http://tempuri.org/IGP_Service/getAllProductsResponse")]
         GreenPantryFrontend.ServiceReference1.Product[] getAllProducts();
@@ -1904,10 +1928,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> updateListAsync(int userID, int P_ID, int quantity);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/removeList", ReplyAction="http://tempuri.org/IGP_Service/removeListResponse")]
-        int removeList(int userID, int productID);
+        int removeList(int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/removeList", ReplyAction="http://tempuri.org/IGP_Service/removeListResponse")]
-        System.Threading.Tasks.Task<int> removeListAsync(int userID, int productID);
+        System.Threading.Tasks.Task<int> removeListAsync(int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getAddress", ReplyAction="http://tempuri.org/IGP_Service/getAddressResponse")]
         GreenPantryFrontend.ServiceReference1.Address getAddress(int Address_ID);
@@ -2169,12 +2193,44 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.topPagesAsync();
         }
         
-        public void newsletter(string senderemail, string subscriberemail, string subject, string body, string password, string smtp) {
-            base.Channel.newsletter(senderemail, subscriberemail, subject, body, password, smtp);
+        public double percentageCategorySales(System.DateTime currentDate, int Cat_ID) {
+            return base.Channel.percentageCategorySales(currentDate, Cat_ID);
         }
         
-        public System.Threading.Tasks.Task newsletterAsync(string senderemail, string subscriberemail, string subject, string body, string password, string smtp) {
-            return base.Channel.newsletterAsync(senderemail, subscriberemail, subject, body, password, smtp);
+        public System.Threading.Tasks.Task<double> percentageCategorySalesAsync(System.DateTime currentDate, int Cat_ID) {
+            return base.Channel.percentageCategorySalesAsync(currentDate, Cat_ID);
+        }
+        
+        public int numProductSalesperCategory(System.DateTime currentDate, int Cat_ID) {
+            return base.Channel.numProductSalesperCategory(currentDate, Cat_ID);
+        }
+        
+        public System.Threading.Tasks.Task<int> numProductSalesperCategoryAsync(System.DateTime currentDate, int Cat_ID) {
+            return base.Channel.numProductSalesperCategoryAsync(currentDate, Cat_ID);
+        }
+        
+        public double percentageSubCategorySales(System.DateTime currentDate, int SubCat_ID) {
+            return base.Channel.percentageSubCategorySales(currentDate, SubCat_ID);
+        }
+        
+        public System.Threading.Tasks.Task<double> percentageSubCategorySalesAsync(System.DateTime currentDate, int SubCat_ID) {
+            return base.Channel.percentageSubCategorySalesAsync(currentDate, SubCat_ID);
+        }
+        
+        public int numProductSalesperSubCategory(System.DateTime currentDate, int SubCat_ID) {
+            return base.Channel.numProductSalesperSubCategory(currentDate, SubCat_ID);
+        }
+        
+        public System.Threading.Tasks.Task<int> numProductSalesperSubCategoryAsync(System.DateTime currentDate, int SubCat_ID) {
+            return base.Channel.numProductSalesperSubCategoryAsync(currentDate, SubCat_ID);
+        }
+        
+        public void newsletter(string senderemail, string subscriberemail, string subject, string body, string smtp) {
+            base.Channel.newsletter(senderemail, subscriberemail, subject, body, smtp);
+        }
+        
+        public System.Threading.Tasks.Task newsletterAsync(string senderemail, string subscriberemail, string subject, string body, string smtp) {
+            return base.Channel.newsletterAsync(senderemail, subscriberemail, subject, body, smtp);
         }
         
         public int login(string email, string password) {
@@ -2265,12 +2321,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.addNewProductAsync(name, SubID, price, cost, stockQty, imgLocation, status, description);
         }
         
-        public int updateProduct(int id, string name, int SubId, double price, double cost, string imgLocation, string status, string description) {
-            return base.Channel.updateProduct(id, name, SubId, price, cost, imgLocation, status, description);
+        public int updateProduct(int id, string name, int SubId, double price, double cost, string imgLocation, string status, int stock, string description) {
+            return base.Channel.updateProduct(id, name, SubId, price, cost, imgLocation, status, stock, description);
         }
         
-        public System.Threading.Tasks.Task<int> updateProductAsync(int id, string name, int SubId, double price, double cost, string imgLocation, string status, string description) {
-            return base.Channel.updateProductAsync(id, name, SubId, price, cost, imgLocation, status, description);
+        public System.Threading.Tasks.Task<int> updateProductAsync(int id, string name, int SubId, double price, double cost, string imgLocation, string status, int stock, string description) {
+            return base.Channel.updateProductAsync(id, name, SubId, price, cost, imgLocation, status, stock, description);
         }
         
         public GreenPantryFrontend.ServiceReference1.Product[] getAllProducts() {
@@ -2481,12 +2537,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.updateListAsync(userID, P_ID, quantity);
         }
         
-        public int removeList(int userID, int productID) {
-            return base.Channel.removeList(userID, productID);
+        public int removeList(int userID) {
+            return base.Channel.removeList(userID);
         }
         
-        public System.Threading.Tasks.Task<int> removeListAsync(int userID, int productID) {
-            return base.Channel.removeListAsync(userID, productID);
+        public System.Threading.Tasks.Task<int> removeListAsync(int userID) {
+            return base.Channel.removeListAsync(userID);
         }
         
         public GreenPantryFrontend.ServiceReference1.Address getAddress(int Address_ID) {
