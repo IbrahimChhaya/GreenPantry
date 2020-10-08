@@ -62,13 +62,13 @@ namespace GreenPantryFrontend.dashboard
                 if(updateSubcat == 1)
                 {
                     //Successfully updated
-                    error.Visible = true;
-                    error.InnerText = "Category updated";
+                    //error.Visible = true;
+                    //error.InnerText = "Category updated";
                 }else
                 {
                     //error message
-                    error.Visible = true;
-                    error.InnerText = "An error occurred";
+                   // error.Visible = true;
+                   // error.InnerText = "An error occurred";
                 } 
             }
             else if (Request.QueryString["type"].ToString().Equals("Cat"))
@@ -77,14 +77,14 @@ namespace GreenPantryFrontend.dashboard
                 if(updateCategory == 1)
                 {
                     //updated Successfully
-                    error.Visible = true;
-                    error.InnerText = "Category updated";
+                    //error.Visible = true;
+                    //error.InnerText = "Category updated";
                 }
                 else
                 {
                     //show error
-                    error.Visible = true;
-                    error.InnerText = "An error occurred";
+                    //error.Visible = true;
+                   // error.InnerText = "An error occurred";
                 }
             }
         }
