@@ -47,6 +47,7 @@ namespace GreenPantryFrontend
 
                 int addpoint = SR.updatePoints(registered, 50);
                 int addDevice = SR.addDevices(registered, Request.Browser.Platform);
+                SR.newsletter("chandranero149@gmail.com", email, "GreenPantry Family", "Congratulations you registered succesfully! you get 50 points", "greenpantry", "smtp.gmail.com");
                 if (addpoint == 1)
                 {
                     Response.Redirect("home.aspx");
