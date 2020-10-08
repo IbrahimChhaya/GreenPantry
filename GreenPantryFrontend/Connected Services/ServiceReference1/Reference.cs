@@ -1694,10 +1694,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> numProductSalesperSubCategoryAsync(System.DateTime currentDate, int SubCat_ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/newsletter", ReplyAction="http://tempuri.org/IGP_Service/newsletterResponse")]
-        void newsletter(string senderemail, string subscriberemail, string subject, string body, string smtp);
+        void newsletter(string senderemail, string subscriberemail, string subject, string body, string password, string smtp);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/newsletter", ReplyAction="http://tempuri.org/IGP_Service/newsletterResponse")]
-        System.Threading.Tasks.Task newsletterAsync(string senderemail, string subscriberemail, string subject, string body, string smtp);
+        System.Threading.Tasks.Task newsletterAsync(string senderemail, string subscriberemail, string subject, string body, string password, string smtp);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/login", ReplyAction="http://tempuri.org/IGP_Service/loginResponse")]
         int login(string email, string password);
@@ -2225,12 +2225,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.numProductSalesperSubCategoryAsync(currentDate, SubCat_ID);
         }
         
-        public void newsletter(string senderemail, string subscriberemail, string subject, string body, string smtp) {
-            base.Channel.newsletter(senderemail, subscriberemail, subject, body, smtp);
+        public void newsletter(string senderemail, string subscriberemail, string subject, string body, string password, string smtp) {
+            base.Channel.newsletter(senderemail, subscriberemail, subject, body, password, smtp);
         }
         
-        public System.Threading.Tasks.Task newsletterAsync(string senderemail, string subscriberemail, string subject, string body, string smtp) {
-            return base.Channel.newsletterAsync(senderemail, subscriberemail, subject, body, smtp);
+        public System.Threading.Tasks.Task newsletterAsync(string senderemail, string subscriberemail, string subject, string body, string password, string smtp) {
+            return base.Channel.newsletterAsync(senderemail, subscriberemail, subject, body, password, smtp);
         }
         
         public int login(string email, string password) {

@@ -28,7 +28,8 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-              <h3 class="mb-0">Products</h3>
+              <h3 class="mb-0" style="float:left;">Products</h3>
+                <a href="editproduct.aspx?ProductID=0" class="btn btn-sm btn-primary" style="float: right;">New Product</a>
             </div>
             <!-- Light table -->
             <div class="table-responsive">

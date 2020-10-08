@@ -227,6 +227,7 @@
         <xs:element minOccurs="0" name="subscriberemail" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="subject" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="body" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="smtp" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
