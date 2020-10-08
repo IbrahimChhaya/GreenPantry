@@ -110,16 +110,64 @@ namespace GreenPantryFrontend
         {
             if(Request.Cookies["cart"] != null)
             {
+                //check if product is already in the cookie
+                string foundInCookie = findProductInCookie(Request.QueryString["ProductID"]);
                 string str = Request.Cookies["cart"].Value;
 
-                str += Request.QueryString["ProductID"] + "-" + item_qty.Value;
-                saveToCookie("cart", str);               
+                if (foundInCookie.Equals(""))
+                {
+                    str += Request.QueryString["ProductID"] + "-" + item_qty.Value;
+                    saveToCookie("cart", str);
+                }
+                else
+                {
+                    //change quantity in existing product-quantity pair
+                    string newPQPair = addToCookieProQty(foundInCookie, int.Parse(item_qty.Value));
+
+                    str = str.Replace(foundInCookie, newPQPair);
+                    Response.Cookies["cart"].Value = str; 
+
+                }
             }
             else
             {
                 createCookie("cart", Request.QueryString["ProductID"] + "-" + item_qty.Value);
                 Response.Redirect("home.aspx");
             }
+        }
+
+        //function to check a particular products is in the cookie
+        private string findProductInCookie(string pId)
+        {
+            string found = "";
+            dynamic cookieContent = Request.Cookies["cart"].Value;
+            cookieContent = cookieContent.Split(',');
+
+            foreach(var p in cookieContent)
+            {
+                if (!p.Equals("")){
+
+                    if (p.Contains(pId + "-"))
+                    {
+                        found = p;
+                    }
+                }
+            }
+
+            return found;
+        }
+
+        //function to add to cookie quantity
+        private string addToCookieProQty(string currentCookiePro, int qtyToAdd)
+        {
+            dynamic str = currentCookiePro.Split('-');
+            var proId = str[0];
+            var oldQty = str[1];
+
+            int newQty = int.Parse(oldQty) + qtyToAdd;
+
+            var newCookiePro = proId + "-" + newQty.ToString();
+            return newCookiePro;
         }
 
         protected void listIcon_ServerClick(object sender, EventArgs e)
