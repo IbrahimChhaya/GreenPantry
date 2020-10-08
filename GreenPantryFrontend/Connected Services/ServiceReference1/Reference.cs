@@ -1832,10 +1832,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.ProductCategory> getCategorybyProductIDAsync(int p_ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addCategory", ReplyAction="http://tempuri.org/IGP_Service/addCategoryResponse")]
-        int addCategory(int id, string name, string status);
+        int addCategory(string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addCategory", ReplyAction="http://tempuri.org/IGP_Service/addCategoryResponse")]
-        System.Threading.Tasks.Task<int> addCategoryAsync(int id, string name, string status);
+        System.Threading.Tasks.Task<int> addCategoryAsync(string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateCategories", ReplyAction="http://tempuri.org/IGP_Service/updateCategoriesResponse")]
         int updateCategories(int id, string name, string status);
@@ -1862,10 +1862,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.SubCategory[]> getSubCatPerCatAsync(int c_ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addSubCategory", ReplyAction="http://tempuri.org/IGP_Service/addSubCategoryResponse")]
-        int addSubCategory(int id, string name, string status);
+        int addSubCategory(int catid, string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addSubCategory", ReplyAction="http://tempuri.org/IGP_Service/addSubCategoryResponse")]
-        System.Threading.Tasks.Task<int> addSubCategoryAsync(int id, string name, string status);
+        System.Threading.Tasks.Task<int> addSubCategoryAsync(int catid, string name, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateSubCategories", ReplyAction="http://tempuri.org/IGP_Service/updateSubCategoriesResponse")]
         int updateSubCategories(int id, int cat_ID, string name, string status);
@@ -2409,12 +2409,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.getCategorybyProductIDAsync(p_ID);
         }
         
-        public int addCategory(int id, string name, string status) {
-            return base.Channel.addCategory(id, name, status);
+        public int addCategory(string name, string status) {
+            return base.Channel.addCategory(name, status);
         }
         
-        public System.Threading.Tasks.Task<int> addCategoryAsync(int id, string name, string status) {
-            return base.Channel.addCategoryAsync(id, name, status);
+        public System.Threading.Tasks.Task<int> addCategoryAsync(string name, string status) {
+            return base.Channel.addCategoryAsync(name, status);
         }
         
         public int updateCategories(int id, string name, string status) {
@@ -2449,12 +2449,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.getSubCatPerCatAsync(c_ID);
         }
         
-        public int addSubCategory(int id, string name, string status) {
-            return base.Channel.addSubCategory(id, name, status);
+        public int addSubCategory(int catid, string name, string status) {
+            return base.Channel.addSubCategory(catid, name, status);
         }
         
-        public System.Threading.Tasks.Task<int> addSubCategoryAsync(int id, string name, string status) {
-            return base.Channel.addSubCategoryAsync(id, name, status);
+        public System.Threading.Tasks.Task<int> addSubCategoryAsync(int catid, string name, string status) {
+            return base.Channel.addSubCategoryAsync(catid, name, status);
         }
         
         public int updateSubCategories(int id, int cat_ID, string name, string status) {

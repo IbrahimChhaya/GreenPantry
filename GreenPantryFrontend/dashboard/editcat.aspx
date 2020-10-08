@@ -33,6 +33,7 @@
                 <div class="col-4 text-right">
                     <label id="error" runat="server" visible="false">Error</label>
                     <a href="#!" class="btn btn-sm btn-primary" id="updateCat" runat="server" onserverclick="updateCat_ServerClick">Update</a>
+                    <a href="#!" class="btn btn-sm btn-primary" id="addCat" runat="server" onserverclick="addCat_ServerClick" visible="false">Add</a>
                 </div>
               </div>
             </div>
@@ -44,7 +45,7 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Name</label>
-                        <input type="text" id="name" class="form-control" placeholder="First name" value="bakery, bread and shit" runat="server">
+                        <input type="text" id="name" class="form-control" runat="server">
                       </div>
                     </div>
                     <div class="col-lg-6">

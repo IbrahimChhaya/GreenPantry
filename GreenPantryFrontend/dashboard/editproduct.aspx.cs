@@ -164,9 +164,6 @@ namespace GreenPantryFrontend.dashboard
 
         protected void addProduct_ServerClick(object sender, EventArgs e)
         {
-            //C:\Users\ibrah\Desktop\GreenPantryFrontend\GreenPantryFrontend\GreenPantryFrontend\img\Products\cabbage.jpg
-
-
             if (Global.imagePath == "")
             {
                 error.Visible = true;
