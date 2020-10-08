@@ -3,6 +3,20 @@
   <xs:import schemaLocation="http://localhost:53900/GP_Service.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import schemaLocation="http://localhost:53900/GP_Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/" />
   <xs:import schemaLocation="http://localhost:53900/GP_Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="calcSalesPerDay">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="calcSalesPerDayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="calcSalesPerDayResult" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="getMonthDates">
     <xs:complexType>
       <xs:sequence>
@@ -144,6 +158,22 @@
       <xs:sequence>
         <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="topPagesResult" nillable="true" type="q3:ArrayOfstring" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="newsletter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="senderemail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subscriberemail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subject" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="body" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="smtp" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="newsletterResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="login">
@@ -330,6 +360,7 @@
         <xs:element minOccurs="0" name="cost" type="xs:double" />
         <xs:element minOccurs="0" name="imgLocation" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stock" type="xs:int" />
         <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -727,7 +758,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="userID" type="xs:int" />
-        <xs:element minOccurs="0" name="productID" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1096,20 +1126,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="calcCategoryTotalSalesResult" type="xs:decimal" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="calcSalesPerDay">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="calcSalesPerDayResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="calcSalesPerDayResult" type="xs:decimal" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

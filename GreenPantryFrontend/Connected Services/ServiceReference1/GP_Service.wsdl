@@ -8,6 +8,12 @@
       <xsd:import schemaLocation="http://localhost:53900/GP_Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IGP_Service_calcSalesPerDay_InputMessage">
+    <wsdl:part name="parameters" element="tns:calcSalesPerDay" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_calcSalesPerDay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:calcSalesPerDayResponse" />
+  </wsdl:message>
   <wsdl:message name="IGP_Service_getMonthDates_InputMessage">
     <wsdl:part name="parameters" element="tns:getMonthDates" />
   </wsdl:message>
@@ -67,6 +73,12 @@
   </wsdl:message>
   <wsdl:message name="IGP_Service_topPages_OutputMessage">
     <wsdl:part name="parameters" element="tns:topPagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_newsletter_InputMessage">
+    <wsdl:part name="parameters" element="tns:newsletter" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_newsletter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:newsletterResponse" />
   </wsdl:message>
   <wsdl:message name="IGP_Service_login_InputMessage">
     <wsdl:part name="parameters" element="tns:login" />
@@ -446,13 +458,11 @@
   <wsdl:message name="IGP_Service_calcCategoryTotalSales_OutputMessage">
     <wsdl:part name="parameters" element="tns:calcCategoryTotalSalesResponse" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_calcSalesPerDay_InputMessage">
-    <wsdl:part name="parameters" element="tns:calcSalesPerDay" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_calcSalesPerDay_OutputMessage">
-    <wsdl:part name="parameters" element="tns:calcSalesPerDayResponse" />
-  </wsdl:message>
   <wsdl:portType name="IGP_Service">
+    <wsdl:operation name="calcSalesPerDay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/calcSalesPerDay" message="tns:IGP_Service_calcSalesPerDay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/calcSalesPerDayResponse" message="tns:IGP_Service_calcSalesPerDay_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="getMonthDates">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getMonthDates" message="tns:IGP_Service_getMonthDates_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getMonthDatesResponse" message="tns:IGP_Service_getMonthDates_OutputMessage" />
@@ -492,6 +502,10 @@
     <wsdl:operation name="topPages">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/topPages" message="tns:IGP_Service_topPages_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/topPagesResponse" message="tns:IGP_Service_topPages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="newsletter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/newsletter" message="tns:IGP_Service_newsletter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/newsletterResponse" message="tns:IGP_Service_newsletter_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="login">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/login" message="tns:IGP_Service_login_InputMessage" />
@@ -745,13 +759,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/calcCategoryTotalSales" message="tns:IGP_Service_calcCategoryTotalSales_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/calcCategoryTotalSalesResponse" message="tns:IGP_Service_calcCategoryTotalSales_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="calcSalesPerDay">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/calcSalesPerDay" message="tns:IGP_Service_calcSalesPerDay_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/calcSalesPerDayResponse" message="tns:IGP_Service_calcSalesPerDay_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGP_Service" type="tns:IGP_Service">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="calcSalesPerDay">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/calcSalesPerDay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getMonthDates">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/getMonthDates" style="document" />
       <wsdl:input>
@@ -835,6 +854,15 @@
     </wsdl:operation>
     <wsdl:operation name="topPages">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/topPages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newsletter">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/newsletter" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1402,15 +1430,6 @@
     </wsdl:operation>
     <wsdl:operation name="calcCategoryTotalSales">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/calcCategoryTotalSales" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="calcSalesPerDay">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/calcSalesPerDay" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

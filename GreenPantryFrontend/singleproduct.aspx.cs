@@ -72,7 +72,9 @@ namespace GreenPantryFrontend
                     Display += "<h6><a href='singleproduct.aspx?ProductID=" + p.ID + "'>" + p.Name + "</a></h6>";
                     Display += "<h5>R" + Math.Round(p.Price, 2) + "</h5>";
                     Display += "</div></div></div>";
-                    if(p.StockOnHand.Equals(0))
+                    
+                   
+                    if (p.StockOnHand.Equals(0))
                     {
                         stock.InnerHtml = "Out of Stock";
                         Add.Enabled = false;
@@ -80,6 +82,7 @@ namespace GreenPantryFrontend
                     }
                 }
                 RelatedProducts.InnerHtml = Display;
+                
             }
             else
             {

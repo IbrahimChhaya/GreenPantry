@@ -87,22 +87,22 @@ namespace GreenPantryFrontend.dashboard
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl stock;
 
         /// <summary>
-        /// Number1 control.
+        /// cost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Number1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl cost;
 
         /// <summary>
-        /// Number2 control.
+        /// price control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Number2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl price;
 
         /// <summary>
         /// subcatList control.
@@ -114,22 +114,13 @@ namespace GreenPantryFrontend.dashboard
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl subcatList;
 
         /// <summary>
-        /// subcatSelect control.
+        /// dropdownSub control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect subcatSelect;
-
-        /// <summary>
-        /// description control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea description;
+        protected global::System.Web.UI.WebControls.DropDownList dropdownSub;
 
         /// <summary>
         /// statusDropdown control.
@@ -139,5 +130,23 @@ namespace GreenPantryFrontend.dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl statusDropdown;
+
+        /// <summary>
+        /// dropdownStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdownStatus;
+
+        /// <summary>
+        /// description control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea description;
     }
 }
