@@ -13,78 +13,133 @@ namespace GreenPantryFrontend.dashboard
         GP_ServiceClient SC = new GP_ServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
-            string display = "";
             //load category or subcat using URL parameter
-            int ID = 1;         //int.Parse(Request.QueryString["CatID"].ToString());
             if(Request.QueryString["type"].ToString().Equals("SubCat"))
             {
-                if(!IsPostBack)
+                int subID = int.Parse(Request.QueryString["CatID"].ToString());
+                if(subID.Equals(0))
                 {
-                    //Get the subcategory by the ID
-                    dynamic subcat = SC.getSubCat(ID);
-                    Details.InnerText = "SubCategory Details";
-                    editName.InnerText = "Edit " + subcat.Name;
-                    name.Value = subcat.Name;
-                    display = "<label for='statusSelect' class='form-control-label'>Status</label>";
-                    display += "<select class='form-control' id='statusSelect'>";
-                    display += "<option value='-1' disabled selected hidden>" + subcat.Status + "</option>";
-                    display += "<option value='1'>Active</option>";
-                    display += "<option value='0'>Inactive</option></select>";
-                    CategoryStatus.InnerHtml = display;
+
+                }
+                else
+                {
+                    if (!IsPostBack)
+                    {
+                        //Get the subcategory by the ID
+                        dynamic subcat = SC.getSubCat(subID);
+                        Details.InnerText = "SubCategory Details";
+                        editName.InnerText = "Edit " + subcat.Name;
+                        name.Value = subcat.Name;
+
+                        dropdownStatus.Items.Clear();
+                        if (subcat.Status.Equals("active"))
+                        {
+                            dropdownStatus.Items.Add("Active");
+                            dropdownStatus.Items.Add("Inactive");
+                        }
+                        else
+                        {
+                            dropdownStatus.Items.Add("Inactive");
+                            dropdownStatus.Items.Add("Active");
+                        }
+
+                        catDropdown.Visible = true;
+                        dynamic catList = SC.getAllCategories();
+                        dynamic cat = SC.getCat(subcat.CategoryID);
+
+                        dropdownCat.Items.Clear();
+                        dropdownCat.Items.Add(cat.Name);
+                        foreach (ProductCategory c in catList)
+                        {
+                            if (c.ID != subcat.CategoryID)
+                                dropdownCat.Items.Add(c.Name);
+                        }
+                    }
                 }
             }
             else if(Request.QueryString["type"].ToString().Equals("Cat"))
             {
-                 if(!IsPostBack)
-                 {
-                    //get the category by the category ID
-                     dynamic category = SC.getCat(ID);
-                     Details.InnerText = "SubCategory Details";
-                     editName.InnerText = "Edit " + category.Name;
-                     name.Value = category.Value;
-                     display = "<label for='statusSelect' class='form-control-label'>Status</label>";
-                     display += "<select class='form-control' id='statusSelect'>";
-                     display += "<option value='-1' disabled selected hidden>" + category.Status + "</option>";
-                     display += "<option value='1'>Active</option>";
-                     display += "<option value='0'>Inactive</option></select>";
-                     CategoryStatus.InnerHtml = display;
-                 }
+                int catID = int.Parse(Request.QueryString["CatID"].ToString());
+                if(catID.Equals(0))
+                {
+
+                }
+                else
+                {
+                    if (!IsPostBack)
+                    {
+                        //get the category by the category ID
+                        dynamic category = SC.getCat(catID);
+                        Details.InnerText = "Category Details";
+                        editName.InnerText = "Edit " + category.Name;
+                        name.Value = category.Name;
+
+                        dropdownStatus.Items.Clear();
+                        if (category.Status.Equals("active"))
+                        {
+                            dropdownStatus.Items.Add("Active");
+                            dropdownStatus.Items.Add("Inactive");
+                        }
+                        else
+                        {
+                            dropdownStatus.Items.Add("Inactive");
+                            dropdownStatus.Items.Add("Active");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Response.Redirect("dashboard.aspx");
             }
         }
 
         protected void updateCat_ServerClick(object sender, EventArgs e)
         {
-            int ID = 1;   //int.Parse(Request.QueryString["CatID"].ToString());
-            dynamic sub = SC.getSubCat(ID);
+            int ID = int.Parse(Request.QueryString["CatID"].ToString());
             if (Request.QueryString["type"].ToString().Equals("SubCat"))
             {
-                int updateSubcat = SC.updateSubCategories(ID, sub.CategoryID, name.Value, statusSelect.Value);//2 - refers to the category ID
+                dynamic cats = SC.getAllCategories();
+                string cat = dropdownCat.SelectedValue;
+                int catID = 0;
+                foreach(ProductCategory c in cats)
+                {
+                    if(c.Name.Equals(cat))
+                    {
+                        catID = c.ID;
+                    }
+                }
+                string stat = dropdownStatus.Text.ToLower();
+
+                int updateSubcat = SC.updateSubCategories(ID, catID, name.Value, stat);
                 if(updateSubcat == 1)
                 {
                     //Successfully updated
-                    //error.Visible = true;
-                    //error.InnerText = "Category updated";
-                }else
+                    error.Visible = true;
+                    error.InnerText = "SubCategory updated";
+                }
+                else
                 {
                     //error message
-                   // error.Visible = true;
-                   // error.InnerText = "An error occurred";
+                    error.Visible = true;
+                    error.InnerText = "An error occurred";
                 } 
             }
             else if (Request.QueryString["type"].ToString().Equals("Cat"))
             {
-                int updateCategory = SC.updateCategories(ID, name.Value, statusSelect.Value);
+                string stat = dropdownStatus.Text.ToLower();
+                int updateCategory = SC.updateCategories(ID, name.Value, stat);
                 if(updateCategory == 1)
                 {
                     //updated Successfully
-                    //error.Visible = true;
-                    //error.InnerText = "Category updated";
+                    error.Visible = true;
+                    error.InnerText = "Category updated";
                 }
                 else
                 {
                     //show error
-                    //error.Visible = true;
-                   // error.InnerText = "An error occurred";
+                    error.Visible = true;
+                    error.InnerText = "An error occurred";
                 }
             }
         }

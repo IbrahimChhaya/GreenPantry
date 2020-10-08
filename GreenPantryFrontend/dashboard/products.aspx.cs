@@ -36,8 +36,14 @@ namespace AdminDashboard
                 display += "<td class='budget'>";
                 display += "R" + Math.Round(p.Price, 2) + "</td><td>";
                 display += "<span class='badge badge-dot mr-4'>";
-                display += "<i class='bg-warning'></i>";
-                display += "<span class='status'>" + p.StockOnHand + "</span>";
+                if(p.StockOnHand < 100)
+                {
+                    display += "<i class='bg-warning'></i><span class='status'>" + p.StockOnHand + "</span>";
+                }
+                else
+                {
+                    display += "<i class='bg-success'></i><span class='status'>" + p.StockOnHand + "</span>";
+                }
                 display += "</span></td><td>";
                 display += "<span class='text-success mr-2' id='trafficChange' runat='server'><i class='fa fa-arrow-up'></i> 3.48%</span></td>";
                 display += "<td class='text-right'>";

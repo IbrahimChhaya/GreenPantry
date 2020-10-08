@@ -59,6 +59,7 @@ namespace GreenPantryFrontend.dashboard
                         dynamic subcats = SC.getAllSubCategories();
                         dynamic subcat = SC.getSubCat(product.SubCategoryID);
 
+                        dropdownSub.Items.Clear();
                         dropdownSub.Items.Add(subcat.Name);
                         foreach (SubCategory s in subcats)
                         {
@@ -66,6 +67,7 @@ namespace GreenPantryFrontend.dashboard
                                 dropdownSub.Items.Add(s.Name);
                         }
 
+                        dropdownStatus.Items.Clear();
                         if (product.Status.Equals("active"))
                         {
                             dropdownStatus.Items.Add("Active");
