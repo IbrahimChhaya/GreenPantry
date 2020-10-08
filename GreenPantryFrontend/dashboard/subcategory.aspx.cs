@@ -26,7 +26,7 @@ namespace GreenPantryFrontend.dashboard
             dynamic list = GetPage(subcategories, currentPage, 10);
             foreach (SubCategory p in list)
             {
-
+                double percsales = SR.percentageSubCategorySales(DateTime.Now, p.SubID);
                     display += "<tr><th scope='row'>";
                     display += "<div class='media align-items-center'>";
                     // display += "<a href='#' class='avatar rounded-circle mr-3'>";
@@ -35,7 +35,7 @@ namespace GreenPantryFrontend.dashboard
                     display += "<span class='name mb-0 text-sm'>" + p.Name + "</span>";
                     display += "</div></div></th>";
                     display += "<td class='budget'>";
-                    //display += "R" + p.Status + "</td><td>";
+                    display += "" + percsales + "%</td><td>";
                     display += "<span class='badge badge-dot mr-4'>";
                    // display += "<i class='bg-warning'></i>";
                     display += "<span class='status'>" + p.Status + "</span>";
@@ -45,10 +45,10 @@ namespace GreenPantryFrontend.dashboard
                     display += "<div class='dropdown'>";
                     display += "<a class='btn btn-sm btn-icon-only text-light' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
                     display += "<i class='fas fa-ellipsis-v'></i></a>";
-                    display += "<div class='dropdown-menu dropdown-menu-right dropdown-menu-arrow'>";
-                    display += "<a class='dropdown-item' href='#'>Action</a>";
-                    display += "<a class='dropdown-item' href='#'>Another action</a>";
-                    display += "<a class='dropdown-item' href='#'>Something else here</a>";
+                   // display += "<div class='dropdown-menu dropdown-menu-right dropdown-menu-arrow'>";
+                    //display += "<a class='dropdown-item' href='#'>Action</a>";
+                    //display += "<a class='dropdown-item' href='#'>Another action</a>";
+                   // display += "<a class='dropdown-item' href='#'>Something else here</a>";
                     display += "</div></div></td></tr>";
                 
             }

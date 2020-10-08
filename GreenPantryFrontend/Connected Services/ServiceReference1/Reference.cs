@@ -1681,6 +1681,18 @@ namespace GreenPantryFrontend.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/numProductSalesperCategory", ReplyAction="http://tempuri.org/IGP_Service/numProductSalesperCategoryResponse")]
         System.Threading.Tasks.Task<int> numProductSalesperCategoryAsync(System.DateTime currentDate, int Cat_ID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageSubCategorySales", ReplyAction="http://tempuri.org/IGP_Service/percentageSubCategorySalesResponse")]
+        double percentageSubCategorySales(System.DateTime currentDate, int SubCat_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageSubCategorySales", ReplyAction="http://tempuri.org/IGP_Service/percentageSubCategorySalesResponse")]
+        System.Threading.Tasks.Task<double> percentageSubCategorySalesAsync(System.DateTime currentDate, int SubCat_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/numProductSalesperSubCategory", ReplyAction="http://tempuri.org/IGP_Service/numProductSalesperSubCategoryResponse")]
+        int numProductSalesperSubCategory(System.DateTime currentDate, int SubCat_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/numProductSalesperSubCategory", ReplyAction="http://tempuri.org/IGP_Service/numProductSalesperSubCategoryResponse")]
+        System.Threading.Tasks.Task<int> numProductSalesperSubCategoryAsync(System.DateTime currentDate, int SubCat_ID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/newsletter", ReplyAction="http://tempuri.org/IGP_Service/newsletterResponse")]
         void newsletter(string senderemail, string subscriberemail, string subject, string body, string smtp);
         
@@ -2195,6 +2207,22 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> numProductSalesperCategoryAsync(System.DateTime currentDate, int Cat_ID) {
             return base.Channel.numProductSalesperCategoryAsync(currentDate, Cat_ID);
+        }
+        
+        public double percentageSubCategorySales(System.DateTime currentDate, int SubCat_ID) {
+            return base.Channel.percentageSubCategorySales(currentDate, SubCat_ID);
+        }
+        
+        public System.Threading.Tasks.Task<double> percentageSubCategorySalesAsync(System.DateTime currentDate, int SubCat_ID) {
+            return base.Channel.percentageSubCategorySalesAsync(currentDate, SubCat_ID);
+        }
+        
+        public int numProductSalesperSubCategory(System.DateTime currentDate, int SubCat_ID) {
+            return base.Channel.numProductSalesperSubCategory(currentDate, SubCat_ID);
+        }
+        
+        public System.Threading.Tasks.Task<int> numProductSalesperSubCategoryAsync(System.DateTime currentDate, int SubCat_ID) {
+            return base.Channel.numProductSalesperSubCategoryAsync(currentDate, SubCat_ID);
         }
         
         public void newsletter(string senderemail, string subscriberemail, string subject, string body, string smtp) {

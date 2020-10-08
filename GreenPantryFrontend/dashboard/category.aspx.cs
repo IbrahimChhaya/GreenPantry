@@ -25,25 +25,27 @@ namespace AdminDashboard
 
              foreach(ProductCategory p in list)
              {
+                    double saleperc = SR.percentageCategorySales(DateTime.Now, p.ID);
                     display += "<tr><th scope='row'>";
                     display += "<div class='media align-items-center'>";
                     //display += "<a href='#' class='avatar rounded-circle mr-3'>";
                     //display += "<img alt='Image placeholder' src='../assets/img/Products/3.jpg'></a>";
                     display += "<div class='media-body'>";
                     display += "<span class='name mb-0 text-sm'>" + p.Name + "</span></div></div></th>";
-                    display += "<td class='budget'></td><td>";
+                    display += "<td class='budget'>"+saleperc+"%</td><td>";
                     display += "<span class='badge badge-dot mr-4'>";
-                    display += "<i class='bg-warning'></i>";
+                    //display += "<i class='bg-warning'></i>";
                     display += "<span class='status'>" + p.Status + "</span></span></td><td>";
                     //display += "<span class='text-success mr-2' id='trafficChange' runat='server'><i class='fa fa-arrow-up'></i> 3.48%</span></td>";
                     display += "<td class='text-right'>";
                     display += "<div class='dropdown'>";
                     display += "<a class='btn btn-sm btn-icon-only text-light' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
                     display += "<i class='fas fa-ellipsis-v'></i></a>";
-                    display += "<div class='dropdown-menu dropdown-menu-right dropdown-menu-arrow'>";
-                    display += "<a class='dropdown-item' href='#'>Action</a>";
-                    display += "<a class='dropdown-item' href='#'>Another action</a>";
-                    display += "<a class='dropdown-item' href='#'>Something else here</a></div></div></td></tr>";
+                    //display += "<div class='dropdown-menu dropdown-menu-right dropdown-menu-arrow'>";
+                   // display += "<a class='dropdown-item' href='#'>Action</a>";
+                    //display += "<a class='dropdown-item' href='#'>Another action</a>";
+                    //display += "<a class='dropdown-item' href='#'>Something else here</a>";
+                    display+="</div></div></td></tr>";
                 
              }
               catList.InnerHtml = display;
