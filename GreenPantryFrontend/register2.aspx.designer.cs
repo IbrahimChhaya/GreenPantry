@@ -42,13 +42,13 @@ namespace GreenPantryFrontend
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl RegEmail;
 
         /// <summary>
-        /// RegPassword control.
+        /// Password1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword RegPassword;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword Password1;
 
         /// <summary>
         /// error control.

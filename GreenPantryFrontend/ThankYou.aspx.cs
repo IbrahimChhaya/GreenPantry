@@ -17,11 +17,13 @@ namespace GreenPantryFrontend
             var user = SC.getUser(Convert.ToInt32(Session["LoggedInUserID"]));
             if (user != null)
             {
-               // if (user.UserType.Equals("admin"))
-               // {
-                    SC.newsletter("chandranero149@gmail.com", user.Email, "GreenPantry NewsLetter", "Thank you for subscribing", "greenpantry", "smtp.gmail.com");
-
-              //  }
+                string bodymessage = "";
+                bodymessage += "Dear " + user.Name + "\n";
+                bodymessage += "Thank you for subscribing to GreenPantry!! \n";
+                bodymessage += "Regards \n";
+               
+               
+                SC.newsletter("chandranero149@gmail.com", user.Email, "GreenPantry NewsLetter", bodymessage, "greenpantry", "smtp.gmail.com");
             }
             else
             {
