@@ -8,10 +8,15 @@ using System.Web.UI.WebControls;
 
 namespace GreenPantryFrontend.dashboard
 {
+    class Global
+    {
+        public static string imagePath;
+    }
+
     public partial class editproduct : System.Web.UI.Page
     {
         GP_ServiceClient SC = new GP_ServiceClient();
-        String imagePath = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["ProductID"] == null)
@@ -24,6 +29,7 @@ namespace GreenPantryFrontend.dashboard
 
                 if (productID.Equals(0))
                 {
+                    updateProduct.Visible = false;
                     addProduct.Visible = true;
                     editName.InnerText = "Add New Product ";
 
@@ -80,8 +86,8 @@ namespace GreenPantryFrontend.dashboard
             if (FileUpLoad1.HasFile)
             {
                 error.Visible = false;
-                imagePath = Server.MapPath("/img/Products/") + FileUpLoad1.FileName;
-                FileUpLoad1.SaveAs(imagePath);
+                Global.imagePath = Server.MapPath("/img/Products/") + FileUpLoad1.FileName;
+                FileUpLoad1.SaveAs(Global.imagePath);
                 imgPath.InnerHtml = "<img src='../img/Products/" + FileUpLoad1.FileName + "' alt='Image placeholder' class='card-img-top'>";
             }
             else
@@ -109,7 +115,7 @@ namespace GreenPantryFrontend.dashboard
                 }
             }
 
-            if (imagePath.Equals(""))
+            if (Global.imagePath.Equals(""))
             {
                 int stockNum = int.Parse(stock.Value);
                 String strName = name.Value;
@@ -136,7 +142,11 @@ namespace GreenPantryFrontend.dashboard
                 double dblPrice = Convert.ToDouble(price.Value.Replace('.', ','));
                 double dblCost = Convert.ToDouble(cost.Value.Replace('.', ','));
                 string stat = dropdownStatus.Text.ToLower();
-                int update = SC.updateProduct(productID, strName, subID, dblPrice, dblCost, imagePath, stat, stockNum, description.Value);
+
+                int index = Global.imagePath.IndexOf("img");
+                string image = Global.imagePath.Substring(index);
+
+                int update = SC.updateProduct(productID, strName, subID, dblPrice, dblCost, image, stat, stockNum, description.Value);
                 if (update.Equals(1))
                 {
                     error.Visible = true;
@@ -152,33 +162,47 @@ namespace GreenPantryFrontend.dashboard
 
         protected void addProduct_ServerClick(object sender, EventArgs e)
         {
-            int subID = 0;
+            //C:\Users\ibrah\Desktop\GreenPantryFrontend\GreenPantryFrontend\GreenPantryFrontend\img\Products\cabbage.jpg
 
-            String sub = dropdownSub.SelectedValue;
 
-            dynamic subcats = SC.getAllSubCategories();
-            foreach (SubCategory s in subcats)
-            {
-                if (s.Name.Equals(sub))
-                {
-                    subID = s.SubID;
-                }
-            }
-
-            int stockNum = int.Parse(stock.Value);
-            double dblPrice = Convert.ToDouble(price.Value.Replace('.', ','));
-            double dblCost = Convert.ToDouble(cost.Value.Replace('.', ','));
-            string stat = dropdownStatus.Text.ToLower();
-
-            int addProduct = SC.addNewProduct(name.Value, subID, dblPrice, dblCost, stockNum, imagePath, stat, description.Value);
-            if(addProduct.Equals(-1))
+            if (Global.imagePath == "")
             {
                 error.Visible = true;
-                error.InnerText = "An error occurred";
+                error.InnerText = "Please upload an image";
             }
             else
             {
-                Response.Redirect("editproduct.aspx?ProductID=" + addProduct);
+                int subID = 0;
+
+                String sub = dropdownSub.SelectedValue;
+
+                dynamic subcats = SC.getAllSubCategories();
+                foreach (SubCategory s in subcats)
+                {
+                    if (s.Name.Equals(sub))
+                    {
+                        subID = s.SubID;
+                    }
+                }
+
+                int stockNum = int.Parse(stock.Value);
+                double dblPrice = Convert.ToDouble(price.Value.Replace('.', ','));
+                double dblCost = Convert.ToDouble(cost.Value.Replace('.', ','));
+                string stat = dropdownStatus.Text.ToLower();
+
+                int index = Global.imagePath.IndexOf("img");
+                string image = Global.imagePath.Substring(index);
+
+                int addProduct = SC.addNewProduct(name.Value, subID, dblPrice, dblCost, stockNum, image, stat, description.Value);
+                if (addProduct.Equals(-1))
+                {
+                    error.Visible = true;
+                    error.InnerText = "An error occurred";
+                }
+                else
+                {
+                    Response.Redirect("editproduct.aspx?ProductID=" + addProduct);
+                }
             }
         }
     }
