@@ -91,7 +91,19 @@ namespace AdminDashboard
             Display += "<div class='col-auto'>";
             Display += "<div class='icon icon-shape bg-gradient-orange text-white rounded-circle shadow'>";
             Display += "<i class='ni ni-chart-pie-35'></i></div></div></div><p class='mt-3 mb-0 text-sm'>";
-            Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i> "+ userChange +"%</span>";
+            if(userChange > 0)
+            { 
+                Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i> "+ userChange +"%</span>";
+            }
+            else if(userChange < 0)
+            {
+                Display += "<span class='text-danger mr-2'><i class='fas fa-arrow-down text-danger mr-3'></i> " + userChange + "%</span>";
+
+            }
+            else
+            {
+                Display += "<span class='text-success mr-2'> " + userChange + "%</span>";
+            }
             Display += "<span class='text-nowrap'>Since last week</span></p>";
             newUsr.InnerHtml = Display;
 

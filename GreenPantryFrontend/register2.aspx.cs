@@ -23,6 +23,7 @@ namespace GreenPantryFrontend
 
         protected void Register_Click(object sender, EventArgs e)
         {
+             
             //if (RegPassword.Value != cPassword.Value)
             //{
             //    error.Text = "Passwords do not match";
@@ -31,7 +32,13 @@ namespace GreenPantryFrontend
             //else
             //{
             string email = RegEmail.Value;
-            int registered = SR.register(name.Value, surname.Value, email.ToLower(), RegPassword.Value, "active", DateTime.Today, "customer");
+            int registered = SR.register(name.Value, surname.Value, email.ToLower(), Password1.Value, "active", DateTime.Today, "customer");
+            string bodymessage = "";
+            bodymessage += "Dear " + name.Value + "\n\n";
+            bodymessage += "Thank you for registering to GreenPantry!! \n";
+            bodymessage += "You have received free 50 points \n";
+            bodymessage += "Thank you \n"; 
+
             if (registered == -1)
             {
                 error.Text = "Something went wrong, please try again later";
@@ -47,9 +54,11 @@ namespace GreenPantryFrontend
 
                 int addpoint = SR.updatePoints(registered, 50);
                 int addDevice = SR.addDevices(registered, Request.Browser.Platform);
+                //"Congratulations you registered succesfully! you get 50 points"
                 if (addpoint == 1)
                 {
-                    Response.Redirect("home.aspx");
+                    SR.newsletter("chandranero149@gmail.com", email, "GreenPantry Family",bodymessage, "greenpantry", "smtp.gmail.com");
+                    Response.Redirect("home.aspx");   
                 }
             }
         }

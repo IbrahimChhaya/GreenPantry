@@ -2185,6 +2185,10 @@ pre code
     color: #525f7f;
     background-color: transparent;
 }
+    .table a {
+        color: #525f7f;
+    }
+
 .table th,
 .table td
 {
@@ -6381,8 +6385,7 @@ input[type='button'].btn-block
 .card-img-top,
 .card-img-bottom
 {
-    width: 50%; 
-
+    width: 25%; 
     flex-shrink: 0;
 }
 

@@ -27,7 +27,8 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-              <h3 class="mb-0">SubCategories</h3>
+              <h3 class="mb-0" style="float:left;">SubCategories</h3>
+                <a href="editcat.aspx?type=SubCat&CatID=0" class="btn btn-sm btn-primary" style="float: right;">New SubCategory</a>
             </div>
             <!-- Light table -->
             <div class="table-responsive">

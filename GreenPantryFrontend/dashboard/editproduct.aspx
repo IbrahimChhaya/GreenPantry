@@ -32,6 +32,7 @@
                 </div>
                 <div class="col-4 text-right">
                     <a href="#!" class="btn btn-sm btn-primary" id="updateProduct" runat="server" onserverclick="updateProduct_ServerClick">Update</a>
+                    <a href="#!" class="btn btn-sm btn-primary" id="addProduct" runat="server" onserverclick="addProduct_ServerClick" visible="false">Add</a>
                 </div>
               </div>
             </div>
@@ -40,7 +41,7 @@
                 <h6 class="heading-small text-muted mb-4">Product Details</h6>
                 <div class="pl-lg-4">
                  <div class="row justify-content-center" id="imgPath" runat="server">
-                    <img src="../img/Products/86.jpg" alt="Image placeholder" class="card-img-top">
+                    <img src="../img/Products/0.png" alt="Image placeholder" class="card-img-top">
                  </div>
                     <div class="row justify-content-center">
                         <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
@@ -78,13 +79,13 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Name</label>
-                        <input type="text" id="name" class="form-control" placeholder="First name" value="Bread" runat="server">
+                        <input type="text" id="name" class="form-control" runat="server" required>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-last-name">Stock</label>
-                        <input type="number" id="stock" class="form-control" value="100" runat="server">
+                        <input type="number" id="stock" class="form-control" runat="server" required>
                       </div>
                     </div>
                   </div>
@@ -92,13 +93,13 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label" for="input-last-name">Cost</label>
-                            <input type="number" id="cost" class="form-control" value="100.00" runat="server">
+                            <input type="number" id="cost" class="form-control" runat="server" required>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label" for="input-last-name">Price</label>
-                            <input type="number" id="price" class="form-control" value="100" runat="server">
+                            <input type="number" id="price" class="form-control" runat="server" required>
                         </div>
                     </div>
                 </div>
@@ -125,7 +126,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="form-control-label">Description</label>
-                                <textarea rows="4" class="form-control" placeholder="Description" id="description" runat="server">A bread</textarea>
+                                <textarea rows="4" class="form-control" id="description" runat="server" required></textarea>
                             </div>
                         </div>
                     </div>

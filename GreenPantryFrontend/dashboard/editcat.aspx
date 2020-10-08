@@ -33,6 +33,7 @@
                 <div class="col-4 text-right">
                     <label id="error" runat="server" visible="false">Error</label>
                     <a href="#!" class="btn btn-sm btn-primary" id="updateCat" runat="server" onserverclick="updateCat_ServerClick">Update</a>
+                    <a href="#!" class="btn btn-sm btn-primary" id="addCat" runat="server" onserverclick="addCat_ServerClick" visible="false">Add</a>
                 </div>
               </div>
             </div>
@@ -44,21 +45,29 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Name</label>
-                        <input type="text" id="name" class="form-control" placeholder="First name" value="bakery, bread and shit" runat="server">
+                        <input type="text" id="name" class="form-control" runat="server">
                       </div>
                     </div>
-                      <div class="col-lg-6">
+                    <div class="col-lg-6">
                         <div class="form-group" id="CategoryStatus" runat="server">
-                            <label for="statusSelect" class="form-control-label">Status</label>
-                            <select class="form-control" id="statusSelect" runat="server">
-                                <option value="-1" disabled selected hidden>Active</option>
-                                <option value="1">Active</option>
-                                <option value="0">Inactive</option>
-                            </select>
+                            <label for="dropdownStatus" class="form-control-label">Status</label>
+                            
+                            <asp:DropDownList ID="dropdownStatus" runat="server" CssClass="form-control" >
+                            </asp:DropDownList>  
                         </div>
                     </div>
                   </div>
+                    <div class="row" id="catDropdown" runat="server" visible="false">
+                    <div class="col-lg-6">
+                        <div class="form-group" id="catList" runat="server">
+                            <label for="dropdownCat" class="form-control-label">Category</label>
+                            
+                            <asp:DropDownList ID="dropdownCat" runat="server" class="form-control">
+                            </asp:DropDownList> 
+                        </div>
                     </div>
+                  </div>
+                </div>
               </form>
             </div>
           </div>

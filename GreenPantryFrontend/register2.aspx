@@ -17,10 +17,12 @@
 					<h1 class="h1login">Create Account</h1>
 					<br />
 
-					<input class="login" type="text" placeholder="Name" runat="server" ID="name" />
-					<input class="login" type="text" placeholder="Last name" runat="server" ID="surname"/>
-					<input class="login" type="email" placeholder="Email" runat="server" ID="RegEmail"/>
-					<input class="login" type="password" placeholder="Password" runat="server" ID="RegPassword"/>
+					<input class="login" type="text" placeholder="Name" runat="server" ID="name"  required/>
+					<input class="login" type="text" placeholder="Last name" runat="server" ID="surname" required/>
+					<input class="login" type="email" placeholder="Email" runat="server" ID="RegEmail" required/>
+					<input class="login" type="password" placeholder="Password (8 characters min)"  runat="server" ID="Password1"   minlength="8" title="Passwords must be at least 8 characters long" data-placement="right" required />
+					<%--<input class="login" type="password" placeholder="Password" runat="server" ID="RegPassword"/>--%>
+					<%--<input class="login" type="password" placeholder="Password" runat="server" ID="Password1" data-toggle="popover" title="Password Requirement" data-placement="right" data-content="Passwords must be at least 8 characters long" />--%>
 				
 					<asp:Label ID="error" runat="server" Text="Incorrect Password or Username" visible="false" ></asp:Label>
 					<asp:button class="login" runat="server" ID="Register" OnClick="Register_Click" Text="Sign Up"></asp:button>

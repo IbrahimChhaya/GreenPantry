@@ -64,7 +64,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="reports.aspx">
-                <i class="ni ni-chart-bar-32 text-primary"></i>
+                <i class="ni ni-chart-pie-35 text-primary"></i>
                 <span class="nav-link-text">Reports</span>
               </a>
             </li>
@@ -73,6 +73,12 @@
                 <i class="ni ni-archive-2 text-yellow"></i>
                 <span class="nav-link-text">Categories</span>
               </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="subcategory.aspx?Page=1">
+                    <i class="ni ni-folder-17" style="color:#5e72e4;"></i>
+                    <span class="nav-link-text">SubCategories</span>
+                </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="products.aspx?Page=1">
