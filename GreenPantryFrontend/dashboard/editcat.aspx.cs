@@ -20,6 +20,7 @@ namespace GreenPantryFrontend.dashboard
             {
                 if(!IsPostBack)
                 {
+                    //Get the subcategory by the ID
                     dynamic subcat = SC.getSubCat(ID);
                     Details.InnerText = "SubCategory Details";
                     editName.InnerText = "Edit " + subcat.Name;
@@ -35,7 +36,8 @@ namespace GreenPantryFrontend.dashboard
             {
                  if(!IsPostBack)
                  {
-                     dynamic category = SC.getAllCategories();
+                    //get the category by the category ID
+                     dynamic category = SC.getCat(ID);
                      Details.InnerText = "SubCategory Details";
                      editName.InnerText = "Edit " + category.Name;
                      name.Value = category.Value;
