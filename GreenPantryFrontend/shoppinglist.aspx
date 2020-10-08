@@ -165,27 +165,27 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <form runat="server">
-                    <div class="shoping__cart__btns" >
-                        <a href="home.aspx" class="primary-btn cart-btn" runat="server" id="Cart_continue">CONTINUE SHOPPING</a>
-                        <asp:LinkButton class="primary-btn cart-btn cart-btn-right" runat="server" onclick="update_Click"><span class="icon_loading"></span>
-                            Save Changes</asp:LinkButton>
-
+            <form runat="server">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="shoping__cart__btns" >
+                            <a href="home.aspx" class="primary-btn cart-btn" runat="server" id="Cart_continue">CONTINUE SHOPPING</a>
+                            <asp:LinkButton class="primary-btn cart-btn cart-btn-right" runat="server" onclick="update_Click"><span class="icon_loading"></span>
+                                Save Changes</asp:LinkButton>
+                        </div>
                     </div>
-                    </form>
-                </div>
-                <div class="col-lg-6">
-                    <div class="shoping__checkout" runat="server" ID="cartTotal">
-                        <ul>
-                            <li>Subtotal <span>$454.98</span></li>
-                            <li>Total <span>$454.98</span></li>
-                        </ul>
-                        <a href="cart.aspx" class="primary-btn">SEND TO CART</a>  
+                    <div class="col-lg-6">
+                        <div class="shoping__checkout" runat="server" ID="cartTotal">
+                            <h5>List Total</h5>
+                            <ul>
+                                <li id="listTotal" runat="server">Total <span id="checkout__cart-total">$454.98</span></li>
+                            </ul>
+                            <asp:LinkButton ID="btnMove" runat="server" class="primary-btn" OnClick="move_Click">MOVE TO CART</asp:LinkButton>
+<%--                            <asp:LinkButton class="primary-btn">MOVE TO CART</asp:LinkButton>  --%>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </section>
     <!-- Shoping List Section End -->

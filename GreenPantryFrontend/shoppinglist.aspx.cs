@@ -74,10 +74,12 @@ namespace GreenPantryFrontend
                         //check if delivery charge applies
                         decimal carttotal = subTotal;
 
-                        display += "<h5>List Total</h5>";
-                        display += "<ul><li>Total<span id='checkout__cart-total'>R" + Math.Round(carttotal, 2) + "</span></li>";
-                        display += "</ul><a href='checkout2.aspx' class='primary-btn'>PROCEED TO CHECKOUT</a>";
-                        cartTotal.InnerHtml = display;
+                        //display += "<h5>List Total</h5>";
+                        //display += "<ul><li>Total<span id='checkout__cart-total'>R" + Math.Round(carttotal, 2) + "</span></li>";
+                        //display += "</ul><a href='checkout2.aspx' class='primary-btn'>PROCEED TO CHECKOUT</a>";
+                        //cartTotal.InnerHtml = display;
+
+                        listTotal.InnerHtml = "Total<span id='checkout__cart-total'>R" + Math.Round(carttotal, 2) + "</span>";
                     }
                 }
             }
@@ -127,6 +129,78 @@ namespace GreenPantryFrontend
             //var productListings = JSON.parse(localStorage.getItem('productListing'));
             //a = JSON.parse(localStorage.getItem('productListing'))
 
+        }
+
+        protected void move_Click(object sender, EventArgs e)
+        {
+            dynamic listItems = SR.getList(Convert.ToInt32(Session["LoggedInUserID"]));
+
+            foreach(ShoppingList s in listItems)
+            {
+                if(Request.Cookies["cart"] != null)
+                {
+                    //check if product is already in the cookie
+                    string foundInCookie = findProductInCookie(s.ProductID.ToString());
+                    string str = Request.Cookies["cart"].Value;
+
+                    if (foundInCookie.Equals(""))
+                    {
+                        str += s.ProductID.ToString() + "-" + s.Quantity.ToString();
+                        saveToCookie("cart", str);
+                    }
+                    else
+                    {
+                        //change quantity in existing product-quantity pair
+                        string newPQPair = addToCookieProQty(foundInCookie, s.Quantity);
+
+                        str = str.Replace(foundInCookie, newPQPair);
+                        Response.Cookies["cart"].Value = str;
+
+                    }
+                }
+                else
+                {
+                    string str = s.ProductID + "-" + s.Quantity;
+                    createCookie("cart", str);
+                }
+            }
+
+            Response.Redirect("cart.aspx");
+        }
+
+        //function to check a particular products is in the cookie
+        private string findProductInCookie(string pId)
+        {
+            string found = "";
+            dynamic cookieContent = Request.Cookies["cart"].Value;
+            cookieContent = cookieContent.Split(',');
+
+            foreach (var p in cookieContent)
+            {
+                if (!p.Equals(""))
+                {
+
+                    if (p.Contains(pId + "-"))
+                    {
+                        found = p;
+                    }
+                }
+            }
+
+            return found;
+        }
+
+        //function to add to cookie quantity
+        private string addToCookieProQty(string currentCookiePro, int qtyToAdd)
+        {
+            dynamic str = currentCookiePro.Split('-');
+            var proId = str[0];
+            var oldQty = str[1];
+
+            int newQty = int.Parse(oldQty) + qtyToAdd;
+
+            var newCookiePro = proId + "-" + newQty.ToString();
+            return newCookiePro;
         }
 
         private decimal calcSubtotal(List<decimal> totals)
