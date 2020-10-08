@@ -20,7 +20,7 @@ namespace GreenPantryFrontend
             foreach(var i in orders)
             {
                 User getuser = SC.getUser(i.CustomerID);
-                Display += "<tr>";
+                Display += "<a href='editOrder.aspx?ID=" + i.ID + "'><tr>";
                 Display += "<th scope = 'row'>";
                 Display += "<div class='media align-items-center'>";
                 Display += "<div class='media-body'>";
@@ -30,8 +30,18 @@ namespace GreenPantryFrontend
                 Display += "R" + Math.Round(i.Total,2);
                 Display += "</td><td>";
                 Display += "<span class='badge badge-dot mr-4'>";
-                Display += "<i class='bg-warning'></i>";
-                Display += "<span class='status'>" + i.Status + "</span>";
+                if(i.Status.Equals("Pending"))
+                {
+                    Display += "<i class='bg-warning'></i><span class='status'>" + i.Status + "</span>";
+                }
+                else if(i.Status.Equals("Approved"))
+                {
+                    Display += "<i class='bg-success'></i><span class='status'>" + i.Status + "</span>";
+                }
+                else
+                {
+                    Display += "<i class='bg-danger'></i><span class='status'>" + i.Status + "</span>";
+                }
                 Display += "</span></td>";
                 Display += "<td><span class='budget'>" + i.Date.ToString("d") + "</span></td>";
                 Display += "<td><div class='avatar-group'>";
@@ -44,10 +54,8 @@ namespace GreenPantryFrontend
                 Display += "<i class='fas fa-ellipsis-v'></i>";
                 Display += "</a>"; 
                 Display += "<div class='dropdown-menu dropdown-menu-right dropdown-menu-arrow'>"; 
-                Display += "<a class='dropdown-item' href='#'>Action</a>";
-                Display += "<a class='dropdown-item' href='#'>Another action</a>";
-                Display += "<a class='dropdown-item' href='#'>Something else here</a>";
-                Display += "</div></div></td></tr>";
+                Display += "<a class='dropdown-item' href='editOrder.aspx?ID=" + i.ID + "'>Edit Order</a>";
+                Display += "</div></div></td></tr></a>";
             }
             orderID.InnerHtml = Display;
         }

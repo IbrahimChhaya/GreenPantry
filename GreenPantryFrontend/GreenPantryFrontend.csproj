@@ -3153,6 +3153,7 @@
     <Content Include="css\style.css" />
     <Content Include="dashboard\dashboard.aspx" />
     <Content Include="dashboard\editcat.aspx" />
+    <Content Include="dashboard\editorder.aspx" />
     <Content Include="dashboard\editproduct.aspx" />
     <Content Include="dashboard\subcategory.aspx" />
     <Content Include="dashboard\userorders.aspx" />
@@ -3444,6 +3445,13 @@
     </Compile>
     <Compile Include="dashboard\editcat.aspx.designer.cs">
       <DependentUpon>editcat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\editorder.aspx.cs">
+      <DependentUpon>editorder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard\editorder.aspx.designer.cs">
+      <DependentUpon>editorder.aspx</DependentUpon>
     </Compile>
     <Compile Include="dashboard\editproduct.aspx.cs">
       <DependentUpon>editproduct.aspx</DependentUpon>
