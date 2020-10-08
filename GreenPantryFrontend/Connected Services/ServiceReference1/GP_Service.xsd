@@ -160,6 +160,36 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="percentageCategorySales">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="currentDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="Cat_ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="percentageCategorySalesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="percentageCategorySalesResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="numProductSalesperCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="currentDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="Cat_ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="numProductSalesperCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="numProductSalesperCategoryResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="newsletter">
     <xs:complexType>
       <xs:sequence>

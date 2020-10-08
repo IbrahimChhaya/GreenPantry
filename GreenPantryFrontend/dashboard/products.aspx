@@ -43,10 +43,10 @@
                   </tr>
                 </thead>
                 <tbody class="list" id="productList" runat="server">
-                  <tr>
+                  <a href="editproduct.aspx?ProductID=1"><tr>
                     <th scope="row">
                       <div class="media align-items-center">
-                        <a href="#" class="avatar rounded-circle mr-3">
+                        <a class="avatar rounded-circle mr-3">
                           <img alt="Image placeholder" src="../assets/img/Products/3.jpg">
                         </a>
                         <div class="media-body">
@@ -78,7 +78,7 @@
                         </div>
                       </div>
                     </td>
-                  </tr>
+                  </tr></a>
 
                   <tr>
                     <th scope="row">

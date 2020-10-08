@@ -1669,6 +1669,18 @@ namespace GreenPantryFrontend.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/topPages", ReplyAction="http://tempuri.org/IGP_Service/topPagesResponse")]
         System.Threading.Tasks.Task<string[]> topPagesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageCategorySales", ReplyAction="http://tempuri.org/IGP_Service/percentageCategorySalesResponse")]
+        double percentageCategorySales(System.DateTime currentDate, int Cat_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageCategorySales", ReplyAction="http://tempuri.org/IGP_Service/percentageCategorySalesResponse")]
+        System.Threading.Tasks.Task<double> percentageCategorySalesAsync(System.DateTime currentDate, int Cat_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/numProductSalesperCategory", ReplyAction="http://tempuri.org/IGP_Service/numProductSalesperCategoryResponse")]
+        int numProductSalesperCategory(System.DateTime currentDate, int Cat_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/numProductSalesperCategory", ReplyAction="http://tempuri.org/IGP_Service/numProductSalesperCategoryResponse")]
+        System.Threading.Tasks.Task<int> numProductSalesperCategoryAsync(System.DateTime currentDate, int Cat_ID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/newsletter", ReplyAction="http://tempuri.org/IGP_Service/newsletterResponse")]
         void newsletter(string senderemail, string subscriberemail, string subject, string body, string smtp);
         
@@ -2167,6 +2179,22 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string[]> topPagesAsync() {
             return base.Channel.topPagesAsync();
+        }
+        
+        public double percentageCategorySales(System.DateTime currentDate, int Cat_ID) {
+            return base.Channel.percentageCategorySales(currentDate, Cat_ID);
+        }
+        
+        public System.Threading.Tasks.Task<double> percentageCategorySalesAsync(System.DateTime currentDate, int Cat_ID) {
+            return base.Channel.percentageCategorySalesAsync(currentDate, Cat_ID);
+        }
+        
+        public int numProductSalesperCategory(System.DateTime currentDate, int Cat_ID) {
+            return base.Channel.numProductSalesperCategory(currentDate, Cat_ID);
+        }
+        
+        public System.Threading.Tasks.Task<int> numProductSalesperCategoryAsync(System.DateTime currentDate, int Cat_ID) {
+            return base.Channel.numProductSalesperCategoryAsync(currentDate, Cat_ID);
         }
         
         public void newsletter(string senderemail, string subscriberemail, string subject, string body, string smtp) {

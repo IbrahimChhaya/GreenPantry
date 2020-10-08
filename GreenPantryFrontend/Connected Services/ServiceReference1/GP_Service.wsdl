@@ -74,6 +74,18 @@
   <wsdl:message name="IGP_Service_topPages_OutputMessage">
     <wsdl:part name="parameters" element="tns:topPagesResponse" />
   </wsdl:message>
+  <wsdl:message name="IGP_Service_percentageCategorySales_InputMessage">
+    <wsdl:part name="parameters" element="tns:percentageCategorySales" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_percentageCategorySales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:percentageCategorySalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_numProductSalesperCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:numProductSalesperCategory" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_numProductSalesperCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:numProductSalesperCategoryResponse" />
+  </wsdl:message>
   <wsdl:message name="IGP_Service_newsletter_InputMessage">
     <wsdl:part name="parameters" element="tns:newsletter" />
   </wsdl:message>
@@ -503,6 +515,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/topPages" message="tns:IGP_Service_topPages_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/topPagesResponse" message="tns:IGP_Service_topPages_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="percentageCategorySales">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/percentageCategorySales" message="tns:IGP_Service_percentageCategorySales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/percentageCategorySalesResponse" message="tns:IGP_Service_percentageCategorySales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="numProductSalesperCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/numProductSalesperCategory" message="tns:IGP_Service_numProductSalesperCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/numProductSalesperCategoryResponse" message="tns:IGP_Service_numProductSalesperCategory_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="newsletter">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/newsletter" message="tns:IGP_Service_newsletter_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/newsletterResponse" message="tns:IGP_Service_newsletter_OutputMessage" />
@@ -854,6 +874,24 @@
     </wsdl:operation>
     <wsdl:operation name="topPages">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/topPages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="percentageCategorySales">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/percentageCategorySales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="numProductSalesperCategory">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/numProductSalesperCategory" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
