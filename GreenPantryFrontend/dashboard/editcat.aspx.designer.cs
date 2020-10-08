@@ -24,6 +24,15 @@ namespace GreenPantryFrontend.dashboard
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl editName;
 
         /// <summary>
+        /// error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl error;
+
+        /// <summary>
         /// updateCat control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace GreenPantryFrontend.dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor updateCat;
+
+        /// <summary>
+        /// addCat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor addCat;
 
         /// <summary>
         /// Details control.
@@ -60,66 +78,39 @@ namespace GreenPantryFrontend.dashboard
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl CategoryStatus;
 
         /// <summary>
-        /// statusSelect control.
+        /// dropdownStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect statusSelect;
+        protected global::System.Web.UI.WebControls.DropDownList dropdownStatus;
 
         /// <summary>
-        /// Number1 control.
+        /// catDropdown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Number1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl catDropdown;
 
         /// <summary>
-        /// Number2 control.
+        /// catList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Number2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl catList;
 
         /// <summary>
-        /// subcatList control.
+        /// dropdownCat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl subcatList;
-
-        /// <summary>
-        /// subcatSelect control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect subcatSelect;
-
-        /// <summary>
-        /// description control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea description;
-
-        /// <summary>
-        /// statusDropdown control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl statusDropdown;
+        protected global::System.Web.UI.WebControls.DropDownList dropdownCat;
     }
 }

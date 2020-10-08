@@ -31,13 +31,19 @@ namespace AdminDashboard
                 display += "<a href='#' class='avatar rounded-circle mr-3'>";
                 display += "<img alt='Image placeholder' src='" + "../" + p.Image_Location + "'>";
                 display += "</a><div class='media-body'>";
-                display += "<span class='name mb-0 text-sm'>" + p.Name + "</span>";
+                display += "<a href='editproduct.aspx?ProductID=" + p.ID + "'><span class='name mb-0 text-sm'>" + p.Name + "</span></a>";
                 display += "</div></div></th>";
                 display += "<td class='budget'>";
                 display += "R" + Math.Round(p.Price, 2) + "</td><td>";
                 display += "<span class='badge badge-dot mr-4'>";
-                display += "<i class='bg-warning'></i>";
-                display += "<span class='status'>" + p.StockOnHand + "</span>";
+                if(p.StockOnHand < 100)
+                {
+                    display += "<i class='bg-warning'></i><span class='status'>" + p.StockOnHand + "</span>";
+                }
+                else
+                {
+                    display += "<i class='bg-success'></i><span class='status'>" + p.StockOnHand + "</span>";
+                }
                 display += "</span></td><td>";
                 display += "<span class='text-success mr-2' id='trafficChange' runat='server'><i class='fa fa-arrow-up'></i> 3.48%</span></td>";
                 display += "<td class='text-right'>";
@@ -45,9 +51,7 @@ namespace AdminDashboard
                 display += "<a class='btn btn-sm btn-icon-only text-light' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
                 display += "<i class='fas fa-ellipsis-v'></i></a>";
                 display += "<div class='dropdown-menu dropdown-menu-right dropdown-menu-arrow'>";
-                display += "<a class='dropdown-item' href='#'>Action</a>";
-                display += "<a class='dropdown-item' href='#'>Another action</a>";
-                display += "<a class='dropdown-item' href='#'>Something else here</a>";
+                display += "<a class='dropdown-item' href='editproduct.aspx?ProductID=" + p.ID + "'>Edit Product</a>";;
                 display += "</div></div></td></tr>";
             }
             productList.InnerHtml = display;

@@ -7,65 +7,65 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GreenPantryFrontend
+namespace GreenPantryFrontend.dashboard
 {
 
 
-    public partial class register2
+    public partial class ReportCharts
     {
 
         /// <summary>
-        /// name control.
+        /// traffic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText name;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl traffic;
 
         /// <summary>
-        /// surname control.
+        /// trafficChange control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText surname;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl trafficChange;
 
         /// <summary>
-        /// RegEmail control.
+        /// newUsr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl RegEmail;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl newUsr;
 
         /// <summary>
-        /// Password1 control.
+        /// Salesperweek control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword Password1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Salesperweek;
 
         /// <summary>
-        /// error control.
+        /// productSales control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label error;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl productSales;
 
         /// <summary>
-        /// Register control.
+        /// pageTraffic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Register;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pageTraffic;
     }
 }

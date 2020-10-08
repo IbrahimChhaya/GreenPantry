@@ -17,6 +17,8 @@ namespace GreenPantryFrontend
         {
             String display = "";
 
+           
+
             if (Session["LoggedInUserID"] != null)
             {
                 listIcon.Visible = true;
@@ -29,6 +31,10 @@ namespace GreenPantryFrontend
                 {
                     display = "<a href='account.aspx'>My Account</a>";
                     account.InnerHtml = display;
+                    int userID = int.Parse(Session["LoggedInUserID"].ToString());
+                    User customer = SC.getUser(userID);
+                    newsletterID.Value = customer.Email;
+   
                 }
             }
             else
@@ -84,10 +90,7 @@ namespace GreenPantryFrontend
             Response.Redirect("/results.aspx?Search=" + userInput);
         }
 
-        protected void Email_sender(object sender, EventArgs e)
-        {
-            SC.newsletter("ubaidkagdi123@gmail.com", "ubaidkagdi123@gmail.com", "Welcome to newslater", "hey", "smtp.gmail.com"); 
-        }
+        
         
     }
 }

@@ -28,7 +28,8 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-              <h3 class="mb-0">Products</h3>
+              <h3 class="mb-0" style="float:left;">Products</h3>
+                <a href="editproduct.aspx?ProductID=0" class="btn btn-sm btn-primary" style="float: right;">New Product</a>
             </div>
             <!-- Light table -->
             <div class="table-responsive">
@@ -43,10 +44,10 @@
                   </tr>
                 </thead>
                 <tbody class="list" id="productList" runat="server">
-                  <tr>
+                  <a href="editproduct.aspx?ProductID=1"><tr>
                     <th scope="row">
                       <div class="media align-items-center">
-                        <a href="#" class="avatar rounded-circle mr-3">
+                        <a class="avatar rounded-circle mr-3">
                           <img alt="Image placeholder" src="../assets/img/Products/3.jpg">
                         </a>
                         <div class="media-body">
@@ -78,7 +79,7 @@
                         </div>
                       </div>
                     </td>
-                  </tr>
+                  </tr></a>
 
                   <tr>
                     <th scope="row">

@@ -27,7 +27,8 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-              <h3 class="mb-0">SubCategories</h3>
+              <h3 class="mb-0" style="float:left;">SubCategories</h3>
+                <a href="editcat.aspx?type=SubCat&CatID=0" class="btn btn-sm btn-primary" style="float: right;">New SubCategory</a>
             </div>
             <!-- Light table -->
             <div class="table-responsive">
@@ -35,8 +36,8 @@
                 <thead class="thead-light">
                   <tr>
                     <th scope="col" class="sort" data-sort="name">SubCategory</th>
-                    <th scope="col" class="sort" data-sort="budget">Status</th>
-                    <th scope="col" class="sort" data-sort="status"></th>
+                    <th scope="col" class="sort" data-sort="budget">Sales Per Week</th>
+                    <th scope="col" class="sort" data-sort="status">Status</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                   </tr>
