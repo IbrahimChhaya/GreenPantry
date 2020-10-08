@@ -3154,6 +3154,7 @@
     <Content Include="dashboard\dashboard.aspx" />
     <Content Include="dashboard\editcat.aspx" />
     <Content Include="dashboard\editproduct.aspx" />
+    <Content Include="dashboard\ReportCharts.aspx" />
     <Content Include="dashboard\subcategory.aspx" />
     <Content Include="dashboard\userorders.aspx" />
     <Content Include="fonts\ElegantIcons.svg" />
@@ -3447,6 +3448,13 @@
     </Compile>
     <Compile Include="dashboard\editproduct.aspx.designer.cs">
       <DependentUpon>editproduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\ReportCharts.aspx.cs">
+      <DependentUpon>ReportCharts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard\ReportCharts.aspx.designer.cs">
+      <DependentUpon>ReportCharts.aspx</DependentUpon>
     </Compile>
     <Compile Include="dashboard\subcategory.aspx.cs">
       <DependentUpon>subcategory.aspx</DependentUpon>
