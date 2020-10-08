@@ -242,18 +242,19 @@
         $('#checkout__cart-total').text("R" + subTotal.toFixed(2));
 
 
-        if (window.location.pathname === "/cart.aspx") {
-            
+        if(window.location.pathname === "/cart.aspx") {
             //update cookie
-            var cookie = document.cookie.split("=");
-            var cVal = cookie[1];
+            var cookie = getCookie("cart");
+            var cVal = cookie;
             if (newVal > 0) {
                 cVal = cVal.replace(unitID + "-" + oldValue, unitID + "-" + newVal);
             }
             else {
                 cVal = cVal.replace(unitID + "-" + oldValue + ",", "");
             }
+              
             document.cookie = "cart=" + cVal;
+
             if(newVal <= 0)
                 $button.parent().parent().parent().parent().remove();
 
@@ -277,7 +278,7 @@
         } 
 
         //on list page
-        if (window.location.pathname === "/shoppinglist.aspx") {
+        if(window.location.pathname === "/shoppinglist.aspx") {
             var listCookie = getCookie("list");
             var cVal = listCookie; 
 
@@ -313,7 +314,7 @@
             document.cookie = "cart=" + cVal;
 
             //refresh page
-            window.location = "/cart.aspx";
+            $button.parent().parent().remove();
         }
         else if (window.location.pathname === "/shoppinglist.aspx") {
             //get list cookie

@@ -1693,6 +1693,18 @@ namespace GreenPantryFrontend.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/numProductSalesperSubCategory", ReplyAction="http://tempuri.org/IGP_Service/numProductSalesperSubCategoryResponse")]
         System.Threading.Tasks.Task<int> numProductSalesperSubCategoryAsync(System.DateTime currentDate, int SubCat_ID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/TopProducts", ReplyAction="http://tempuri.org/IGP_Service/TopProductsResponse")]
+        int[] TopProducts();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/TopProducts", ReplyAction="http://tempuri.org/IGP_Service/TopProductsResponse")]
+        System.Threading.Tasks.Task<int[]> TopProductsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getProQtySold", ReplyAction="http://tempuri.org/IGP_Service/getProQtySoldResponse")]
+        int getProQtySold(int P_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getProQtySold", ReplyAction="http://tempuri.org/IGP_Service/getProQtySoldResponse")]
+        System.Threading.Tasks.Task<int> getProQtySoldAsync(int P_ID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/newsletter", ReplyAction="http://tempuri.org/IGP_Service/newsletterResponse")]
         void newsletter(string senderemail, string subscriberemail, string subject, string body, string password, string smtp);
         
@@ -2223,6 +2235,22 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> numProductSalesperSubCategoryAsync(System.DateTime currentDate, int SubCat_ID) {
             return base.Channel.numProductSalesperSubCategoryAsync(currentDate, SubCat_ID);
+        }
+        
+        public int[] TopProducts() {
+            return base.Channel.TopProducts();
+        }
+        
+        public System.Threading.Tasks.Task<int[]> TopProductsAsync() {
+            return base.Channel.TopProductsAsync();
+        }
+        
+        public int getProQtySold(int P_ID) {
+            return base.Channel.getProQtySold(P_ID);
+        }
+        
+        public System.Threading.Tasks.Task<int> getProQtySoldAsync(int P_ID) {
+            return base.Channel.getProQtySoldAsync(P_ID);
         }
         
         public void newsletter(string senderemail, string subscriberemail, string subject, string body, string password, string smtp) {

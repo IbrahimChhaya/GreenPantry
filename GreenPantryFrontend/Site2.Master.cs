@@ -61,6 +61,27 @@ namespace GreenPantryFrontend
                 display += "<li><a href='/categories.aspx?CategoryID=" + c.ID + "'>" + c.Name + "</a></li>";
             }
             categoryList.InnerHtml = display;
+
+            if (Request.Cookies["cart"] != null)
+            {
+                dynamic products = Request.Cookies["cart"].Value.Split(',');
+                int numProducts = 0;
+
+                foreach (var p in products)
+                {
+                    if (!p.Equals(""))
+                    {
+                        numProducts++;
+                    }
+                }
+
+                numCartItems.InnerHtml = numProducts.ToString();
+                numCartItems.Visible = true;
+            }
+            else
+            {
+                numCartItems.Visible = false;
+            }
         }
 
         protected void Search_Click(object sender,EventArgs e)

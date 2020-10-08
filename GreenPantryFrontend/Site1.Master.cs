@@ -13,7 +13,26 @@ namespace GreenPantryFrontend
         GP_ServiceClient SC = new GP_ServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            if (Request.Cookies["cart"] != null)
+            {
+                dynamic products = Request.Cookies["cart"].Value.Split(',');
+                int numProducts = 0;
+
+                foreach (var p in products)
+                {
+                    if (!p.Equals(""))
+                    {
+                        numProducts++;
+                    }
+                }
+
+                numCartItems.InnerHtml = numProducts.ToString();
+                numCartItems.Visible = true;
+            }
+            else
+            {
+                numCartItems.Visible = false;
+            }
 
             if (Session["LoggedInUserID"] == null)
             {
@@ -32,6 +51,8 @@ namespace GreenPantryFrontend
                 }
                 
             }
+
+            
         }
 
     }
