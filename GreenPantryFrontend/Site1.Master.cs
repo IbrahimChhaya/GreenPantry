@@ -11,7 +11,28 @@ namespace GreenPantryFrontend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["LoggedInUserID"] == null)
+            if (Request.Cookies["cart"] != null)
+            {
+                dynamic products = Request.Cookies["cart"].Value.Split(',');
+                int numProducts = 0;
+
+                foreach (var p in products)
+                {
+                    if (!p.Equals(""))
+                    {
+                        numProducts++;
+                    }
+                }
+
+                numCartItems.InnerHtml = numProducts.ToString();
+                numCartItems.Visible = true;
+            }
+            else
+            {
+                numCartItems.Visible = false;
+            }
+
+            if (Session["LoggedInUserID"] == null)
             {
                 listIcon.Visible = false;
             }
@@ -19,6 +40,8 @@ namespace GreenPantryFrontend
             {
                 listIcon.Visible = true;
             }
+
+            
         }
     }
 }
