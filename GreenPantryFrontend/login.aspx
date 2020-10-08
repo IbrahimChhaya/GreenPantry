@@ -18,7 +18,7 @@
 					<h1 class="h1login">Create Account</h1>
 					<br />
 					<input class="login" type="text" placeholder="Name" runat="server" ID="name" />
-				<input class="login" type="text" placeholder="Last name" runat="server" ID="surname"/>
+				    <input class="login" type="text" placeholder="Last name" runat="server" ID="surname"/>
 					<input class="login" type="email" placeholder="Email" runat="server" ID="RegEmail"/>
 					<input class="login" type="password" placeholder="Password" runat="server" ID="RegPassword"/>
 					<button class="login" runat="server" ID="btnRegister" OnClick="Sign Up">Sign Up</button>

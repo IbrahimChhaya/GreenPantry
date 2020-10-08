@@ -3331,6 +3331,8 @@
     <Content Include="img\product\product-7.jpg" />
     <Content Include="img\product\product-8.jpg" />
     <Content Include="img\product\product-9.jpg" />
+    <Content Include="img\ThankYou\thanks.png" />
+    <Content Include="img\ThankYou\ThankYouSubscriber.png" />
     <Content Include="invoice.aspx" />
     <Content Include="css\invoice.css" />
     <Content Include="js\bootstrap.min.js" />
@@ -3357,6 +3359,7 @@
     <Content Include="singleproduct.aspx" />
     <Content Include="subcategory.aspx" />
     <Content Include="dashboard\users.aspx" />
+    <Content Include="ThankYou.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -3590,6 +3593,13 @@
     </Compile>
     <Compile Include="dashboard\users.aspx.designer.cs">
       <DependentUpon>users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThankYou.aspx.cs">
+      <DependentUpon>ThankYou.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThankYou.aspx.designer.cs">
+      <DependentUpon>ThankYou.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
