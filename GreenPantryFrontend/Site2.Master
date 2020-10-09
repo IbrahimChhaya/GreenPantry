@@ -110,7 +110,7 @@
                     <div class="header__cart">
                         <ul>
                             <li><a href="shoppinglist.aspx" id="listIcon" runat="server"><i class="fa fa-list"></i></a></li>
-                            <li><a href="cart.aspx"><i class="fa fa-shopping-cart"></i> <span></span></a></li>
+                            <li><a href="cart.aspx"><i class="fa fa-shopping-cart"></i> <span id="numCartItems" runat="server" visible="false"></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -192,14 +192,13 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form>
+                            <form runat="server">
                                 <div class="hero__search__categories">
                                     All Departments
                                     <span class="arrow_carrot-down"></span>
                                 </div>
                                 <input type="text" id="searchText" runat="server">
-                                <div id="searchButton" runat="server"><a href="#">f</a></div>
-                                <button type="submit" class="site-btn" runat="server" id ="search" onclick="Search_Click">SEARCH</button>
+                                <button type="submit" class="site-btn" runat="server" id="search" onserverclick="Search_Click">SEARCH</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">

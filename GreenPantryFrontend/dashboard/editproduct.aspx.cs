@@ -1,6 +1,7 @@
 ﻿using GreenPantryFrontend.ServiceReference1;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -89,8 +90,18 @@ namespace GreenPantryFrontend.dashboard
             {
                 error.Visible = false;
                 Global.imagePath = Server.MapPath("/img/Products/") + FileUpLoad1.FileName;
-                FileUpLoad1.SaveAs(Global.imagePath);
-                imgPath.InnerHtml = "<img src='../img/Products/" + FileUpLoad1.FileName + "' alt='Image placeholder' class='card-img-top'>";
+                string extension = Path.GetExtension(FileUpLoad1.FileName);
+                if (extension.Equals(".jpg") || extension.Equals(".png"))
+                {
+
+                    FileUpLoad1.SaveAs(Global.imagePath);
+                    imgPath.InnerHtml = "<img src='../img/Products/" + FileUpLoad1.FileName + "' alt='Image placeholder' class='card-img-top'>";
+                }
+                else
+                {
+                    error.Visible = true;
+                    error.InnerText = "Please enter a valid image type (.jpg or .png)";
+                }
             }
             else
             {
@@ -117,48 +128,67 @@ namespace GreenPantryFrontend.dashboard
                 }
             }
 
-            if (Global.imagePath.Equals(""))
+            if (name.Value != "" && description.Value != "")
             {
-                int stockNum = int.Parse(stock.Value);
-                String strName = name.Value;
-                double dblPrice = Convert.ToDouble(price.Value.Replace('.', ','));
-                double dblCost = Convert.ToDouble(cost.Value.Replace('.', ','));
-                string img = product.Image_Location;
-                string stat = dropdownStatus.Text.ToLower();
-                int update = SC.updateProduct(productID, strName, subID, dblPrice, dblCost, img, stat, stockNum, description.Value);
-                if(update.Equals(1))
+                try
                 {
-                    error.Visible = true;
-                    error.InnerText = "Product Updated";
+                    int stockNum = int.Parse(stock.Value);
+                    String strName = name.Value;
+                    double dblPrice = Convert.ToDouble(price.Value.Replace('.', ','));
+                    double dblCost = Convert.ToDouble(cost.Value.Replace('.', ','));
+                    string stat = dropdownStatus.Text.ToLower();
+
+                    if (stockNum >= 0 && dblPrice >= 0 && dblCost >= 0)
+                    {
+                        if (Global.imagePath.Equals(""))
+                        {
+                            string img = product.Image_Location;
+                            int update = SC.updateProduct(productID, strName, subID, dblPrice, dblCost, img, stat, stockNum, description.Value);
+                            if (update.Equals(1))
+                            {
+                                error.Visible = true;
+                                error.InnerText = "Product Updated";
+                            }
+                            else
+                            {
+                                error.Visible = true;
+                                error.InnerText = "An error occurred";
+                            }
+                        }
+                        else
+                        {
+                            int index = Global.imagePath.IndexOf("img");
+                            string image = Global.imagePath.Substring(index);
+
+                            int update = SC.updateProduct(productID, strName, subID, dblPrice, dblCost, image, stat, stockNum, description.Value);
+                            if (update.Equals(1))
+                            {
+                                error.Visible = true;
+                                error.InnerText = "Product Updated";
+                            }
+                            else
+                            {
+                                error.Visible = true;
+                                error.InnerText = "An error occurred";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        error.Visible = true;
+                        error.InnerText = "Values must be non negative";
+                    }
                 }
-                else
+                catch
                 {
                     error.Visible = true;
-                    error.InnerText = "An error occurred";
+                    error.InnerText = "Please enter valid data";
                 }
             }
             else
             {
-                int stockNum = int.Parse(stock.Value);
-                String strName = name.Value;
-                double dblPrice = Convert.ToDouble(price.Value.Replace('.', ','));
-                double dblCost = Convert.ToDouble(cost.Value.Replace('.', ','));
-                string stat = dropdownStatus.Text.ToLower();
-
-                int index = Global.imagePath.IndexOf("img");
-                string image = Global.imagePath.Substring(index);
-
-                int update = SC.updateProduct(productID, strName, subID, dblPrice, dblCost, image, stat, stockNum, description.Value);
-                if (update.Equals(1))
-                {
-                    error.Visible = true;
-                    error.InnerText = "Product Updated";
-                }
-                else
-                {
-                    error.Visible = true;
-                    error.InnerText = "An error occurred";
-                }
+                error.Visible = true;
+                error.InnerText = "Please enter valid data";
             }
         }
 
@@ -183,25 +213,49 @@ namespace GreenPantryFrontend.dashboard
                         subID = s.SubID;
                     }
                 }
+            
+            if(name.Value != "" && description.Value != "")
+            { 
+                try
+                {
+                    int stockNum = int.Parse(stock.Value);
+                    double dblPrice = Convert.ToDouble(price.Value.Replace('.', ','));
+                    double dblCost = Convert.ToDouble(cost.Value.Replace('.', ','));
+                    string stat = dropdownStatus.Text.ToLower();
 
-                int stockNum = int.Parse(stock.Value);
-                double dblPrice = Convert.ToDouble(price.Value.Replace('.', ','));
-                double dblCost = Convert.ToDouble(cost.Value.Replace('.', ','));
-                string stat = dropdownStatus.Text.ToLower();
+                    if (stockNum >= 0 && dblPrice >= 0 && dblCost >= 0)
+                    {
+                        int index = Global.imagePath.IndexOf("img");
+                        string image = Global.imagePath.Substring(index);
 
-                int index = Global.imagePath.IndexOf("img");
-                string image = Global.imagePath.Substring(index);
-
-                int addProduct = SC.addNewProduct(name.Value, subID, dblPrice, dblCost, stockNum, image, stat, description.Value);
-                if (addProduct.Equals(-1))
+                        int addProduct = SC.addNewProduct(name.Value, subID, dblPrice, dblCost, stockNum, image, stat, description.Value);
+                        if (addProduct.Equals(-1))
+                        {
+                            error.Visible = true;
+                            error.InnerText = "An error occurred";
+                        }
+                        else
+                        {
+                            Response.Redirect("editproduct.aspx?ProductID=" + addProduct);
+                        }
+                    }
+                    else
+                    {
+                        error.Visible = true;
+                        error.InnerText = "Values must be non negative";
+                    }
+                }
+                catch
                 {
                     error.Visible = true;
-                    error.InnerText = "An error occurred";
+                    error.InnerText = "Please enter valid data";
                 }
-                else
-                {
-                    Response.Redirect("editproduct.aspx?ProductID=" + addProduct);
-                }
+            }
+            else
+            {
+                error.Visible = true;
+                error.InnerText = "Please enter valid data";
+            }
             }
         }
     }

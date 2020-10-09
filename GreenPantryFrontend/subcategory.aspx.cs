@@ -58,7 +58,10 @@ namespace GreenPantryFrontend
                         display += "<div class='product__item' onclick='location.href=&#39;singleproduct.aspx?ProductID=" + p.ID + "&#39;'>";
                         display += "<div class='product__item__pic set-bg' data-setbg='" + p.Image_Location + "'>";
                         display += "<ul class='product__item__pic__hover'>";
-                        display += "<li><a href='#'><i class='fa fa-heart'></i></a></li>";
+                        if (Session["LoggedInUserID"] != null)
+                        {
+                            display += "<li><a href='#'><i class='fa fa-list'></i></a></li>";
+                        }
                         display += "<li><a href='#'><i class='fa fa-shopping-cart'></i></a></li></ul></div>";
                         display += "<div class='product__item__text'>";
                         display += "<h6>" + p.Name + "</h6>";

@@ -25,9 +25,11 @@ namespace GreenPantryFrontend
                         numProducts++;
                     }
                 }
-
-                numCartItems.InnerHtml = numProducts.ToString();
-                numCartItems.Visible = true;
+                if (numProducts > 0)
+                { 
+                    numCartItems.InnerText = numProducts.ToString();
+                    numCartItems.Visible = true;
+                }
             }
             else
             {

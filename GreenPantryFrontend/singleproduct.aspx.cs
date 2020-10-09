@@ -126,14 +126,13 @@ namespace GreenPantryFrontend
 
                     str = str.Replace(foundInCookie, newPQPair);
                     Response.Cookies["cart"].Value = str; 
-
                 }
             }
             else
             {
                 createCookie("cart", Request.QueryString["ProductID"] + "-" + item_qty.Value);
-                Response.Redirect("home.aspx");
             }
+            Add.Text = "ADDED TO CART";
         }
 
         //function to check a particular products is in the cookie
@@ -185,7 +184,6 @@ namespace GreenPantryFrontend
             {
                 listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> An error occured";
             }
-            //finish this function yo
         }
     }
 }
