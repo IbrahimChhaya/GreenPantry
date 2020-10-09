@@ -36,80 +36,28 @@
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">User</th>
-                    <th scope="col" class="sort" data-sort="name">Order</th>
-                    <th scope="col" class="sort" data-sort="budget">Total</th>
+                    <th scope="col" class="sort" data-sort="budget">Date Registered</th>
                     <th scope="col" class="sort" data-sort="status">Status</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
-                <tbody class="list">
+                <tbody class="list" id="userList" runat="server">
                   <tr>
                     <th scope="row">
                       <div class="media align-items-center">
-                        <a href="#" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" src="../assets/img/Products/3.jpg">
-                        </a>
                         <div class="media-body">
-                          <span class="name mb-0 text-sm">Invoice #458</span>
+                          <a href="edituser.aspx?UserID=1"><span class="name mb-0 text-sm">User #458</span></a>
                         </div>
                       </div>
                     </th>
                     <td class="budget">
-                      R2500 
-                    </td>
-                    <td>
-                      <span class="badge badge-dot mr-4">
-                        <i class="bg-warning"></i>
-                        <span class="status">pending</span>
-                      </span>
-                    </td>
-                    <td>
-                      <div class="avatar-group">
-                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Users Name">
-                            <i class="ni ni-circle-08"></i>
-                        </a>
-                      </div>
-                    </td>
-
-                    <td class="text-right">
-                      <div class="dropdown">
-                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <a href="#" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" src="../assets/img/Products/15.jpg">
-                        </a>
-                        <div class="media-body">
-                          <span class="name mb-0 text-sm">Invoice #100</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td class="budget">
-                      R1800 
+                      25/06/1999 
                     </td>
                     <td>
                       <span class="badge badge-dot mr-4">
                         <i class="bg-success"></i>
-                        <span class="status">completed</span>
+                        <span class="status">Active</span>
                       </span>
-                    </td>
-                    <td>
-                      <div class="avatar-group">
-                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Users Name">
-                            <i class="ni ni-circle-08"></i>
-                        </a>
-                      </div>
                     </td>
                     <td class="text-right">
                       <div class="dropdown">
@@ -117,147 +65,26 @@
                           <i class="fas fa-ellipsis-v"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
+                          <a class="dropdown-item" href="edituser.aspx?UserID=1">Edit User</a>
                         </div>
                       </div>
                     </td>
                   </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <a href="#" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" src="../assets/img/Products/17.jpg">
-                        </a>
-                        <div class="media-body">
-                          <span class="name mb-0 text-sm">Invoice #789</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td class="budget">
-                      R3150 
-                    </td>
-                    <td>
-                      <span class="badge badge-dot mr-4">
-                        <i class="bg-danger"></i>
-                        <span class="status">delayed</span>
-                      </span>
-                    </td>
-                    <td>
-                      <div class="avatar-group">
-                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Users Name">
-                            <i class="ni ni-circle-08"></i>
-                        </a>
-                      </div>
-                    </td>
-                    <td class="text-right">
-                      <div class="dropdown">
-                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <a href="#" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" src="../assets/img/Products/40.jpg">
-                        </a>
-                        <div class="media-body">
-                          <span class="name mb-0 text-sm">Invoice #1</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td class="budget">
-                      R4400 
-                    </td>
-                    <td>
-                      <span class="badge badge-dot mr-4">
-                        <i class="bg-info"></i>
-                        <span class="status">on schedule</span>
-                      </span>
-                    </td>
-                    <td>
-                      <div class="avatar-group">
-                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Users Name">
-                            <i class="ni ni-circle-08"></i>
-                        </a>
-                      </div>
-                    </td>
-                    <td class="text-right">
-                      <div class="dropdown">
-                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <a href="#" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" src="../assets/img/Products/33.jpg">
-                        </a>
-                        <div class="media-body">
-                          <span class="name mb-0 text-sm">Invoice #420</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td class="budget">
-                      R2200 
-                    </td>
-                    <td>
-                      <span class="badge badge-dot mr-4">
-                        <i class="bg-success"></i>
-                        <span class="status">completed</span>
-                      </span>
-                    </td>
-                    <td>
-                      <div class="avatar-group">
-                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Users Name">
-                            <i class="ni ni-circle-08"></i>
-                        </a>
-                      </div>
-                    </td>
-                    <td class="text-right">
-                      <div class="dropdown">
-                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
+                  
                 </tbody>
               </table>
             </div>
             <!-- Card footer -->
             <div class="card-footer py-4">
               <nav aria-label="...">
-                <ul class="pagination justify-content-end mb-0">
+                <ul class="pagination justify-content-end mb-0" id="pageNumbers" runat="server">
                   <li class="page-item disabled">
                     <a class="page-link" href="#" tabindex="-1">
                       <i class="fas fa-angle-left"></i>
                       <span class="sr-only">Previous</span>
                     </a>
                   </li>
-                  <li class="page-item active">
+                  <li class="page-item active" id="firstPage" runat="server">
                     <a class="page-link" href="#">1</a>
                   </li>
                   <li class="page-item">

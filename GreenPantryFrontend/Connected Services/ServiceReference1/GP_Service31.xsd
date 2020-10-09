@@ -61,7 +61,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Addresses" nillable="true" type="tns:ArrayOfAddress" />
       <xs:element minOccurs="0" name="Cards" nillable="true" type="tns:ArrayOfCard" />
-      <xs:element minOccurs="0" name="DateRegistered" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateRegistered" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Devices" nillable="true" type="tns:ArrayOfDevice" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ID" type="xs:int" />
@@ -180,6 +180,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfSubCategory" nillable="true" type="tns:ArrayOfSubCategory" />
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
   <xs:complexType name="ArrayOfProductCategory">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductCategory" nillable="true" type="tns:ProductCategory" />

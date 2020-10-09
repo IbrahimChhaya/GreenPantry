@@ -74,13 +74,35 @@
                         </tbody>
                       </table>
                     </div>
-                      
+                </div>
+                    <br />
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-last-name" id="userID" runat="server">User</label>
+                            <input type="text" id="email" class="form-control" runat="server" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-last-name">Date Placed</label>
+                            <input type="text" id="datePlaced" class="form-control" runat="server" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group" id="CategoryStatus" runat="server">
                             <label for="dropdownStatus" class="form-control-label">Status</label>
                             
                             <asp:DropDownList ID="dropdownStatus" runat="server" CssClass="form-control" >
                             </asp:DropDownList>  
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                                <label class="form-control-label">Notes</label>
+                                <textarea rows="4" class="form-control" id="notes" runat="server" required></textarea>
                         </div>
                     </div>
                   </div>
