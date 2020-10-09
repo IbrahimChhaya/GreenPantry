@@ -11,7 +11,7 @@ namespace GreenPantryFrontend.dashboard
 {
 
 
-    public partial class editorder
+    public partial class edituser
     {
 
         /// <summary>
@@ -33,31 +33,31 @@ namespace GreenPantryFrontend.dashboard
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl error;
 
         /// <summary>
-        /// updateOrder control.
+        /// updateUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor updateOrder;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor updateUser;
 
         /// <summary>
-        /// productList control.
+        /// addUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl productList;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor addUser;
 
         /// <summary>
-        /// userID control.
+        /// Details control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userID;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Details;
 
         /// <summary>
         /// email control.
@@ -69,13 +69,13 @@ namespace GreenPantryFrontend.dashboard
         protected global::System.Web.UI.HtmlControls.HtmlInputText email;
 
         /// <summary>
-        /// datePlaced control.
+        /// points control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText datePlaced;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl points;
 
         /// <summary>
         /// CategoryStatus control.
@@ -96,12 +96,21 @@ namespace GreenPantryFrontend.dashboard
         protected global::System.Web.UI.WebControls.DropDownList dropdownStatus;
 
         /// <summary>
-        /// notes control.
+        /// typeList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea notes;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl typeList;
+
+        /// <summary>
+        /// dropdownType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdownType;
     }
 }

@@ -830,7 +830,7 @@ namespace GreenPantryFrontend.ServiceReference1 {
         private GreenPantryFrontend.ServiceReference1.Card[] CardsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> DateRegisteredField;
+        private System.DateTime DateRegisteredField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private GreenPantryFrontend.ServiceReference1.Device[] DevicesField;
@@ -905,7 +905,7 @@ namespace GreenPantryFrontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> DateRegistered {
+        public System.DateTime DateRegistered {
             get {
                 return this.DateRegisteredField;
             }
@@ -1603,6 +1603,18 @@ namespace GreenPantryFrontend.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IGP_Service")]
     public interface IGP_Service {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumSaleChange", ReplyAction="http://tempuri.org/IGP_Service/NumSaleChangeResponse")]
+        double NumSaleChange(System.DateTime currentDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumSaleChange", ReplyAction="http://tempuri.org/IGP_Service/NumSaleChangeResponse")]
+        System.Threading.Tasks.Task<double> NumSaleChangeAsync(System.DateTime currentDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/calcCategoryTotalSales", ReplyAction="http://tempuri.org/IGP_Service/calcCategoryTotalSalesResponse")]
+        decimal calcCategoryTotalSales(int cId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/calcCategoryTotalSales", ReplyAction="http://tempuri.org/IGP_Service/calcCategoryTotalSalesResponse")]
+        System.Threading.Tasks.Task<decimal> calcCategoryTotalSalesAsync(int cId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/calcSalesPerDay", ReplyAction="http://tempuri.org/IGP_Service/calcSalesPerDayResponse")]
         decimal calcSalesPerDay(System.DateTime date);
         
@@ -1741,6 +1753,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateUserDetails", ReplyAction="http://tempuri.org/IGP_Service/updateUserDetailsResponse")]
         System.Threading.Tasks.Task<int> updateUserDetailsAsync(int id, string name, string surname, string email, string number);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateUserAdmin", ReplyAction="http://tempuri.org/IGP_Service/updateUserAdminResponse")]
+        int updateUserAdmin(int userID, int points, string usertype, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateUserAdmin", ReplyAction="http://tempuri.org/IGP_Service/updateUserAdminResponse")]
+        System.Threading.Tasks.Task<int> updateUserAdminAsync(int userID, int points, string usertype, string status);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updatePassword", ReplyAction="http://tempuri.org/IGP_Service/updatePasswordResponse")]
         int updatePassword(int id, string oldPassword, string newPassword);
         
@@ -1752,6 +1770,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getUser", ReplyAction="http://tempuri.org/IGP_Service/getUserResponse")]
         System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.User> getUserAsync(int User_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getAllUsers", ReplyAction="http://tempuri.org/IGP_Service/getAllUsersResponse")]
+        GreenPantryFrontend.ServiceReference1.User[] getAllUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getAllUsers", ReplyAction="http://tempuri.org/IGP_Service/getAllUsersResponse")]
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.User[]> getAllUsersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getNumUsers", ReplyAction="http://tempuri.org/IGP_Service/getNumUsersResponse")]
         int getNumUsers();
@@ -1921,6 +1945,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getAllInvoiceLines", ReplyAction="http://tempuri.org/IGP_Service/getAllInvoiceLinesResponse")]
         System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.InvoiceLine[]> getAllInvoiceLinesAsync(int InvoiceID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addInvoiceLine", ReplyAction="http://tempuri.org/IGP_Service/addInvoiceLineResponse")]
+        int addInvoiceLine(int product_ID, int invoice_ID, int quantity, decimal price);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addInvoiceLine", ReplyAction="http://tempuri.org/IGP_Service/addInvoiceLineResponse")]
+        System.Threading.Tasks.Task<int> addInvoiceLineAsync(int product_ID, int invoice_ID, int quantity, decimal price);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addToList", ReplyAction="http://tempuri.org/IGP_Service/addToListResponse")]
         int addToList(int userID, int productID, int quantity);
         
@@ -2035,12 +2065,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getNumProductsInSub", ReplyAction="http://tempuri.org/IGP_Service/getNumProductsInSubResponse")]
         System.Threading.Tasks.Task<int> getNumProductsInSubAsync(int subID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addInvoiceLine", ReplyAction="http://tempuri.org/IGP_Service/addInvoiceLineResponse")]
-        int addInvoiceLine(int product_ID, int invoice_ID, int quantity, decimal price);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addInvoiceLine", ReplyAction="http://tempuri.org/IGP_Service/addInvoiceLineResponse")]
-        System.Threading.Tasks.Task<int> addInvoiceLineAsync(int product_ID, int invoice_ID, int quantity, decimal price);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/usersperWeek", ReplyAction="http://tempuri.org/IGP_Service/usersperWeekResponse")]
         int usersperWeek(System.DateTime currentDate);
         
@@ -2076,18 +2100,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumsalesPerWeek", ReplyAction="http://tempuri.org/IGP_Service/NumsalesPerWeekResponse")]
         System.Threading.Tasks.Task<int> NumsalesPerWeekAsync(System.DateTime date);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumSaleChange", ReplyAction="http://tempuri.org/IGP_Service/NumSaleChangeResponse")]
-        double NumSaleChange(System.DateTime currentDate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumSaleChange", ReplyAction="http://tempuri.org/IGP_Service/NumSaleChangeResponse")]
-        System.Threading.Tasks.Task<double> NumSaleChangeAsync(System.DateTime currentDate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/calcCategoryTotalSales", ReplyAction="http://tempuri.org/IGP_Service/calcCategoryTotalSalesResponse")]
-        decimal calcCategoryTotalSales(int cId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/calcCategoryTotalSales", ReplyAction="http://tempuri.org/IGP_Service/calcCategoryTotalSalesResponse")]
-        System.Threading.Tasks.Task<decimal> calcCategoryTotalSalesAsync(int cId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2115,6 +2127,22 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public GP_ServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public double NumSaleChange(System.DateTime currentDate) {
+            return base.Channel.NumSaleChange(currentDate);
+        }
+        
+        public System.Threading.Tasks.Task<double> NumSaleChangeAsync(System.DateTime currentDate) {
+            return base.Channel.NumSaleChangeAsync(currentDate);
+        }
+        
+        public decimal calcCategoryTotalSales(int cId) {
+            return base.Channel.calcCategoryTotalSales(cId);
+        }
+        
+        public System.Threading.Tasks.Task<decimal> calcCategoryTotalSalesAsync(int cId) {
+            return base.Channel.calcCategoryTotalSalesAsync(cId);
         }
         
         public decimal calcSalesPerDay(System.DateTime date) {
@@ -2301,6 +2329,14 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.updateUserDetailsAsync(id, name, surname, email, number);
         }
         
+        public int updateUserAdmin(int userID, int points, string usertype, string status) {
+            return base.Channel.updateUserAdmin(userID, points, usertype, status);
+        }
+        
+        public System.Threading.Tasks.Task<int> updateUserAdminAsync(int userID, int points, string usertype, string status) {
+            return base.Channel.updateUserAdminAsync(userID, points, usertype, status);
+        }
+        
         public int updatePassword(int id, string oldPassword, string newPassword) {
             return base.Channel.updatePassword(id, oldPassword, newPassword);
         }
@@ -2315,6 +2351,14 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.User> getUserAsync(int User_ID) {
             return base.Channel.getUserAsync(User_ID);
+        }
+        
+        public GreenPantryFrontend.ServiceReference1.User[] getAllUsers() {
+            return base.Channel.getAllUsers();
+        }
+        
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.User[]> getAllUsersAsync() {
+            return base.Channel.getAllUsersAsync();
         }
         
         public int getNumUsers() {
@@ -2541,6 +2585,14 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.getAllInvoiceLinesAsync(InvoiceID);
         }
         
+        public int addInvoiceLine(int product_ID, int invoice_ID, int quantity, decimal price) {
+            return base.Channel.addInvoiceLine(product_ID, invoice_ID, quantity, price);
+        }
+        
+        public System.Threading.Tasks.Task<int> addInvoiceLineAsync(int product_ID, int invoice_ID, int quantity, decimal price) {
+            return base.Channel.addInvoiceLineAsync(product_ID, invoice_ID, quantity, price);
+        }
+        
         public int addToList(int userID, int productID, int quantity) {
             return base.Channel.addToList(userID, productID, quantity);
         }
@@ -2693,14 +2745,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.getNumProductsInSubAsync(subID);
         }
         
-        public int addInvoiceLine(int product_ID, int invoice_ID, int quantity, decimal price) {
-            return base.Channel.addInvoiceLine(product_ID, invoice_ID, quantity, price);
-        }
-        
-        public System.Threading.Tasks.Task<int> addInvoiceLineAsync(int product_ID, int invoice_ID, int quantity, decimal price) {
-            return base.Channel.addInvoiceLineAsync(product_ID, invoice_ID, quantity, price);
-        }
-        
         public int usersperWeek(System.DateTime currentDate) {
             return base.Channel.usersperWeek(currentDate);
         }
@@ -2747,22 +2791,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> NumsalesPerWeekAsync(System.DateTime date) {
             return base.Channel.NumsalesPerWeekAsync(date);
-        }
-        
-        public double NumSaleChange(System.DateTime currentDate) {
-            return base.Channel.NumSaleChange(currentDate);
-        }
-        
-        public System.Threading.Tasks.Task<double> NumSaleChangeAsync(System.DateTime currentDate) {
-            return base.Channel.NumSaleChangeAsync(currentDate);
-        }
-        
-        public decimal calcCategoryTotalSales(int cId) {
-            return base.Channel.calcCategoryTotalSales(cId);
-        }
-        
-        public System.Threading.Tasks.Task<decimal> calcCategoryTotalSalesAsync(int cId) {
-            return base.Channel.calcCategoryTotalSalesAsync(cId);
         }
     }
 }

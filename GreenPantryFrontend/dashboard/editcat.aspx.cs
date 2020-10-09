@@ -21,7 +21,7 @@ namespace GreenPantryFrontend.dashboard
                 {
                     updateCat.Visible = false;
                     addCat.Visible = true;
-                    editName.InnerText = "Add New SubCategory ";
+                    editName.InnerText = "Add New SubCategory";
 
                     catDropdown.Visible = true;
                     dynamic cats = SC.getAllCategories();

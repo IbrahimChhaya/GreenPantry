@@ -22,25 +22,31 @@ namespace GreenPantryFrontend.dashboard
                 int invoiceID = int.Parse(Request.QueryString["InvoiceID"].ToString());
                 editName.InnerText = "Edit Order #" + invoiceID;
                 dynamic invoice = SC.getInvoice(invoiceID);
-                //dynamic items = SC.getinvoice(invoice.CustomerID);
+                dynamic items = SC.getAllInvoiceLines(invoiceID);
                 string display = "";
 
-                //foreach(InvoiceLine i in items)
-                //{
-                //    dynamic product = SC.getProduct(i.ProductID);
-                //    display += "<tr><th scope='row'>";
-                //    display += "<div class='media align-items-center'>";
-                //    display += "<div class='media-body'>";
-                //    display += "<span class='name mb-0 text-sm'>" + product.Name + "</span>";
-                //    display += "</div></div></th>";
-                //    display += "<td class='budget'>";
-                //    display += "R" + i.Price + "</td></tr>";
-                //    display += "<td class='budget'>" + i.Qty + "</td>";
-                //}
+                foreach (InvoiceLine i in items)
+                {
+                    dynamic product = SC.getProduct(i.ProductID);
+                    display += "<tr><th scope='row'>";
+                    display += "<div class='media align-items-center'>";
+                    display += "<div class='media-body'>";
+                    display += "<span class='name mb-0 text-sm'>" + product.Name + "</span>";
+                    display += "</div></div></th>";
+                    display += "<td class='budget'>";
+                    display += "R" + Math.Round((decimal)i.Price, 2) + "</td>";
+                    display += "<td class='budget'>" + i.Qty + "</td></tr>";
+                }
+                productList.InnerHtml = display;
 
                 if (!IsPostBack)
                 {
-                    
+                    userID.InnerText = "User #" + invoice.CustomerID;
+                    dynamic user = SC.getUser(invoice.CustomerID);
+                    email.Value = user.Email;
+                    datePlaced.Value = invoice.Date.ToString("d");
+                    notes.Value = invoice.Notes;
+
                     dropdownStatus.Items.Clear();
                     if (invoice.Status.Equals("Pending"))
                     {
@@ -66,7 +72,19 @@ namespace GreenPantryFrontend.dashboard
 
         protected void updateOrder_ServerClick(object sender, EventArgs e)
         {
-
+            int invoiceID = int.Parse(Request.QueryString["InvoiceID"].ToString());
+            dynamic invoice = SC.getInvoice(invoiceID);
+            int updateInvoice = SC.updateInvoice(invoice.CustomerID, dropdownStatus.Text, invoice.Date, invoice.DeliveryDatetime, notes.Value, invoice.Total, invoice.Points);
+            if(updateInvoice.Equals(1))
+            {
+                error.Visible = true;
+                error.InnerText = "Order updated";
+            }
+            else
+            {
+                error.Visible = true;
+                error.InnerText = "An error occurred";
+            }
         }
     }
 }
