@@ -16,9 +16,9 @@ namespace AdminDashboard
         protected string jsonCategories;
         protected string jsonCatSales;
         protected string jsonMonthDates;
-        protected string jsonMonthSales;
+        protected string jsonMonthProfits;
         protected string jsonWeekDays;
-        protected string jsonWeekSales;
+        protected string jsonWeekProfits;
         protected void Page_Load(object sender, EventArgs e)
         {
             //int trafficNum = SR.getVisitors();
@@ -56,13 +56,13 @@ namespace AdminDashboard
             List<decimal> salesMonthDays = new List<decimal>();
             foreach (DateTime d in monthDates)
             {
-                var daySales = SR.calcSalesPerDay(d.Date);
-                salesMonthDays.Add(daySales);
+                var dayProfit = SR.calcProfitPerday(d.Date);
+                salesMonthDays.Add(dayProfit);
                 dates.Add(d.ToShortDateString());
             }
 
             jsonMonthDates = serializer.Serialize(dates);
-            jsonMonthSales = serializer.Serialize(salesMonthDays);
+            jsonMonthProfits = serializer.Serialize(salesMonthDays);
 
             dynamic weekDates = SR.getWeekDates(new DateTime(2020, 09, 24));
             List<string> wDays = new List<string>();
@@ -70,13 +70,13 @@ namespace AdminDashboard
 
             foreach (DateTime d in weekDates)
             {
-                var wDaySales = SR.calcSalesPerDay(d.Date);
-                weekSales.Add(wDaySales);
+                var wDayProfit = SR.calcProfitPerday(d.Date);
+                weekSales.Add(wDayProfit);
                 wDays.Add(d.Date.ToShortDateString());
             }
 
             jsonWeekDays = serializer.Serialize(wDays);
-            jsonWeekSales = serializer.Serialize(weekSales);
+            jsonWeekProfits = serializer.Serialize(weekSales);
             /*Graph data --END*/
 
 
