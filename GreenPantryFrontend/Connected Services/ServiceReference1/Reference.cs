@@ -1603,6 +1603,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IGP_Service")]
     public interface IGP_Service {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumsalesPerWeek", ReplyAction="http://tempuri.org/IGP_Service/NumsalesPerWeekResponse")]
+        int NumsalesPerWeek(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumsalesPerWeek", ReplyAction="http://tempuri.org/IGP_Service/NumsalesPerWeekResponse")]
+        System.Threading.Tasks.Task<int> NumsalesPerWeekAsync(System.DateTime date);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumSaleChange", ReplyAction="http://tempuri.org/IGP_Service/NumSaleChangeResponse")]
         double NumSaleChange(System.DateTime currentDate);
         
@@ -2053,6 +2059,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/profitPerCat", ReplyAction="http://tempuri.org/IGP_Service/profitPerCatResponse")]
         System.Threading.Tasks.Task<double> profitPerCatAsync(int C_ID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/calcProfitPerday", ReplyAction="http://tempuri.org/IGP_Service/calcProfitPerdayResponse")]
+        decimal calcProfitPerday(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/calcProfitPerday", ReplyAction="http://tempuri.org/IGP_Service/calcProfitPerdayResponse")]
+        System.Threading.Tasks.Task<decimal> calcProfitPerdayAsync(System.DateTime date);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/calcProductVAT", ReplyAction="http://tempuri.org/IGP_Service/calcProductVATResponse")]
         decimal calcProductVAT(int P_ID);
         
@@ -2094,12 +2106,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageSaleChanger", ReplyAction="http://tempuri.org/IGP_Service/percentageSaleChangerResponse")]
         System.Threading.Tasks.Task<double> percentageSaleChangerAsync(System.DateTime currentDate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumsalesPerWeek", ReplyAction="http://tempuri.org/IGP_Service/NumsalesPerWeekResponse")]
-        int NumsalesPerWeek(System.DateTime date);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumsalesPerWeek", ReplyAction="http://tempuri.org/IGP_Service/NumsalesPerWeekResponse")]
-        System.Threading.Tasks.Task<int> NumsalesPerWeekAsync(System.DateTime date);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2127,6 +2133,14 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public GP_ServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public int NumsalesPerWeek(System.DateTime date) {
+            return base.Channel.NumsalesPerWeek(date);
+        }
+        
+        public System.Threading.Tasks.Task<int> NumsalesPerWeekAsync(System.DateTime date) {
+            return base.Channel.NumsalesPerWeekAsync(date);
         }
         
         public double NumSaleChange(System.DateTime currentDate) {
@@ -2729,6 +2743,14 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.profitPerCatAsync(C_ID);
         }
         
+        public decimal calcProfitPerday(System.DateTime date) {
+            return base.Channel.calcProfitPerday(date);
+        }
+        
+        public System.Threading.Tasks.Task<decimal> calcProfitPerdayAsync(System.DateTime date) {
+            return base.Channel.calcProfitPerdayAsync(date);
+        }
+        
         public decimal calcProductVAT(int P_ID) {
             return base.Channel.calcProductVAT(P_ID);
         }
@@ -2783,14 +2805,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<double> percentageSaleChangerAsync(System.DateTime currentDate) {
             return base.Channel.percentageSaleChangerAsync(currentDate);
-        }
-        
-        public int NumsalesPerWeek(System.DateTime date) {
-            return base.Channel.NumsalesPerWeek(date);
-        }
-        
-        public System.Threading.Tasks.Task<int> NumsalesPerWeekAsync(System.DateTime date) {
-            return base.Channel.NumsalesPerWeekAsync(date);
         }
     }
 }
