@@ -133,6 +133,8 @@ namespace GreenPantryFrontend
                 createCookie("cart", Request.QueryString["ProductID"] + "-" + item_qty.Value);
             }
             Add.Text = "ADDED TO CART";
+            //reload the page
+            Response.Redirect(Request.RawUrl);
         }
 
         //function to check a particular products is in the cookie

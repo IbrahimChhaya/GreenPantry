@@ -120,7 +120,7 @@
               <div class="row align-items-center">
                 <div class="col">
                   <h6 class="text-muted text-uppercase ls-1 mb-1">Overview</h6>
-                  <h5 class="h3 mb-0">Sales value</h5>
+                  <h5 class="h3 mb-0" id="sales-chart-label">Sales value</h5>
                 </div>
                 <div class="col">
                   <ul class="nav nav-pills justify-content-end">
@@ -397,11 +397,13 @@
         })
 
         function monthlyChart() {
-            refreshChart(<%= jsonMonthDates %>, <%= jsonMonthSales %>);
+            $('#sales-chart-label').html("Current Month's Daily Profits")
+            refreshChart(<%= jsonMonthDates %>, <%= jsonMonthProfits %>);
         }
 
         function weeklyChart() {
-            refreshChart(<%= jsonWeekDays %>, <%= jsonWeekSales %>);
+            $('#sales-chart-label').html("Current Week's Daily Profits")
+            refreshChart(<%= jsonWeekDays %>, <%= jsonWeekProfits %>);
         }
 
         function refreshChart(chartLabels, chartData) {

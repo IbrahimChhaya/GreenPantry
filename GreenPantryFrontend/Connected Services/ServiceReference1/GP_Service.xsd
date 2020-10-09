@@ -3,6 +3,20 @@
   <xs:import schemaLocation="http://localhost:53900/GP_Service.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import schemaLocation="http://localhost:53900/GP_Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/" />
   <xs:import schemaLocation="http://localhost:53900/GP_Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="NumsalesPerWeek">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NumsalesPerWeekResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NumsalesPerWeekResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="NumSaleChange">
     <xs:complexType>
       <xs:sequence>
@@ -1160,6 +1174,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="calcProfitPerday">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="calcProfitPerdayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="calcProfitPerdayResult" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="calcProductVAT">
     <xs:complexType>
       <xs:sequence>
@@ -1255,20 +1283,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="percentageSaleChangerResult" type="xs:double" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="NumsalesPerWeek">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="NumsalesPerWeekResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="NumsalesPerWeekResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
