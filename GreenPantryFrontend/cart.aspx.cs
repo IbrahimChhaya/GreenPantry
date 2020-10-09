@@ -21,6 +21,9 @@ namespace GreenPantryFrontend
                 emptyCart.Visible = true;
                 crumbSection.Visible = false;
                 cartSection.Visible = false;
+
+                //delete cookie
+                Response.Cookies["cart"].Expires = DateTime.Now.AddDays(-1);
             }
             else
             {
