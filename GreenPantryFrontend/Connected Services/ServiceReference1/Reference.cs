@@ -1599,6 +1599,67 @@ namespace GreenPantryFrontend.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="recommended", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class recommended : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private GreenPantryFrontend.ServiceReference1.Product productField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ratingField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public GreenPantryFrontend.ServiceReference1.Product product {
+            get {
+                return this.productField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.productField, value) != true)) {
+                    this.productField = value;
+                    this.RaisePropertyChanged("product");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double rating {
+            get {
+                return this.ratingField;
+            }
+            set {
+                if ((this.ratingField.Equals(value) != true)) {
+                    this.ratingField = value;
+                    this.RaisePropertyChanged("rating");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IGP_Service")]
     public interface IGP_Service {
@@ -1716,6 +1777,18 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getProQtySold", ReplyAction="http://tempuri.org/IGP_Service/getProQtySoldResponse")]
         System.Threading.Tasks.Task<int> getProQtySoldAsync(int P_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/recommendedProducts", ReplyAction="http://tempuri.org/IGP_Service/recommendedProductsResponse")]
+        GreenPantryFrontend.ServiceReference1.Product[] recommendedProducts(int userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/recommendedProducts", ReplyAction="http://tempuri.org/IGP_Service/recommendedProductsResponse")]
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Product[]> recommendedProductsAsync(int userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/recommendTest", ReplyAction="http://tempuri.org/IGP_Service/recommendTestResponse")]
+        GreenPantryFrontend.ServiceReference1.recommended[] recommendTest(int userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/recommendTest", ReplyAction="http://tempuri.org/IGP_Service/recommendTestResponse")]
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.recommended[]> recommendTestAsync(int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/newsletter", ReplyAction="http://tempuri.org/IGP_Service/newsletterResponse")]
         void newsletter(string senderemail, string subscriberemail, string subject, string body, string password, string smtp);
@@ -1988,10 +2061,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> addAddressAsync(string line1, string line2, string suburb, string city, char billing, string type, int C_ID, string Province);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateAddress", ReplyAction="http://tempuri.org/IGP_Service/updateAddressResponse")]
-        int updateAddress(int A_ID, string line1, string line2, string suburb, string city, char billing, string type, int Cus_ID);
+        int updateAddress(string line1, string line2, string suburb, string city, string province, char billing, string type, int Cus_ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateAddress", ReplyAction="http://tempuri.org/IGP_Service/updateAddressResponse")]
-        System.Threading.Tasks.Task<int> updateAddressAsync(int A_ID, string line1, string line2, string suburb, string city, char billing, string type, int Cus_ID);
+        System.Threading.Tasks.Task<int> updateAddressAsync(string line1, string line2, string suburb, string city, string province, char billing, string type, int Cus_ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getCard", ReplyAction="http://tempuri.org/IGP_Service/getCardResponse")]
         GreenPantryFrontend.ServiceReference1.Card getCard(int id);
@@ -2012,10 +2085,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> updateCardsAsync(int c_ID, int Cust_ID, string description, string name, string number, System.DateTime expiry);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getDevice", ReplyAction="http://tempuri.org/IGP_Service/getDeviceResponse")]
-        GreenPantryFrontend.ServiceReference1.Device getDevice(int D_ID);
+        GreenPantryFrontend.ServiceReference1.Device getDevice(int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getDevice", ReplyAction="http://tempuri.org/IGP_Service/getDeviceResponse")]
-        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Device> getDeviceAsync(int D_ID);
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Device> getDeviceAsync(int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addDevices", ReplyAction="http://tempuri.org/IGP_Service/addDevicesResponse")]
         int addDevices(int cust_ID, string useragent);
@@ -2279,6 +2352,22 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> getProQtySoldAsync(int P_ID) {
             return base.Channel.getProQtySoldAsync(P_ID);
+        }
+        
+        public GreenPantryFrontend.ServiceReference1.Product[] recommendedProducts(int userID) {
+            return base.Channel.recommendedProducts(userID);
+        }
+        
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Product[]> recommendedProductsAsync(int userID) {
+            return base.Channel.recommendedProductsAsync(userID);
+        }
+        
+        public GreenPantryFrontend.ServiceReference1.recommended[] recommendTest(int userID) {
+            return base.Channel.recommendTest(userID);
+        }
+        
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.recommended[]> recommendTestAsync(int userID) {
+            return base.Channel.recommendTestAsync(userID);
         }
         
         public void newsletter(string senderemail, string subscriberemail, string subject, string body, string password, string smtp) {
@@ -2641,12 +2730,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.addAddressAsync(line1, line2, suburb, city, billing, type, C_ID, Province);
         }
         
-        public int updateAddress(int A_ID, string line1, string line2, string suburb, string city, char billing, string type, int Cus_ID) {
-            return base.Channel.updateAddress(A_ID, line1, line2, suburb, city, billing, type, Cus_ID);
+        public int updateAddress(string line1, string line2, string suburb, string city, string province, char billing, string type, int Cus_ID) {
+            return base.Channel.updateAddress(line1, line2, suburb, city, province, billing, type, Cus_ID);
         }
         
-        public System.Threading.Tasks.Task<int> updateAddressAsync(int A_ID, string line1, string line2, string suburb, string city, char billing, string type, int Cus_ID) {
-            return base.Channel.updateAddressAsync(A_ID, line1, line2, suburb, city, billing, type, Cus_ID);
+        public System.Threading.Tasks.Task<int> updateAddressAsync(string line1, string line2, string suburb, string city, string province, char billing, string type, int Cus_ID) {
+            return base.Channel.updateAddressAsync(line1, line2, suburb, city, province, billing, type, Cus_ID);
         }
         
         public GreenPantryFrontend.ServiceReference1.Card getCard(int id) {
@@ -2673,12 +2762,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.updateCardsAsync(c_ID, Cust_ID, description, name, number, expiry);
         }
         
-        public GreenPantryFrontend.ServiceReference1.Device getDevice(int D_ID) {
-            return base.Channel.getDevice(D_ID);
+        public GreenPantryFrontend.ServiceReference1.Device getDevice(int userID) {
+            return base.Channel.getDevice(userID);
         }
         
-        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Device> getDeviceAsync(int D_ID) {
-            return base.Channel.getDeviceAsync(D_ID);
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Device> getDeviceAsync(int userID) {
+            return base.Channel.getDeviceAsync(userID);
         }
         
         public int addDevices(int cust_ID, string useragent) {

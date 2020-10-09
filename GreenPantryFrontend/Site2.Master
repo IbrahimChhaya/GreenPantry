@@ -192,13 +192,13 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form runat="server">
+                            <form>
                                 <div class="hero__search__categories">
                                     All Departments
                                     <span class="arrow_carrot-down"></span>
                                 </div>
                                 <input type="text" id="searchText" runat="server">
-                                <button type="submit" class="site-btn" runat="server" id="search" onserverclick="Search_Click">SEARCH</button>
+                                <a class="site-btn" runat="server" id="searchA" onserverclick="Search_Click">SEARCH</a>
                             </form>
                         </div>
                         <div class="hero__search__phone">

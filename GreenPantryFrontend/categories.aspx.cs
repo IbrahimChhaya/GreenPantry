@@ -21,10 +21,11 @@ namespace GreenPantryFrontend
             {
                 Response.Redirect("home.aspx");
             }
-            else { 
-                String display = "";
+            else 
+            { 
+            String display = "";
 
-                String catID = Request.QueryString["CategoryID"];
+            String catID = Request.QueryString["CategoryID"];
 
             dynamic category = SC.getCat(int.Parse(catID));
             if (category.Status.Equals("active"))

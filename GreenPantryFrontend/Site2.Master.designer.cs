@@ -60,13 +60,13 @@ namespace GreenPantryFrontend
         protected global::System.Web.UI.HtmlControls.HtmlInputText searchText;
 
         /// <summary>
-        /// search control.
+        /// searchA control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton search;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor searchA;
 
         /// <summary>
         /// account control.

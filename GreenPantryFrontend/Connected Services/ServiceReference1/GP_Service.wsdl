@@ -122,6 +122,18 @@
   <wsdl:message name="IGP_Service_getProQtySold_OutputMessage">
     <wsdl:part name="parameters" element="tns:getProQtySoldResponse" />
   </wsdl:message>
+  <wsdl:message name="IGP_Service_recommendedProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:recommendedProducts" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_recommendedProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:recommendedProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_recommendTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:recommendTest" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_recommendTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:recommendTestResponse" />
+  </wsdl:message>
   <wsdl:message name="IGP_Service_newsletter_InputMessage">
     <wsdl:part name="parameters" element="tns:newsletter" />
   </wsdl:message>
@@ -583,6 +595,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getProQtySold" message="tns:IGP_Service_getProQtySold_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getProQtySoldResponse" message="tns:IGP_Service_getProQtySold_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="recommendedProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/recommendedProducts" message="tns:IGP_Service_recommendedProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/recommendedProductsResponse" message="tns:IGP_Service_recommendedProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="recommendTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/recommendTest" message="tns:IGP_Service_recommendTest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/recommendTestResponse" message="tns:IGP_Service_recommendTest_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="newsletter">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/newsletter" message="tns:IGP_Service_newsletter_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/newsletterResponse" message="tns:IGP_Service_newsletter_OutputMessage" />
@@ -1006,6 +1026,24 @@
     </wsdl:operation>
     <wsdl:operation name="getProQtySold">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/getProQtySold" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recommendedProducts">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/recommendedProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recommendTest">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/recommendTest" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
