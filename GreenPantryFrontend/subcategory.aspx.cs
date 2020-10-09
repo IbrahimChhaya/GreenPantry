@@ -71,5 +71,17 @@ namespace GreenPantryFrontend
                 subProducts.InnerHtml = display;
             }
         }
+
+        //function to get all products
+        public string getProducts()
+        {
+            Product[] products = SC.getProductBySubCat(Convert.ToInt32(Request.QueryString["SubcategoryID"]));
+            //create js serialized object to pass to js
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            jsonProducts = serializer.Serialize(products);
+            //jsonProducts = products;
+            return jsonProducts;
+
+        }
     }
 }
