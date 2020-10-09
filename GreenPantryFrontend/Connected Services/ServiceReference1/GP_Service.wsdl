@@ -8,6 +8,12 @@
       <xsd:import schemaLocation="http://localhost:53900/GP_Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IGP_Service_calcCategoryTotalSales_InputMessage">
+    <wsdl:part name="parameters" element="tns:calcCategoryTotalSales" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_calcCategoryTotalSales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:calcCategoryTotalSalesResponse" />
+  </wsdl:message>
   <wsdl:message name="IGP_Service_calcSalesPerDay_InputMessage">
     <wsdl:part name="parameters" element="tns:calcSalesPerDay" />
   </wsdl:message>
@@ -428,6 +434,12 @@
   <wsdl:message name="IGP_Service_profitPerCat_OutputMessage">
     <wsdl:part name="parameters" element="tns:profitPerCatResponse" />
   </wsdl:message>
+  <wsdl:message name="IGP_Service_calcProfitPerday_InputMessage">
+    <wsdl:part name="parameters" element="tns:calcProfitPerday" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_calcProfitPerday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:calcProfitPerdayResponse" />
+  </wsdl:message>
   <wsdl:message name="IGP_Service_calcProductVAT_InputMessage">
     <wsdl:part name="parameters" element="tns:calcProductVAT" />
   </wsdl:message>
@@ -488,13 +500,11 @@
   <wsdl:message name="IGP_Service_NumSaleChange_OutputMessage">
     <wsdl:part name="parameters" element="tns:NumSaleChangeResponse" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_calcCategoryTotalSales_InputMessage">
-    <wsdl:part name="parameters" element="tns:calcCategoryTotalSales" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_calcCategoryTotalSales_OutputMessage">
-    <wsdl:part name="parameters" element="tns:calcCategoryTotalSalesResponse" />
-  </wsdl:message>
   <wsdl:portType name="IGP_Service">
+    <wsdl:operation name="calcCategoryTotalSales">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/calcCategoryTotalSales" message="tns:IGP_Service_calcCategoryTotalSales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/calcCategoryTotalSalesResponse" message="tns:IGP_Service_calcCategoryTotalSales_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="calcSalesPerDay">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/calcSalesPerDay" message="tns:IGP_Service_calcSalesPerDay_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/calcSalesPerDayResponse" message="tns:IGP_Service_calcSalesPerDay_OutputMessage" />
@@ -775,6 +785,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/profitPerCat" message="tns:IGP_Service_profitPerCat_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/profitPerCatResponse" message="tns:IGP_Service_profitPerCat_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="calcProfitPerday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/calcProfitPerday" message="tns:IGP_Service_calcProfitPerday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/calcProfitPerdayResponse" message="tns:IGP_Service_calcProfitPerday_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="calcProductVAT">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/calcProductVAT" message="tns:IGP_Service_calcProductVAT_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/calcProductVATResponse" message="tns:IGP_Service_calcProductVAT_OutputMessage" />
@@ -815,13 +829,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/NumSaleChange" message="tns:IGP_Service_NumSaleChange_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/NumSaleChangeResponse" message="tns:IGP_Service_NumSaleChange_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="calcCategoryTotalSales">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/calcCategoryTotalSales" message="tns:IGP_Service_calcCategoryTotalSales_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/calcCategoryTotalSalesResponse" message="tns:IGP_Service_calcCategoryTotalSales_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGP_Service" type="tns:IGP_Service">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="calcCategoryTotalSales">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/calcCategoryTotalSales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="calcSalesPerDay">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/calcSalesPerDay" style="document" />
       <wsdl:input>
@@ -1452,6 +1471,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="calcProfitPerday">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/calcProfitPerday" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="calcProductVAT">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/calcProductVAT" style="document" />
       <wsdl:input>
@@ -1535,15 +1563,6 @@
     </wsdl:operation>
     <wsdl:operation name="NumSaleChange">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/NumSaleChange" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="calcCategoryTotalSales">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/calcCategoryTotalSales" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
