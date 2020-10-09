@@ -275,6 +275,10 @@
             //calculate total
             var total = subTotal + deliveryFee;
             $('#checkout__cart-total').text("R" + total.toFixed(2));
+
+            if (cookie = getCookie("cart") === "") {
+                location.reload();
+            }
         } 
 
         //on list page
@@ -293,7 +297,13 @@
 
             if (newVal <= 0)
                 $button.parent().parent().parent().parent().remove();
+
+            if (cookie = getCookie("list") === "") {
+                location.reload();
+            }
+    
         }
+
     });
 
     /*-------------------
@@ -313,8 +323,12 @@
             var cVal = cookie.replace(unitID + "-" + unitQty + ",", "");
             document.cookie = "cart=" + cVal;
 
-            //refresh page
+            //remove the row
             $button.parent().parent().remove();
+
+            if (cookie = getCookie("cart") === "") {
+                location.reload();
+            }
         }
         else if (window.location.pathname === "/shoppinglist.aspx") {
             //get list cookie
@@ -325,6 +339,10 @@
             document.cookie = "list=" + cookieVal;
 
             $button.parent().parent().remove();
+
+            if (cookie = getCookie("list") === "") {
+                location.reload();
+            }
         }
         
     });
