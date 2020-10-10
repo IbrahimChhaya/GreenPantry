@@ -14,42 +14,146 @@ namespace GreenPantryFrontend
        
         protected void Page_Load(object sender, EventArgs e)
         {
-            string Display = ""; 
+            int currentPage = int.Parse(Request.QueryString["Page"]);
+            string display = ""; 
             dynamic orders = SC.getAllInvoices();
+            int numOrder = orders.Length;
+            double roundUpPages = Math.Ceiling(numOrder / 10.00);
+            int totalPages = (int)roundUpPages;
+            dynamic list = GetPage(orders, currentPage, 10);
 
-            foreach(var i in orders)
+            foreach (var i in list)
             {
                 User getuser = SC.getUser(i.CustomerID);
-                Display += "<tr>";
-                Display += "<th scope = 'row'>";
-                Display += "<div class='media align-items-center'>";
-                Display += "<div class='media-body'>";
-                Display += "<span class='name mb-0 text-sm'>#" + i.ID + "</span>";
-                Display += "</div></div></th>";
-                Display += "<td class='budget'>";
-                Display += "R" + Math.Round(i.Total,2);
-                Display += "</td><td>";
-                Display += "<span class='badge badge-dot mr-4'>";
-                Display += "<i class='bg-warning'></i>";
-                Display += "<span class='status'>" + i.Status + "</span>";
-                Display += "</span></td>";
-                Display += "<td><span class='budget'>" + i.Date.ToString("d") + "</span></td>";
-                Display += "<td><div class='avatar-group'>";
-                Display += "<a href='#' class='avatar avatar-sm rounded-circle' data-toggle='tooltip' data-original-title=" + getuser.Name +">";
-                Display += "<i class='ni ni-circle-08'></i>";
-                Display += "</a></div></td>"; 
-                Display += "<td class='text-right'>";
-                Display += "<div class='dropdown'>"; 
-                Display += "<a class='btn btn-sm btn-icon-only text-light' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
-                Display += "<i class='fas fa-ellipsis-v'></i>";
-                Display += "</a>"; 
-                Display += "<div class='dropdown-menu dropdown-menu-right dropdown-menu-arrow'>"; 
-                Display += "<a class='dropdown-item' href='#'>Action</a>";
-                Display += "<a class='dropdown-item' href='#'>Another action</a>";
-                Display += "<a class='dropdown-item' href='#'>Something else here</a>";
-                Display += "</div></div></td></tr>";
+                display += "<tr><th scope='row'>";
+                display += "<div class='media align-items-center'>";
+                display += "<div class='media-body'>";
+                display += "<a href='editOrder.aspx?InvoiceID=" + i.ID + "'><span class='name mb-0 text-sm'>#" + i.ID + "</span></a>";
+                display += "</div></div></th>";
+                display += "<td class='budget'>";
+                display += "R" + Math.Round(i.Total,2);
+                display += "</td><td>";
+                display += "<span class='badge badge-dot mr-4'>";
+                if(i.Status.Equals("Pending"))
+                {
+                    display += "<i class='bg-warning'></i><span class='status'>" + i.Status + "</span>";
+                }
+                else if(i.Status.Equals("Approved"))
+                {
+                    display += "<i class='bg-success'></i><span class='status'>" + i.Status + "</span>";
+                }
+                else
+                {
+                    display += "<i class='bg-danger'></i><span class='status'>" + i.Status + "</span>";
+                }
+                display += "</span></td>";
+                display += "<td><span class='budget'>" + i.Date.ToString("d") + "</span></td>";
+                display += "<td><div class='avatar-group'>";
+                display += "<a href='#' class='avatar avatar-sm rounded-circle' data-toggle='tooltip' data-original-title=" + getuser.Name +">";
+                display += "<i class='ni ni-circle-08'></i>";
+                display += "</a></div></td>";
+                display += "<td class='text-right'>";
+                display += "<div class='dropdown'>";
+                display += "<a class='btn btn-sm btn-icon-only text-light' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
+                display += "<i class='fas fa-ellipsis-v'></i>";
+                display += "</a>";
+                display += "<div class='dropdown-menu dropdown-menu-right dropdown-menu-arrow'>";
+                display += "<a class='dropdown-item' href='editOrder.aspx?InvoiceID=" + i.ID + "'>Edit Order</a>";
+                display += "</div></div></td></tr></a>";
             }
-            orderID.InnerHtml = Display;
+            orderID.InnerHtml = display;
+
+            //page numbers
+            //previous button
+            display = "";
+            if (currentPage.Equals(1))
+            {
+                display += "<li class='page-item disabled'>";
+                display += "<a class='page-link' href='#' tabindex='-1'>";
+                display += "<i class='fas fa-angle-left'></i></a></li>";
+            }
+            else
+            {
+                display += "<li class='page-item'>";
+                display += "<a class='page-link' href='orders.aspx?Page=" + (currentPage - 1) + "' tabindex='-1'>";
+                display += "<i class='fas fa-angle-left'></i></a></li>";
+            }
+
+            //if current page is 1
+            if (currentPage.Equals(1))
+            {
+                for (int i = 1; i <= 3; i++)
+                {
+                    if (i <= totalPages)
+                    {
+                        if (i.Equals(1))
+                        {
+                            display += "<li class='page-item active'>";
+                        }
+                        else
+                        {
+                            display += "<li class='page-item'>";
+                        }
+                        display += "<a class='page-link' href='orders.aspx?Page=" + i + "'>" + i + "</a></li>";
+                    }
+                }
+            }
+            //else
+            else if (currentPage.Equals(totalPages))
+            {
+                for (int i = totalPages - 2; i <= totalPages; i++)
+                {
+                    if (i > 0)
+                    {
+                        if (i.Equals(totalPages))
+                        {
+                            display += "<li class='page-item active'>";
+                        }
+                        else
+                        {
+                            display += "<li class='page-item'>";
+                        }
+                        display += "<a class='page-link' href='/dashboard/orders.aspx?Page=" + i + "'>" + i + "</a></li>";
+                    }
+                }
+            }
+            else
+            {
+                for (int i = currentPage - 1; i <= currentPage + 1; i++)
+                {
+                    if (i > 0 && i <= totalPages)
+                    {
+                        if (i.Equals(currentPage))
+                        {
+                            display += "<li class='page-item active'>";
+                        }
+                        else
+                        {
+                            display += "<li class='page-item'>";
+                        }
+                        display += "<a class='page-link' href='/dashboard/orders.aspx?Page=" + i + "'>" + i + "</a></li>";
+                    }
+                }
+            }
+            //next button
+            if (currentPage.Equals(totalPages))
+            {
+                display += "<li class='page-item disabled'>";
+                display += "<a class='page-link' href='#'>";
+                display += "<i class='fas fa-angle-right'></i></a></li>";
+            }
+            else
+            {
+                display += "<li class='page-item'>";
+                display += "<a class='page-link' href='/dashboard/orders.aspx?Page=" + (currentPage + 1) + "'>";
+                display += "<i class='fas fa-angle-right'></i></a></li>";
+            }
+            pageNumbers.InnerHtml = display;
+        }
+
+        static IList<Invoice> GetPage(IList<Invoice> list, int pageNumber, int pageSize = 10)
+        {
+            return list.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
         }
     }
 }

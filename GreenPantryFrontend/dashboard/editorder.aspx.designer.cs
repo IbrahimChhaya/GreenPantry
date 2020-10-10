@@ -7,74 +7,101 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GreenPantryFrontend
+namespace GreenPantryFrontend.dashboard
 {
 
 
-    public partial class orderdash
+    public partial class editorder
     {
 
         /// <summary>
-        /// orderID control.
+        /// editName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl orderID;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl editName;
 
         /// <summary>
-        /// invoicenumberID control.
+        /// error control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl invoicenumberID;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl error;
 
         /// <summary>
-        /// budgetID control.
+        /// updateOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell budgetID;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor updateOrder;
 
         /// <summary>
-        /// statusID control.
+        /// productList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl statusID;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl productList;
 
         /// <summary>
-        /// avatarID control.
+        /// userID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl avatarID;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userID;
 
         /// <summary>
-        /// pageNumbers control.
+        /// email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pageNumbers;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText email;
 
         /// <summary>
-        /// firstPage control.
+        /// datePlaced control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl firstPage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText datePlaced;
+
+        /// <summary>
+        /// CategoryStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CategoryStatus;
+
+        /// <summary>
+        /// dropdownStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdownStatus;
+
+        /// <summary>
+        /// notes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea notes;
     }
 }

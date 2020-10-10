@@ -19,10 +19,21 @@ namespace GreenPantryFrontend
             String search = Request.QueryString["Search"];
             //String search = "bread";
             var inputSearch = this.Master.FindControl("searchText") as HtmlInputText;
-            inputSearch.Value = search;
+            dynamic results;
+            if(search.Equals("1"))
+            {
+                inputSearch.Value = "Shop";
+                display += "<h2>Shop</h2>";
+                results = SC.getAllProducts();
+            }
+            else
+            {
+                inputSearch.Value = search;
+                display += "<h2>" + search + "</h2>";
+                results = SC.searchProducts(search);
+            }
 
             //breadcrumb
-            display += "<h2>" + search + "</h2>";
             display += "<div class='breadcrumb__option'>";
             display += "<a href='./home.aspx'>Home</a>";
             display += "<span>Search Results</span></div>";
@@ -30,7 +41,6 @@ namespace GreenPantryFrontend
 
             //display the products from search result ------
             display = "";
-            dynamic results = SC.searchProducts(search);
             foreach (Product p in results)
             {
                 if (p.Status.Equals("active"))
@@ -39,7 +49,10 @@ namespace GreenPantryFrontend
                     display += "<div class='product__item' onclick='location.href=&#39;singleproduct.aspx?ProductID=" + p.ID + "&#39;'>";
                     display += "<div class='product__item__pic set-bg' data-setbg='" + p.Image_Location + "'>";
                     display += "<ul class='product__item__pic__hover'>";
-                    display += "<li><a href='#'><i class='fa fa-heart'></i></a></li>";
+                    if (Session["LoggedInUserID"] != null)
+                    {
+                        display += "<li><a href='#'><i class='fa fa-list'></i></a></li>";
+                    }
                     display += "<li><a href='#'><i class='fa fa-shopping-cart'></i></a></li></ul></div>";
                     display += "<div class='product__item__text'>";
                     display += "<h6>" + p.Name + "</h6>";

@@ -7,101 +7,110 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GreenPantryFrontend
+namespace GreenPantryFrontend.dashboard
 {
 
 
-    public partial class Site2
+    public partial class edituser
     {
 
         /// <summary>
-        /// head control.
+        /// editName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl editName;
 
         /// <summary>
-        /// listIcon control.
+        /// error control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor listIcon;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl error;
 
         /// <summary>
-        /// numCartItems control.
+        /// updateUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl numCartItems;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor updateUser;
 
         /// <summary>
-        /// categoryList control.
+        /// addUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl categoryList;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor addUser;
 
         /// <summary>
-        /// searchText control.
+        /// Details control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText searchText;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Details;
 
         /// <summary>
-        /// searchA control.
+        /// email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor searchA;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText email;
 
         /// <summary>
-        /// account control.
+        /// points control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl account;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl points;
 
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// CategoryStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CategoryStatus;
 
         /// <summary>
-        /// newsletterID control.
+        /// dropdownStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newsletterID;
+        protected global::System.Web.UI.WebControls.DropDownList dropdownStatus;
 
         /// <summary>
-        /// NewsLetterbtnID12 control.
+        /// typeList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor NewsLetterbtnID12;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl typeList;
+
+        /// <summary>
+        /// dropdownType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdownType;
     }
 }

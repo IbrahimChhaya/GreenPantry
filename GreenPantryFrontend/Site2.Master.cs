@@ -17,8 +17,6 @@ namespace GreenPantryFrontend
         {
             String display = "";
 
-           
-
             if (Session["LoggedInUserID"] != null)
             {
                 listIcon.Visible = true;
@@ -74,9 +72,11 @@ namespace GreenPantryFrontend
                         numProducts++;
                     }
                 }
-
-                numCartItems.InnerHtml = numProducts.ToString();
-                numCartItems.Visible = true;
+                if (numProducts > 0)
+                {
+                    numCartItems.InnerText = numProducts.ToString();
+                    numCartItems.Visible = true;
+                }
             }
             else
             {
@@ -88,9 +88,6 @@ namespace GreenPantryFrontend
         {
             string userInput = searchText.Value;
             Response.Redirect("/results.aspx?Search=" + userInput);
-        }
-
-        
-        
+        }               
     }
 }

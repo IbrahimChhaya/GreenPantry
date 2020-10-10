@@ -16,9 +16,9 @@ namespace AdminDashboard
         protected string jsonCategories;
         protected string jsonCatSales;
         protected string jsonMonthDates;
-        protected string jsonMonthSales;
+        protected string jsonMonthProfits;
         protected string jsonWeekDays;
-        protected string jsonWeekSales;
+        protected string jsonWeekProfits;
         protected void Page_Load(object sender, EventArgs e)
         {
             //int trafficNum = SR.getVisitors();
@@ -56,13 +56,13 @@ namespace AdminDashboard
             List<decimal> salesMonthDays = new List<decimal>();
             foreach (DateTime d in monthDates)
             {
-                var daySales = SR.calcSalesPerDay(d.Date);
-                salesMonthDays.Add(daySales);
+                var dayProfit = SR.calcProfitPerday(d.Date);
+                salesMonthDays.Add(dayProfit);
                 dates.Add(d.ToShortDateString());
             }
 
             jsonMonthDates = serializer.Serialize(dates);
-            jsonMonthSales = serializer.Serialize(salesMonthDays);
+            jsonMonthProfits = serializer.Serialize(salesMonthDays);
 
             dynamic weekDates = SR.getWeekDates(new DateTime(2020, 09, 24));
             List<string> wDays = new List<string>();
@@ -70,13 +70,13 @@ namespace AdminDashboard
 
             foreach (DateTime d in weekDates)
             {
-                var wDaySales = SR.calcSalesPerDay(d.Date);
-                weekSales.Add(wDaySales);
+                var wDayProfit = SR.calcProfitPerday(d.Date);
+                weekSales.Add(wDayProfit);
                 wDays.Add(d.Date.ToShortDateString());
             }
 
             jsonWeekDays = serializer.Serialize(wDays);
-            jsonWeekSales = serializer.Serialize(weekSales);
+            jsonWeekProfits = serializer.Serialize(weekSales);
             /*Graph data --END*/
 
 
@@ -86,41 +86,49 @@ namespace AdminDashboard
             int usrperweek = SR.usersperWeek(DateTime.Now);
             Display += "<div class='row'><div class='col'>";
             Display += "<h5 class='card-title text-uppercase text-muted mb-0'>New users</h5>";
-            //display += "<span class='h2 font-weight-bold mb-0'>5</span>";
             Display += "<span class='h2 font-weight-bold mb-0'>"+ usrperweek + "</span></div>";
             Display += "<div class='col-auto'>";
             Display += "<div class='icon icon-shape bg-gradient-orange text-white rounded-circle shadow'>";
             Display += "<i class='ni ni-chart-pie-35'></i></div></div></div><p class='mt-3 mb-0 text-sm'>";
             if(userChange > 0)
             { 
-                Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i> "+ userChange +"%</span>";
+                Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i> "+ Math.Round(userChange, 2) +"%</span>";
             }
             else if(userChange < 0)
             {
-                Display += "<span class='text-danger mr-2'><i class='fas fa-arrow-down text-danger mr-3'></i> " + userChange + "%</span>";
+                Display += "<span class='text-danger mr-2'><i class='fas fa-arrow-down text-danger mr-3'></i> " + Math.Round(userChange, 2) + "%</span>";
 
             }
             else
             {
-                Display += "<span class='text-success mr-2'> " + userChange + "%</span>";
+                Display += "<span class='text-success mr-2'> " + Math.Round(userChange, 2) + "%</span>";
             }
             Display += "<span class='text-nowrap'>Since last week</span></p>";
             newUsr.InnerHtml = Display;
 
-            decimal salesperweek = SR.salesPerWeek(DateTime.Now);
             int NumbSalesPerWeek = SR.NumsalesPerWeek(DateTime.Now);
             double percentageChange = SR.NumSaleChange(DateTime.Now);
-            double saleChange = SR.percentageSaleChanger(DateTime.Now);
             Display = "";
             Display += "<div class='row'>";
             Display += "<div class='col'>";
             Display += "<h5 class='card-title text-uppercase text-muted mb-0'>Sales</h5>";
-            Display += "<span class='h2 font-weight-bold mb-0'>"+NumbSalesPerWeek+"</span></div>";
+            Display += "<span class='h2 font-weight-bold mb-0'>" + NumbSalesPerWeek + "</span></div>";
             Display += "<div class='col-auto'>";
             Display += "<div class='icon icon-shape bg-gradient-green text-white rounded-circle shadow'>";
             Display += "<i class='ni ni-money-coins'></i></div></div></div>";
             Display += "<p class='mt-3 mb-0 text-sm'>";
-            Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i> "+Math.Round(percentageChange,2)+"%</span>";
+            if(percentageChange > 0)
+            {
+                Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i> " + Math.Round(percentageChange, 2) + "%</span>";
+            }
+            else if (percentageChange < 0)
+            {
+                Display += "<span class='text-danger mr-2'><i class='fa fa-arrow-down'></i> " + Math.Round(percentageChange, 2) + "%</span>";
+            }
+            else
+            {
+                Display += "<span class='text-success mr-2'> " + Math.Round(percentageChange, 2) + "%</span>";
+            }
             Display += "<span class='text-nowrap'>Since last week</span></p>";
             Salesperweek.InnerHtml = Display;
 
@@ -130,13 +138,24 @@ namespace AdminDashboard
             Display += "<div class='row'>";
             Display += "<div class='col'>";
             Display += "<h5 class='card-title text-uppercase text-muted mb-0'>Product</h5>";
-            Display += "<span class='h2 font-weight-bold mb-0'>"+NumProducts+"</span></div>";
+            Display += "<span class='h2 font-weight-bold mb-0'>" + NumProducts + "</span></div>";
             Display += "<div class='col-auto'>";
             Display += "<div class='icon icon-shape bg-gradient-info text-white rounded-circle shadow'>";
             Display += "<i class='ni ni-chart-bar-32'></i></div></div></div>";
             Display += "<p class='mt-3 mb-0 text-sm'>";
-            Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i> "+ Math.Round(perc,2)+ "%</span>";
-            Display += "<span class='text-nowrap'>Since last week hau</span></p>";
+            if (perc > 0)
+            {
+                Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i> " + Math.Round(perc, 2) + "%</span>";
+            }
+            else if (perc < 0)
+            {
+                Display += "<span class='text-danger mr-2'><i class='fa fa-arrow-down'></i> " + Math.Round(perc, 2) + "%</span>";
+            }
+            else
+            {
+                Display += "<span class='text-success mr-2'> " + Math.Round(perc, 2) + "%</span>";
+            }
+            Display += "<span class='text-nowrap'>Since last week</span></p>";
             productSales.InnerHtml = Display;
 
             Display = "";
@@ -144,12 +163,23 @@ namespace AdminDashboard
             double percentage = SR.TrafficChange(DateTime.Now);
             Display +="<div class='row'>";
             Display +="<div class='col'><h5 class='card-title text-uppercase text-muted mb-0'>Total traffic</h5>";
-            Display +="<span class='h2 font-weight-bold mb-0'>"+weeklyTraffic+"</span></div>";
+            Display +="<span class='h2 font-weight-bold mb-0'>" + weeklyTraffic + "</span></div>";
             Display +="<div class='col-auto'>";
             Display +="<div class='icon icon-shape bg-gradient-red text-white rounded-circle shadow'>";
             Display +="<i class='ni ni-active-40'></i></div></div></div>";
             Display +="<p class='mt-3 mb-0 text-sm'>";
-            Display +="<span class='text-success mr-2' id='trafficChange' runat='server'><i class='fa fa-arrow-up'></i> "+Math.Round(percentage,2)+"%</span>";
+            if (percentage > 0)
+            {
+                Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i> " + Math.Round(percentage, 2) + "%</span>";
+            }
+            else if (percentage < 0)
+            {
+                Display += "<span class='text-danger mr-2'><i class='fa fa-arrow-down'></i> " + Math.Round(percentage, 2) + "%</span>";
+            }
+            else
+            {
+                Display += "<span class='text-success mr-2'> " + Math.Round(percentage, 2) + "%</span>";
+            }
             Display +="<span class='text-nowrap'>Since last week</span></p>";
             traffic.InnerHtml = Display;
 
@@ -169,19 +199,3 @@ namespace AdminDashboard
         }
     }
 }
-
-/*                    <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
-                      <span class="h2 font-weight-bold mb-0">3</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                        <i class="ni ni-money-coins"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last week</span>
-                  </p>*/

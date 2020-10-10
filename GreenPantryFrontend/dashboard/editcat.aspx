@@ -45,7 +45,7 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Name</label>
-                        <input type="text" id="name" class="form-control" runat="server">
+                        <input type="text" id="name" class="form-control" runat="server" required>
                       </div>
                     </div>
                     <div class="col-lg-6">

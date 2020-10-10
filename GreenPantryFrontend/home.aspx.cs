@@ -122,7 +122,7 @@ namespace GreenPantryFrontend
             display += "<span></span>";
             display += "<h2>Free <br/>Shipping</h2>";
             display += "<p>On Orders Over R500</p>";
-            display += "<a href='#' class='primary-btn'>SHOP NOW</a>";
+            display += "<a href='results.aspx?Search=1' class='primary-btn'>SHOP NOW</a>";
             display += "</div></div></br>";
             display += categoryHelper(sliderCaption, 2);
 
@@ -161,13 +161,16 @@ namespace GreenPantryFrontend
                 {
                     display += "<div class='col-lg-3 catSliderHover'>";
                     display += "<div class='featured__item'>";
-                    display += "<div class='featured__item__pic set-bg' data-setbg='/" + p.Image_Location + "'>"; //onclick='location.href=&#39;singleproduct.aspx?ProductID=" + p.ID + "&#39;'>";
+                    display += "<div class='featured__item__pic set-bg' data-setbg='/" + p.Image_Location + "' onclick='location.href=&#39;singleproduct.aspx?ProductID=" + p.ID + "&#39;'>";
                     display += "<ul class='featured__item__pic__hover'>";
-                    display += "<li><a href='#'><i class='fa fa-heart'></i></a></li>";
-                    display += "<li><a href='singleproduct.aspx?ProductID=" + p.ID + "'><i class='fa fa-shopping-cart'></i></a></li>";
+                    if(Session["LoggedInUserID"] != null)
+                    { 
+                        display += "<li><a><i class='fa fa-list'></i></a></li>";
+                    }
+                    display += "<li><a><i class='fa fa-shopping-cart'></i></a></li>";
                     display += "</ul></div>";
                     display += "<div class='featured__item__text'>";
-                    display += "<h6><a href='singleproduct.aspx?ProductID=" + p.ID + "'>" + p.Name + "</a></h6>"; //product link
+                    display += "<h6>" + p.Name + "</h6>"; //product link
                     display += "<h5>R" + Math.Round(p.Price, 2) + "</h5>";
                     display += "</div></div></div>";
                 }

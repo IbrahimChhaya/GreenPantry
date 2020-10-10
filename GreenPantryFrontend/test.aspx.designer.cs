@@ -7,38 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AdminDashboard
+namespace GreenPantryFrontend
 {
 
 
-    public partial class users
+    public partial class test
     {
 
         /// <summary>
-        /// userList control.
+        /// subcatList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userList;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl subcatList;
 
         /// <summary>
-        /// pageNumbers control.
+        /// recommendedProducts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pageNumbers;
-
-        /// <summary>
-        /// firstPage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl firstPage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl recommendedProducts;
     }
 }
