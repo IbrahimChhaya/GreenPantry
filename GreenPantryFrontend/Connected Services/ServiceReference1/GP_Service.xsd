@@ -316,6 +316,34 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="percProfitPerWeek">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="currenDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="percProfitPerWeekResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="percProfitPerWeekResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="totalProfitPerWeek">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="currentDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="totalProfitPerWeekResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="totalProfitPerWeekResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="newsletter">
     <xs:complexType>
       <xs:sequence>
