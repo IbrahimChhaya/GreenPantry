@@ -70,7 +70,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="account.aspx" />
-    <Content Include="checkout2.aspx" />
+    <Content Include="addressbook.aspx" />
+    <Content Include="checkout.aspx" />
     <Content Include="css\datePicker.css" />
     <Content Include="dashboard\assets\css\argon.css" />
     <Content Include="dashboard\assets\css\argon.min.css" />
@@ -2600,7 +2601,6 @@
     <Content Include="categories.aspx" />
     <Content Include="dashboard\category.aspx" />
     <Content Include="dashboard\charts.aspx" />
-    <Content Include="checkout.aspx" />
     <Content Include="dashboard\assets\fonts\nucleo\nucleo-icons.eot" />
     <Content Include="dashboard\assets\fonts\nucleo\nucleo-icons.ttf" />
     <Content Include="dashboard\assets\fonts\nucleo\nucleo-icons.woff" />
@@ -3379,6 +3379,13 @@
     <Compile Include="account.aspx.designer.cs">
       <DependentUpon>account.aspx</DependentUpon>
     </Compile>
+    <Compile Include="addressbook.aspx.cs">
+      <DependentUpon>addressbook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addressbook.aspx.designer.cs">
+      <DependentUpon>addressbook.aspx</DependentUpon>
+    </Compile>
     <Compile Include="cart.aspx.cs">
       <DependentUpon>cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3393,12 +3400,12 @@
     <Compile Include="categories.aspx.designer.cs">
       <DependentUpon>categories.aspx</DependentUpon>
     </Compile>
-    <Compile Include="checkout2.aspx.cs">
-      <DependentUpon>checkout2.aspx</DependentUpon>
+    <Compile Include="checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="checkout2.aspx.designer.cs">
-      <DependentUpon>checkout2.aspx</DependentUpon>
+    <Compile Include="checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="dashboard\category.aspx.cs">
       <DependentUpon>category.aspx</DependentUpon>
@@ -3413,13 +3420,6 @@
     </Compile>
     <Compile Include="dashboard\charts.aspx.designer.cs">
       <DependentUpon>charts.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="checkout.aspx.cs">
-      <DependentUpon>checkout.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="checkout.aspx.designer.cs">
-      <DependentUpon>checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>

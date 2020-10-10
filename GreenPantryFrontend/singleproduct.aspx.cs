@@ -77,7 +77,8 @@ namespace GreenPantryFrontend
                     if (p.StockOnHand.Equals(0))
                     {
                         stock.InnerHtml = "Out of Stock";
-                        Add.Enabled = false;
+                        //Add.Enabled = false;
+                        addToCart.Visible = false;
                         listIcon.Visible = false;
                     }
                 }
@@ -132,7 +133,8 @@ namespace GreenPantryFrontend
             {
                 createCookie("cart", Request.QueryString["ProductID"] + "-" + item_qty.Value);
             }
-            Add.Text = "ADDED TO CART";
+            //Add.Text = "ADDED TO CART";
+            addToCart.InnerText = "ADDED TO CART";
             //reload the page
             Response.Redirect(Request.RawUrl);
         }

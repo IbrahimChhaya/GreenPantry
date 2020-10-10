@@ -78,22 +78,13 @@ namespace GreenPantryFrontend
         protected global::System.Web.UI.HtmlControls.HtmlInputText item_qty;
 
         /// <summary>
-        /// form1 control.
+        /// addToCart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
-        /// Add control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Add;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor addToCart;
 
         /// <summary>
         /// listIcon control.

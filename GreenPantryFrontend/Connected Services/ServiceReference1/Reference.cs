@@ -851,9 +851,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         private string PasswordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PhoneNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PointsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -996,19 +993,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PhoneNumber {
-            get {
-                return this.PhoneNumberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PhoneNumberField, value) != true)) {
-                    this.PhoneNumberField = value;
-                    this.RaisePropertyChanged("PhoneNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Points {
             get {
                 return this.PointsField;
@@ -1093,9 +1077,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private char BillingField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1111,6 +1092,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
         private string Line2Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PrimaryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ProvinceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1122,6 +1109,9 @@ namespace GreenPantryFrontend.ServiceReference1 {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private GreenPantryFrontend.ServiceReference1.User UserField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ZipField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -1129,19 +1119,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public char Billing {
-            get {
-                return this.BillingField;
-            }
-            set {
-                if ((this.BillingField.Equals(value) != true)) {
-                    this.BillingField = value;
-                    this.RaisePropertyChanged("Billing");
-                }
             }
         }
         
@@ -1211,6 +1188,32 @@ namespace GreenPantryFrontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Number {
+            get {
+                return this.NumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumberField, value) != true)) {
+                    this.NumberField = value;
+                    this.RaisePropertyChanged("Number");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Primary {
+            get {
+                return this.PrimaryField;
+            }
+            set {
+                if ((this.PrimaryField.Equals(value) != true)) {
+                    this.PrimaryField = value;
+                    this.RaisePropertyChanged("Primary");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Province {
             get {
                 return this.ProvinceField;
@@ -1258,6 +1261,19 @@ namespace GreenPantryFrontend.ServiceReference1 {
                 if ((object.ReferenceEquals(this.UserField, value) != true)) {
                     this.UserField = value;
                     this.RaisePropertyChanged("User");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Zip {
+            get {
+                return this.ZipField;
+            }
+            set {
+                if ((this.ZipField.Equals(value) != true)) {
+                    this.ZipField = value;
+                    this.RaisePropertyChanged("Zip");
                 }
             }
         }
@@ -1664,6 +1680,18 @@ namespace GreenPantryFrontend.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IGP_Service")]
     public interface IGP_Service {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/salesPerWeek", ReplyAction="http://tempuri.org/IGP_Service/salesPerWeekResponse")]
+        decimal salesPerWeek(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/salesPerWeek", ReplyAction="http://tempuri.org/IGP_Service/salesPerWeekResponse")]
+        System.Threading.Tasks.Task<decimal> salesPerWeekAsync(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageSaleChanger", ReplyAction="http://tempuri.org/IGP_Service/percentageSaleChangerResponse")]
+        double percentageSaleChanger(System.DateTime currentDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageSaleChanger", ReplyAction="http://tempuri.org/IGP_Service/percentageSaleChangerResponse")]
+        System.Threading.Tasks.Task<double> percentageSaleChangerAsync(System.DateTime currentDate);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/NumsalesPerWeek", ReplyAction="http://tempuri.org/IGP_Service/NumsalesPerWeekResponse")]
         int NumsalesPerWeek(System.DateTime date);
         
@@ -1784,12 +1812,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getProQtySold", ReplyAction="http://tempuri.org/IGP_Service/getProQtySoldResponse")]
         System.Threading.Tasks.Task<int> getProQtySoldAsync(int P_ID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/recommendedProducts", ReplyAction="http://tempuri.org/IGP_Service/recommendedProductsResponse")]
-        GreenPantryFrontend.ServiceReference1.Product[] recommendedProducts(int userID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/recommendedProducts", ReplyAction="http://tempuri.org/IGP_Service/recommendedProductsResponse")]
-        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Product[]> recommendedProductsAsync(int userID);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/recommendTest", ReplyAction="http://tempuri.org/IGP_Service/recommendTestResponse")]
         GreenPantryFrontend.ServiceReference1.recommended[] recommendTest(int userID);
         
@@ -1814,12 +1836,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/register", ReplyAction="http://tempuri.org/IGP_Service/registerResponse")]
         System.Threading.Tasks.Task<int> registerAsync(string name, string surname, string email, string password, string status, System.DateTime date, string userType);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addUserNumber", ReplyAction="http://tempuri.org/IGP_Service/addUserNumberResponse")]
-        int addUserNumber(int id, string number);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addUserNumber", ReplyAction="http://tempuri.org/IGP_Service/addUserNumberResponse")]
-        System.Threading.Tasks.Task<int> addUserNumberAsync(int id, string number);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/removeUser", ReplyAction="http://tempuri.org/IGP_Service/removeUserResponse")]
         int removeUser(int id);
         
@@ -1827,10 +1843,10 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> removeUserAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateUserDetails", ReplyAction="http://tempuri.org/IGP_Service/updateUserDetailsResponse")]
-        int updateUserDetails(int id, string name, string surname, string email, string number);
+        int updateUserDetails(int id, string name, string surname, string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateUserDetails", ReplyAction="http://tempuri.org/IGP_Service/updateUserDetailsResponse")]
-        System.Threading.Tasks.Task<int> updateUserDetailsAsync(int id, string name, string surname, string email, string number);
+        System.Threading.Tasks.Task<int> updateUserDetailsAsync(int id, string name, string surname, string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateUserAdmin", ReplyAction="http://tempuri.org/IGP_Service/updateUserAdminResponse")]
         int updateUserAdmin(int userID, int points, string usertype, string status);
@@ -2055,22 +2071,40 @@ namespace GreenPantryFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> removeListAsync(int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getAddress", ReplyAction="http://tempuri.org/IGP_Service/getAddressResponse")]
-        GreenPantryFrontend.ServiceReference1.Address getAddress(int Address_ID);
+        GreenPantryFrontend.ServiceReference1.Address getAddress(int addID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getAddress", ReplyAction="http://tempuri.org/IGP_Service/getAddressResponse")]
-        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Address> getAddressAsync(int Address_ID);
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Address> getAddressAsync(int addID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getUserAddresses", ReplyAction="http://tempuri.org/IGP_Service/getUserAddressesResponse")]
+        GreenPantryFrontend.ServiceReference1.Address[] getUserAddresses(int userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getUserAddresses", ReplyAction="http://tempuri.org/IGP_Service/getUserAddressesResponse")]
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Address[]> getUserAddressesAsync(int userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getPrimaryAddress", ReplyAction="http://tempuri.org/IGP_Service/getPrimaryAddressResponse")]
+        GreenPantryFrontend.ServiceReference1.Address getPrimaryAddress(int userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getPrimaryAddress", ReplyAction="http://tempuri.org/IGP_Service/getPrimaryAddressResponse")]
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Address> getPrimaryAddressAsync(int userID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addAddress", ReplyAction="http://tempuri.org/IGP_Service/addAddressResponse")]
-        int addAddress(string line1, string line2, string suburb, string city, char billing, string type, int C_ID, string Province);
+        int addAddress(string line1, string line2, string suburb, string city, int zip, string type, int C_ID, string Province, int primary, string number);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/addAddress", ReplyAction="http://tempuri.org/IGP_Service/addAddressResponse")]
-        System.Threading.Tasks.Task<int> addAddressAsync(string line1, string line2, string suburb, string city, char billing, string type, int C_ID, string Province);
+        System.Threading.Tasks.Task<int> addAddressAsync(string line1, string line2, string suburb, string city, int zip, string type, int C_ID, string Province, int primary, string number);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateAddress", ReplyAction="http://tempuri.org/IGP_Service/updateAddressResponse")]
-        int updateAddress(string line1, string line2, string suburb, string city, string province, char billing, string type, int Cus_ID);
+        int updateAddress(string line1, string line2, string suburb, string city, string province, int zip, string type, int addID, int primary, string number);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateAddress", ReplyAction="http://tempuri.org/IGP_Service/updateAddressResponse")]
-        System.Threading.Tasks.Task<int> updateAddressAsync(string line1, string line2, string suburb, string city, string province, char billing, string type, int Cus_ID);
+        System.Threading.Tasks.Task<int> updateAddressAsync(string line1, string line2, string suburb, string city, string province, int zip, string type, int addID, int primary, string number);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/deleteAddress", ReplyAction="http://tempuri.org/IGP_Service/deleteAddressResponse")]
+        int deleteAddress(int addressID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/deleteAddress", ReplyAction="http://tempuri.org/IGP_Service/deleteAddressResponse")]
+        System.Threading.Tasks.Task<int> deleteAddressAsync(int addressID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getCard", ReplyAction="http://tempuri.org/IGP_Service/getCardResponse")]
         GreenPantryFrontend.ServiceReference1.Card getCard(int id);
@@ -2167,18 +2201,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getWeekDates", ReplyAction="http://tempuri.org/IGP_Service/getWeekDatesResponse")]
         System.Threading.Tasks.Task<System.DateTime[]> getWeekDatesAsync(System.DateTime date);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/salesPerWeek", ReplyAction="http://tempuri.org/IGP_Service/salesPerWeekResponse")]
-        decimal salesPerWeek(System.DateTime date);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/salesPerWeek", ReplyAction="http://tempuri.org/IGP_Service/salesPerWeekResponse")]
-        System.Threading.Tasks.Task<decimal> salesPerWeekAsync(System.DateTime date);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageSaleChanger", ReplyAction="http://tempuri.org/IGP_Service/percentageSaleChangerResponse")]
-        double percentageSaleChanger(System.DateTime currentDate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageSaleChanger", ReplyAction="http://tempuri.org/IGP_Service/percentageSaleChangerResponse")]
-        System.Threading.Tasks.Task<double> percentageSaleChangerAsync(System.DateTime currentDate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2206,6 +2228,22 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public GP_ServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public decimal salesPerWeek(System.DateTime date) {
+            return base.Channel.salesPerWeek(date);
+        }
+        
+        public System.Threading.Tasks.Task<decimal> salesPerWeekAsync(System.DateTime date) {
+            return base.Channel.salesPerWeekAsync(date);
+        }
+        
+        public double percentageSaleChanger(System.DateTime currentDate) {
+            return base.Channel.percentageSaleChanger(currentDate);
+        }
+        
+        public System.Threading.Tasks.Task<double> percentageSaleChangerAsync(System.DateTime currentDate) {
+            return base.Channel.percentageSaleChangerAsync(currentDate);
         }
         
         public int NumsalesPerWeek(System.DateTime date) {
@@ -2368,14 +2406,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.getProQtySoldAsync(P_ID);
         }
         
-        public GreenPantryFrontend.ServiceReference1.Product[] recommendedProducts(int userID) {
-            return base.Channel.recommendedProducts(userID);
-        }
-        
-        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Product[]> recommendedProductsAsync(int userID) {
-            return base.Channel.recommendedProductsAsync(userID);
-        }
-        
         public GreenPantryFrontend.ServiceReference1.recommended[] recommendTest(int userID) {
             return base.Channel.recommendTest(userID);
         }
@@ -2408,14 +2438,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.registerAsync(name, surname, email, password, status, date, userType);
         }
         
-        public int addUserNumber(int id, string number) {
-            return base.Channel.addUserNumber(id, number);
-        }
-        
-        public System.Threading.Tasks.Task<int> addUserNumberAsync(int id, string number) {
-            return base.Channel.addUserNumberAsync(id, number);
-        }
-        
         public int removeUser(int id) {
             return base.Channel.removeUser(id);
         }
@@ -2424,12 +2446,12 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.removeUserAsync(id);
         }
         
-        public int updateUserDetails(int id, string name, string surname, string email, string number) {
-            return base.Channel.updateUserDetails(id, name, surname, email, number);
+        public int updateUserDetails(int id, string name, string surname, string email) {
+            return base.Channel.updateUserDetails(id, name, surname, email);
         }
         
-        public System.Threading.Tasks.Task<int> updateUserDetailsAsync(int id, string name, string surname, string email, string number) {
-            return base.Channel.updateUserDetailsAsync(id, name, surname, email, number);
+        public System.Threading.Tasks.Task<int> updateUserDetailsAsync(int id, string name, string surname, string email) {
+            return base.Channel.updateUserDetailsAsync(id, name, surname, email);
         }
         
         public int updateUserAdmin(int userID, int points, string usertype, string status) {
@@ -2728,28 +2750,52 @@ namespace GreenPantryFrontend.ServiceReference1 {
             return base.Channel.removeListAsync(userID);
         }
         
-        public GreenPantryFrontend.ServiceReference1.Address getAddress(int Address_ID) {
-            return base.Channel.getAddress(Address_ID);
+        public GreenPantryFrontend.ServiceReference1.Address getAddress(int addID) {
+            return base.Channel.getAddress(addID);
         }
         
-        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Address> getAddressAsync(int Address_ID) {
-            return base.Channel.getAddressAsync(Address_ID);
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Address> getAddressAsync(int addID) {
+            return base.Channel.getAddressAsync(addID);
         }
         
-        public int addAddress(string line1, string line2, string suburb, string city, char billing, string type, int C_ID, string Province) {
-            return base.Channel.addAddress(line1, line2, suburb, city, billing, type, C_ID, Province);
+        public GreenPantryFrontend.ServiceReference1.Address[] getUserAddresses(int userID) {
+            return base.Channel.getUserAddresses(userID);
         }
         
-        public System.Threading.Tasks.Task<int> addAddressAsync(string line1, string line2, string suburb, string city, char billing, string type, int C_ID, string Province) {
-            return base.Channel.addAddressAsync(line1, line2, suburb, city, billing, type, C_ID, Province);
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Address[]> getUserAddressesAsync(int userID) {
+            return base.Channel.getUserAddressesAsync(userID);
         }
         
-        public int updateAddress(string line1, string line2, string suburb, string city, string province, char billing, string type, int Cus_ID) {
-            return base.Channel.updateAddress(line1, line2, suburb, city, province, billing, type, Cus_ID);
+        public GreenPantryFrontend.ServiceReference1.Address getPrimaryAddress(int userID) {
+            return base.Channel.getPrimaryAddress(userID);
         }
         
-        public System.Threading.Tasks.Task<int> updateAddressAsync(string line1, string line2, string suburb, string city, string province, char billing, string type, int Cus_ID) {
-            return base.Channel.updateAddressAsync(line1, line2, suburb, city, province, billing, type, Cus_ID);
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.Address> getPrimaryAddressAsync(int userID) {
+            return base.Channel.getPrimaryAddressAsync(userID);
+        }
+        
+        public int addAddress(string line1, string line2, string suburb, string city, int zip, string type, int C_ID, string Province, int primary, string number) {
+            return base.Channel.addAddress(line1, line2, suburb, city, zip, type, C_ID, Province, primary, number);
+        }
+        
+        public System.Threading.Tasks.Task<int> addAddressAsync(string line1, string line2, string suburb, string city, int zip, string type, int C_ID, string Province, int primary, string number) {
+            return base.Channel.addAddressAsync(line1, line2, suburb, city, zip, type, C_ID, Province, primary, number);
+        }
+        
+        public int updateAddress(string line1, string line2, string suburb, string city, string province, int zip, string type, int addID, int primary, string number) {
+            return base.Channel.updateAddress(line1, line2, suburb, city, province, zip, type, addID, primary, number);
+        }
+        
+        public System.Threading.Tasks.Task<int> updateAddressAsync(string line1, string line2, string suburb, string city, string province, int zip, string type, int addID, int primary, string number) {
+            return base.Channel.updateAddressAsync(line1, line2, suburb, city, province, zip, type, addID, primary, number);
+        }
+        
+        public int deleteAddress(int addressID) {
+            return base.Channel.deleteAddress(addressID);
+        }
+        
+        public System.Threading.Tasks.Task<int> deleteAddressAsync(int addressID) {
+            return base.Channel.deleteAddressAsync(addressID);
         }
         
         public GreenPantryFrontend.ServiceReference1.Card getCard(int id) {
@@ -2878,22 +2924,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.DateTime[]> getWeekDatesAsync(System.DateTime date) {
             return base.Channel.getWeekDatesAsync(date);
-        }
-        
-        public decimal salesPerWeek(System.DateTime date) {
-            return base.Channel.salesPerWeek(date);
-        }
-        
-        public System.Threading.Tasks.Task<decimal> salesPerWeekAsync(System.DateTime date) {
-            return base.Channel.salesPerWeekAsync(date);
-        }
-        
-        public double percentageSaleChanger(System.DateTime currentDate) {
-            return base.Channel.percentageSaleChanger(currentDate);
-        }
-        
-        public System.Threading.Tasks.Task<double> percentageSaleChangerAsync(System.DateTime currentDate) {
-            return base.Channel.percentageSaleChangerAsync(currentDate);
         }
     }
 }

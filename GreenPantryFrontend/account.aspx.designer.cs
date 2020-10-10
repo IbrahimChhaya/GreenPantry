@@ -51,15 +51,6 @@ namespace GreenPantryFrontend
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Email1;
 
         /// <summary>
-        /// PhoneNumber1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl PhoneNumber1;
-
-        /// <summary>
         /// Submit control.
         /// </summary>
         /// <remarks>

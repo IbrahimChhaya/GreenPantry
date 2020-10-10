@@ -105,10 +105,10 @@
     </section>
     <!-- Hero Section End -->
 
-    <!-- Categories Section Begin -->
+    <!-- Categories Section Begin 0-->
     <section class="categories">
         <div class="container">
-            <div class="row" id="categorySlider1" runat="server">
+            <div class="row" id="categorySlider" runat="server">
                 <div class="col-lg-12">
                     <div class="hero__item set-bg" data-setbg="img/freeshipping.png">
                         <div class="hero__text">
@@ -122,7 +122,7 @@
                     <br />
 
                     <div class="section-title">
-                        <h2>Freshly Picked</h2>
+                        <h2>fwafawg Picked</h2>
                     </div>
                 </div>
                 <div class="categories__slider owl-carousel">
@@ -146,6 +146,37 @@
         </div>
     </section>
     <!-- Categories Section End -->
+
+    <!-- Categories Section Begin 1 -->
+    <section class="categories" id="sectionToHide" runat="server" visible="false">
+        <div class="container">
+            <div class="row" id="categorySlider1" runat="server">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2> From The Bakery</h2>
+                    </div>
+                </div>
+                <div class="categories__slider owl-carousel">
+                    <div class="col-lg-3">
+                        <div class="featured__item">
+                            <div class="featured__item__pic set-bg" data-setbg="img/categories/cat-1.jpg">
+                                <ul class="featured__item__pic__hover">
+                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="featured__item__text">
+                                <h6><a href="#">Crab Pool Security</a></h6>
+                                <h5>$30.00</h5>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Categories Section 2 End -->
 
     <!-- Categories Section Begin 2 -->
     <section class="categories">

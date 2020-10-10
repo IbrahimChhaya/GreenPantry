@@ -22,7 +22,6 @@ namespace GreenPantryFrontend
                     Name.Value = user.Name;
                     Surname.Value = user.Surname;
                     Email1.Value = user.Email;
-                    PhoneNumber1.Value = user.PhoneNumber;
                 }
             }
             else
@@ -33,7 +32,7 @@ namespace GreenPantryFrontend
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            int updateInfo = SC.updateUserDetails(int.Parse(Session["LoggedInUserID"].ToString()), Name.Value, Surname.Value, Email1.Value, PhoneNumber1.Value);
+            int updateInfo = SC.updateUserDetails(int.Parse(Session["LoggedInUserID"].ToString()), Name.Value, Surname.Value, Email1.Value);
             
             if (updateInfo == 1)
             {

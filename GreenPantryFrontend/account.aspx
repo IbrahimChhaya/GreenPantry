@@ -30,7 +30,7 @@
             </div>
             <div class="checkout__form" runat="server">
                 <h4>Account Details</h4>
-                <form action="#" runat="server">
+<%--                <form action="#" runat="server">--%>
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
@@ -52,10 +52,6 @@
                                 <p>Email</p>
                                 <input type="Email" placeholder="john123@gmail.com" runat="server" id="Email1">
                             </div>
-                            <div class="checkout__input">
-                                <p>Phone Number</p>
-                                <input type="tel" placeholder="Must be 10 digits" runat="server" id="PhoneNumber1">
-                            </div>
                             <asp:Button ID="Submit" Text="Update Account" runat="server" class="site-btn"  OnCLick="Submit_Click" />
                         </div>
                         
@@ -63,7 +59,9 @@
                             <div class="checkout__order">
                                 <h4>Your Account</h4>
                                 <div class="checkout__order__products"><a href="account.aspx">Account Details</a></div>
-                                <div class="checkout__order__products"><a href="orders.aspx">Orders</a></div>
+                                <div class="checkout__order__products"><a href="orders.aspx">Orders</a></div>                           
+                            <div class="checkout__order__products"><a href="shoppinglist.aspx">My Shopping List</a></div>
+                            <div class="checkout__order__products"><a href="addressbook.aspx">Address Book</a></div>
                                 <div class="checkout__order__products"><a href="home.aspx" id="A1" runat="server" onserverclick="logout_Click">Logout</a></div>
                             </div>
                         </div>
@@ -88,7 +86,7 @@
                             <asp:Button ID="updatePass" Text="Update Password" runat="server" class="site-btn"  OnCLick="updatePass_Click" />
                         </div>
                     </div>
-                </form>
+<%--                </form>--%>
             </div>
         </div>
     </section>

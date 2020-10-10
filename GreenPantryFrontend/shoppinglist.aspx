@@ -165,7 +165,7 @@
                     </div>
                 </div>
             </div>
-            <form runat="server">
+<%--            <form runat="server">--%>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="shoping__cart__btns" >
@@ -174,6 +174,18 @@
                                 Save Changes</asp:LinkButton>
                         </div>
                     </div>
+                    
+                <div class="col-lg-6">
+                    <div class="shoping__continue">
+                        <div class="shoping__discount">
+                            <%--<h5>Discount Codes</h5>
+                            <form action="#">
+                                <input type="text" placeholder="Enter your coupon code">
+                                <button type="submit" class="site-btn">APPLY COUPON</button>
+                            </form>--%>
+                        </div>
+                    </div>
+                </div>
                     <div class="col-lg-6">
                         <div class="shoping__checkout" runat="server" ID="cartTotal">
                             <h5>List Total</h5>
@@ -185,7 +197,7 @@
                         </div>
                     </div>
                 </div>
-            </form>
+<%--            </form>--%>
         </div>
     </section>
     <!-- Shoping List Section End -->

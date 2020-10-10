@@ -13,7 +13,7 @@
 	<div class="bodylogin loginPage" id="test">
 		<div class="containerlogin right-panel-active" id="container">
 			<div class="form-container sign-up-container">
-				<form class="login" runat="server">
+				<div class="loginForm">
 					<h1 class="h1login">Create Account</h1>
 					<br />
 
@@ -26,7 +26,7 @@
 				
 					<asp:Label ID="error" runat="server" Text="Incorrect Password or Username" visible="false" ></asp:Label>
 					<asp:button class="login" runat="server" ID="Register" OnClick="Register_Click" Text="Sign Up"></asp:button>
-				</form>
+				</div>
 			</div>
 			<%--<div class="form-container sign-in-container">
 				<form class="login">
@@ -44,9 +44,10 @@
 					<div class="overlay-panel overlay-left">
 						<h1 class="h1login">Welcome Back!</h1>
 						<p class="plogin">To keep connected with us please login with your personal info</p>
-						<form action="/login.aspx">
+						<%--<form action="/login.aspx">
 							<button class="login ghost" id="signIn">Sign In</button>
-						</form>
+						</form>--%>
+						<a href="login.aspx" class="login ghost">Sign In</a>
 						</div>
 					<div class="overlay-panel overlay-right">
 						<h1 class="h1login">Hello, jimo</h1>

@@ -159,6 +159,7 @@ namespace GreenPantryFrontend.dashboard
                         {
                             int index = Global.imagePath.IndexOf("img");
                             string image = Global.imagePath.Substring(index);
+                            image = image.Replace('\\', '/');
 
                             int update = SC.updateProduct(productID, strName, subID, dblPrice, dblCost, image, stat, stockNum, description.Value);
                             if (update.Equals(1))
@@ -227,6 +228,7 @@ namespace GreenPantryFrontend.dashboard
                     {
                         int index = Global.imagePath.IndexOf("img");
                         string image = Global.imagePath.Substring(index);
+                        image = image.Replace('\\', '/');
 
                         int addProduct = SC.addNewProduct(name.Value, subID, dblPrice, dblCost, stockNum, image, stat, description.Value);
                         if (addProduct.Equals(-1))

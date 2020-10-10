@@ -111,22 +111,71 @@ namespace GreenPantryFrontend
 
             banner4.InnerHtml = display;
 
+            String sliderCaption;
+            //product category slider 0000000000000000000--------------------------------------------
 
-            //product category slider 11111111111111111--------------------------------------------
+            if(Session["LoggedInUserID"] != null)
+            {
+                int userID = int.Parse(Session["LoggedInUserID"].ToString());
+                sliderCaption = "Recommendations For You";
 
-            String sliderCaption = "Straight From The Fruit Tree";
+                display = "<div class='col-lg-12'>";
+                display += "<div class='hero__item set-bg' data-setbg='img/freeshipping.png'>";
+                display += "<div class='hero__text'>";
+                display += "<span></span>";
+                display += "<h2>Free <br/>Shipping</h2>";
+                display += "<p>On Orders Over R500</p>";
+                display += "<a href='results.aspx?Search=1' class='primary-btn'>SHOP NOW</a>";
+                display += "</div></div></br>";
 
-            display = "<div class='col-lg-12'>";
-            display += "<div class='hero__item set-bg' data-setbg='img/freeshipping.png'>";
-            display += "<div class='hero__text'>";
-            display += "<span></span>";
-            display += "<h2>Free <br/>Shipping</h2>";
-            display += "<p>On Orders Over R500</p>";
-            display += "<a href='results.aspx?Search=1' class='primary-btn'>SHOP NOW</a>";
-            display += "</div></div></br>";
-            display += categoryHelper(sliderCaption, 2);
+                dynamic list = SC.recommendTest(userID);
+                display += "<div class='section-title'>";
+                display += "<h2>" + sliderCaption + "</h2>";
+                display += "</div></div>";
+                display += "<div class='categories__slider owl-carousel'>";
 
-            categorySlider1.InnerHtml = display;
+                foreach (recommended r in list)
+                {
+                    display += "<div class='col-lg-3 catSliderHover'>";
+                    display += "<div class='featured__item'>";
+                    display += "<div class='featured__item__pic set-bg' data-setbg='&#39;/" + r.product.Image_Location + "&#39;' onclick='location.href=&#39;singleproduct.aspx?ProductID=" + r.product.ID + "&#39;'>";
+                    display += "<ul class='featured__item__pic__hover'>";
+                    display += "<li><a><i class='fa fa-list'></i></a></li>";
+                    display += "<li><a><i class='fa fa-shopping-cart'></i></a></li>";
+                    display += "</ul></div>";
+                    display += "<div class='featured__item__text'>";
+                    display += "<h6>" + r.product.Name + "</h6>"; //product link
+                    display += "<h5>R" + Math.Round(r.product.Price, 2) + "</h5>";
+                    display += "</div></div></div>";
+                    
+                }
+                display += "</div>";
+
+                categorySlider.InnerHtml = display;
+
+
+                sectionToHide.Visible = true;
+                sliderCaption = "Straight From The Fruit Tree";
+                display = "<div class='col-lg-12'>";
+                display += categoryHelper(sliderCaption, 2);
+                categorySlider1.InnerHtml = display;
+            }
+            else
+            {
+                sliderCaption = "Straight From The Fruit Tree";
+
+                display = "<div class='col-lg-12'>";
+                display += "<div class='hero__item set-bg' data-setbg='img/freeshipping.png'>";
+                display += "<div class='hero__text'>";
+                display += "<span></span>";
+                display += "<h2>Free <br/>Shipping</h2>";
+                display += "<p>On Orders Over R500</p>";
+                display += "<a href='results.aspx?Search=1' class='primary-btn'>SHOP NOW</a>";
+                display += "</div></div></br>";
+                display += categoryHelper(sliderCaption, 2);
+
+                categorySlider.InnerHtml = display;
+            }
 
             //product category slider 222222222222222222-----------------------------------------------
 

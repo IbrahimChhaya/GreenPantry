@@ -49,12 +49,13 @@
                                 </div>
                             </div>
                         </div>
-                        <form id="form1" runat="server">
+<%--                        <form id="form1" runat="server">--%>
 <%--                            <a href="/" class="primary-btn" runat="server" id="addToCart" onclick="add_Click">ADD TO CART</a>--%>
-                            <asp:button class="site-btn" ID="Add" runat="server" Text="ADD TO CART" OnClick="add_Click"/>
-                            
-                        <a href="#" class="heart-icon" id="listIcon" runat="server" onserverclick="listIcon_ServerClick"><span class="icon_ul iconSize"></span> Add to Shopping List</a>
-                         </form>
+<%--                            <asp:button class="site-btn" ID="Add" runat="server" Text="ADD TO CART" OnClick="add_Click"/>--%>
+                            <a class="site-btn" runat="server" id="addToCart" onserverclick="add_Click">ADD TO CART</a>
+    
+                            <a href="#" class="heart-icon" id="listIcon" runat="server" onserverclick="listIcon_ServerClick"><span class="icon_ul iconSize"></span> Add to Shopping List</a>
+<%--                         </form>--%>
                         <ul>
                             <li><b>Availability</b> <span id="stock" runat="server">In Stock</span></li>
                             <li><b>Share on</b>

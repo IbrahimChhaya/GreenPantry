@@ -88,7 +88,7 @@
                     </div>
                 </div>
             </div>
-            <form action="#">
+<%--            <form action="#">--%>
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <input type="text" placeholder="Your name">
@@ -101,7 +101,7 @@
                         <button type="submit" class="site-btn">SEND MESSAGE</button>
                     </div>
                 </div>
-            </form>
+<%--            </form>--%>
         </div>
     </div>
     <!-- Contact Form End -->

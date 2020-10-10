@@ -13,5 +13,11 @@ namespace AdminDashboard
         {
             //howdy.InnerHtml = "Howdy, Coulter";
         }
+
+        protected void logout_ServerClick(object sender, EventArgs e)
+        {
+            Session["LoggedInUserID"] = null;
+            Response.Redirect("/home.aspx");
+        }
     }
 }

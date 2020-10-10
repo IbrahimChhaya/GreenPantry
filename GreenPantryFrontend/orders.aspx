@@ -26,7 +26,7 @@
     <section class="checkout spad">
         <div class="container">
             <div class="checkout__form" runat="server">
-                <form action="#" runat="server">
+<%--                <form action="#" runat="server">--%>
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
@@ -67,12 +67,14 @@
                             <div class="checkout__order">
                                 <h4>Your Account</h4>
                                 <div class="checkout__order__products"><a href="account.aspx">Account Details</a></div>
-                                <div class="checkout__order__products"><a href="orders.aspx">Orders</a></div>
+                                <div class="checkout__order__products"><a href="orders.aspx">Orders</a></div>                
+                                <div class="checkout__order__products"><a href="shoppinglist.aspx">My Shopping List</a></div>
+                                <div class="checkout__order__products"><a href="addressbook.aspx">Address Book</a></div>
                                 <div class="checkout__order__products"><a href="home.aspx" id="logout" runat="server" onserverclick="logout_Click">Logout</a></div>
                             </div>
                         </div>
                     </div>
-                </form>
+<%--                </form>--%>
             </div>
         </div>
     </section>
