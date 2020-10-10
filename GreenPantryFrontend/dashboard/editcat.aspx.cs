@@ -21,7 +21,7 @@ namespace GreenPantryFrontend.dashboard
                 {
                     updateCat.Visible = false;
                     addCat.Visible = true;
-                    editName.InnerText = "Add New SubCategory ";
+                    editName.InnerText = "Add New SubCategory";
 
                     catDropdown.Visible = true;
                     dynamic cats = SC.getAllCategories();
@@ -113,98 +113,114 @@ namespace GreenPantryFrontend.dashboard
 
         protected void updateCat_ServerClick(object sender, EventArgs e)
         {
-            int ID = int.Parse(Request.QueryString["CatID"].ToString());
-            if (Request.QueryString["type"].ToString().Equals("SubCat"))
-            {
-                dynamic cats = SC.getAllCategories();
-                string cat = dropdownCat.SelectedValue;
-                int catID = 0;
-                foreach(ProductCategory c in cats)
+            if(name.Value != "")
+            { 
+                int ID = int.Parse(Request.QueryString["CatID"].ToString());
+                if (Request.QueryString["type"].ToString().Equals("SubCat"))
                 {
-                    if(c.Name.Equals(cat))
+                    dynamic cats = SC.getAllCategories();
+                    string cat = dropdownCat.SelectedValue;
+                    int catID = 0;
+                    foreach(ProductCategory c in cats)
                     {
-                        catID = c.ID;
+                        if(c.Name.Equals(cat))
+                        {
+                            catID = c.ID;
+                        }
+                    }
+                    string stat = dropdownStatus.Text.ToLower();
+
+                    int updateSubcat = SC.updateSubCategories(ID, catID, name.Value, stat);
+                    if(updateSubcat == 1)
+                    {
+                        //Successfully updated
+                        error.Visible = true;
+                        error.InnerText = "SubCategory updated";
+                    }
+                    else
+                    {
+                        //error message
+                        error.Visible = true;
+                        error.InnerText = "An error occurred";
+                    } 
+                }
+                else if (Request.QueryString["type"].ToString().Equals("Cat"))
+                {
+                    string stat = dropdownStatus.Text.ToLower();
+                    int updateCategory = SC.updateCategories(ID, name.Value, stat);
+                    if(updateCategory == 1)
+                    {
+                        //updated Successfully
+                        error.Visible = true;
+                        error.InnerText = "Category updated";
+                    }
+                    else
+                    {
+                        //show error
+                        error.Visible = true;
+                        error.InnerText = "An error occurred";
                     }
                 }
-                string stat = dropdownStatus.Text.ToLower();
-
-                int updateSubcat = SC.updateSubCategories(ID, catID, name.Value, stat);
-                if(updateSubcat == 1)
-                {
-                    //Successfully updated
-                    error.Visible = true;
-                    error.InnerText = "SubCategory updated";
-                }
-                else
-                {
-                    //error message
-                    error.Visible = true;
-                    error.InnerText = "An error occurred";
-                } 
             }
-            else if (Request.QueryString["type"].ToString().Equals("Cat"))
+            else
             {
-                string stat = dropdownStatus.Text.ToLower();
-                int updateCategory = SC.updateCategories(ID, name.Value, stat);
-                if(updateCategory == 1)
-                {
-                    //updated Successfully
-                    error.Visible = true;
-                    error.InnerText = "Category updated";
-                }
-                else
-                {
-                    //show error
-                    error.Visible = true;
-                    error.InnerText = "An error occurred";
-                }
+                error.Visible = true;
+                error.InnerText = "Please enter valid data";
             }
         }
 
         protected void addCat_ServerClick(object sender, EventArgs e)
         {
-            int ID = int.Parse(Request.QueryString["CatID"].ToString());
-            if (Request.QueryString["type"].ToString().Equals("SubCat"))
+            if (name.Value != "")
             {
-                int catID = 0;
-
-                String cat = dropdownCat.SelectedValue;
-
-                dynamic cats = SC.getAllCategories();
-                foreach (ProductCategory c in cats)
+                int ID = int.Parse(Request.QueryString["CatID"].ToString());
+                if (Request.QueryString["type"].ToString().Equals("SubCat"))
                 {
-                    if (c.Name.Equals(cat))
+                    int catID = 0;
+
+                    String cat = dropdownCat.SelectedValue;
+
+                    dynamic cats = SC.getAllCategories();
+                    foreach (ProductCategory c in cats)
                     {
-                        catID = c.ID;
+                        if (c.Name.Equals(cat))
+                        {
+                            catID = c.ID;
+                        }
+                    }
+                    string stat = dropdownStatus.Text.ToLower();
+
+                    int addSub = SC.addSubCategory(catID, name.Value, stat);
+                    if (addSub.Equals(-1))
+                    {
+                        error.Visible = true;
+                        error.InnerText = "An error occurred";
+                    }
+                    else
+                    {
+                        Response.Redirect("editcat.aspx?type=SubCat&CatID=" + addSub);
                     }
                 }
-                string stat = dropdownStatus.Text.ToLower();
+                else if (Request.QueryString["type"].ToString().Equals("Cat"))
+                {
+                    string stat = dropdownStatus.Text.ToLower();
 
-                int addSub = SC.addSubCategory(catID, name.Value, stat);
-                if (addSub.Equals(-1))
-                {
-                    error.Visible = true;
-                    error.InnerText = "An error occurred";
-                }
-                else
-                {
-                    Response.Redirect("editcat.aspx?type=SubCat&CatID=" + addSub);
+                    int addCat = SC.addCategory(name.Value, stat);
+                    if (addCat.Equals(-1))
+                    {
+                        error.Visible = true;
+                        error.InnerText = "An error occurred";
+                    }
+                    else
+                    {
+                        Response.Redirect("editcat.aspx?type=Cat&CatID=" + addCat);
+                    }
                 }
             }
-            else if (Request.QueryString["type"].ToString().Equals("Cat"))
+            else
             {
-                string stat = dropdownStatus.Text.ToLower();
-
-                int addCat = SC.addCategory(name.Value, stat);
-                if (addCat.Equals(-1))
-                {
-                    error.Visible = true;
-                    error.InnerText = "An error occurred";
-                }
-                else
-                {
-                    Response.Redirect("editcat.aspx?type=Cat&CatID=" + addCat);
-                }
+                error.Visible = true;
+                error.InnerText = "Please enter valid data";
             }
         }
     }

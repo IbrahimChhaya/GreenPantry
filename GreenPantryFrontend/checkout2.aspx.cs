@@ -24,7 +24,7 @@ namespace GreenPantryFrontend
             if (Session["LoggedInUserID"] != null)
             {
                 int userID = Convert.ToInt32(Session["LoggedInUserID"]);
-                Response.Cookies["cart"].Value = "1-1, 2-3";
+                //Response.Cookies["cart"].Value = "1-1, 2-3";
                 dynamic CookieContent = Request.Cookies["cart"].Value;
 
                 dynamic products = CookieContent.Split(',');
@@ -162,8 +162,10 @@ namespace GreenPantryFrontend
                                 }
                             }
                             int addinvLine = SR.addInvoiceLine(cartProduct.ID, addInvoice, Convert.ToInt32(qty), cartProduct.Price);
+                            int decreaseProStock = SR.updateStock(cartProduct.ID, int.Parse(qty));
                         }
                     }
+                    Response.Cookies["cart"].Expires = DateTime.Now.AddDays(-1);  //delete cookie
                     Response.Redirect("Invoice.aspx?InvoiceID=" + addInvoice);
                 }
                 else

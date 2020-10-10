@@ -87,13 +87,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="orders.aspx">
+              <a class="nav-link" href="orders.aspx?Page=1">
                 <i class="ni ni-laptop text-info"></i>
                 <span class="nav-link-text">Orders</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="userorders.aspx">
+              <a class="nav-link" href="users.aspx?Page=1">
                 <i class="ni ni-single-02 text-pink"></i>
                 <span class="nav-link-text">Users</span>
               </a>

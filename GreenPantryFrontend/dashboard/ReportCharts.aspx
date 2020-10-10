@@ -36,7 +36,7 @@
             </div>
             <div class="card-body">
               <!-- Chart -->
-              <div class="chart" id="sales-chart-parent">
+              <div class="chart">
                 <!-- Chart wrapper -->
                 <canvas id="topProducts" class="chart-canvas"></canvas>
               </div>
@@ -70,15 +70,32 @@
               <div class="row align-items-center">
                 <div class="col">
                   <h6 class="text-muted text-uppercase ls-1 mb-1">Overview</h6>
-                  <h5 class="h3 mb-0">Worst Performing Products</h5>
+                  <h5 class="h3 mb-0" id="sales-chart-label">Best Performing Products</h5>
                 </div>
+                <div class="col">
+                  <ul class="nav nav-pills justify-content-end">
+                    <li class="nav-item mr-2 mr-md-0">
+                        <a OnClick="monthlySalesChart()" href="#" class="nav-link py-2 px-3 active"  data-toggle="tab">
+                            <span class="d-none d-md-block">Month</span>
+                            <span class="d-md-none">M</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                      <a OnClick="weeklySalesChart()" href="#" class="nav-link py-2 px-3"  data-toggle="tab">
+                        <span class="d-none d-md-block">Week</span>
+                        <span class="d-md-none">W</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
               </div>
             </div>
             <div class="card-body">
               <!-- Chart -->
-              <div class="chart">
+              <div class="chart" id="sales-chart-parent">
                 <!-- Chart wrapper -->
-                <canvas id="Graph23" class="chart-canvas"></canvas>
+                <canvas id="chart-sales" class="chart-canvas"></canvas>
               </div>
             </div>
           </div>
@@ -109,6 +126,7 @@
         document.addEventListener("DOMContentLoaded", function (e) {
             deviceChart();
             TopproductChart();
+            monthlySalesChart();
             worstproductChart();
         })
         function deviceChart() {
@@ -175,6 +193,73 @@
                 },
 
             })
+        }
+
+        <%--Sales Chart --%>
+        function monthlySalesChart() {
+            $('#sales-chart-label').html("Current Month's Sales")
+            salesChart(<%= jsonMonthDates%>, <%= jsonMonthSales%>)
+        }
+
+        function weeklySalesChart() {
+            $('#sales-chart-label').html("Current Week's Sales")
+            salesChart(<%= jsonWeekDays %>, <%= jsonWeekSales %>)
+        }
+
+        function salesChart(chartLabels, chartData) {
+            $('#chart-sales').remove(); //remove canvas (delete altogether)
+            //create a new canvas
+            $('#sales-chart-parent').append('<canvas id="chart-sales" class="chart-canvas"></canvas>');
+
+            //get canvas context
+            var ctx = document.getElementById('chart-sales').getContext("2d");
+
+            //draw chart
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: chartLabels,
+                    datasets: [{
+                        label: 'Sales',
+                        data: chartData,
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            type: 'category',
+                            labels: chartLabels,
+                            ticks: {
+                                callback: function (value, index, values) {
+                                    return value.slice(8, 10);
+                                }
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+
+                                callback: function (value) {
+                                    return 'R' + value;
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function (item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                content += 'R' + yLabel;
+                                return content;
+                            }
+                        }
+                    }
+                }
+            });
+
         }
 
         function worstproductChart() {

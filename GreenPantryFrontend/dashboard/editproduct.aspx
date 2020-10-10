@@ -85,7 +85,7 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-last-name">Stock</label>
-                        <input type="number" id="stock" class="form-control" runat="server" required>
+                        <input type="number" id="stock" min=0 class="form-control" runat="server" required>
                       </div>
                     </div>
                   </div>
@@ -93,13 +93,13 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label" for="input-last-name">Cost</label>
-                            <input type="number" id="cost" class="form-control" runat="server" required>
+                            <input type="number" id="cost" min="0" class="form-control" runat="server" required>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label" for="input-last-name">Price</label>
-                            <input type="number" id="price" class="form-control" runat="server" required>
+                            <input type="number" id="price" min="0" class="form-control" runat="server" required>
                         </div>
                     </div>
                 </div>

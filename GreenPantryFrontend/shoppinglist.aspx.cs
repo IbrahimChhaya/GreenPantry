@@ -59,7 +59,7 @@ namespace GreenPantryFrontend
                             display += "<img src =" + product.Image_Location + " alt=''>";
                             display += "<h5><input class='cart__item-id' ID='pID' runat='server' value='" + product.ID + "' hidden/>"  + product.Name + " </h5></td><td class='shoping__cart__price'>" + Math.Round(product.Price, 2) + "</td>";
                             display += "<td class='shoping__cart__quantity'>";
-                            display += "<div class='quantity'><div class='pro-qty'><input data-product-id='" + product.ID + "' type='text' value=" + s.Quantity + " runat='server' id='item_qty'>";
+                            display += "<div class='quantity'><div class='pro-qty'><input data-product-id='" + product.ID + "' type='text' value=" + s.Quantity + " runat='server' id='item_qty' readonly>";
                             display += "</div></div></td>";
                             display += "<td class='shoping__cart__total' id='pTotal'>" + Math.Round((product.Price * s.Quantity), 2) + "</td>";
                             display += "<td class='shoping__cart__item__close'><span class='icon_close'></span></td></tr>";
@@ -121,7 +121,8 @@ namespace GreenPantryFrontend
 
                     }
                 }
-               
+
+                Response.Cookies["list"].Expires = DateTime.Now.AddDays(-1);  //delete cookie
                 Response.Redirect("/shoppinglist.aspx");
             }
 
