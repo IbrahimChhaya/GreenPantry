@@ -57,7 +57,7 @@ namespace GreenPantryFrontend
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newsletterID;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl newsletterID;
 
         /// <summary>
         /// NewsLetterbtnID12 control.

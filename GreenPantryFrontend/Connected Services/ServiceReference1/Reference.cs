@@ -1818,6 +1818,18 @@ namespace GreenPantryFrontend.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/recommendTest", ReplyAction="http://tempuri.org/IGP_Service/recommendTestResponse")]
         System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.recommended[]> recommendTestAsync(int userID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percProfitPerWeek", ReplyAction="http://tempuri.org/IGP_Service/percProfitPerWeekResponse")]
+        double percProfitPerWeek(System.DateTime currenDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percProfitPerWeek", ReplyAction="http://tempuri.org/IGP_Service/percProfitPerWeekResponse")]
+        System.Threading.Tasks.Task<double> percProfitPerWeekAsync(System.DateTime currenDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/totalProfitPerWeek", ReplyAction="http://tempuri.org/IGP_Service/totalProfitPerWeekResponse")]
+        double totalProfitPerWeek(System.DateTime currentDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/totalProfitPerWeek", ReplyAction="http://tempuri.org/IGP_Service/totalProfitPerWeekResponse")]
+        System.Threading.Tasks.Task<double> totalProfitPerWeekAsync(System.DateTime currentDate);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/newsletter", ReplyAction="http://tempuri.org/IGP_Service/newsletterResponse")]
         void newsletter(string senderemail, string subscriberemail, string subject, string body, string password, string smtp);
         
@@ -2412,6 +2424,22 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.recommended[]> recommendTestAsync(int userID) {
             return base.Channel.recommendTestAsync(userID);
+        }
+        
+        public double percProfitPerWeek(System.DateTime currenDate) {
+            return base.Channel.percProfitPerWeek(currenDate);
+        }
+        
+        public System.Threading.Tasks.Task<double> percProfitPerWeekAsync(System.DateTime currenDate) {
+            return base.Channel.percProfitPerWeekAsync(currenDate);
+        }
+        
+        public double totalProfitPerWeek(System.DateTime currentDate) {
+            return base.Channel.totalProfitPerWeek(currentDate);
+        }
+        
+        public System.Threading.Tasks.Task<double> totalProfitPerWeekAsync(System.DateTime currentDate) {
+            return base.Channel.totalProfitPerWeekAsync(currentDate);
         }
         
         public void newsletter(string senderemail, string subscriberemail, string subject, string body, string password, string smtp) {

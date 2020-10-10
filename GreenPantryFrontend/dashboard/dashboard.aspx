@@ -189,7 +189,7 @@
                     <th scope="col">Page name</th>
                     <th scope="col">Visitors</th>
                     <th scope="col">Unique users</th>
-                    <th scope="col">Bounce rate</th>
+                    <!--<th scope="col">Bounce rate</th>-->
                   </tr>
                 </thead>
                 <tbody  id="pageTraffic" runat="server">

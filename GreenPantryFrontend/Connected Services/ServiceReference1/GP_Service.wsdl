@@ -146,6 +146,18 @@
   <wsdl:message name="IGP_Service_recommendTest_OutputMessage">
     <wsdl:part name="parameters" element="tns:recommendTestResponse" />
   </wsdl:message>
+  <wsdl:message name="IGP_Service_percProfitPerWeek_InputMessage">
+    <wsdl:part name="parameters" element="tns:percProfitPerWeek" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_percProfitPerWeek_OutputMessage">
+    <wsdl:part name="parameters" element="tns:percProfitPerWeekResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_totalProfitPerWeek_InputMessage">
+    <wsdl:part name="parameters" element="tns:totalProfitPerWeek" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_totalProfitPerWeek_OutputMessage">
+    <wsdl:part name="parameters" element="tns:totalProfitPerWeekResponse" />
+  </wsdl:message>
   <wsdl:message name="IGP_Service_newsletter_InputMessage">
     <wsdl:part name="parameters" element="tns:newsletter" />
   </wsdl:message>
@@ -623,6 +635,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/recommendTest" message="tns:IGP_Service_recommendTest_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/recommendTestResponse" message="tns:IGP_Service_recommendTest_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="percProfitPerWeek">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/percProfitPerWeek" message="tns:IGP_Service_percProfitPerWeek_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/percProfitPerWeekResponse" message="tns:IGP_Service_percProfitPerWeek_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="totalProfitPerWeek">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/totalProfitPerWeek" message="tns:IGP_Service_totalProfitPerWeek_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/totalProfitPerWeekResponse" message="tns:IGP_Service_totalProfitPerWeek_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="newsletter">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/newsletter" message="tns:IGP_Service_newsletter_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/newsletterResponse" message="tns:IGP_Service_newsletter_OutputMessage" />
@@ -1082,6 +1102,24 @@
     </wsdl:operation>
     <wsdl:operation name="recommendTest">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/recommendTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="percProfitPerWeek">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/percProfitPerWeek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="totalProfitPerWeek">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/totalProfitPerWeek" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

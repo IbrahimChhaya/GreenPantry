@@ -26,6 +26,9 @@ namespace AdminDashboard
             dynamic list = GetPage(products, currentPage, 10);
             foreach (Product p in list)
             {
+                double perc = SR.percProductSales(DateTime.Now, p.ID);
+                int NumProducts = SR.numProductSales(DateTime.Now, p.ID);
+
                 display += "<tr><th scope='row'>";
                 display += "<div class='media align-items-center'>";
                 display += "<a href='#' class='avatar rounded-circle mr-3'>";
@@ -45,7 +48,7 @@ namespace AdminDashboard
                     display += "<i class='bg-success'></i><span class='status'>" + p.StockOnHand + "</span>";
                 }
                 display += "</span></td><td>";
-                display += "<span class='text-success mr-2' id='trafficChange' runat='server'><i class='fa fa-arrow-up'></i> 3.48%</span></td>";
+                display += "<span class='text-success mr-2' id='trafficChange' runat='server'><i class='fa fa-arrow-up'></i>"+ perc+ "%</span></td>";
                 display += "<td class='text-right'>";
                 display += "<div class='dropdown'>";
                 display += "<a class='btn btn-sm btn-icon-only text-light' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";

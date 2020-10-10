@@ -49,21 +49,21 @@
               <div class="row align-items-center">
                 <div class="col">
                   <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
-                  <h5 class="h3 mb-0">Devices</h5>
+                  <h5 class="h3 mb-0">Worst Performing Products</h5>
                 </div>
               </div>
             </div>
             <div class="card-body">
               <!-- Chart -->
               <div class="chart">
-                <canvas id="ReportsGraphs" class="chart-canvas"></canvas>
+                <canvas id="worstproducts" class="chart-canvas"></canvas>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-             <div class="row">
+        <div class="row">
         <div class="col-xl-8">
           <div class="card">
             <div class="card-header bg-transparent">
@@ -105,7 +105,7 @@
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
                 <div class="col">
-                  <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
+                  <h6 class="text-uppercase text-muted ls-1 mb-1">Devices</h6>
                   <h5 class="h3 mb-0">Devices</h5>
                 </div>
               </div>
@@ -113,7 +113,7 @@
             <div class="card-body">
               <!-- Chart -->
               <div class="chart">
-                <canvas id="Graph2" class="chart-canvas"></canvas>
+                <canvas id="DeviceGraph" class="chart-canvas"></canvas>
               </div>
             </div>
           </div>
@@ -127,20 +127,21 @@
             deviceChart();
             TopproductChart();
             monthlySalesChart();
+            worstproductChart();
         })
         function deviceChart() {
-            var ctx = document.getElementById('ReportsGraphs').getContext('2d')
+            var ctx = document.getElementById('DeviceGraph').getContext('2d')
             var myDoughnutChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
                     labels:
-                        <%=catName%>,
+                        <%=devName%>,
 
                     datasets: [{
                         backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC"],
 
                         label : "Test",
-                        data: <%=catChart%>,
+                        data: <%=devChart%>,
                     }]
                 },
                 options: {
@@ -151,28 +152,28 @@
             })
         }
 
-        //Top product chart--------------------------------------------------
+        //Top product chart--------------------------------------------------<prodName%>,<prodChart%><WorstProdName %><WorstProdChart%>
         function TopproductChart() {
             var ctx = document.getElementById('topProducts').getContext('2d')
             var myDoughnutChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels:
-                        <%=prodName%>,
+                    labels: ["vanilla", "Mango", "chocolate"],
+                        
 
                     datasets: [{
                         barThickness:'100',
                         //backgroundColor: ["#0074D9"],
 
                         label : "Units Sold",
-                        data: <%=prodChart%>,
+                        data: ["106", "85", "75", "70", "30"],
                     }]
                 },
                 options: {
                     scales: {
                         xAxes: [{
                             type: 'category',
-                            labels: <%=prodName %>,
+                            labels: ["Jungle Energy Bar Lite Nuts", "Staffords Vanila Extract & Seeds 50ml", "Clover Condensed Milk 385g", "Ouma Rusks Choc Chip 450gr", "Lion Red Speckled Sugar Beans 500g"],
                             ticks: {
                                 callback: function (value, index, values) {
                                     return value.slice(0, 5);
@@ -260,6 +261,48 @@
             });
 
         }
+
+        function worstproductChart() {
+            var ctx = document.getElementById('worstproducts').getContext('2d')
+            var myDoughnutChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels:
+                        <%=WorstProdName%>,
+
+                    datasets: [{
+                        barThickness: '100',
+                        //backgroundColor: ["#0074D9"],
+
+                        label: "Units Sold",
+                        data: ["25", "15", "10", "5", "2"],
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            type: 'category',
+                            labels: ["Ace Maize Meal Quick Cooking 2.5kg", "Marina Garlic Braai Salt 400g", "Robertsons Spice Refill Barbeque 128g", "Elegant live microwave food covers", "Esse reusable folding grocery bag"],
+                            ticks: {
+                                callback: function (value, index, values) {
+                                    return value.slice(0, 5);
+                                }
+                            }
+                        }],
+
+                        yAxes: [{
+                            ticks: {
+                                callback: function (value) {
+                                    return value;
+                                }
+                            }
+                        }]
+                    },
+
+                },
+
+            })
+         }
 
     </script>
 </asp:Content>

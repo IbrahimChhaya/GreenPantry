@@ -133,27 +133,29 @@ namespace AdminDashboard
             Salesperweek.InnerHtml = Display;
 
             Display = "";
-            double perc = SR.percProductSales(DateTime.Now, 1);
-            int NumProducts = SR.numProductSales(DateTime.Now, 1);
+            // double perc = SR.percProductSales(DateTime.Now, 1);
+            // int NumProducts = SR.numProductSales(DateTime.Now, 1);
+            double profitperweek = SR.totalProfitPerWeek(DateTime.Now);
+            double percChange = SR.percProfitPerWeek(DateTime.Now);
             Display += "<div class='row'>";
             Display += "<div class='col'>";
             Display += "<h5 class='card-title text-uppercase text-muted mb-0'>Product</h5>";
-            Display += "<span class='h2 font-weight-bold mb-0'>" + NumProducts + "</span></div>";
+            Display += "<span class='h2 font-weight-bold mb-0'>" + profitperweek + "</span></div>";
             Display += "<div class='col-auto'>";
             Display += "<div class='icon icon-shape bg-gradient-info text-white rounded-circle shadow'>";
             Display += "<i class='ni ni-chart-bar-32'></i></div></div></div>";
             Display += "<p class='mt-3 mb-0 text-sm'>";
-            if (perc > 0)
+            if (percChange > 0)
             {
-                Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i> " + Math.Round(perc, 2) + "%</span>";
+                Display += "<span class='text-success mr-2'><i class='fa fa-arrow-up'></i> " + Math.Round(percChange, 2) + "%</span>";
             }
-            else if (perc < 0)
+            else if (percChange < 0)
             {
-                Display += "<span class='text-danger mr-2'><i class='fa fa-arrow-down'></i> " + Math.Round(perc, 2) + "%</span>";
+                Display += "<span class='text-danger mr-2'><i class='fa fa-arrow-down'></i> " + Math.Round(percChange, 2) + "%</span>";
             }
             else
             {
-                Display += "<span class='text-success mr-2'> " + Math.Round(perc, 2) + "%</span>";
+                Display += "<span class='text-success mr-2'> " + Math.Round(percChange, 2) + "%</span>";
             }
             Display += "<span class='text-nowrap'>Since last week</span></p>";
             productSales.InnerHtml = Display;
@@ -192,8 +194,8 @@ namespace AdminDashboard
                 int uniquevisitor = SR.singlePageUniqueTraffic(s);
                 Display += "<tr><th scope='row'>" + s+"</th>";
                 Display += "<td>"+singlePageTraffic+"</td>";
-                Display += "<td>"+ uniquevisitor + "</td>";
-                Display += "<td><i class='fas fa-arrow-up text-success mr-3'></i> dunno%</td></tr>";
+                Display += "<td>"+ uniquevisitor + "</td></tr>";
+                //Display += "<td><i class='fas fa-arrow-up text-success mr-3'></i></td></tr>";
             }
             pageTraffic.InnerHtml = Display;
         }
