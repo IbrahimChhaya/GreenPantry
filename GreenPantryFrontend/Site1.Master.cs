@@ -52,8 +52,10 @@ namespace GreenPantryFrontend
                 
             }
 
-            
-        }
+           // NewsLetterbtnID12.InnerHtml += "<a class='site-btn' ID='NewsLetterbtnID12' runat='server' href='ThankYou.aspx?ID='" + newsletterID +"' >Subscribe</a>";
+
+
+    }
 
     }
 }

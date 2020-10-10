@@ -15,9 +15,11 @@ namespace GreenPantryFrontend
         protected void Page_Load(object sender, EventArgs e)
         {
             var user = SC.getUser(Convert.ToInt32(Session["LoggedInUserID"]));
+            //string email = Request.Params["ID"].ToString();
             if (user != null)
             {
                 string bodymessage = "";
+                
                 bodymessage += "Dear " + user.Name + "\n";
                 bodymessage += "Thank you for subscribing to GreenPantry!! \n";
                 bodymessage += "Regards \n";
@@ -25,10 +27,16 @@ namespace GreenPantryFrontend
                
                 SC.newsletter("chandranero149@gmail.com", user.Email, "GreenPantry NewsLetter", bodymessage, "greenpantry", "smtp.gmail.com");
             }
-            else
-            {
-                Response.Redirect("login.aspx");
-            }
+            //else
+            //{
+            //    string bodymessage = "";
+            //    bodymessage += "Dear Customer"  + "\n";
+            //    bodymessage += "Thank you for subscribing to GreenPantry!! \n";
+            //    bodymessage += "Regards \n";
+
+
+            //    SC.newsletter("chandranero149@gmail.com", user.Email, "GreenPantry NewsLetter", bodymessage, "greenpantry", "smtp.gmail.com");
+            //}
                           
         }
     }

@@ -110,6 +110,24 @@
   <wsdl:message name="IGP_Service_getProQtySold_OutputMessage">
     <wsdl:part name="parameters" element="tns:getProQtySoldResponse" />
   </wsdl:message>
+  <wsdl:message name="IGP_Service_getAllDevices_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllDevices" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getAllDevices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getTotOSUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTotOSUsers" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getTotOSUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTotOSUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_WorstProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:WorstProducts" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_WorstProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WorstProductsResponse" />
+  </wsdl:message>
   <wsdl:message name="IGP_Service_newsletter_InputMessage">
     <wsdl:part name="parameters" element="tns:newsletter" />
   </wsdl:message>
@@ -563,6 +581,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getProQtySold" message="tns:IGP_Service_getProQtySold_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getProQtySoldResponse" message="tns:IGP_Service_getProQtySold_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="getAllDevices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getAllDevices" message="tns:IGP_Service_getAllDevices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getAllDevicesResponse" message="tns:IGP_Service_getAllDevices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTotOSUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getTotOSUsers" message="tns:IGP_Service_getTotOSUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getTotOSUsersResponse" message="tns:IGP_Service_getTotOSUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WorstProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/WorstProducts" message="tns:IGP_Service_WorstProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/WorstProductsResponse" message="tns:IGP_Service_WorstProducts_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="newsletter">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/newsletter" message="tns:IGP_Service_newsletter_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/newsletterResponse" message="tns:IGP_Service_newsletter_OutputMessage" />
@@ -968,6 +998,33 @@
     </wsdl:operation>
     <wsdl:operation name="getProQtySold">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/getProQtySold" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDevices">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getAllDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTotOSUsers">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getTotOSUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorstProducts">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/WorstProducts" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
