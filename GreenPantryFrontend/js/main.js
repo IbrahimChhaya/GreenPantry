@@ -361,6 +361,6 @@
         return null;
     }
 
-    flatpickr(".dateTimePicker", {});
+    flatpickr(".dateTimeID");
 
 })(jQuery);
