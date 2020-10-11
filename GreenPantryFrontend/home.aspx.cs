@@ -182,6 +182,7 @@ namespace GreenPantryFrontend
             sliderCaption = "Fresh From The Bakery";
 
             display = "<div class='col-lg-12'>";
+
             display += categoryHelper(sliderCaption, 7);
 
             categorySlider2.InnerHtml = display;
@@ -191,6 +192,13 @@ namespace GreenPantryFrontend
             sliderCaption = "Quench Your Thirst";
 
             display = "<div class='col-lg-12'>";
+            display += "<div class='hero__item set-bg' data-setbg='img/freeshipping.png'>";
+            display += "<div class='hero__text'>";
+            display += "<span></span>";
+            display += "<h2>Green <br/>Points</h2>";
+            display += "<p>Earn Green Points By Purchasing Fresh Food Items And Green Household Items</p>";
+            display += "<a href='results.aspx?Search=1' class='primary-btn'>SHOP NOW</a>";
+            display += "</div></div></br>";
             display += categoryHelper(sliderCaption, 8);
 
             categorySlider3.InnerHtml = display;
