@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -12,6 +13,8 @@ namespace GreenPantryFrontend
     public partial class results : System.Web.UI.Page
     {
         GP_ServiceClient SC = new GP_ServiceClient();
+
+        public string jsonProducts;
         protected void Page_Load(object sender, EventArgs e)
         {
             String display = "";
@@ -76,6 +79,18 @@ namespace GreenPantryFrontend
                 subcatList.InnerHtml = display2;
             }
             categoryProducts.InnerHtml = display;
+        }
+
+        //function to get all products
+        public string getProducts()
+        {
+            Product[] products = SC.searchProducts(Request.QueryString["Search"]);
+            //create js serialized object to pass to js
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            jsonProducts = serializer.Serialize(products);
+            //jsonProducts = products;
+            return jsonProducts;
+
         }
     }
 }
