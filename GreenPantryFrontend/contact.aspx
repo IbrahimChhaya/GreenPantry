@@ -88,6 +88,7 @@
                     </div>
                 </div>
             </div>
+            <div class="contactForm">
 <%--            <form action="#">--%>
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
@@ -102,6 +103,7 @@
                     </div>
                 </div>
 <%--            </form>--%>
+                </div>
         </div>
     </div>
     <!-- Contact Form End -->
