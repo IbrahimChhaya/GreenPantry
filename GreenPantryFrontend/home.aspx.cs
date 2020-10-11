@@ -192,7 +192,7 @@ namespace GreenPantryFrontend
             sliderCaption = "Quench Your Thirst";
 
             display = "<div class='col-lg-12'>";
-            display += "<div class='hero__item set-bg' data-setbg='img/freeshipping.png'>";
+            display += "<div class='hero__item set-bg' data-setbg='img/PointsBanner2.jpg'>";
             display += "<div class='hero__text'>";
             display += "<span></span>";
             display += "<h2>Green <br/>Points</h2>";
