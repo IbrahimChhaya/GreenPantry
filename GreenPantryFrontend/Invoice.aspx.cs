@@ -33,7 +33,8 @@ namespace GreenPantryFrontend
 
                 display = "";
                 display += "<h2 class='h2Inv'>" + user.Name + "</h2>";
-                display += "<p class='pInvoice'>"+ user.Email + "</br>"+ user.PhoneNumber + "</p>";
+                dynamic address = SR.getPrimaryAddress(invoice.CustomerID);
+                display += "<p class='pInvoice'>"+ user.Email + "</br>"+ address.Number + "</p>";
                 clientInfo.InnerHtml = display;
 
                 display = "";

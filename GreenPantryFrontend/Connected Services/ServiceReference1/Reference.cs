@@ -1830,6 +1830,24 @@ namespace GreenPantryFrontend.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/totalProfitPerWeek", ReplyAction="http://tempuri.org/IGP_Service/totalProfitPerWeekResponse")]
         System.Threading.Tasks.Task<double> totalProfitPerWeekAsync(System.DateTime currentDate);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getAllDevices", ReplyAction="http://tempuri.org/IGP_Service/getAllDevicesResponse")]
+        string[] getAllDevices();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getAllDevices", ReplyAction="http://tempuri.org/IGP_Service/getAllDevicesResponse")]
+        System.Threading.Tasks.Task<string[]> getAllDevicesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getTotOSUsers", ReplyAction="http://tempuri.org/IGP_Service/getTotOSUsersResponse")]
+        int getTotOSUsers(string os);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getTotOSUsers", ReplyAction="http://tempuri.org/IGP_Service/getTotOSUsersResponse")]
+        System.Threading.Tasks.Task<int> getTotOSUsersAsync(string os);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/WorstProducts", ReplyAction="http://tempuri.org/IGP_Service/WorstProductsResponse")]
+        int[] WorstProducts();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/WorstProducts", ReplyAction="http://tempuri.org/IGP_Service/WorstProductsResponse")]
+        System.Threading.Tasks.Task<int[]> WorstProductsAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/newsletter", ReplyAction="http://tempuri.org/IGP_Service/newsletterResponse")]
         void newsletter(string senderemail, string subscriberemail, string subject, string body, string password, string smtp);
         
@@ -2440,6 +2458,30 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<double> totalProfitPerWeekAsync(System.DateTime currentDate) {
             return base.Channel.totalProfitPerWeekAsync(currentDate);
+        }
+        
+        public string[] getAllDevices() {
+            return base.Channel.getAllDevices();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> getAllDevicesAsync() {
+            return base.Channel.getAllDevicesAsync();
+        }
+        
+        public int getTotOSUsers(string os) {
+            return base.Channel.getTotOSUsers(os);
+        }
+        
+        public System.Threading.Tasks.Task<int> getTotOSUsersAsync(string os) {
+            return base.Channel.getTotOSUsersAsync(os);
+        }
+        
+        public int[] WorstProducts() {
+            return base.Channel.WorstProducts();
+        }
+        
+        public System.Threading.Tasks.Task<int[]> WorstProductsAsync() {
+            return base.Channel.WorstProductsAsync();
         }
         
         public void newsletter(string senderemail, string subscriberemail, string subject, string body, string password, string smtp) {

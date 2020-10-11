@@ -74,8 +74,4 @@ namespace GreenPantryFrontend
 
     }
 
-    
-
-
-    }
 }
