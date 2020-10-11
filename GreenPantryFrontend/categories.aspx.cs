@@ -15,6 +15,7 @@ namespace GreenPantryFrontend
         GP_ServiceClient SC = new GP_ServiceClient();
 
         public string jsonProducts;
+       // public string jsonSortedProducts;
         protected void Page_Load(object sender, EventArgs e)
         {
             if(Request.QueryString["CategoryID"] == null)
@@ -96,6 +97,46 @@ namespace GreenPantryFrontend
             jsonProducts = serializer.Serialize(products);
             //jsonProducts = products;
             return jsonProducts;
+
+        }
+
+        //sort by price (ascending)
+        public string sortAscending()
+        {
+            dynamic allCatProducts = SC.getProductByCat(Convert.ToInt32(Request.QueryString["CategoryID"]));
+
+            List<Product> productPricePair = new List<Product>();
+
+            foreach(Product p in allCatProducts)
+            {
+                productPricePair.Add(p);
+            }
+
+            var sortedResult =  productPricePair.OrderBy(p => p.Price).ToList();
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var jsonSortedProducts = serializer.Serialize(sortedResult);
+            return jsonSortedProducts;
+            
+        }
+
+        //sort by price (descending)
+        public string sortDescending()
+        {
+            dynamic allCatProducts = SC.getProductByCat(Convert.ToInt32(Request.QueryString["CategoryID"]));
+
+            List<Product> productPricePair = new List<Product>();
+
+            foreach (Product p in allCatProducts)
+            {
+                productPricePair.Add(p);
+            }
+
+            var sortedResult = productPricePair.OrderByDescending(p => p.Price).ToList();
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var jsonSortedProducts = serializer.Serialize(sortedResult);
+            return jsonSortedProducts;
 
         }
 
