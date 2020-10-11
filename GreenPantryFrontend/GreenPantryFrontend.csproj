@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="404.html" />
     <Content Include="account.aspx" />
     <Content Include="addressbook.aspx" />
     <Content Include="checkout.aspx" />

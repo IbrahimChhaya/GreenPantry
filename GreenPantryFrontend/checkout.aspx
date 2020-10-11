@@ -240,11 +240,11 @@
                             <div class="form-container">
                                 <div class="field-container">
                                     <label class="cardlabel" for="name">Name</label>
-                                    <input id="name"  runat="server" class="cardinput" maxlength="20" type="text" required><span id="generatecard" style="display:none;">generate random</span>
+                                    <input id="name" class="cardinput" maxlength="20" type="text" required><span id="generatecard" style="display:none;">generate random</span>
                                 </div>
                                 <div class="field-container">
                                     <label class="cardlabel" for="cardnumber">Card Number</label>
-                                    <input class="cardinput" id="cardnumber" runat="server" type="text" pattern="[0-9]*" inputmode="numeric" required>
+                                    <input class="cardinput" id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric" required>
                                     <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                         xmlns:xlink="http://www.w3.org/1999/xlink">
 
@@ -252,19 +252,18 @@
                                 </div>
                                 <div class="field-container">
                                     <label class="cardlabel" for="expirationdate">Expiration (mm/yy)</label>
-                                    <input class="cardinput" id="expirationdate" runat="server" type="text" pattern="[0-9]*" inputmode="numeric" required>
+                                    <input class="cardinput" id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric" required>
                                 </div>
                                 <div class="field-container">
                                     <label class="cardlabel" for="securitycode">Security Code</label>
                                     <input class="cardinput" id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric" required>
                                 </div>
                             </div>
-
+                        </div>
 
 
                             <!-- -----------------------end hope this works ---------------------------- -->
 
-                    </div>
                         
                         <div class="col-lg-4 col-md-6">
                             

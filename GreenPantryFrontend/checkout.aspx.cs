@@ -159,7 +159,7 @@ namespace GreenPantryFrontend
                 int newAdd = SR.addAddress(line1.Value, line2.Value, suburb.Value, town.Value, int.Parse(postcode.Value), type.Value, userID, provincesList.Value, 1, phone.Value);
             }
 
-            int addCard = SR.addCard(userID, "card", name.Value, cardnumber.Value, Convert.ToDateTime(expirationdate.Value));
+            //int addCard = SR.addCard(userID, "card", name.Value, cardnumber.Value, Convert.ToDateTime(expirationdate.Value));
 
             dynamic products = CookieContent.Split(',');
 
