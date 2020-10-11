@@ -1,6 +1,7 @@
 ﻿using GreenPantryFrontend.ServiceReference1;
 using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -21,15 +22,43 @@ namespace GreenPantryFrontend
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string display = "";
+
             if (Session["LoggedInUserID"] != null)
             {
                 int userID = Convert.ToInt32(Session["LoggedInUserID"]);
-                //Response.Cookies["cart"].Value = "1-1, 2-3";
+                dynamic address = SR.getUserAddresses(userID);
+                dynamic primaryAdd = SR.getPrimaryAddress(userID);
+
+                if (address == null || primaryAdd == null)
+                {
+                    newAddress.Visible = true;
+                    addressSaved.Visible = true;
+                }
+                else
+                {
+                    oldAddress.Visible = true;
+                    display += "<div><label><b>" + primaryAdd.Type + "</b> <span class='badge badge-success'>PRIMARY</span></label></div>";
+                    display += "<div><label>" + primaryAdd.Line1 + "</label></div>";
+                    if (primaryAdd.Line2 != "" || primaryAdd.Line2 != null)
+                    {
+                        display += "<div><label>" + primaryAdd.Line2 + "</label></div>";
+                    }
+                    display += "<div><label>" + primaryAdd.Suburb + ", " + primaryAdd.City + ", " + primaryAdd.Zip + "</label></div>";
+                    display += "<div><label>" + primaryAdd.Number + "</label></div>";
+                    display += "<div><label class='gpLabel2' style='float:right;'><a href='addressbook.aspx?action=0&ID=" + primaryAdd.ID + "'>Delete</a></label>";
+                    display += "<label class='gpLabel2' style='float:right;'><a href='addressbook.aspx?action=1&ID=" + primaryAdd.ID + "'>Edit</a></label>";
+                    display += "<label class='gpLabel2' style='float:right;'><a href='addressbook.aspx'>Change Primary Address</a></label>";
+                    display += "</div><br />";
+
+                    oldAddress.InnerHtml = display;
+                }
+                
+                
                 dynamic CookieContent = Request.Cookies["cart"].Value;
 
                 dynamic products = CookieContent.Split(',');
 
-                string display = "";
                 List<decimal> totals = new List<decimal>();
            
                 points = SR.getUserPoints(userID);
@@ -44,6 +73,7 @@ namespace GreenPantryFrontend
                     Redeem.Visible = true;
                 }
                 decimal VAT = 0;
+                display = "";
                 foreach (dynamic p in products)
                 {
                     if(!p.Equals(""))
@@ -122,7 +152,16 @@ namespace GreenPantryFrontend
         {
             dynamic CookieContent = Request.Cookies["cart"].Value;
             int userID = Convert.ToInt32(Session["LoggedInUserID"]);
-            
+
+            dynamic address = SR.getUserAddresses(userID);
+            if (address == null)
+            {
+                //save new address
+                int newAdd = SR.addAddress(line1.Value, line2.Value, suburb.Value, town.Value, int.Parse(postcode.Value), type.Value, userID, provincesList.Value, 1, phone.Value);
+            }
+
+            //int addCard = SR.addCard(userID, "card", name.Value, cardnumber.Value, Convert.ToDateTime(expirationdate.Value));
+
             dynamic products = CookieContent.Split(',');
 
             int addInvoice = SR.addInvoice(userID, "Pending", DateTime.Now, Convert.ToDateTime(dateTimeID.Value), notes.Value, subtotal, pointsRedeemed);

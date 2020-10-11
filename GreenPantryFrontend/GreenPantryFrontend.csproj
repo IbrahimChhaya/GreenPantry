@@ -69,9 +69,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="404.html" />
     <Content Include="account.aspx" />
     <Content Include="addressbook.aspx" />
     <Content Include="checkout.aspx" />
+    <Content Include="css\creditCard.css" />
     <Content Include="css\datePicker.css" />
     <Content Include="dashboard\assets\css\argon.css" />
     <Content Include="dashboard\assets\css\argon.min.css" />
@@ -3347,6 +3349,7 @@
     <Content Include="invoice.aspx" />
     <Content Include="css\invoice.css" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\creditCard.js" />
     <Content Include="js\dropdown.js" />
     <Content Include="js\jquery-3.3.1.min.js" />
     <Content Include="js\jquery-ui.min.js" />
@@ -3370,7 +3373,6 @@
     <Content Include="singleproduct.aspx" />
     <Content Include="subcategory.aspx" />
     <Content Include="dashboard\users.aspx" />
-    <Content Include="test.aspx" />
     <Content Include="ThankYou.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -3626,13 +3628,6 @@
     </Compile>
     <Compile Include="dashboard\users.aspx.designer.cs">
       <DependentUpon>users.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test.aspx.cs">
-      <DependentUpon>test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test.aspx.designer.cs">
-      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="ThankYou.aspx.cs">
       <DependentUpon>ThankYou.aspx</DependentUpon>

@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="register2.aspx.cs" Inherits="GreenPantryFrontend.register2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+	    <link rel="stylesheet" href="css/logincss.css" type="text/css" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -23,7 +24,11 @@
 					<input class="login" type="password" placeholder="Password (8 characters min)"  runat="server" ID="Password1"   minlength="8" title="Passwords must be at least 8 characters long" data-placement="right" required />
 					<%--<input class="login" type="password" placeholder="Password" runat="server" ID="RegPassword"/>--%>
 					<%--<input class="login" type="password" placeholder="Password" runat="server" ID="Password1" data-toggle="popover" title="Password Requirement" data-placement="right" data-content="Passwords must be at least 8 characters long" />--%>
-				
+				<script>
+                    $(function () {
+                        $('[data-toggle="popover"]').popover()
+                    })
+                </script>
 					<asp:Label ID="error" runat="server" Text="Incorrect Password or Username" visible="false" ></asp:Label>
 					<asp:button class="login" runat="server" ID="Register" OnClick="Register_Click" Text="Sign Up"></asp:button>
 				</div>

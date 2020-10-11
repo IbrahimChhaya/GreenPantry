@@ -30,6 +30,10 @@ namespace GreenPantryFrontend.dashboard
         public string WorstProdChart;
         public string WorstProdName;
 
+        //usersperday details
+        public string userspDayMonthly;
+        public string userspDayWeekly; 
+
         protected void Page_Load(object sender, EventArgs e)
         {
             // List<int> cat = new List<int>();
@@ -135,6 +139,24 @@ namespace GreenPantryFrontend.dashboard
             WorstProdChart = jSerializer.Serialize(wpQuantity);
             WorstProdName = jSerializer.Serialize(wpName);
 
+            //getusersperday--------------------------------------------------
+            List<int> getusersmonthly = new List<int>();
+            List<int> getusersweekly = new List<int>(); 
+
+            dynamic monthDates1 = SR.getMonthDates(new DateTime(2020, 09, 24));
+            foreach (DateTime d in monthDates1)
+            {
+                int usersperday = SR.getUsersPerDay(d.Date);
+                getusersmonthly.Add(usersperday); 
+            }
+            userspDayMonthly = jSerializer.Serialize(getusersmonthly); 
+
+            foreach(DateTime d in weekDates)
+            {
+                int usersperday = SR.getUsersPerDay(d.Date);
+                getusersweekly.Add(usersperday); 
+            }
+            userspDayWeekly = jSerializer.Serialize(getusersweekly); 
         }
     }
 }

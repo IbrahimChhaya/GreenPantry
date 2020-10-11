@@ -298,10 +298,6 @@
             if (newVal <= 0)
                 $button.parent().parent().parent().parent().remove();
 
-            if (cookie = getCookie("list") === "") {
-                location.reload();
-            }
-    
         }
 
     });
@@ -339,10 +335,6 @@
             document.cookie = "list=" + cookieVal;
 
             $button.parent().parent().remove();
-
-            if (cookie = getCookie("list") === "") {
-                location.reload();
-            }
         }
         
     });
@@ -361,6 +353,6 @@
         return null;
     }
 
-    flatpickr(".dateTimePicker", {});
+    flatpickr(".dateTimeID");
 
 })(jQuery);

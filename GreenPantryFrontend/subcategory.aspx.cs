@@ -83,5 +83,85 @@ namespace GreenPantryFrontend
             return jsonProducts;
 
         }
+
+        //sort by price (ascending)
+        public string sortAscending()
+        {
+            Product[] products = SC.getProductBySubCat(Convert.ToInt32(Request.QueryString["SubcategoryID"]));
+
+            List<Product> productPricePair = new List<Product>();
+
+            foreach (Product p in products)
+            {
+                productPricePair.Add(p);
+            }
+
+            var sortedResult = productPricePair.OrderBy(p => p.Price).ToList();
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var jsonSortedProducts = serializer.Serialize(sortedResult);
+            return jsonSortedProducts;
+
+        }
+
+        //sort by price (descending)
+        public string sortDescending()
+        {
+            Product[] products = SC.getProductBySubCat(Convert.ToInt32(Request.QueryString["SubcategoryID"]));
+
+            List<Product> productPricePair = new List<Product>();
+
+            foreach (Product p in products)
+            {
+                productPricePair.Add(p);
+            }
+
+            var sortedResult = productPricePair.OrderByDescending(p => p.Price).ToList();
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var jsonSortedProducts = serializer.Serialize(sortedResult);
+            return jsonSortedProducts;
+
+        }
+
+        //sort alpahbetically (descending)
+        public string sortAlphabeticalDescending()
+        {
+            Product[] products = SC.getProductBySubCat(Convert.ToInt32(Request.QueryString["SubcategoryID"]));
+
+            List<Product> productPricePair = new List<Product>();
+
+            foreach (Product p in products)
+            {
+                productPricePair.Add(p);
+            }
+
+            var sortedResult = productPricePair.OrderByDescending(p => p.Name).ToList();
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var jsonSortedProducts = serializer.Serialize(sortedResult);
+            return jsonSortedProducts;
+
+        }
+
+        //sort alpahbetically (ascending)
+        public string sortAlphabeticalAscending()
+        {
+            Product[] products = SC.getProductBySubCat(Convert.ToInt32(Request.QueryString["SubcategoryID"]));
+
+            List<Product> productPricePair = new List<Product>();
+
+            foreach (Product p in products)
+            {
+                productPricePair.Add(p);
+            }
+
+            var sortedResult = productPricePair.OrderBy(p => p.Name).ToList();
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var jsonSortedProducts = serializer.Serialize(sortedResult);
+            return jsonSortedProducts;
+
+        }
     }
 }

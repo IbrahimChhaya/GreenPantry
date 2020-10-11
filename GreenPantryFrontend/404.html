@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="description" content="Fresh Grocery">
+    <meta name="keywords" content="Green Pantry, grocery, fresh, delivery">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Green Pantry</title>
+    <link rel="icon" href="assets/img/brand/GPlogo.png" type="image/png">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700');
+        @import url('https://fonts.googleapis.com/css?family=Catamaran:400,800');
+
+        .error-container {
+            text-align: center;
+            font-size: 106px;
+            font-family: 'Catamaran', sans-serif;
+            font-weight: 800;
+            margin: 70px 15px;
+        }
+
+            .error-container > span {
+                display: inline-block;
+                position: relative;
+            }
+
+                .error-container > span.four {
+                    width: 136px;
+                    height: 43px;
+                    border-radius: 999px;
+                    background: linear-gradient(140deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.07) 43%, transparent 44%, transparent 100%), linear-gradient(105deg, transparent 0%, transparent 40%, rgba(0, 0, 0, 0.06) 41%, rgba(0, 0, 0, 0.07) 76%, transparent 77%, transparent 100%), linear-gradient(to right, #0FAB2C, #0FAB2C);
+                }
+
+                    .error-container > span.four:before,
+                    .error-container > span.four:after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        border-radius: 999px;
+                    }
+
+                    .error-container > span.four:before {
+                        width: 43px;
+                        height: 156px;
+                        left: 60px;
+                        bottom: -43px;
+                        background: linear-gradient(128deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.07) 40%, transparent 41%, transparent 100%), linear-gradient(116deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.07) 50%, transparent 51%, transparent 100%), linear-gradient(to top, #0FAB2C, #0FAB2C, #0FAB2C, #0FAB2C, #0FAB2C);
+                    }
+
+                    .error-container > span.four:after {
+                        width: 137px;
+                        height: 43px;
+                        transform: rotate(-49.5deg);
+                        left: -18px;
+                        bottom: 36px;
+                        background: linear-gradient(to right, #0FAB2C, #0FAB2C, #0FAB2C, #0FAB2C, #0FAB2C);
+                    }
+
+                .error-container > span.zero {
+                    vertical-align: text-top;
+                    width: 156px;
+                    height: 156px;
+                    border-radius: 999px;
+                    background: linear-gradient(-45deg, transparent 0%, rgba(0, 0, 0, 0.06) 50%, transparent 51%, transparent 100%), linear-gradient(to top right, #0FAB2C, #0FAB2C, #0FAB2C, #0FAB2C, #0FAB2C, #0FAB2C, #0FAB2C);
+                    overflow: hidden;
+                    animation: bgshadow 5s infinite;
+                }
+
+                    .error-container > span.zero:before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        transform: rotate(45deg);
+                        width: 90px;
+                        height: 90px;
+                        background-color: transparent;
+                        left: 0px;
+                        bottom: 0px;
+                        background: linear-gradient(95deg, transparent 0%, transparent 8%, rgba(0, 0, 0, 0.07) 9%, transparent 50%, transparent 100%), linear-gradient(85deg, transparent 0%, transparent 19%, rgba(0, 0, 0, 0.05) 20%, rgba(0, 0, 0, 0.07) 91%, transparent 92%, transparent 100%);
+                    }
+
+                    .error-container > span.zero:after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        border-radius: 999px;
+                        width: 70px;
+                        height: 70px;
+                        left: 43px;
+                        bottom: 43px;
+                        background: #FDFAF5;
+                        box-shadow: -2px 2px 2px 0px rgba(0, 0, 0, 0.1);
+                    }
+
+        .screen-reader-text {
+            position: absolute;
+            top: -9999em;
+            left: -9999em;
+        }
+
+        @keyframes bgshadow {
+            0% {
+                box-shadow: inset -160px 160px 0px 5px rgba(0, 0, 0, 0.4);
+            }
+
+            45% {
+                box-shadow: inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+            }
+
+            55% {
+                box-shadow: inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+            }
+
+            100% {
+                box-shadow: inset 160px -160px 0px 5px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        .zoom-area p {
+            max-width: 490px;
+            margin: 30px auto 30px;
+            font-size: 19px;
+            text-align: center;
+        }
+
+        .link-container p {
+            text-align: center;
+            max-width: 490px;
+            margin: 30px auto 30px;
+            font-size: 19px;
+            text-align: center;
+        }
+
+        a.more-link {
+            text-transform: uppercase;
+            font-size: 13px;
+            background-color: #de7e85;
+            padding: 10px 15px;
+            border-radius: 0;
+            color: #fff;
+            display: inline-block;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            line-height: 1.5;
+            text-decoration: none;
+            margin-top: 50px;
+            letter-spacing: 1px;
+        }
+    </style>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Humberger Begin -->
+    <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__wrapper">
+        <div class="humberger__menu__logo">
+            <a href="#"><img src="img/GPlogowithText.png" alt="Green Pantry"></a>
+        </div>
+        <div class="humberger__menu__cart">
+            <ul>
+                <li><a href="shoppinglist.aspx"><i class="fa fa-list"></i> <span></span></a></li>
+                <li><a href="cart.aspx"><i class="fa fa-shopping-bag"></i> <span></span></a></li>
+            </ul>
+        </div>
+        <div class="humberger__menu__widget">
+            <div class="header__top__right__auth">
+                <i class="fa fa-user"></i> <p onclick="document.getElementById('id01').style.display='block'">Login / Register</p>
+            </div>
+        </div>
+        <nav class="humberger__menu__nav mobile-menu">
+            <ul>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="header__top__right__social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-envelope"></i></a>
+        </div>
+
+        <style>
+            a.corona {
+                color: #1c1c1c;
+                text-decoration: underline;
+            }
+
+                a.corona:hover {
+                    color: #0FAB2C;
+                }
+        </style>
+
+        <div class="humberger__menu__contact">
+            <ul>
+                <li><i class="fa fa-envelope"></i> <a class="corona" href="mailto:hello@greenpantry.me">hello@greenpantry.me</a></li>
+                <li>Stay informed on COVID-19  <a class="corona" href="https://sacoronavirus.co.za/">www.sacoronavirus.co.za</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Humberger End -->
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="./home.aspx"><img src="img/GPlogowithText.png" alt="Green Pantry"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu">
+                        <ul>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="header__cart">
+                        <ul>
+                            <li><a href="shoppinglist.aspx" id="listIcon" runat="server"><i class="fa fa-list"></i></a></li>
+                            <li><a href="cart.aspx"><i class="fa fa-shopping-cart"></i> <span id="numCartItems" runat="server" visible="false"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+        <!-- The Modal -->
+        <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'"
+                  class="close" title="Close Modal">&times;</span>
+
+            <!-- Modal Content -->
+            <form class="modal-content animate" action="#">
+                <div class="containerPopup">
+                    <div class="bodylogin" id="test">
+                        <div class="containerlogin" id="container">
+                            <div class="form-container sign-up-container">
+                                <div class="loginForm">
+                                    <h1 class="h1login">Create Account</h1>
+                                    <br />
+                                    <input class="login" type="text" placeholder="Name" />
+                                    <input class="login" type="text" placeholder="Last name" />
+                                    <input class="login" type="email" placeholder="Email" />
+                                    <input class="login" type="password" placeholder="Password" />
+                                    <button class="login">Sign Up</button>
+                                </div>
+                            </div>
+                            <div class="form-container sign-in-container">
+                                <div class="loginForm">
+                                    <h1 class="h1login" id="closePopup">Sign in</h1>
+                                    <br />
+                                    <input class="login" type="email" placeholder="Email" />
+                                    <input class="login" type="password" placeholder="Password" />
+                                    <a class="login" href="#">Forgot your password?</a>
+                                    <button class="login">Sign In</button>
+                                </div>
+                            </div>
+                            <div class="overlay-container">
+                                <div class="overlay">
+                                    <div class="overlay-panel overlay-left">
+                                        <h1 class="h1login">Welcome Back!</h1>
+                                        <p class="plogin">To keep connected with us please login with your personal info</p>
+                                        <button class="login ghost" id="signIn">Sign In</button>
+                                    </div>
+                                    <div class="overlay-panel overlay-right">
+                                        <h1 class="h1login">Helllo</h1>
+                                        <p class="plogin">hey</p>
+                                        <button class="login ghost" id="signUp">Sign Up</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- Modal login End -->
+
+        </div>
+    </header>
+    <!-- Header Section End -->
+    <form runat="server">
+
+        <!-- Hero Section Begin -->
+        <section class="hero hero-normal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="hero__categories">
+                            <div class="hero__categories__all">
+                                <i class="fa fa-bars"></i>
+                                <span>All departments</span>
+                            </div>
+                            <ul id="categoryList" runat="server">
+                                <li><a href="#">Fresh Meat</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="hero__search">
+                            <div class="hero__search__form">
+                                <!--<form runat="server">
+                                -->
+                                <div class="searchForm">
+                                    <div class="hero__search__categories">
+                                        All Departments
+                                        <span class="arrow_carrot-down"></span>
+                                    </div>
+                                    <input type="text" id="searchText" runat="server">
+                                    <!--<a class="site-btn" runat="server" id="searchA" onserverclick="Search_Click">SEARCH</a>
+                                -->
+                                    <button type="submit" class="site-btn" id="btnSearch" runat="server" onserverclick="Search_Click">SEARCH</button>
+                                </div>
+                                <!--
+                            </form>-->
+                            </div>
+                            <div class="hero__search__phone">
+                                <div class="hero__search__phone__icon">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="hero__search__phone__text">
+                                    <!--<h5 onclick="document.getElementById('id01').style.display='block'">My Account</h5><span class="arrow_carrot-down"></span>-->
+                                    <h5 id="account" runat="server"><a href="login.aspx">Login</a> / <a href="register2.aspx">Register</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Hero Section End -->
+
+        <section class="error-container">
+            <span class="four"><span class="screen-reader-text">4</span></span>
+            <span class="zero"><span class="screen-reader-text">0</span></span>
+            <span class="four"><span class="screen-reader-text">4</span></span>
+        </section>
+        <div class="link-container">
+            <p><b></b>Sorry, page could not be found.</p>
+            <p><a href="home.aspx" class="site-btn">Back to Home</a></p>
+        </div>
+
+        </form>
+
+        <footer class="footer spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer__about">
+                            <div class="footer__about__logo">
+                                <a href="./home.aspx"><img src="img/GPlogoFooter.png" alt="Green Pantry"></a>
+                            </div>
+                            <ul>
+                                <li>Address: Kingsway Ave, Johannesburg</li>
+                                <li>Phone: <a class="corona" href="tel:0116168269">011 616 8269</a></li>
+                                <li>Email: <a class="corona" href="mailto:hello@greenpantry.me">hello@greenpantry.me</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                        <div class="footer__widget">
+                            <h6>Useful Links</h6>
+                            <ul>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="contact.aspx">Contact Us</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Shipping & Delivery</a></li>
+                                <li><a href="#">Exchanges & Returns</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="account.aspx">My Account</a></li>
+                                <li><a href="orders.aspx">Track Orders</a></li>
+                                <li><a href="#">Green Shopper Points</a></li>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Terms and Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer__widget">
+                            <h6>Join Our Newsletter Now</h6>
+                            <p>Get E-mail updates about our latest shop and special offers.</p>
+                            <form action="#">
+                                <input type="text" ID="newsletterID" runat="server" placeholder="Enter your mail">
+                                <a class="site-btn" ID="NewsLetterbtnID12" runat="server" href="ThankYou.aspx">Subscribe</a>
+                            </form>
+                            <div class="footer__widget__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer__copyright">
+                            <div class="footer__copyright__text">
+                                <p>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;
+                                    <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> and modified by Arachnid Design <i class="fa fa-spider"></i>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </p>
+                            </div>
+                            <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Section End -->
+        <!-- Js Plugins -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.nice-select.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery.slicknav.js"></script>
+        <script src="js/mixitup.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/main.js"></script>
+
+
+</body>
+</html>
+
+
+

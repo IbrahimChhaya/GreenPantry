@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -12,6 +13,7 @@ namespace GreenPantryFrontend
     public partial class results : System.Web.UI.Page
     {
         GP_ServiceClient SC = new GP_ServiceClient();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             String display = "";
@@ -76,6 +78,98 @@ namespace GreenPantryFrontend
                 subcatList.InnerHtml = display2;
             }
             categoryProducts.InnerHtml = display;
+        }
+
+        //function to get all products
+        public string getProducts()
+        {
+            Product[] products = SC.searchProducts(Request.QueryString["Search"]);
+            //create js serialized object to pass to js
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var jsonProducts = serializer.Serialize(products);
+            //jsonProducts = products;
+            return jsonProducts;
+
+        }
+
+        //sort by price (ascending)
+        public string sortAscending()
+        {
+            Product[] products = SC.searchProducts(Request.QueryString["Search"]);
+
+            List<Product> productPricePair = new List<Product>();
+
+            foreach (Product p in products)
+            {
+                productPricePair.Add(p);
+            }
+
+            var sortedResult = productPricePair.OrderBy(p => p.Price).ToList();
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var jsonSortedProducts = serializer.Serialize(sortedResult);
+            return jsonSortedProducts;
+
+        }
+
+        //sort by price (descending)
+        public string sortDescending()
+        {
+            Product[] products = SC.searchProducts(Request.QueryString["Search"]);
+
+            List<Product> productPricePair = new List<Product>();
+
+            foreach (Product p in products)
+            {
+                productPricePair.Add(p);
+            }
+
+            var sortedResult = productPricePair.OrderByDescending(p => p.Price).ToList();
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var jsonSortedProducts = serializer.Serialize(sortedResult);
+            return jsonSortedProducts;
+
+        }
+
+        //sort alpahbetically (descending)
+        public string sortAlphabeticalDescending()
+        {
+            Product[] products = SC.searchProducts(Request.QueryString["Search"]);
+
+            List<Product> productPricePair = new List<Product>();
+
+            foreach (Product p in products)
+            {
+                productPricePair.Add(p);
+            }
+
+            var sortedResult = productPricePair.OrderByDescending(p => p.Name).ToList();
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var jsonSortedProducts = serializer.Serialize(sortedResult);
+            return jsonSortedProducts;
+
+        }
+
+        //sort alpahbetically (ascending)
+        public string sortAlphabeticalAscending()
+        {
+            Product[] products = SC.searchProducts(Request.QueryString["Search"]);
+
+            List<Product> productPricePair = new List<Product>();
+
+            foreach (Product p in products)
+            {
+                productPricePair.Add(p);
+            }
+
+            var sortedResult = productPricePair.OrderBy(p => p.Name).ToList();
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var jsonSortedProducts = serializer.Serialize(sortedResult);
+            return jsonSortedProducts;
+
         }
     }
 }
