@@ -38,14 +38,14 @@ span {
     font-size: 12px;
 }
 
-a.login {
+a.loginA {
     color: #333;
     font-size: 14px;
     text-decoration: none;
     margin: 15px 0;
 }
 
-button.login {
+a.login {
     border-radius: 20px;
     border: 1px solid #0FAB2C;
     background-color: #0FAB2C;
@@ -57,16 +57,16 @@ button.login {
     text-transform: uppercase;
     transition: transform 80ms ease-in;
 }
-button.login.ghost {
+a.login.ghost {
     background-color: transparent;
     border-color: #FFFFFF;
     }
 
-    button.login:active {
+    a.login:active {
         transform: scale(0.95);
     }
 
-    button.login:focus {
+    a.login:focus {
         outline: none;
     }
 

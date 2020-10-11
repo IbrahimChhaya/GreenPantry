@@ -28,14 +28,15 @@ namespace GreenPantryFrontend
             {
                 int userID = Convert.ToInt32(Session["LoggedInUserID"]);
                 dynamic address = SR.getUserAddresses(userID);
-                if(address == null)
+                dynamic primaryAdd = SR.getPrimaryAddress(userID);
+
+                if (address == null || primaryAdd == null)
                 {
                     newAddress.Visible = true;
                     addressSaved.Visible = true;
                 }
                 else
                 {
-                    dynamic primaryAdd = SR.getPrimaryAddress(userID);
                     oldAddress.Visible = true;
                     display += "<div><label><b>" + primaryAdd.Type + "</b> <span class='badge badge-success'>PRIMARY</span></label></div>";
                     display += "<div><label>" + primaryAdd.Line1 + "</label></div>";

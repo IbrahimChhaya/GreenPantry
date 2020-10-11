@@ -34,7 +34,7 @@
 					<input class="login" type="email" placeholder="Email" runat="server" ID="Email" required/>
 					<input class="login" type="password" placeholder="Password" runat="server" ID="Password" required/>
                     <asp:Label ID="error" runat="server" Text="Incorrect Password or Username" visible="false"></asp:Label>
-					<a class="login" href="login.aspx?Reset=true">Forgot your password?</a>
+					<a class="loginA" href="login.aspx?Reset=true">Forgot your password?</a>
                     <asp:button class="login" runat="server" ID="btnLogin" OnClick="btnLogin_Click" Text="Sign In"></asp:button>
 <%--				</form>--%>
 									</div>
