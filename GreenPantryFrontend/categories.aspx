@@ -66,9 +66,12 @@
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
                                     <span>Sort By</span>
-                                    <select>
+                                    <select class="sort-options">
                                         <option value="0">Default</option>
-                                        <option value="0">Default</option>
+                                        <option value="1">Price: Low to High</option>
+                                        <option value="2">Price: High to Low</option>
+                                        <option value="3">Name: A-Z</option>
+                                        <option value="4">Name: Z-A</option>
                                     </select>
                                 </div>
                             </div>
@@ -85,7 +88,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row catPros" id="categoryProducts" runat="server" > <%--//data-products="<%=jsonProducts %>"--%>
+                    <div class="row catPros" id="categoryProducts" runat="server" >
                         
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
@@ -280,13 +283,17 @@
     </section>
     <!-- Product Section End --> 
     <script>
+        document.addEventListener("DOMContentLoaded", function (e) {
+            sortProducts();
+        })
+
         function updateProductsList() {
 
             var products = <%= getProducts() %>;
             var display = "";
             var minimumPrice = $('#minamount').val().replace('R', '')
             var maximumPrice = $('#maxamount').val().replace('R', '')
-            debugger
+
             $('#ContentPlaceHolder1_categoryProducts').html(" ");
 
             for (var i = 0; i < products.length; i++) {
@@ -306,5 +313,48 @@
 
             $('#ContentPlaceHolder1_categoryProducts').html(display);
         }
+
+        //Function to redisplay based on sorted products
+        function sortProducts() {
+            var selector = document.getElementsByClassName('sort-options');        
+            var proList;
+
+            $('.sort-options').on('change', function () {
+                if (selector[0].value == 1) {
+                    proList = <%=sortAscending()%>;
+                }
+                else if (selector[0].value == 2) {
+                    proList = <%=sortDescending()%>;
+                }
+                else if (selector[0].value == 0) {
+                    proList = <%= getProducts()%>;
+                }
+                else if (selector[0].value == 3) {
+                    proList = <%= sortAlphabeticalAscending()%>;
+                }
+                else if (selector[0].value == 4) {
+                    proList = <%= sortAlphabeticalDescending()%>;
+                }
+
+                var display = "";
+                $('#ContentPlaceHolder1_categoryProducts').html(display);
+
+                for (var i = 0; i < proList.length; i++) {
+                    display += "<div class='col-lg-4 col-md-6 col-sm-6'>";
+                    display += "<div class='product__item' onclick='location.href=&#39;singleproduct.aspx?ProductID=" + proList[i].ID + "&#39;'>";
+                    display += "<div class='product__item__pic set-bg' data-setbg='" + proList[i].Image_Location + "' style='background-image: url(&quot;" + proList[i].Image_Location + "&quot;);'>";
+                    display += "<ul class='product__item__pic__hover'>";
+                    display += "<li><a href='#'><i class='fa fa-heart'></i></a></li>";
+                    display += "<li><a href='#'><i class='fa fa-shopping-cart'></i></a></li></ul></div>";
+                    display += "<div class='product__item__text'>";
+                    display += "<h6>" + proList[i].Name + "</h6>";
+                    display += "<h5>R" + (proList[i].Price).toFixed(2) + "</h5></div></div></div>";
+                }
+
+                $('#ContentPlaceHolder1_categoryProducts').html(display);
+
+            })
+        }
+
     </script>
 </asp:Content>
