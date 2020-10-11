@@ -83,10 +83,10 @@ namespace AdminDashboard
             string Display = "";
             //Displaying the users perweek and the change in percentange
             double userChange = SR.percentageUserChange(DateTime.Now);
-            int usrperweek = SR.usersperWeek(DateTime.Now);
+            int usrperDay = SR.getUsersPerDay(DateTime.Now);
             Display += "<div class='row'><div class='col'>";
             Display += "<h5 class='card-title text-uppercase text-muted mb-0'>New users</h5>";
-            Display += "<span class='h2 font-weight-bold mb-0'>"+ usrperweek + "</span></div>";
+            Display += "<span class='h2 font-weight-bold mb-0'>"+ usrperDay + "</span></div>";
             Display += "<div class='col-auto'>";
             Display += "<div class='icon icon-shape bg-gradient-orange text-white rounded-circle shadow'>";
             Display += "<i class='ni ni-chart-pie-35'></i></div></div></div><p class='mt-3 mb-0 text-sm'>";
@@ -139,8 +139,8 @@ namespace AdminDashboard
             double percChange = SR.percProfitPerWeek(DateTime.Now);
             Display += "<div class='row'>";
             Display += "<div class='col'>";
-            Display += "<h5 class='card-title text-uppercase text-muted mb-0'>Product</h5>";
-            Display += "<span class='h2 font-weight-bold mb-0'>" + profitperweek + "</span></div>";
+            Display += "<h5 class='card-title text-uppercase text-muted mb-0'>Profit</h5>";
+            Display += "<span class='h2 font-weight-bold mb-0'>R" + profitperweek + "</span></div>";
             Display += "<div class='col-auto'>";
             Display += "<div class='icon icon-shape bg-gradient-info text-white rounded-circle shadow'>";
             Display += "<i class='ni ni-chart-bar-32'></i></div></div></div>";
@@ -164,7 +164,7 @@ namespace AdminDashboard
             int weeklyTraffic = SR.trafficPerWeek(DateTime.Now);
             double percentage = SR.TrafficChange(DateTime.Now);
             Display +="<div class='row'>";
-            Display +="<div class='col'><h5 class='card-title text-uppercase text-muted mb-0'>Total traffic</h5>";
+            Display +="<div class='col'><h5 class='card-title text-uppercase text-muted mb-0'>Traffic</h5>";
             Display +="<span class='h2 font-weight-bold mb-0'>" + weeklyTraffic + "</span></div>";
             Display +="<div class='col-auto'>";
             Display +="<div class='icon icon-shape bg-gradient-red text-white rounded-circle shadow'>";
