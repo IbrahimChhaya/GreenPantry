@@ -316,6 +316,8 @@
                                         <option value="0">Default</option>
                                         <option value="1">Price: Low to High</option>
                                         <option value="2">Price: High to Low</option>
+                                        <option value="3">Name: A-Z</option>
+                                        <option value="4">Name: Z-A</option>
                                     </select>
                                 </div>
                             </div>
@@ -572,6 +574,12 @@
                 }
                 else if (selector[0].value == 0) {
                     proList = <%= getProducts()%>;
+                }
+                else if (selector[0].value == 3) {
+                    proList = <%= sortAlphabeticalAscending()%>;
+                }
+                else if (selector[0].value == 4) {
+                    proList = <%= sortAlphabeticalDescending()%>;
                 }
 
                 var display = "";

@@ -38,7 +38,7 @@
                             <h4>Price</h4>
                             <div class="price-range-wrap">
                                 <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                    data-min="10" data-max="540">
+                                    data-min="0" data-max="540">
                                     <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
                                     <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                                     <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
@@ -68,6 +68,8 @@
                                         <option value="0">Default</option>
                                         <option value="1">Price: Low to High</option>
                                         <option value="2">Price: High to Low</option>
+                                        <option value="3">Name: A-Z</option>
+                                        <option value="4">Name: Z-A</option>
                                     </select>
                                 </div>
                             </div>
@@ -324,6 +326,12 @@
                 }
                 else if (selector[0].value == 0) {
                     proList = <%= getProducts()%>;
+                }
+                else if (selector[0].value == 3) {
+                    proList = <%= sortAlphabeticalAscending()%>;
+                }
+                else if (selector[0].value == 4) {
+                    proList = <%= sortAlphabeticalDescending()%>;
                 }
 
                 var display = "";

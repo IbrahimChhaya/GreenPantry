@@ -140,6 +140,46 @@ namespace GreenPantryFrontend
 
         }
 
+        //sort alpahbetically (descending)
+        public string sortAlphabeticalDescending()
+        {
+            dynamic allCatProducts = SC.getProductByCat(Convert.ToInt32(Request.QueryString["CategoryID"]));
+
+            List<Product> productPricePair = new List<Product>();
+
+            foreach (Product p in allCatProducts)
+            {
+                productPricePair.Add(p);
+            }
+
+            var sortedResult = productPricePair.OrderByDescending(p => p.Name).ToList();
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var jsonSortedProducts = serializer.Serialize(sortedResult);
+            return jsonSortedProducts;
+
+        }
+
+        //sort alpahbetically (ascending)
+        public string sortAlphabeticalAscending()
+        {
+            dynamic allCatProducts = SC.getProductByCat(Convert.ToInt32(Request.QueryString["CategoryID"]));
+
+            List<Product> productPricePair = new List<Product>();
+
+            foreach (Product p in allCatProducts)
+            {
+                productPricePair.Add(p);
+            }
+
+            var sortedResult = productPricePair.OrderBy(p => p.Name).ToList();
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var jsonSortedProducts = serializer.Serialize(sortedResult);
+            return jsonSortedProducts;
+
+        }
+
         private void saveToCookie(String CookieName, String content)
         {
             //content: productID-quantity,productID-quantity
