@@ -1,6 +1,22 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="singleproduct.aspx.cs" Inherits="GreenPantryFrontend.singleproduct" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="http://codeseven.github.com/toastr/toastr.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="http://codeseven.github.com/toastr/toastr-responsive.css">
+    <link rel="stylesheet" type="text/css" href="toastrsample.css">
+    <link href="build/toastr.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+    <script src="toastr.js"></script>
+    <script src="build/toastr.min.js"></script>
+
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+
+    <script type="text/javascript" src="toastrsample.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -185,4 +201,19 @@
         </div>
     </section>
     <!-- Related Product Section End -->
+    
+
+    <script>
+        //$(document).ready(function(){
+        //    toastr.options.timeOut = 1500;
+        //    toastr.success('Great success!');
+        //})
+
+        document.addEventListener("DOMContentLoaded", function (e) {
+            //toastr.options.timeOut = 1500;
+            //toastr.success('Great success!');
+            toastr.info('document.ready');
+        })
+    </script>
     </asp:Content>
+

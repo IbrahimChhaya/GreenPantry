@@ -10,7 +10,9 @@ namespace GreenPantryFrontend
 {
     public partial class singleproduct : System.Web.UI.Page
     {
-        GP_ServiceClient SC = new GP_ServiceClient(); 
+        GP_ServiceClient SC = new GP_ServiceClient();
+
+        public bool addedToCart = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             if(Session["LoggedInUserID"] == null)
@@ -57,24 +59,25 @@ namespace GreenPantryFrontend
                 Description.InnerHtml = Display;
 
                 ////relatedproducts
-                dynamic relatedProducts = SC.getProductBySubCat(getSub.SubID);
+                var productCategory = SC.getCategorybyProductID(int.Parse(Request.QueryString["ProductID"]));
+                dynamic relatedProducts = SC.getProductByCat(productCategory.ID);
                 Display = "";
-                foreach (Product p in relatedProducts)
+                for (int i = 0; i < 4; i++)
                 {
                     Display += "<div class='col-lg-3 col-md-4 col-sm-6'>";
                     Display += "<div class='product__item'>";
-                    Display += "<div class='product__item__pic set-bg' data-setbg='" + p.Image_Location + "'>";
+                    Display += "<div class='product__item__pic set-bg' data-setbg='" + relatedProducts[i].Image_Location + "'>";
                     Display += "<ul class='product__item__pic__hover'>";
                     Display += "<li><a href='#'><i class='fa fa-heart'></i></a></li>";
-                    Display += "<li><a href='singleproduct.aspx?ProductID=" + p.ID + "'><i class='fa fa-shopping-cart'></i></a></li>";
+                    Display += "<li><a href='singleproduct.aspx?ProductID=" + relatedProducts[i].ID + "'><i class='fa fa-shopping-cart'></i></a></li>";
                     Display += "</ul></div>";
                     Display += "<div class='product__item__text'>";
-                    Display += "<h6><a href='singleproduct.aspx?ProductID=" + p.ID + "'>" + p.Name + "</a></h6>";
-                    Display += "<h5>R" + Math.Round(p.Price, 2) + "</h5>";
+                    Display += "<h6><a href='singleproduct.aspx?ProductID=" + relatedProducts[i].ID + "'>" + relatedProducts[i].Name + "</a></h6>";
+                    Display += "<h5>R" + Math.Round(relatedProducts[i].Price, 2) + "</h5>";
                     Display += "</div></div></div>";
                     
                    
-                    if (p.StockOnHand.Equals(0))
+                    if (relatedProducts[i].StockOnHand.Equals(0))
                     {
                         stock.InnerHtml = "Out of Stock";
                         //Add.Enabled = false;
@@ -135,8 +138,10 @@ namespace GreenPantryFrontend
             }
             //Add.Text = "ADDED TO CART";
             addToCart.InnerText = "ADDED TO CART";
+            addedToCart = true;
             //reload the page
-            Response.Redirect(Request.RawUrl);
+            //Response.Redirect(Request.RawUrl);
+            //toastr.success('Item successfully added to cart');
         }
 
         //function to check a particular products is in the cookie
