@@ -183,7 +183,17 @@
         <div class="container">
             <div class="row" id="categorySlider2" runat="server">
                 <div class="col-lg-12">
+                   <!-- <div class="hero__item set-bg" data-setbg="img/freeshipping.png">
+                        <div class="hero__text">
+                            <span></span>
+                            <h2>Free <br />Shipping</h2>
+                            <p>On Orders Over R500</p>
+                            <a href="#" class="primary-btn">SHOP NOW</a>
+                        </div>
+                    </div>-->
+
                     <div class="section-title">
+
                         <h2>Fresh From The Bakery</h2>
                     </div>
                 </div>

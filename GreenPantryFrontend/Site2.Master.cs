@@ -62,21 +62,30 @@ namespace GreenPantryFrontend
 
             if (Request.Cookies["cart"] != null)
             {
-                dynamic products = Request.Cookies["cart"].Value.Split(',');
-                int numProducts = 0;
-
-                foreach (var p in products)
+                if(Request.Cookies["cart"].Value != null)
                 {
-                    if (!p.Equals(""))
+                    dynamic products = Request.Cookies["cart"].Value.Split(',');
+                    int numProducts = 0;
+
+                    foreach (var p in products)
                     {
-                        numProducts++;
+                        if (!p.Equals(""))
+                        {
+                            numProducts++;
+                        }
+                    }
+                    if (numProducts > 0)
+                    {
+                        numCartItems.InnerText = numProducts.ToString();
+                        numCartItems.Visible = true;
                     }
                 }
-                if (numProducts > 0)
+                else
                 {
-                    numCartItems.InnerText = numProducts.ToString();
-                    numCartItems.Visible = true;
+                    Response.Cookies["cart"].Expires = DateTime.Now.AddDays(-1);
+                    numCartItems.Visible = false;
                 }
+               
             }
             else
             {
