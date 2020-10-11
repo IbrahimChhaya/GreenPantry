@@ -13,7 +13,6 @@ namespace GreenPantryFrontend
     public partial class home : System.Web.UI.Page
     {
         GP_ServiceClient SC = new GP_ServiceClient();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             String display = "";
@@ -25,7 +24,7 @@ namespace GreenPantryFrontend
             {
                 if (c.Status.Equals("active"))
                 {
-                    display += "<li><a href='/categories.aspx?CategoryID=" + c.ID + "'>" + c.Name + "</a></li>";
+                    display += "<li><a href='/categories.aspx?CategoryID=" + c.ID + "&Page=1'>" + c.Name + "</a></li>";
                 }
             }
 
@@ -62,7 +61,7 @@ namespace GreenPantryFrontend
             String caption = "These discounts dough!";
             String tag = "25% off at the bakery this month";
             String categoryLink = "7";
-            display = "<a href='/categories.aspx?CategoryID=" + categoryLink + "'>";
+            display = "<a href='/categories.aspx?CategoryID=" + categoryLink + "&Page=1'>";
             display += "<div class='hero__4item set-bg' data-setbg='img/banner/banner-1.png'>";
             display += "<div class='hero__textButBlack'>";
             display += "<span></span>";
@@ -75,7 +74,7 @@ namespace GreenPantryFrontend
             caption = "Stock up on groceries";
             tag = "Get all your ingredients here";
             categoryLink = "1";
-            display = "<a href='/categories.aspx?CategoryID=" + categoryLink + "'>";
+            display = "<a href='/categories.aspx?CategoryID=" + categoryLink + "&Page=1'>";
             display += "<div class='hero__4item set-bg' data-setbg='img/banner/banner-2.png'>";
             display += "<div class='hero__textButBlack secondary'>";
             display += "<span></span>";
@@ -88,7 +87,7 @@ namespace GreenPantryFrontend
             caption = "Celebrate Spring time with natural juices";
             tag = "100% fruit juices in every flavour";
             categoryLink = "8";
-            display = "<a href='/categories.aspx?CategoryID=" + categoryLink + "'>";
+            display = "<a href='/categories.aspx?CategoryID=" + categoryLink + "&Page=1'>";
             display += "<div class='hero__4item set-bg' data-setbg='img/banner/banner-3.png'>";
             display += "<div class='hero__textButBlack secondary'>";
             display += "<span></span>";
@@ -101,7 +100,7 @@ namespace GreenPantryFrontend
             caption = "Fresh foods at fresh prices";
             tag = "Fill up your fridge with next-day delivery";
             categoryLink = "2";
-            display = "<a href='/categories.aspx?CategoryID=" + categoryLink + "'>";
+            display = "<a href='/categories.aspx?CategoryID=" + categoryLink + "&Page=1'>";
             display += "<div class='hero__4item set-bg' data-setbg='img/banner/banner-4.png'>";
             display += "<div class='hero__textButBlack'>";
             display += "<span></span>";
@@ -125,7 +124,7 @@ namespace GreenPantryFrontend
                 display += "<span></span>";
                 display += "<h2>Free <br/>Shipping</h2>";
                 display += "<p>On Orders Over R500</p>";
-                display += "<a href='results.aspx?Search=1' class='primary-btn'>SHOP NOW</a>";
+                display += "<a href='results.aspx?Search=1&Page=1' class='primary-btn'>SHOP NOW</a>";
                 display += "</div></div></br>";
 
                 dynamic list = SC.recommendTest(userID);
@@ -162,7 +161,7 @@ namespace GreenPantryFrontend
             }
             else
             {
-                sliderCaption = "Straight From The Fruit Tree";
+                sliderCaption = "Meals Made To Go";
 
                 display = "<div class='col-lg-12'>";
                 display += "<div class='hero__item set-bg' data-setbg='img/freeshipping.png'>";
@@ -170,9 +169,9 @@ namespace GreenPantryFrontend
                 display += "<span></span>";
                 display += "<h2>Free <br/>Shipping</h2>";
                 display += "<p>On Orders Over R500</p>";
-                display += "<a href='results.aspx?Search=1' class='primary-btn'>SHOP NOW</a>";
+                display += "<a href='results.aspx?Search=1Page=1' class='primary-btn'>SHOP NOW</a>";
                 display += "</div></div></br>";
-                display += categoryHelper(sliderCaption, 2);
+                display += categoryHelper(sliderCaption, 6);
 
                 categorySlider.InnerHtml = display;
             }
@@ -261,7 +260,7 @@ namespace GreenPantryFrontend
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/results.aspx?Search=" + searchText.Value);
+            Response.Redirect("/results.aspx?Search=" + searchText.Value + "&Page=1");
         }
     }
 }

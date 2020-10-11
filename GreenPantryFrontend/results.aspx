@@ -260,7 +260,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="product__pagination">
+                    <div class="product__pagination" id="pageNumbers" runat="server">
                         <a href="#">1</a>
                         <a href="#">2</a>
                         <a href="#">3</a>

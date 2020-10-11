@@ -13,6 +13,7 @@ namespace GreenPantryFrontend
     {
         GP_ServiceClient SC = new GP_ServiceClient();
 
+        public int currentPage;
         public string jsonProducts;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -49,8 +50,14 @@ namespace GreenPantryFrontend
                 //products-------------------------------------------------------------
 
                 display = "";
+                currentPage = int.Parse(Request.QueryString["Page"]);
                 dynamic products = SC.getProductBySubCat(int.Parse(subID));
-                foreach (Product p in products)
+                dynamic list = GetPage(products, currentPage, 6);
+                int numProduct = products.Length;
+                double roundUpPages = Math.Ceiling(numProduct / 6.00);
+                int totalPages = (int)roundUpPages;
+
+                foreach (Product p in list)
                 {
                     if (p.Status.Equals("active"))
                     {
@@ -69,6 +76,59 @@ namespace GreenPantryFrontend
                     }
                 }
                 subProducts.InnerHtml = display;
+
+                display = "";
+                if (currentPage.Equals(1))
+                {
+                    display += "<a><i class='fa fa-long-arrow-left'></i></a>";
+                }
+                else
+                {
+                    display = "<a href='subcategories.aspx?SubcategoryID=" + subID + "&Page=" + (currentPage - 1) + "'><i class='fa fa-long-arrow-left'></i></a>";
+                }
+
+                //if current page is 1
+                if (currentPage.Equals(1))
+                {
+                    for (int i = 1; i <= 3; i++)
+                    {
+                        if (i <= totalPages)
+                        {
+                            display += "<a href='subcategories.aspx?SubcategoryID=" + subID + "&Page=" + i + "'>" + i + "</a>";
+                        }
+                    }
+                }
+                //else
+                else if (currentPage.Equals(totalPages))
+                {
+                    for (int i = totalPages - 2; i <= totalPages; i++)
+                    {
+                        if (i > 0)
+                        {
+                            display += "<a href='subcategories.aspx?SubcategoryID=" + subID + "&Page=" + i + "'>" + i + "</a>";
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = currentPage - 1; i <= currentPage + 1; i++)
+                    {
+                        if (i > 0 && i <= totalPages)
+                        {
+                            display += "<a href='subcategories.aspx?SubcategoryID=" + subID + "&Page=" + i + "'>" + i + "</a>";
+                        }
+                    }
+                }
+                //next button
+                if (currentPage.Equals(totalPages))
+                {
+                    display += "<a><i class='fa fa-long-arrow-right'></i></a>";
+                }
+                else
+                {
+                    display += "<a href='subcategories.aspx?SubcategoryID=" + subID + "&Page=" + (currentPage + 1) + "'><i class='fa fa-long-arrow-right'></i></a>";
+                }
+                pageNumbers.InnerHtml = display;
             }
         }
 
@@ -76,12 +136,18 @@ namespace GreenPantryFrontend
         public string getProducts()
         {
             Product[] products = SC.getProductBySubCat(Convert.ToInt32(Request.QueryString["SubcategoryID"]));
+            dynamic list = GetPage(products, currentPage, 6);
             //create js serialized object to pass to js
             JavaScriptSerializer serializer = new JavaScriptSerializer();
-            jsonProducts = serializer.Serialize(products);
+            jsonProducts = serializer.Serialize(list);
             //jsonProducts = products;
             return jsonProducts;
 
+        }
+
+        static IList<Product> GetPage(IList<Product> list, int pageNumber, int pageSize = 6)
+        {
+            return list.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
         }
     }
 }
