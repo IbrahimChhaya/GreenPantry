@@ -30,8 +30,30 @@ namespace GreenPantryFrontend.dashboard
         public string WorstProdChart;
         public string WorstProdName;
 
+        //usersperday details
+        public string userspDayMonthly;
+        public string userspDayWeekly; 
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["LoggedInUserID"] != null)
+            {
+                int userID = int.Parse(Session["LoggedInUserID"].ToString());
+                dynamic user = SR.getUser(userID);
+                if (user.UserType == "admin")
+                {
+                    howdy.InnerText = "Howdy, " + user.Name;
+                }
+                else
+                {
+                    Response.Redirect("/home.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("/home.aspx");
+            }
+
             // List<int> cat = new List<int>();
             List<int> qty = new List<int>();
             List<String> devices = new List<String>();
@@ -135,6 +157,24 @@ namespace GreenPantryFrontend.dashboard
             WorstProdChart = jSerializer.Serialize(wpQuantity);
             WorstProdName = jSerializer.Serialize(wpName);
 
+            //getusersperday--------------------------------------------------
+            List<int> getusersmonthly = new List<int>();
+            List<int> getusersweekly = new List<int>(); 
+
+            dynamic monthDates1 = SR.getMonthDates(new DateTime(2020, 09, 24));
+            foreach (DateTime d in monthDates1)
+            {
+                int usersperday = SR.getUsersPerDay(d.Date);
+                getusersmonthly.Add(usersperday); 
+            }
+            userspDayMonthly = jSerializer.Serialize(getusersmonthly); 
+
+            foreach(DateTime d in weekDates)
+            {
+                int usersperday = SR.getUsersPerDay(d.Date);
+                getusersweekly.Add(usersperday); 
+            }
+            userspDayWeekly = jSerializer.Serialize(getusersweekly); 
         }
     }
 }

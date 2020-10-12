@@ -13,8 +13,26 @@ namespace GreenPantryFrontend.dashboard
         GP_ServiceClient SC = new GP_ServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["LoggedInUserID"] != null)
+            {
+                int userID = int.Parse(Session["LoggedInUserID"].ToString());
+                dynamic user = SC.getUser(userID);
+                if (user.UserType == "admin")
+                {
+                    howdy.InnerText = "Howdy, " + user.Name;
+                }
+                else
+                {
+                    Response.Redirect("/home.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("/home.aspx");
+            }
+
             //load category or subcat using URL parameter
-            if(Request.QueryString["type"].ToString().Equals("SubCat"))
+            if (Request.QueryString["type"].ToString().Equals("SubCat"))
             {
                 int subID = int.Parse(Request.QueryString["CatID"].ToString());
                 if(subID.Equals(0))

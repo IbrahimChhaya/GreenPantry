@@ -64,12 +64,12 @@ namespace GreenPantryFrontend
                 points = SR.getUserPoints(userID);
                 if(points == 0)
                 {
-                    noPoints.Visible = true;
+                    noPoint.Visible = true;
                     Redeem.Visible = false;
                 }
                 else
                 {
-                    noPoints.Visible = false;
+                    noPoint.Visible = false;
                     Redeem.Visible = true;
                 }
                 decimal VAT = 0;
@@ -164,7 +164,7 @@ namespace GreenPantryFrontend
 
             dynamic products = CookieContent.Split(',');
 
-            int addInvoice = SR.addInvoice(userID, "Pending", DateTime.Now, Convert.ToDateTime(dateTimeID.Value), notes.Value, subtotal, pointsRedeemed);
+            int addInvoice = SR.addInvoice(userID, "Pending", DateTime.Now, Convert.ToDateTime(dateTimeID1.Value), notes.Value, subtotal, pointsRedeemed);
             points = points - pointsRedeemed;
             if(addInvoice > 0)
             {
@@ -201,7 +201,7 @@ namespace GreenPantryFrontend
                     }
                 }
                 Response.Cookies["cart"].Expires = DateTime.Now.AddDays(-1);  //delete cookie
-                Response.Redirect("Invoice.aspx?InvoiceID=" + addInvoice);
+                Response.Redirect("invoice.aspx?InvoiceID=" + addInvoice);
             }
             else
             {

@@ -10,9 +10,7 @@ namespace GreenPantryFrontend
 {
     public partial class singleproduct : System.Web.UI.Page
     {
-        GP_ServiceClient SC = new GP_ServiceClient();
-
-        public bool addedToCart = false;
+        GP_ServiceClient SC = new GP_ServiceClient(); 
         protected void Page_Load(object sender, EventArgs e)
         {
             if(Session["LoggedInUserID"] == null)
@@ -68,7 +66,10 @@ namespace GreenPantryFrontend
                     Display += "<div class='product__item'>";
                     Display += "<div class='product__item__pic set-bg' data-setbg='" + relatedProducts[i].Image_Location + "'>";
                     Display += "<ul class='product__item__pic__hover'>";
-                    Display += "<li><a href='#'><i class='fa fa-heart'></i></a></li>";
+                    if(Session["LoggedInUserID"] != null)
+                    {
+                        Display += "<li><a href='#'><i class='fa fa-list'></i></a></li>";
+                    }
                     Display += "<li><a href='singleproduct.aspx?ProductID=" + relatedProducts[i].ID + "'><i class='fa fa-shopping-cart'></i></a></li>";
                     Display += "</ul></div>";
                     Display += "<div class='product__item__text'>";
@@ -138,10 +139,8 @@ namespace GreenPantryFrontend
             }
             //Add.Text = "ADDED TO CART";
             addToCart.InnerText = "ADDED TO CART";
-            addedToCart = true;
             //reload the page
-            //Response.Redirect(Request.RawUrl);
-            //toastr.success('Item successfully added to cart');
+            Response.Redirect(Request.RawUrl);
         }
 
         //function to check a particular products is in the cookie

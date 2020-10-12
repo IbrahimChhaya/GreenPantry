@@ -13,7 +13,7 @@
               <h6 class="h2 text-white d-inline-block mb-0"></h6>
             </div>
             <div class="col-lg-6 col-5 text-right">
-                <h4 class="text-white">Howdy, Ibrahim!</h4>
+                <h4 class="text-white" id="howdy" runat="server">Howdy, Ibrahim!</h4>
             </div>
           </div>
         </div>

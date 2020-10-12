@@ -56,7 +56,7 @@ namespace GreenPantryFrontend
             foreach (ProductCategory c in allCategories)
             {
 
-                display += "<li><a href='/categories.aspx?CategoryID=" + c.ID + "'>" + c.Name + "</a></li>";
+                display += "<li><a href='/categories.aspx?CategoryID=" + c.ID + "&Page=1'>" + c.Name + "</a></li>";
             }
             categoryList.InnerHtml = display;
 
@@ -96,7 +96,7 @@ namespace GreenPantryFrontend
         protected void Search_Click(object sender,EventArgs e)
         {
             string userInput = searchText.Value;
-            Response.Redirect("/results.aspx?Search=" + userInput);
+            Response.Redirect("/results.aspx?Search=" + userInput + "&Page=1");
         }               
     }
 }

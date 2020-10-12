@@ -3167,6 +3167,7 @@
     <Content Include="fonts\ElegantIcons.svg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="dashboard\gulpfile.js" />
+    <Content Include="gplogo_uay_icon.ico" />
     <Content Include="home.aspx" />
     <Content Include="img\banner\banner-1.jpg" />
     <Content Include="img\banner\banner-2.jpg" />
@@ -3208,6 +3209,7 @@
     <Content Include="img\latest-product\lp-3.jpg" />
     <Content Include="img\logo.png" />
     <Content Include="img\payment-item.png" />
+    <Content Include="img\PointsBanner2.jpg" />
     <Content Include="img\Products\0.png" />
     <Content Include="img\Products\1.jpg" />
     <Content Include="img\Products\100.jpg" />
@@ -3341,6 +3343,8 @@
     <Content Include="img\product\product-7.jpg" />
     <Content Include="img\product\product-8.jpg" />
     <Content Include="img\product\product-9.jpg" />
+    <Content Include="img\Tamatar.jpg" />
+    <Content Include="img\Tamatar2.jpg" />
     <Content Include="img\ThankYou\thanks.png" />
     <Content Include="img\ThankYou\ThankYouSubscriber.png" />
     <Content Include="invoice.aspx" />
@@ -3695,6 +3699,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>gplogo_uay_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

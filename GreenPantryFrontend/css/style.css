@@ -1847,6 +1847,7 @@ ol {
 	-ms-transition: all, 0.3s;
 	-o-transition: all, 0.3s;
 	transition: all, 0.3s;
+	border-radius: 15px;
 }
 
 .product__pagination a:hover,
@@ -2489,8 +2490,8 @@ ol {
 	font-weight: 800;
 	text-transform: uppercase;
 	display: inline-block;
-	padding: 13px 65px 12px;
-	background: #E9E9E9;
+	padding: 5px 64px 12px;
+	background: #BDBDBD;
 	border: none;
 	border-radius: 25px;
 }

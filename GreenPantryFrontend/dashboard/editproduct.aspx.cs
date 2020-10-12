@@ -20,6 +20,24 @@ namespace GreenPantryFrontend.dashboard
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["LoggedInUserID"] != null)
+            {
+                int userID = int.Parse(Session["LoggedInUserID"].ToString());
+                dynamic user = SC.getUser(userID);
+                if (user.UserType == "admin")
+                {
+                    howdy.InnerText = "Howdy, " + user.Name;
+                }
+                else
+                {
+                    Response.Redirect("/home.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("/home.aspx");
+            }
+
             if (Request.QueryString["ProductID"] == null)
             {
                 Response.Redirect("dashboard.aspx");

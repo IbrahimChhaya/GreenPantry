@@ -8,10 +8,10 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Dashboard</h6>
+              <h6 class="h2 text-white d-inline-block mb-0"></h6>
             </div>
             <div class="col-lg-6 col-5 text-right">
-                <h4 class="text-white">Howdy, Ubaid!</h4>
+                <h4 class="text-white" id="howdy" runat="server">Howdy, Ubaid!</h4>
             </div>  
           </div>
 
@@ -23,22 +23,40 @@
     </div>
     <!-- Page content -->
     <div class="container-fluid mt--6">
-      <div class="row">
+
+         <div class="row">
         <div class="col-xl-8">
           <div class="card">
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
                 <div class="col">
                   <h6 class="text-muted text-uppercase ls-1 mb-1">Overview</h6>
-                  <h5 class="h3 mb-0">Best Performing Products</h5>
+                  <h5 class="h3 mb-0" id="sales-chart-label-Users">New Users</h5>
                 </div>
+                <div class="col">
+                  <ul class="nav nav-pills justify-content-end">
+                    <li class="nav-item mr-2 mr-md-0">
+                        <a OnClick="newmonthlyusers()" href="#" class="nav-link py-2 px-3 active"  data-toggle="tab">
+                            <span class="d-none d-md-block">Month</span>
+                            <span class="d-md-none">M</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                      <a OnClick="newweeklyusers()" href="#" class="nav-link py-2 px-3"  data-toggle="tab">
+                        <span class="d-none d-md-block">Week</span>
+                        <span class="d-md-none">W</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
               </div>
             </div>
             <div class="card-body">
               <!-- Chart -->
-              <div class="chart">
+              <div class="chart" id="sales-chart-parent-Users">
                 <!-- Chart wrapper -->
-                <canvas id="topProducts" class="chart-canvas"></canvas>
+                <canvas id="DayUsers" class="chart-canvas"></canvas>
               </div>
             </div>
           </div>
@@ -49,19 +67,20 @@
               <div class="row align-items-center">
                 <div class="col">
                   <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
-                  <h5 class="h3 mb-0">Worst Performing Products</h5>
+                  <h5 class="h3 mb-0">Best Performing Products</h5>
                 </div>
               </div>
             </div>
             <div class="card-body">
               <!-- Chart -->
               <div class="chart">
-                <canvas id="worstproducts" class="chart-canvas"></canvas>
+                <canvas id="topProducts" class="chart-canvas"></canvas>
               </div>
             </div>
           </div>
         </div>
       </div>
+
 
         <div class="row">
         <div class="col-xl-8">
@@ -122,12 +141,14 @@
       </div>
     </div>
 <!--</div>-->
+
     <script>
         document.addEventListener("DOMContentLoaded", function (e) {
             deviceChart();
             TopproductChart();
             monthlySalesChart();
-            worstproductChart();
+            newmonthlyusers(); 
+         
         })
         function deviceChart() {
             var ctx = document.getElementById('DeviceGraph').getContext('2d')
@@ -139,7 +160,6 @@
 
                     datasets: [{
                         backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC"],
-
                         label : "Test",
                         data: <%=devChart%>,
                     }]
@@ -302,7 +322,87 @@
                 },
 
             })
-         }
+        }
+    
+
+
+        //new users per month and week
+        function newmonthlyusers() {
+            $('#sales-chart-label-Users').html("Current Month's New Registered Users")
+            NewUsersChart(<%=jsonMonthDates%>, <%=userspDayMonthly%>)
+        } 
+        function newweeklyusers() {
+            $('#sales-chart-label-Users').html("Current Week's New Registered Users")
+            NewUsersChart(<%= jsonWeekDays %>, <%= userspDayWeekly %>)
+        }
+
+        function NewUsersChart(chartLabels, chartData) {
+            $('#DayUsers').remove(); //remove canvas (delete altogether)
+            //create a new canvas
+            $('#sales-chart-parent-Users').append('<canvas id="DayUsers" class="chart-canvas"></canvas>');
+
+            //get canvas context
+            var ctx = document.getElementById('DayUsers').getContext("2d");
+
+            //draw chart
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: chartLabels,
+                    datasets: [{
+                        label: 'Dates',
+                        data: chartData,
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            type: 'category',
+                            labels: chartLabels,
+                            ticks: {
+                                callback: function (value, index, values) {
+                                    return value.slice(8, 10);
+                                }
+                            }
+                            //ticks: {
+                            //    callback: function (value, index, values) {
+                            //        return value.slice(8, 10);
+                            //    }
+                            //}
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                //ticks: {
+                                //    callback: function (value) {
+                                //        return "Users: " + value;
+                                //    }
+                                //}
+                                callback: function (value) {
+                                    return  value;
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function (item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                content += 'Users: ' + yLabel;
+                                return content;
+                            }
+                        }
+                    }
+                }
+            });
+
+        }
+
+
+
 
     </script>
 </asp:Content>

@@ -13,9 +13,28 @@ namespace GreenPantryFrontend.dashboard
         GP_ServiceClient SR = new GP_ServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
+            int userID = 0;
+            if (Session["LoggedInUserID"] != null)
+            {
+                userID = int.Parse(Session["LoggedInUserID"].ToString());
+                dynamic user = SR.getUser(userID);
+                if (user.UserType == "admin")
+                {
+                    howdy.InnerText = "Howdy, " + user.Name;
+                }
+                else
+                {
+                    Response.Redirect("/home.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("/home.aspx");
+            }
+
             //get the user ID from url parameters
             // int userID = Convert.ToInt32(Request.QueryString["userID"]);
-            int userID = 1;
+            userID = 1;
             dynamic invoice = SR.getAllCustomerInvoices(userID);
             userIDOrders.InnerHtml = "User #" + userID + "'s Orders";
 

@@ -32,6 +32,10 @@ namespace GreenPantryFrontend
                             string display = "";
                             newAddress.Visible = false;
                             oldAddress.Visible = true;
+                            if(address.Length == 2)
+                            {
+                                addNew.Visible = false;
+                            }
 
                             foreach (Address a in address)
                             {
@@ -87,7 +91,7 @@ namespace GreenPantryFrontend
                     //set as primary
                     else
                     {
-                        editAddress(addID, 1);
+                        setAsPrimary(addID);
                     }
                 }
             }
@@ -185,6 +189,18 @@ namespace GreenPantryFrontend
                 postcode.Value = address.Zip.ToString();
                 number.Value = address.Number;
             }
+        }
+
+        private void setAsPrimary(int addID)
+        {
+            dynamic a = SC.getAddress(addID);
+            //a is address
+            int userID = int.Parse(Session["LoggedInUserID"].ToString());
+            dynamic cp = SC.getPrimaryAddress(userID);
+            //cp is current primary
+            int updatePrimary = SC.updateAddress(cp.Line1, cp.Line2, cp.Suburb, cp.City, cp.Province, cp.Zip, cp.Type, cp.ID, 0, cp.Number);
+            int updateAdd = SC.updateAddress(a.Line1, a.Line2, a.Suburb, a.City, a.Province, a.Zip, a.Type, addID, 1, a.Number);
+            Response.Redirect("addressbook.aspx");
         }
 
         protected void updateBtn_Click(object sender, EventArgs e)

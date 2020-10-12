@@ -12,6 +12,7 @@ namespace GreenPantryFrontend
 {
     public partial class results : System.Web.UI.Page
     {
+        public int currentPage;
         GP_ServiceClient SC = new GP_ServiceClient();
 
         public int loggedIn;
@@ -42,9 +43,16 @@ namespace GreenPantryFrontend
             display += "<span>Search Results</span></div>";
             breadcrumb.InnerHtml = display;
 
-            //display the products from search result ------
             display = "";
-            foreach (Product p in results)
+            currentPage = int.Parse(Request.QueryString["Page"]);
+            dynamic list = GetPage(results, currentPage, 6);
+            int numProduct = results.Length;
+            double roundUpPages = Math.Ceiling(numProduct / 6.00);
+            int totalPages = (int)roundUpPages;
+
+
+            //display the products from search result ------
+            foreach (Product p in list)
             {
                 if (p.Status.Equals("active"))
                 {
@@ -73,12 +81,22 @@ namespace GreenPantryFrontend
                 {
                     if (sc.Status.Equals("active"))
                     {
-                        display2 += "<li><a href='/subcategory.aspx?SubcategoryID=" + sc.SubID + "'>" + sc.Name + "</a></li>";
+                        display2 += "<li><a href='/results.aspx?Search=" + sc.SubID + "&Page=1'>" + sc.Name + "</a></li>";
                     }
                 }
                 subcatList.InnerHtml = display2;
             }
             categoryProducts.InnerHtml = display;
+
+            display = "";
+            if (currentPage.Equals(1))
+            {
+                display += "<a><i class='fa fa-long-arrow-left'></i></a>";
+            }
+            else
+            {
+                display = "<a href='results.aspx?Search=" + search + "&Page=" + (currentPage - 1) + "'><i class='fa fa-long-arrow-left'></i></a>";
+            }
 
             if (Session["LoggedInUserID"] != null)
             {
@@ -86,13 +104,63 @@ namespace GreenPantryFrontend
             }
         }
 
+            //if current page is 1
+            if (currentPage.Equals(1))
+            {
+                for (int i = 1; i <= 3; i++)
+                {
+                    if (i <= totalPages)
+                    {
+                        display += "<a href='results.aspx?Search=" + search + "&Page=" + i + "'>" + i + "</a>";
+                    }
+                }
+            }
+            //else
+            else if (currentPage.Equals(totalPages))
+            {
+                for (int i = totalPages - 2; i <= totalPages; i++)
+                {
+                    if (i > 0)
+                    {
+                        display += "<a href='results.aspx?Search=" + search + "&Page=" + i + "'>" + i + "</a>";
+                    }
+                }
+            }
+            else
+            {
+                for (int i = currentPage - 1; i <= currentPage + 1; i++)
+                {
+                    if (i > 0 && i <= totalPages)
+                    {
+                        display += "<a href='results.aspx?Search=" + search + "&Page=" + i + "'>" + i + "</a>";
+                    }
+                }
+            }
+            //next button
+            if (currentPage.Equals(totalPages))
+            {
+                display += "<a><i class='fa fa-long-arrow-right'></i></a>";
+            }
+            else
+            {
+                display += "<a href='results.aspx?SubcategoryID=" + search + "&Page=" + (currentPage + 1) + "'><i class='fa fa-long-arrow-right'></i></a>";
+            }
+            pageNumbers.InnerHtml = display;
+        }
+
+        static IList<Product> GetPage(IList<Product> list, int pageNumber, int pageSize = 6)
+        {
+            return list.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+        }
+
         //function to get all products
         public string getProducts()
         {
             Product[] products = SC.searchProducts(Request.QueryString["Search"]);
+            dynamic list = GetPage(products, currentPage, 6);
             //create js serialized object to pass to js
             JavaScriptSerializer serializer = new JavaScriptSerializer();
-            var jsonProducts = serializer.Serialize(products);
+            var jsonProducts = serializer.Serialize(list);
             //jsonProducts = products;
             return jsonProducts;
 
@@ -102,10 +170,11 @@ namespace GreenPantryFrontend
         public string sortAscending()
         {
             Product[] products = SC.searchProducts(Request.QueryString["Search"]);
+            dynamic list = GetPage(products, currentPage, 6);
 
             List<Product> productPricePair = new List<Product>();
 
-            foreach (Product p in products)
+            foreach (Product p in list)
             {
                 productPricePair.Add(p);
             }
@@ -122,10 +191,11 @@ namespace GreenPantryFrontend
         public string sortDescending()
         {
             Product[] products = SC.searchProducts(Request.QueryString["Search"]);
+            dynamic list = GetPage(products, currentPage, 6);
 
             List<Product> productPricePair = new List<Product>();
 
-            foreach (Product p in products)
+            foreach (Product p in list)
             {
                 productPricePair.Add(p);
             }
@@ -142,10 +212,11 @@ namespace GreenPantryFrontend
         public string sortAlphabeticalDescending()
         {
             Product[] products = SC.searchProducts(Request.QueryString["Search"]);
+            dynamic list = GetPage(products, currentPage, 6);
 
             List<Product> productPricePair = new List<Product>();
 
-            foreach (Product p in products)
+            foreach (Product p in list)
             {
                 productPricePair.Add(p);
             }
@@ -162,10 +233,11 @@ namespace GreenPantryFrontend
         public string sortAlphabeticalAscending()
         {
             Product[] products = SC.searchProducts(Request.QueryString["Search"]);
+            dynamic list = GetPage(products, currentPage, 6);
 
             List<Product> productPricePair = new List<Product>();
 
-            foreach (Product p in products)
+            foreach (Product p in list)
             {
                 productPricePair.Add(p);
             }
