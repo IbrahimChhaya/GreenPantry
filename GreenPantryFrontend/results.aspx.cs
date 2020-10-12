@@ -102,7 +102,7 @@ namespace GreenPantryFrontend
             {
                 loggedIn = Convert.ToInt32(Session["LoggedInUserID"]);
             }
-        }
+        
 
             //if current page is 1
             if (currentPage.Equals(1))
