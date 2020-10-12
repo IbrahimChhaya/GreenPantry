@@ -298,6 +298,14 @@
             if (newVal <= 0)
                 $button.parent().parent().parent().parent().remove();
 
+            //show removal confirmation
+            var removeToast = new Toastify({
+                text: "Remember to save your changes",
+                duration: 3000,
+                backgroundColor: "#0FAB2C",
+                close: true
+            }).showToast();
+
         }
 
     });
@@ -368,6 +376,14 @@
             document.cookie = "list=" + cookieVal;
 
             $button.parent().parent().remove();
+
+            //show removal confirmation
+            var removeToast = new Toastify({
+                text: "Remember to save your changes",
+                duration: 3000,
+                backgroundColor: "#0FAB2C",
+                close: true
+            }).showToast();
         }
         
     });
