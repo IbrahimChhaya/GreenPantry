@@ -51,6 +51,11 @@ namespace GreenPantryFrontend
                 }
                 subcatList.InnerHtml = display;
 
+                if (Session["LoggedInUserID"] != null)
+                {
+                    loggedIn = Convert.ToInt32(Session["LoggedInUserID"]);
+                }
+
                 display = "";
                 dynamic products = SC.getProductByCat(int.Parse(catID));
                 currentPage = int.Parse(Request.QueryString["Page"]);
