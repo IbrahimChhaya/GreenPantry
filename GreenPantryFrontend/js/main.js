@@ -322,9 +322,42 @@
             //remove the row
             $button.parent().parent().remove();
 
+            //change totals
+            const elementTotals = document.getElementsByClassName('shoping__cart__total');
+            var subTotal = 0;
+
+            for (var i = 0; i < elementTotals.length; i++) {
+                subTotal += parseFloat(elementTotals[i].innerHTML);
+            }
+            $('#checkout__cart-subtotal').text("R" + subTotal.toFixed(2));
+            //calculate VAT
+            var VAT = subTotal * 15 / 115;
+            $('#checkout__cart-VAT').text("R" + (VAT).toFixed(2));
+
+            //calculate delivery fee
+            var deliveryFee = 0;
+            if (subTotal < 500)
+                deliveryFee = 60;
+            if (subTotal === 0)
+                deliveryFee = 0;
+            $('#checkout__cart-delivery').text("R" + (deliveryFee).toFixed(2));
+
+            //calculate total
+            var total = subTotal + deliveryFee;
+            $('#checkout__cart-total').text("R" + total.toFixed(2));
+
+            //show removal confirmation
+            var removeToast = new Toastify({
+                text: "Successfully removed from cart",
+                duration: 1500,
+                backgroundColor: "#0FAB2C", 
+                close: true
+            }).showToast();
+
             if (cookie = getCookie("cart") === "") {
                 location.reload();
             }
+
         }
         else if (window.location.pathname === "/shoppinglist.aspx") {
             //get list cookie

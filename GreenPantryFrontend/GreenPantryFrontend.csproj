@@ -3372,6 +3372,8 @@
     <Content Include="results.aspx" />
     <Content Include="shoppinglist.aspx" />
     <Content Include="singleproduct.aspx" />
+    <Content Include="src\toastify.css" />
+    <Content Include="src\toastify.js" />
     <Content Include="subcategory.aspx" />
     <Content Include="dashboard\users.aspx" />
     <Content Include="ThankYou.aspx" />
@@ -3679,7 +3681,6 @@
     <Content Include="Source\SlickNav-master.zip" />
     <Content Include="Site1.Master" />
     <Content Include="Site2.Master" />
-    <Content Include="Source\CodeSeven-toastr-2.1.4-7-g50092cc.zip" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
