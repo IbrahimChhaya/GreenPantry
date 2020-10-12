@@ -31,7 +31,7 @@ namespace GreenPantryFrontend
                 //breadcrumb
                 title.InnerHtml = getProducts.Name;
                 Display += "<a href='./home.aspx'>Home</a>";
-                Display += "<a href='./subcategory.aspx?SubcategoryID=" + getProducts.SubCategoryID + "'>" + getSub.Name + "</a>";
+                Display += "<a href='./subcategory.aspx?SubcategoryID=" + getProducts.SubCategoryID + "&Page=1'>" + getSub.Name + "</a>";
                 Display += "<span>" + getProducts.Name + "</span>";
                 productName.InnerHtml = Display;
 
@@ -179,21 +179,31 @@ namespace GreenPantryFrontend
             return newCookiePro;
         }
 
-        protected void listIcon_ServerClick(object sender, EventArgs e)
+        //protected void listIcon_ServerClick(object sender, EventArgs e)
+        //{
+        //    int addToList = SC.addToList(int.Parse(Session["LoggedInUserID"].ToString()), int.Parse(Request.QueryString["ProductID"]), int.Parse(item_qty.Value));
+        //    if(addToList.Equals(1))
+        //    {
+        //       listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> Added to Shopping List";
+        //    }
+        //    else if(addToList.Equals(0))
+        //    {
+        //        listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> Added to Shopping List";
+        //    }
+        //    else
+        //    {
+        //        listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> An error occured";
+        //    }
+        //}
+
+        protected int listIcon_ServerClick()
         {
-            int addToList = SC.addToList(int.Parse(Session["LoggedInUserID"].ToString()), int.Parse(Request.QueryString["ProductID"]), int.Parse(item_qty.Value));
-            if(addToList.Equals(1))
+            int addToList = -1;
+            if(Session["LoggedInUserID"] != null)
             {
-               listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> Added to Shopping List";
+                addToList = SC.addToList(int.Parse(Session["LoggedInUserID"].ToString()), int.Parse(Request.QueryString["ProductID"]), int.Parse(item_qty.Value));
             }
-            else if(addToList.Equals(0))
-            {
-                listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> Added to Shopping List";
-            }
-            else
-            {
-                listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> An error occured";
-            }
+            return addToList;
         }
     }
 }
