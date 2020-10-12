@@ -15,7 +15,7 @@ namespace GreenPantryFrontend
         GP_ServiceClient SC = new GP_ServiceClient();
 
         public string jsonProducts;
-       // public string jsonSortedProducts;
+        public int loggedIn;
         protected void Page_Load(object sender, EventArgs e)
         {
             if(Request.QueryString["CategoryID"] == null)
@@ -53,6 +53,12 @@ namespace GreenPantryFrontend
             display = "";
             decimal high = 0;
             dynamic products = SC.getProductByCat(int.Parse(catID));
+            
+            if(Session["LoggedInUserID"] != null)
+            {
+                loggedIn = Convert.ToInt32(Session["LoggedInUserID"]);
+            }
+
             foreach(Product p in products)
             {
                 if (p.Status.Equals("active"))
@@ -64,6 +70,7 @@ namespace GreenPantryFrontend
                     if(Session["LoggedInUserID"] != null)
                     { 
                         display += "<li><a href='#'><i class='fa fa-list'></i></a></li>";
+                            
                     }
                     display += "<li><a href='#'><i class='fa fa-shopping-cart'></i></a></li></ul></div>";
                     display += "<div class='product__item__text'>";

@@ -14,6 +14,7 @@ namespace GreenPantryFrontend
     {
         GP_ServiceClient SC = new GP_ServiceClient();
 
+        public int loggedIn;
         protected void Page_Load(object sender, EventArgs e)
         {
             String display = "";
@@ -78,6 +79,11 @@ namespace GreenPantryFrontend
                 subcatList.InnerHtml = display2;
             }
             categoryProducts.InnerHtml = display;
+
+            if (Session["LoggedInUserID"] != null)
+            {
+                loggedIn = Convert.ToInt32(Session["LoggedInUserID"]);
+            }
         }
 
         //function to get all products

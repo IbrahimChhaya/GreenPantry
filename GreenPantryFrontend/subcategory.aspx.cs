@@ -14,6 +14,7 @@ namespace GreenPantryFrontend
         GP_ServiceClient SC = new GP_ServiceClient();
 
         public string jsonProducts;
+        public int loggedIn;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["SubcategoryID"] == null)
@@ -69,6 +70,11 @@ namespace GreenPantryFrontend
                     }
                 }
                 subProducts.InnerHtml = display;
+            }
+
+            if (Session["LoggedInUserID"] != null)
+            {
+                loggedIn = Convert.ToInt32(Session["LoggedInUserID"]);
             }
         }
 

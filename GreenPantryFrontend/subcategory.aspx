@@ -541,6 +541,7 @@
             var maximumPrice = $('#maxamount').val().replace('R', '')
 
             $('#ContentPlaceHolder1_subProducts').html(" ");
+            var isLoggedIn = <%= loggedIn%>;
 
             for (var i = 0; i < products.length; i++) {
 
@@ -549,7 +550,9 @@
                     display += "<div class='product__item' onclick='location.href=&#39;singleproduct.aspx?ProductID=" + products[i].ID + "&#39;'>";
                     display += "<div class='product__item__pic set-bg' data-setbg='" + products[i].Image_Location + "' style='background-image: url(&quot;"+ products[i].Image_Location+ "&quot;);'>";
                     display += "<ul class='product__item__pic__hover'>";
-                    display += "<li><a href='#'><i class='fa fa-heart'></i></a></li>";
+                    if (isLoggedIn > 0) {
+                        display += "<li><a href='#'><i class='fa fa-list'></i></a></li>";
+                    }
                     display += "<li><a href='#'><i class='fa fa-shopping-cart'></i></a></li></ul></div>";
                     display += "<div class='product__item__text'>";
                     display += "<h6>" + products[i].Name + "</h6>";
@@ -584,13 +587,16 @@
 
                 var display = "";
                 $('#ContentPlaceHolder1_subProducts').html(display);
+                var isLoggedIn = <%= loggedIn%>;
 
                 for (var i = 0; i < proList.length; i++) {
                     display += "<div class='col-lg-4 col-md-6 col-sm-6'>";
                     display += "<div class='product__item' onclick='location.href=&#39;singleproduct.aspx?ProductID=" + proList[i].ID + "&#39;'>";
                     display += "<div class='product__item__pic set-bg' data-setbg='" + proList[i].Image_Location + "' style='background-image: url(&quot;" + proList[i].Image_Location + "&quot;);'>";
                     display += "<ul class='product__item__pic__hover'>";
-                    display += "<li><a href='#'><i class='fa fa-heart'></i></a></li>";
+                    if (isLoggedIn > 0) {
+                        display += "<li><a href='#'><i class='fa fa-list'></i></a></li>";
+                    }
                     display += "<li><a href='#'><i class='fa fa-shopping-cart'></i></a></li></ul></div>";
                     display += "<div class='product__item__text'>";
                     display += "<h6>" + proList[i].Name + "</h6>";
