@@ -1,22 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="singleproduct.aspx.cs" Inherits="GreenPantryFrontend.singleproduct" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="http://codeseven.github.com/toastr/toastr.css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="http://codeseven.github.com/toastr/toastr-responsive.css">
-    <link rel="stylesheet" type="text/css" href="toastrsample.css">
-    <link href="build/toastr.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
-    <script src="toastr.js"></script>
-    <script src="build/toastr.min.js"></script>
-
-     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
-
-    <script type="text/javascript" src="toastrsample.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -67,8 +51,9 @@
                         </div>
 <%--                        <form id="form1" runat="server">--%>
 <%--                            <a href="/" class="primary-btn" runat="server" id="addToCart" onclick="add_Click">ADD TO CART</a>--%>
-<%--                            <asp:button class="site-btn" ID="Add" runat="server" Text="ADD TO CART" OnClick="add_Click"/>--%>
-                            <a class="site-btn" runat="server" id="addToCart" onserverclick="add_Click">ADD TO CART</a>
+<%--                            <asp:button class="site-btn" ID="addToCart" runat="server" Text="ADD TO CART" OnClientClick="showConfirmation()" type="button"/>--%>
+<%--                            <button class="site-btn" ID="addToCart" runat="server" Text="ADD TO CART" onserverclick="add_Click" type="button"/>--%>
+                            <a class="site-btn" runat="server" id="addToCart" style="color:white; cursor: pointer">ADD TO CART</a>
     
                             <a href="#" class="heart-icon" id="listIcon" runat="server" onserverclick="listIcon_ServerClick"><span class="icon_ul iconSize"></span> Add to Shopping List</a>
 <%--                         </form>--%>
@@ -201,19 +186,39 @@
         </div>
     </section>
     <!-- Related Product Section End -->
-    
 
     <script>
-        //$(document).ready(function(){
-        //    toastr.options.timeOut = 1500;
-        //    toastr.success('Great success!');
-        //})
 
-        document.addEventListener("DOMContentLoaded", function (e) {
-            //toastr.options.timeOut = 1500;
-            //toastr.success('Great success!');
-            toastr.info('document.ready');
-        })
+        document.getElementById('ContentPlaceHolder1_addToCart').addEventListener("click", function (event) {
+            event.preventDefault()
+            var added = <%= add_Click()%>;
+            if (added > 0) {
+                showConfirmation()
+            }
+            else {
+                showError()
+            }
+           
+        });
+
+        function showConfirmation() {
+            var myToast = new Toastify({
+                text: "Successfully added to cart",
+                duration: 1500,
+                backgroundColor: "#0FAB2C",
+                close: true
+            }).showToast();
+        }
+
+        function showError() {
+            var myToast = new Toastify({
+                text: "Could not add to cart",
+                duration: 1500,
+                backgroundColor: "#dc3545",
+                close: true
+            }).showToast();
+        }
+        
     </script>
     </asp:Content>
 

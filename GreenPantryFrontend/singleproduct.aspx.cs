@@ -111,8 +111,9 @@ namespace GreenPantryFrontend
             return Request.Cookies[CookieName].ToString();
         }
 
-        protected void add_Click(object sender, EventArgs e)
+        protected int add_Click()
         {
+            int worked = 0;
             if(Request.Cookies["cart"] != null)
             {
                 //check if product is already in the cookie
@@ -123,6 +124,7 @@ namespace GreenPantryFrontend
                 {
                     str += Request.QueryString["ProductID"] + "-" + item_qty.Value;
                     saveToCookie("cart", str);
+                    worked = 2;
                 }
                 else
                 {
@@ -130,17 +132,17 @@ namespace GreenPantryFrontend
                     string newPQPair = addToCookieProQty(foundInCookie, int.Parse(item_qty.Value));
 
                     str = str.Replace(foundInCookie, newPQPair);
-                    Response.Cookies["cart"].Value = str; 
+                    Response.Cookies["cart"].Value = str;
+                    worked = 3;
                 }
             }
             else
             {
                 createCookie("cart", Request.QueryString["ProductID"] + "-" + item_qty.Value);
+                worked = 1;
             }
-            //Add.Text = "ADDED TO CART";
-            addToCart.InnerText = "ADDED TO CART";
-            //reload the page
-            Response.Redirect(Request.RawUrl);
+           
+            return worked;
         }
 
         //function to check a particular products is in the cookie
