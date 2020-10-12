@@ -129,7 +129,7 @@
                             <br />
                             <div class="checkout__input">
                                 <h4>Delivery Date</h4>
-                                <input type="text" class="dateTimeID" runat="server" id="Text1" placeholder="Select date for delivery" required>
+                                <input type="text" class="dateTimeID" runat="server" id="dateTimeID1" placeholder="Select date for delivery" required>
                             </div>
                     <!--</div>
 
@@ -244,7 +244,7 @@
                                 </div>
                                 <div class="field-container">
                                     <label class="cardlabel" for="cardnumber">Card Number</label>
-                                    <input class="cardinput" id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
+                                    <input class="cardinput" id="cardnumber" type="text" inputmode="numeric">
                                     <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                         xmlns:xlink="http://www.w3.org/1999/xlink">
 
@@ -252,11 +252,11 @@
                                 </div>
                                 <div class="field-container">
                                     <label class="cardlabel" for="expirationdate">Expiration (mm/yy)</label>
-                                    <input class="cardinput" id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric" >
+                                    <input class="cardinput" id="expirationdate" type="text" inputmode="numeric" >
                                 </div>
                                 <div class="field-container">
                                     <label class="cardlabel" for="securitycode">Security Code</label>
-                                    <input class="cardinput" id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric" required>
+                                    <input class="cardinput" id="securitycode" type="text" inputmode="numeric" required>
                                 </div>
                             </div>
                         </div>
@@ -272,7 +272,7 @@
                                 <label class="gpLabel">Green Points available in Rands:</label><p class="gpP" id="pointsAvailable" runat="server">R500</p>
                                 <label class="gpLabel2">Amount you'd like to spend:</label> 
                                 <p class="gpP">R<input type="text" id="pointsUsed" runat="server" class="gpInput" value="0"></p>
-                                <asp:Button text="NOT ENOUGH POINTS" class="noPoints-btn" ID="noPoints" runat="server" Visible="false"></asp:Button>
+                                <a class="noPoints-btn" id="noPoint" runat="server" visible="false">NOT ENOUGH POINTS</a>
                                 <asp:Button text="REDEEM" class="apply-btn" ID="Redeem" runat="server" OnClick="btnRedeem_Click"></asp:Button>
                                 <label id="pointsError" runat="server" visible="false">bruh</label>
                             </div>

@@ -32,6 +32,25 @@ namespace AdminDashboard
             //  trafficChange.InnerHtml = "<i class='fa fa-arrow-up'></i> 3.48%
 
             /*Graph data --START*/
+
+            if(Session["LoggedInUserID"] != null)
+            {
+                int userID = int.Parse(Session["LoggedInUserID"].ToString());
+                dynamic user = SR.getUser(userID);
+                if(user.UserType == "admin")
+                {
+                    howdy.InnerText = "Howdy, " + user.Name;
+                }
+                else
+                {
+                    Response.Redirect("/home.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("/home.aspx");
+            }
+
             List<string> display = new List<string>();
             List<decimal> catSales = new List<decimal>();
 

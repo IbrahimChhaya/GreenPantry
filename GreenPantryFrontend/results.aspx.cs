@@ -150,9 +150,10 @@ namespace GreenPantryFrontend
         public string getProducts()
         {
             Product[] products = SC.searchProducts(Request.QueryString["Search"]);
+            dynamic list = GetPage(products, currentPage, 6);
             //create js serialized object to pass to js
             JavaScriptSerializer serializer = new JavaScriptSerializer();
-            var jsonProducts = serializer.Serialize(products);
+            var jsonProducts = serializer.Serialize(list);
             //jsonProducts = products;
             return jsonProducts;
 
@@ -162,10 +163,11 @@ namespace GreenPantryFrontend
         public string sortAscending()
         {
             Product[] products = SC.searchProducts(Request.QueryString["Search"]);
+            dynamic list = GetPage(products, currentPage, 6);
 
             List<Product> productPricePair = new List<Product>();
 
-            foreach (Product p in products)
+            foreach (Product p in list)
             {
                 productPricePair.Add(p);
             }
@@ -182,10 +184,11 @@ namespace GreenPantryFrontend
         public string sortDescending()
         {
             Product[] products = SC.searchProducts(Request.QueryString["Search"]);
+            dynamic list = GetPage(products, currentPage, 6);
 
             List<Product> productPricePair = new List<Product>();
 
-            foreach (Product p in products)
+            foreach (Product p in list)
             {
                 productPricePair.Add(p);
             }
@@ -202,10 +205,11 @@ namespace GreenPantryFrontend
         public string sortAlphabeticalDescending()
         {
             Product[] products = SC.searchProducts(Request.QueryString["Search"]);
+            dynamic list = GetPage(products, currentPage, 6);
 
             List<Product> productPricePair = new List<Product>();
 
-            foreach (Product p in products)
+            foreach (Product p in list)
             {
                 productPricePair.Add(p);
             }
@@ -222,10 +226,11 @@ namespace GreenPantryFrontend
         public string sortAlphabeticalAscending()
         {
             Product[] products = SC.searchProducts(Request.QueryString["Search"]);
+            dynamic list = GetPage(products, currentPage, 6);
 
             List<Product> productPricePair = new List<Product>();
 
-            foreach (Product p in products)
+            foreach (Product p in list)
             {
                 productPricePair.Add(p);
             }

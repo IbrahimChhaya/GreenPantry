@@ -13,7 +13,7 @@
               <h6 class="h2 text-white d-inline-block mb-0">Dashboard</h6>
             </div>
             <div class="col-lg-6 col-5 text-right">
-                <h4 class="text-white">Howdy, Ubaid!</h4>
+                <h4 class="text-white" id="howdy" runat="server">Howdy, Ubaid!</h4>
             </div>  
           </div>
 
@@ -177,7 +177,6 @@
                   <h3 class="mb-0">Page visits</h3>
                 </div>
                 <div class="col text-right">
-                  <a href="#!" class="btn btn-sm btn-primary">See all</a>
                 </div>
               </div>
             </div>
@@ -276,7 +275,6 @@
                   <h3 class="mb-0">Social traffic</h3>
                 </div>
                 <div class="col text-right">
-                  <a href="#!" class="btn btn-sm btn-primary">See all</a>
                 </div>
               </div>
             </div>
@@ -311,7 +309,7 @@
                   </tr>
                   <tr>
                     <th scope="row">
-                      Facebook
+                      Reddit
                     </th>
                     <td>
                       5,480
@@ -365,7 +363,7 @@
                   </tr>
                   <tr>
                     <th scope="row">
-                      twitter
+                      Twitter
                     </th>
                     <td>
                       2,645

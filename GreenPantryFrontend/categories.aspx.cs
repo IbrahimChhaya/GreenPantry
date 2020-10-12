@@ -151,11 +151,12 @@ namespace GreenPantryFrontend
         //sort by price (ascending)
         public string sortAscending()
         {
-            dynamic allCatProducts = SC.getProductByCat(Convert.ToInt32(Request.QueryString["CategoryID"]));
+            dynamic products = SC.getProductByCat(Convert.ToInt32(Request.QueryString["CategoryID"]));
+            dynamic list = GetPage(products, currentPage, 6);
 
             List<Product> productPricePair = new List<Product>();
 
-            foreach(Product p in allCatProducts)
+            foreach(Product p in list)
             {
                 productPricePair.Add(p);
             }
@@ -171,11 +172,12 @@ namespace GreenPantryFrontend
         //sort by price (descending)
         public string sortDescending()
         {
-            dynamic allCatProducts = SC.getProductByCat(Convert.ToInt32(Request.QueryString["CategoryID"]));
+            dynamic products = SC.getProductByCat(Convert.ToInt32(Request.QueryString["CategoryID"]));
+            dynamic list = GetPage(products, currentPage, 6);
 
             List<Product> productPricePair = new List<Product>();
 
-            foreach (Product p in allCatProducts)
+            foreach (Product p in list)
             {
                 productPricePair.Add(p);
             }
@@ -191,11 +193,12 @@ namespace GreenPantryFrontend
         //sort alpahbetically (descending)
         public string sortAlphabeticalDescending()
         {
-            dynamic allCatProducts = SC.getProductByCat(Convert.ToInt32(Request.QueryString["CategoryID"]));
+            dynamic products = SC.getProductByCat(Convert.ToInt32(Request.QueryString["CategoryID"]));
+            dynamic list = GetPage(products, currentPage, 6);
 
             List<Product> productPricePair = new List<Product>();
 
-            foreach (Product p in allCatProducts)
+            foreach (Product p in list)
             {
                 productPricePair.Add(p);
             }
@@ -211,11 +214,12 @@ namespace GreenPantryFrontend
         //sort alpahbetically (ascending)
         public string sortAlphabeticalAscending()
         {
-            dynamic allCatProducts = SC.getProductByCat(Convert.ToInt32(Request.QueryString["CategoryID"]));
+            dynamic products = SC.getProductByCat(Convert.ToInt32(Request.QueryString["CategoryID"]));
+            dynamic list = GetPage(products, currentPage, 6);
 
             List<Product> productPricePair = new List<Product>();
 
-            foreach (Product p in allCatProducts)
+            foreach (Product p in list)
             {
                 productPricePair.Add(p);
             }

@@ -169,7 +169,7 @@ namespace GreenPantryFrontend
                 display += "<span></span>";
                 display += "<h2>Free <br/>Shipping</h2>";
                 display += "<p>On Orders Over R500</p>";
-                display += "<a href='results.aspx?Search=1Page=1' class='primary-btn'>SHOP NOW</a>";
+                display += "<a href='results.aspx?Search=1&Page=1' class='primary-btn'>SHOP NOW</a>";
                 display += "</div></div></br>";
                 display += categoryHelper(sliderCaption, 6);
 
@@ -196,7 +196,7 @@ namespace GreenPantryFrontend
             display += "<span></span>";
             display += "<h2>Green <br/>Points</h2>";
             display += "<p>Earn Green Points By Purchasing Fresh Food Items And Green Household Items</p>";
-            display += "<a href='results.aspx?Search=1' class='primary-btn'>SHOP NOW</a>";
+            display += "<a href='results.aspx?Search=1&Page=1' class='primary-btn'>SHOP NOW</a>";
             display += "</div></div></br>";
             display += categoryHelper(sliderCaption, 8);
 

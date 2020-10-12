@@ -154,10 +154,11 @@ namespace GreenPantryFrontend
         public string sortAscending()
         {
             Product[] products = SC.getProductBySubCat(Convert.ToInt32(Request.QueryString["SubcategoryID"]));
+            dynamic list = GetPage(products, currentPage, 6);
 
             List<Product> productPricePair = new List<Product>();
 
-            foreach (Product p in products)
+            foreach (Product p in list)
             {
                 productPricePair.Add(p);
             }
@@ -174,10 +175,11 @@ namespace GreenPantryFrontend
         public string sortDescending()
         {
             Product[] products = SC.getProductBySubCat(Convert.ToInt32(Request.QueryString["SubcategoryID"]));
+            dynamic list = GetPage(products, currentPage, 6);
 
             List<Product> productPricePair = new List<Product>();
 
-            foreach (Product p in products)
+            foreach (Product p in list)
             {
                 productPricePair.Add(p);
             }
@@ -194,10 +196,11 @@ namespace GreenPantryFrontend
         public string sortAlphabeticalDescending()
         {
             Product[] products = SC.getProductBySubCat(Convert.ToInt32(Request.QueryString["SubcategoryID"]));
+            dynamic list = GetPage(products, currentPage, 6);
 
             List<Product> productPricePair = new List<Product>();
 
-            foreach (Product p in products)
+            foreach (Product p in list)
             {
                 productPricePair.Add(p);
             }
@@ -214,10 +217,11 @@ namespace GreenPantryFrontend
         public string sortAlphabeticalAscending()
         {
             Product[] products = SC.getProductBySubCat(Convert.ToInt32(Request.QueryString["SubcategoryID"]));
+            dynamic list = GetPage(products, currentPage, 6);
 
             List<Product> productPricePair = new List<Product>();
 
-            foreach (Product p in products)
+            foreach (Product p in list)
             {
                 productPricePair.Add(p);
             }

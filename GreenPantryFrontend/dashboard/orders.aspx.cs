@@ -14,8 +14,26 @@ namespace GreenPantryFrontend
        
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["LoggedInUserID"] != null)
+            {
+                int userID = int.Parse(Session["LoggedInUserID"].ToString());
+                dynamic user = SC.getUser(userID);
+                if (user.UserType == "admin")
+                {
+                    howdy.InnerText = "Howdy, " + user.Name;
+                }
+                else
+                {
+                    Response.Redirect("/home.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("/home.aspx");
+            }
+
             int currentPage = int.Parse(Request.QueryString["Page"]);
-            string display = ""; 
+            string display = "";
             dynamic orders = SC.getAllInvoices();
             int numOrder = orders.Length;
             double roundUpPages = Math.Ceiling(numOrder / 10.00);
@@ -151,7 +169,7 @@ namespace GreenPantryFrontend
             pageNumbers.InnerHtml = display;
         }
 
-        static IList<Invoice> GetPage(IList<Invoice> list, int pageNumber, int pageSize = 10)
+        static IList<Invoice> GetPage(List<Invoice> list, int pageNumber, int pageSize)
         {
             return list.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
         }
