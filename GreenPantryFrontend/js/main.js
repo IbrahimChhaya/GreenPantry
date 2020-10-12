@@ -243,38 +243,54 @@
 
 
         if(window.location.pathname === "/cart.aspx") {
-            //update cookie
-            var cookie = getCookie("cart");
-            var cVal = cookie;
-            if (newVal > 0) {
-                cVal = cVal.replace(unitID + "-" + oldValue, unitID + "-" + newVal);
+
+            var qtyOnhand = $button.parent().parent().parent().data("stock");
+            if (newVal > qtyOnhand) {
+                var removeToast = new Toastify({
+                    text: "There are only " + qtyOnhand + " units available",
+                    duration: 3000,
+                    backgroundColor: "#dc3545",
+                    close: true
+                }).showToast();
+
+                $button.parent().find('input').val(oldValue);
+                $button.parent().parent().parent().parent().find('.shoping__cart__total#pTotal').html((oldValue * unitValue).toFixed(2));
+
             }
             else {
-                cVal = cVal.replace(unitID + "-" + oldValue + ",", "");
+                //update cookie
+                var cookie = getCookie("cart");
+                var cVal = cookie;
+                if (newVal > 0) {
+                    cVal = cVal.replace(unitID + "-" + oldValue, unitID + "-" + newVal);
+                }
+                else {
+                    cVal = cVal.replace(unitID + "-" + oldValue + ",", "");
+                }
+
+                document.cookie = "cart=" + cVal;
+
+                if (newVal <= 0)
+                    $button.parent().parent().parent().parent().remove();
+
+                $('#checkout__cart-subtotal').text("R" + subTotal.toFixed(2));
+
+                //calculate VAT
+                var VAT = subTotal * 15 / 115;
+                $('#checkout__cart-VAT').text("R" + (VAT).toFixed(2));
+
+                //calculate delivery fee
+                var deliveryFee = 0;
+                if (subTotal < 500)
+                    deliveryFee = 60;
+                if (subTotal === 0)
+                    deliveryFee = 0;
+                $('#checkout__cart-delivery').text("R" + (deliveryFee).toFixed(2));
+
+                //calculate total
+                var total = subTotal + deliveryFee;
+                $('#checkout__cart-total').text("R" + total.toFixed(2));
             }
-              
-            document.cookie = "cart=" + cVal;
-
-            if(newVal <= 0)
-                $button.parent().parent().parent().parent().remove();
-
-            $('#checkout__cart-subtotal').text("R" + subTotal.toFixed(2));
-
-            //calculate VAT
-            var VAT = subTotal * 15 / 115;
-            $('#checkout__cart-VAT').text("R" + (VAT).toFixed(2));
-
-            //calculate delivery fee
-            var deliveryFee = 0;
-            if (subTotal < 500)
-                deliveryFee = 60;
-            if (subTotal === 0)
-                deliveryFee = 0;
-            $('#checkout__cart-delivery').text("R" + (deliveryFee).toFixed(2));
-
-            //calculate total
-            var total = subTotal + deliveryFee;
-            $('#checkout__cart-total').text("R" + total.toFixed(2));
 
             if (cookie = getCookie("cart") === "") {
                 location.reload();

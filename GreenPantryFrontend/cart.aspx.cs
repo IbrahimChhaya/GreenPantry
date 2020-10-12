@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -30,16 +31,7 @@ namespace GreenPantryFrontend
                 emptyCart.Visible = false;
                 crumbSection.Visible = true;
                 cartSection.Visible = true;
-                //string cookieString = Request.Cookies["cart"].Value;
-                //string[] objCartListStringSplit = cookieString.Split(',');
-                //foreach (string s in objCartListStringSplit)
-                //{
-                //    string[] ss = s.Split('-');
-                //    string productID = ss[0];
-                //    string quantity = ss[1];
-                //}
 
-                //Response.Cookies["cart"].Value = "1-2, 5-1, 4-1, 42-1";
                 dynamic cookiecontent = Request.Cookies["cart"].Value;
 
                 dynamic products = cookiecontent.Split(',');
@@ -63,7 +55,7 @@ namespace GreenPantryFrontend
                         display += "<tr><td class='shoping__cart__item'>";
                         display += "<img src =" + cartProduct.Image_Location + " alt=''>";
                         display += "<h5><input class='cart__item-id' ID='pID' runat='server' value='" + cartProduct.ID + "' hidden/>" + cartProduct.Name + "</h5></td><td class='shoping__cart__price'>" + Math.Round(cartProduct.Price, 2) + "</td>";
-                        display += "<td class='shoping__cart__quantity'>";
+                        display += "<td class='shoping__cart__quantity' data-pID='" + cartProduct.ID + "' data-stock='" + cartProduct.StockOnHand + "'>";
                         display += "<div class='quantity'><div class='pro-qty'><input type = 'text' value=" + qty + " runat='server' id='item_qty' readonly>";
                         display += "</div></div></td>";
                         display += "<td class='shoping__cart__total' id='pTotal'>" + Math.Round(cartProduct.Price * decimal.Parse(qty), 2) + "</td>";
@@ -87,7 +79,7 @@ namespace GreenPantryFrontend
                 display += "<h5>Cart Total</h5><ul><li>Subtotal<span id='checkout__cart-subtotal'>R" + Math.Round(subTotal, 2) + "</span></li>";
                 display += "<li>VAT at 15% <span id='checkout__cart-VAT'>R" + Math.Round(VAT, 2) + "</span></li><li>Delivery Fee <span id='checkout__cart-delivery'>R" + Math.Round(Delivery, 2) + "</span></li>";
                 display += "<li>Total<span id='checkout__cart-total'>R" + Math.Round(carttotal, 2) + "</span></li>";
-                display += "</ul><a href = 'checkout.aspx' class='primary-btn'>PROCEED TO CHECKOUT</a>";
+                display += "</ul><a href = 'checkout.aspx' class='primary-btn' id='checkout-btn'>PROCEED TO CHECKOUT</a>";
                 cartTotal.InnerHtml = display;
             }
         }
@@ -101,6 +93,55 @@ namespace GreenPantryFrontend
             }
 
             return subTotal;
+        }
+
+        private class greedyProduct
+        {
+            public int proId;
+            public int qtyAsked;
+            public int qtyOnHand;
+
+        }
+        protected string compareStock()
+        {
+            List<greedyProduct> greedy = new List<greedyProduct>();
+            if(Request.Cookies["cart"] != null || Request.Cookies["cart"].Value == "")
+            {
+                dynamic cookie = Request.Cookies["cart"].Value.Split(',');
+
+                foreach (var c in cookie)
+                {
+                    if (!c.Equals(""))
+                    {
+                        dynamic cSplit = c.Split('-');
+                        var productId = cSplit[0];
+                        int requestedQty = int.Parse(cSplit[1]);
+
+                        Product product = SR.getProduct(int.Parse(productId));
+
+                        if (product.StockOnHand < requestedQty)
+                        {
+                            //trying to buy more than we have
+                            var temp = new greedyProduct()
+                            {
+                                proId = int.Parse(productId),
+                                qtyAsked = requestedQty,
+                                qtyOnHand = product.StockOnHand
+                            };
+
+                            greedy.Add(temp);
+                        }
+                    }
+                    
+                }
+            }
+
+
+            //return a list of products that have qtys higher than stock
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var jsonGreedyProducts = serializer.Serialize(greedy);
+            return jsonGreedyProducts;
+
         }
     }
 }
