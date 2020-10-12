@@ -170,9 +170,7 @@ input.login {
 }
 
 .overlay {
-    background: #FF416C;
-    background: -webkit-linear-gradient(to right, #0FAB2C, #1FAF92);
-    background: linear-gradient(to right, #0FAB2C, #1FAF92);
+    background: #0FAB2C;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
