@@ -37,6 +37,7 @@ namespace AdminDashboard
 
             dynamic products = SR.getAllProducts();
             int numProduct = products.Length;
+            numProducts.InnerText = (10 * currentPage) + "/" + numProduct;
             double roundUpPages = Math.Ceiling(numProduct / 10.00);
             int totalPages = (int)roundUpPages;
 

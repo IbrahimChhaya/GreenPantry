@@ -40,7 +40,7 @@
                     <th scope="col" class="sort" data-sort="budget">Price</th>
                     <th scope="col" class="sort" data-sort="status">Stock</th>
                     <th scope="col">Sales Per Week</th>
-                    <th scope="col"></th>
+                    <th scope="col" id="numProducts" runat="server"></th>
                   </tr>
                 </thead>
                 <tbody class="list" id="productList" runat="server">
