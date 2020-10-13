@@ -318,7 +318,7 @@
             var removeToast = new Toastify({
                 text: "Remember to save your changes",
                 duration: 2000,
-                backgroundColor: "#0FAB2C",
+                backgroundColor: "#fd7e14",
                 close: true
             }).showToast();
 
@@ -397,7 +397,7 @@
             var removeToast = new Toastify({
                 text: "Remember to save your changes",
                 duration: 3000,
-                backgroundColor: "#0FAB2C",
+                backgroundColor: "#fd7e14",
                 close: true
             }).showToast();
         }

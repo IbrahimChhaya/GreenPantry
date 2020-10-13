@@ -237,7 +237,7 @@
                 }
 
                 $('#ContentPlaceHolder1_subProducts').html(display);
-                debugger
+
             })
         }
      </script>

@@ -92,7 +92,8 @@ namespace GreenPantryFrontend
         }
         private void createCookie(String CookieName, String content)
         {
-            Response.Cookies[CookieName].Value = content + ",";
+            Response.Cookies[CookieName].Value = content;
+            Response.Cookies["cart"].Expires = DateTime.Now.AddDays(30);
         }
 
         protected void update_Click(object sender, EventArgs e)
@@ -131,7 +132,12 @@ namespace GreenPantryFrontend
         protected void move_Click(object sender, EventArgs e)
         {
             dynamic listItems = SR.getList(Convert.ToInt32(Session["LoggedInUserID"]));
-            string str = Request.Cookies["cart"].Value;
+            string str = "";
+            if (Request.Cookies["cart"] != null)
+            {
+                str = Request.Cookies["cart"].Value;
+            }
+
 
             foreach (ShoppingList s in listItems)
             {
@@ -145,8 +151,10 @@ namespace GreenPantryFrontend
                     {
                         int qtyAllowed = getFinalQty(s.ProductID.ToString(), s.Quantity);
 
+                        
                         str += s.ProductID.ToString() + "-" + qtyAllowed.ToString() + ",";
-                        saveToCookie("cart", str);
+                        Response.Cookies["cart"].Expires = DateTime.Now.AddDays(-1);
+                        createCookie("cart", str);
                     }
                     else
                     {
@@ -162,7 +170,8 @@ namespace GreenPantryFrontend
                         string finalPQPair = pId + "-" + qtyAllowed;
 
                         str = str.Replace(foundInCookie, finalPQPair);
-                        Response.Cookies["cart"].Value = str;
+                        Response.Cookies["cart"].Expires = DateTime.Now.AddDays(-1);
+                        createCookie("cart", str);
 
                     }
                 }
