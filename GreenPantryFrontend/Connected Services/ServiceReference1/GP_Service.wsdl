@@ -8,6 +8,18 @@
       <xsd:import schemaLocation="http://localhost:53900/GP_Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IGP_Service_percentageUserChange_InputMessage">
+    <wsdl:part name="parameters" element="tns:percentageUserChange" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_percentageUserChange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:percentageUserChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getWeekDates_InputMessage">
+    <wsdl:part name="parameters" element="tns:getWeekDates" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getWeekDates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getWeekDatesResponse" />
+  </wsdl:message>
   <wsdl:message name="IGP_Service_salesPerWeek_InputMessage">
     <wsdl:part name="parameters" element="tns:salesPerWeek" />
   </wsdl:message>
@@ -181,6 +193,18 @@
   </wsdl:message>
   <wsdl:message name="IGP_Service_newsletter_OutputMessage">
     <wsdl:part name="parameters" element="tns:newsletterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getSetting_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSetting" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_getSetting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updateSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateSettings" />
+  </wsdl:message>
+  <wsdl:message name="IGP_Service_updateSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateSettingsResponse" />
   </wsdl:message>
   <wsdl:message name="IGP_Service_login_InputMessage">
     <wsdl:part name="parameters" element="tns:login" />
@@ -548,19 +572,15 @@
   <wsdl:message name="IGP_Service_usersperWeek_OutputMessage">
     <wsdl:part name="parameters" element="tns:usersperWeekResponse" />
   </wsdl:message>
-  <wsdl:message name="IGP_Service_percentageUserChange_InputMessage">
-    <wsdl:part name="parameters" element="tns:percentageUserChange" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_percentageUserChange_OutputMessage">
-    <wsdl:part name="parameters" element="tns:percentageUserChangeResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getWeekDates_InputMessage">
-    <wsdl:part name="parameters" element="tns:getWeekDates" />
-  </wsdl:message>
-  <wsdl:message name="IGP_Service_getWeekDates_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getWeekDatesResponse" />
-  </wsdl:message>
   <wsdl:portType name="IGP_Service">
+    <wsdl:operation name="percentageUserChange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/percentageUserChange" message="tns:IGP_Service_percentageUserChange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/percentageUserChangeResponse" message="tns:IGP_Service_percentageUserChange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getWeekDates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getWeekDates" message="tns:IGP_Service_getWeekDates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getWeekDatesResponse" message="tns:IGP_Service_getWeekDates_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="salesPerWeek">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/salesPerWeek" message="tns:IGP_Service_salesPerWeek_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/salesPerWeekResponse" message="tns:IGP_Service_salesPerWeek_OutputMessage" />
@@ -676,6 +696,14 @@
     <wsdl:operation name="newsletter">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/newsletter" message="tns:IGP_Service_newsletter_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/newsletterResponse" message="tns:IGP_Service_newsletter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSetting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getSetting" message="tns:IGP_Service_getSetting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getSettingResponse" message="tns:IGP_Service_getSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/updateSettings" message="tns:IGP_Service_updateSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/updateSettingsResponse" message="tns:IGP_Service_updateSettings_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="login">
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/login" message="tns:IGP_Service_login_InputMessage" />
@@ -921,17 +949,27 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/usersperWeek" message="tns:IGP_Service_usersperWeek_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/usersperWeekResponse" message="tns:IGP_Service_usersperWeek_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="percentageUserChange">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/percentageUserChange" message="tns:IGP_Service_percentageUserChange_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/percentageUserChangeResponse" message="tns:IGP_Service_percentageUserChange_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getWeekDates">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGP_Service/getWeekDates" message="tns:IGP_Service_getWeekDates_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGP_Service/getWeekDatesResponse" message="tns:IGP_Service_getWeekDates_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGP_Service" type="tns:IGP_Service">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="percentageUserChange">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/percentageUserChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWeekDates">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getWeekDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="salesPerWeek">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/salesPerWeek" style="document" />
       <wsdl:input>
@@ -1186,6 +1224,24 @@
     </wsdl:operation>
     <wsdl:operation name="newsletter">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/newsletter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSetting">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/getSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSettings">
+      <soap:operation soapAction="http://tempuri.org/IGP_Service/updateSettings" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1735,24 +1791,6 @@
     </wsdl:operation>
     <wsdl:operation name="usersperWeek">
       <soap:operation soapAction="http://tempuri.org/IGP_Service/usersperWeek" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="percentageUserChange">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/percentageUserChange" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getWeekDates">
-      <soap:operation soapAction="http://tempuri.org/IGP_Service/getWeekDates" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

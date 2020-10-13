@@ -282,7 +282,7 @@
 
                             <div class="checkout__order">
                                 <h4>Your Order</h4>
-                                <div class="checkout__order__products">Products <span>Total</span></div>
+                                <div class="checkout__order__products">Products <span>Amount</span></div>
                                 <ul id="checkoutItems" runat="server">
                                     <li>Vegetable’s Package <span>$75.99</span></li>
                                     <li>Fresh Vegetable <span>$151.99</span></li>

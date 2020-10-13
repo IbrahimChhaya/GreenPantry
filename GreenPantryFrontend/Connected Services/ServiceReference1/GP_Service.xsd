@@ -2,6 +2,34 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:53900/GP_Service.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import schemaLocation="http://localhost:53900/GP_Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/" />
+  <xs:element name="percentageUserChange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="currentDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="percentageUserChangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="percentageUserChangeResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getWeekDates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getWeekDatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getWeekDatesResult" nillable="true" type="q1:ArrayOfdateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="salesPerWeek">
     <xs:complexType>
       <xs:sequence>
@@ -96,7 +124,7 @@
   <xs:element name="getMonthDatesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getMonthDatesResult" nillable="true" type="q1:ArrayOfdateTime" />
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getMonthDatesResult" nillable="true" type="q2:ArrayOfdateTime" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -141,7 +169,7 @@
   <xs:element name="getfilteredProductsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getfilteredProductsResult" nillable="true" type="q2:ArrayOfProduct" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getfilteredProductsResult" nillable="true" type="q3:ArrayOfProduct" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -225,7 +253,7 @@
   <xs:element name="topPagesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="topPagesResult" nillable="true" type="q3:ArrayOfstring" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="topPagesResult" nillable="true" type="q4:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -297,7 +325,7 @@
   <xs:element name="TopProductsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TopProductsResult" nillable="true" type="q4:ArrayOfint" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TopProductsResult" nillable="true" type="q5:ArrayOfint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -325,7 +353,7 @@
   <xs:element name="recommendTestResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="recommendTestResult" nillable="true" type="q5:ArrayOfrecommended" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="recommendTestResult" nillable="true" type="q6:ArrayOfrecommended" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -365,7 +393,7 @@
   <xs:element name="getAllDevicesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getAllDevicesResult" nillable="true" type="q6:ArrayOfstring" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getAllDevicesResult" nillable="true" type="q7:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -391,7 +419,7 @@
   <xs:element name="WorstProductsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="WorstProductsResult" nillable="true" type="q7:ArrayOfint" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="WorstProductsResult" nillable="true" type="q8:ArrayOfint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -410,6 +438,38 @@
   <xs:element name="newsletterResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSetting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSettingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getSettingResult" nillable="true" type="q9:SiteSetting" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="field1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="field2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="field3" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="field4" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateSettingsResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="login">
@@ -521,7 +581,7 @@
   <xs:element name="getUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getUserResult" nillable="true" type="q8:User" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getUserResult" nillable="true" type="q10:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -533,7 +593,7 @@
   <xs:element name="getAllUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getAllUsersResult" nillable="true" type="q9:ArrayOfUser" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getAllUsersResult" nillable="true" type="q11:ArrayOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -629,7 +689,7 @@
   <xs:element name="getAllProductsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getAllProductsResult" nillable="true" type="q10:ArrayOfProduct" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getAllProductsResult" nillable="true" type="q12:ArrayOfProduct" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -657,7 +717,7 @@
   <xs:element name="getProductResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getProductResult" nillable="true" type="q11:Product" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getProductResult" nillable="true" type="q13:Product" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -686,7 +746,7 @@
   <xs:element name="getProductByCatResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getProductByCatResult" nillable="true" type="q12:ArrayOfProduct" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getProductByCatResult" nillable="true" type="q14:ArrayOfProduct" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -700,7 +760,7 @@
   <xs:element name="getProductBySubCatResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getProductBySubCatResult" nillable="true" type="q13:ArrayOfProduct" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getProductBySubCatResult" nillable="true" type="q15:ArrayOfProduct" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -714,7 +774,7 @@
   <xs:element name="searchProductsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="searchProductsResult" nillable="true" type="q14:ArrayOfProduct" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="searchProductsResult" nillable="true" type="q16:ArrayOfProduct" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -726,7 +786,7 @@
   <xs:element name="getAllCategoriesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getAllCategoriesResult" nillable="true" type="q15:ArrayOfProductCategory" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getAllCategoriesResult" nillable="true" type="q17:ArrayOfProductCategory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -740,7 +800,7 @@
   <xs:element name="getCatResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getCatResult" nillable="true" type="q16:ProductCategory" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getCatResult" nillable="true" type="q18:ProductCategory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -754,7 +814,7 @@
   <xs:element name="getCategorybyProductIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getCategorybyProductIDResult" nillable="true" type="q17:ProductCategory" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getCategorybyProductIDResult" nillable="true" type="q19:ProductCategory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -797,7 +857,7 @@
   <xs:element name="getAllSubCategoriesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getAllSubCategoriesResult" nillable="true" type="q18:ArrayOfSubCategory" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getAllSubCategoriesResult" nillable="true" type="q20:ArrayOfSubCategory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -811,7 +871,7 @@
   <xs:element name="getSubCatResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getSubCatResult" nillable="true" type="q19:SubCategory" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getSubCatResult" nillable="true" type="q21:SubCategory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -825,7 +885,7 @@
   <xs:element name="getSubCatPerCatResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getSubCatPerCatResult" nillable="true" type="q20:ArrayOfSubCategory" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getSubCatPerCatResult" nillable="true" type="q22:ArrayOfSubCategory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -872,7 +932,7 @@
   <xs:element name="getInvoiceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getInvoiceResult" nillable="true" type="q21:Invoice" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getInvoiceResult" nillable="true" type="q23:Invoice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -924,7 +984,7 @@
   <xs:element name="getAllInvoicesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getAllInvoicesResult" nillable="true" type="q22:ArrayOfInvoice" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getAllInvoicesResult" nillable="true" type="q24:ArrayOfInvoice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -938,7 +998,7 @@
   <xs:element name="getAllCustomerInvoicesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getAllCustomerInvoicesResult" nillable="true" type="q23:ArrayOfInvoice" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getAllCustomerInvoicesResult" nillable="true" type="q25:ArrayOfInvoice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -952,7 +1012,7 @@
   <xs:element name="getAllInvoiceLinesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getAllInvoiceLinesResult" nillable="true" type="q24:ArrayOfInvoiceLine" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getAllInvoiceLinesResult" nillable="true" type="q26:ArrayOfInvoiceLine" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -999,7 +1059,7 @@
   <xs:element name="getListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getListResult" nillable="true" type="q25:ArrayOfShoppingList" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getListResult" nillable="true" type="q27:ArrayOfShoppingList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1043,7 +1103,7 @@
   <xs:element name="getAddressResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getAddressResult" nillable="true" type="q26:Address" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getAddressResult" nillable="true" type="q28:Address" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1057,7 +1117,7 @@
   <xs:element name="getUserAddressesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getUserAddressesResult" nillable="true" type="q27:ArrayOfAddress" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getUserAddressesResult" nillable="true" type="q29:ArrayOfAddress" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1071,7 +1131,7 @@
   <xs:element name="getPrimaryAddressResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getPrimaryAddressResult" nillable="true" type="q28:Address" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getPrimaryAddressResult" nillable="true" type="q30:Address" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1145,7 +1205,7 @@
   <xs:element name="getCardResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getCardResult" nillable="true" type="q29:Card" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getCardResult" nillable="true" type="q31:Card" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1196,7 +1256,7 @@
   <xs:element name="getDeviceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getDeviceResult" nillable="true" type="q30:Device" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getDeviceResult" nillable="true" type="q32:Device" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1336,34 +1396,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="usersperWeekResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="percentageUserChange">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="currentDate" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="percentageUserChangeResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="percentageUserChangeResult" type="xs:double" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getWeekDates">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getWeekDatesResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getWeekDatesResult" nillable="true" type="q31:ArrayOfdateTime" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
