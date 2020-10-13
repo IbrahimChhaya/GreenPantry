@@ -6,9 +6,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace GreenPantryFrontend
+namespace AdminDashboard
 {
-    public partial class orderdash : System.Web.UI.Page
+    public partial class orders : System.Web.UI.Page
     {
         GP_ServiceClient SC = new GP_ServiceClient();
        
@@ -38,9 +38,10 @@ namespace GreenPantryFrontend
             int numOrder = orders.Length;
             double roundUpPages = Math.Ceiling(numOrder / 10.00);
             int totalPages = (int)roundUpPages;
-            dynamic list = GetPage(orders, currentPage, 10);
+            //dynamic list = GetPage(orders, currentPage, 10);
+            dynamic listo = GetPage(orders, currentPage, 10);
 
-            foreach (var i in list)
+            foreach (Invoice i in listo)
             {
                 User getuser = SC.getUser(i.CustomerID);
                 display += "<tr><th scope='row'>";
@@ -169,7 +170,7 @@ namespace GreenPantryFrontend
             pageNumbers.InnerHtml = display;
         }
 
-        static IList<Invoice> GetPage(List<Invoice> list, int pageNumber, int pageSize)
+        static IList<Invoice> GetPage(IList<Invoice> list, int pageNumber, int pageSize)
         {
             return list.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
         }
