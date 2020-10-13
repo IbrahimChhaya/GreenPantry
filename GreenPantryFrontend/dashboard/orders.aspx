@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/dashboard/Dashboard.Master" AutoEventWireup="true" CodeBehind="orders.aspx.cs" Inherits="GreenPantryFrontend.orderdash" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/dashboard/Dashboard.Master" AutoEventWireup="true" CodeBehind="orders.aspx.cs" Inherits="AdminDashboard.orders" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 

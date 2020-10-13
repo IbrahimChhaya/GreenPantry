@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GreenPantryFrontend
+namespace AdminDashboard
 {
 
 
-    public partial class orderdash
+    public partial class orders
     {
 
         /// <summary>
