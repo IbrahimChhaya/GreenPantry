@@ -58,7 +58,7 @@ namespace GreenPantryFrontend
                             display += "<tr class='shopping-list__row'><td class='shoping__cart__item'>";
                             display += "<img src =" + product.Image_Location + " alt=''>";
                             display += "<h5><input class='cart__item-id' ID='pID' runat='server' value='" + product.ID + "' hidden/>"  + product.Name + " </h5></td><td class='shoping__cart__price'>" + Math.Round(product.Price, 2) + "</td>";
-                            display += "<td class='shoping__cart__quantity'>";
+                            display += "<td class='shoping__cart__quantity' data-stock='" + product.StockOnHand + "'>";
                             display += "<div class='quantity'><div class='pro-qty'><input data-product-id='" + product.ID + "' type='text' value=" + s.Quantity + " runat='server' id='item_qty' readonly>";
                             display += "</div></div></td>";
                             display += "<td class='shoping__cart__total' id='pTotal'>" + Math.Round((product.Price * s.Quantity), 2) + "</td>";
@@ -126,27 +126,26 @@ namespace GreenPantryFrontend
                 Response.Redirect("/shoppinglist.aspx");
             }
 
-            //get object with current values
-            //var productListings = JSON.parse(localStorage.getItem('productListing'));
-            //a = JSON.parse(localStorage.getItem('productListing'))
-
         }
 
         protected void move_Click(object sender, EventArgs e)
         {
             dynamic listItems = SR.getList(Convert.ToInt32(Session["LoggedInUserID"]));
+            string str = Request.Cookies["cart"].Value;
 
-            foreach(ShoppingList s in listItems)
+            foreach (ShoppingList s in listItems)
             {
                 if(Request.Cookies["cart"] != null)
                 {
                     //check if product is already in the cookie
                     string foundInCookie = findProductInCookie(s.ProductID.ToString());
-                    string str = Request.Cookies["cart"].Value;
+                    
 
                     if (foundInCookie.Equals(""))
                     {
-                        str += s.ProductID.ToString() + "-" + s.Quantity.ToString();
+                        int qtyAllowed = getFinalQty(s.ProductID.ToString(), s.Quantity);
+
+                        str += s.ProductID.ToString() + "-" + qtyAllowed.ToString() + ",";
                         saveToCookie("cart", str);
                     }
                     else
@@ -154,15 +153,24 @@ namespace GreenPantryFrontend
                         //change quantity in existing product-quantity pair
                         string newPQPair = addToCookieProQty(foundInCookie, s.Quantity);
 
-                        str = str.Replace(foundInCookie, newPQPair);
+                        //check that  amount trying to add is less than amount on hand
+                        dynamic pairValues = newPQPair.Split('-');
+                        int qtyRequested = int.Parse(pairValues[1]);
+                        string pId = pairValues[0];
+
+                        int qtyAllowed = getFinalQty(pId, qtyRequested);
+                        string finalPQPair = pId + "-" + qtyAllowed;
+
+                        str = str.Replace(foundInCookie, finalPQPair);
                         Response.Cookies["cart"].Value = str;
 
                     }
                 }
                 else
                 {
-                    string str = s.ProductID + "-" + s.Quantity;
-                    createCookie("cart", str);
+                    int qtyAllowed = getFinalQty(s.ProductID.ToString(), s.Quantity);
+                    string strAdd = s.ProductID + "-" + qtyAllowed;
+                    createCookie("cart", strAdd);
                 }
             }
 
@@ -202,6 +210,23 @@ namespace GreenPantryFrontend
 
             var newCookiePro = proId + "-" + newQty.ToString();
             return newCookiePro;
+        }
+
+        private int getFinalQty(string pId, int qty)
+        {
+            int finalQty = 0;
+            var product = SR.getProduct(int.Parse(pId));
+
+            if(qty > product.StockOnHand)
+            {
+                finalQty = product.StockOnHand;
+            }
+            else
+            {
+                finalQty = qty;
+            }
+
+            return finalQty;
         }
 
         private decimal calcSubtotal(List<decimal> totals)

@@ -95,53 +95,36 @@ namespace GreenPantryFrontend
             return subTotal;
         }
 
-        private class greedyProduct
+        //function to add to cookie quantity
+        private string editToCookieProQty(string currentCookiePro, int qtyToAdd)
         {
-            public int proId;
-            public int qtyAsked;
-            public int qtyOnHand;
+            dynamic str = currentCookiePro.Split('-');
+            var proId = str[0];
 
+            var newCookiePro = proId + "-" + qtyToAdd.ToString();
+            return newCookiePro;
         }
-        protected string compareStock()
+
+        //function to check a particular products is in the cookie
+        private string findProductInCookie(string pId)
         {
-            List<greedyProduct> greedy = new List<greedyProduct>();
-            if(Request.Cookies["cart"] != null || Request.Cookies["cart"].Value == "")
+            string found = "";
+            dynamic cookieContent = Request.Cookies["cart"].Value;
+            cookieContent = cookieContent.Split(',');
+
+            foreach (var p in cookieContent)
             {
-                dynamic cookie = Request.Cookies["cart"].Value.Split(',');
-
-                foreach (var c in cookie)
+                if (!p.Equals(""))
                 {
-                    if (!c.Equals(""))
+
+                    if (p.Contains(pId + "-"))
                     {
-                        dynamic cSplit = c.Split('-');
-                        var productId = cSplit[0];
-                        int requestedQty = int.Parse(cSplit[1]);
-
-                        Product product = SR.getProduct(int.Parse(productId));
-
-                        if (product.StockOnHand < requestedQty)
-                        {
-                            //trying to buy more than we have
-                            var temp = new greedyProduct()
-                            {
-                                proId = int.Parse(productId),
-                                qtyAsked = requestedQty,
-                                qtyOnHand = product.StockOnHand
-                            };
-
-                            greedy.Add(temp);
-                        }
+                        found = p;
                     }
-                    
                 }
             }
 
-
-            //return a list of products that have qtys higher than stock
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            var jsonGreedyProducts = serializer.Serialize(greedy);
-            return jsonGreedyProducts;
-
+            return found;
         }
     }
 }

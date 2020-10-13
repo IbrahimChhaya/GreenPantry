@@ -257,7 +257,7 @@
                 $button.parent().parent().parent().parent().find('.shoping__cart__total#pTotal').html((oldValue * unitValue).toFixed(2));
 
             }
-            else {
+            else if (window.location.pathname === "/cart.aspx") {
                 //update cookie
                 var cookie = getCookie("cart");
                 var cVal = cookie;
@@ -317,7 +317,7 @@
             //show removal confirmation
             var removeToast = new Toastify({
                 text: "Remember to save your changes",
-                duration: 3000,
+                duration: 2000,
                 backgroundColor: "#0FAB2C",
                 close: true
             }).showToast();
