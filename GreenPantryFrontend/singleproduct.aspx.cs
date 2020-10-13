@@ -111,9 +111,9 @@ namespace GreenPantryFrontend
             return Request.Cookies[CookieName].ToString();
         }
 
-        protected int add_Click()
+        protected void add_Click(object sender, EventArgs e)
         {
-            int worked = 0;
+           // int worked = 0;
             if(Request.Cookies["cart"] != null)
             {
                 //check if product is already in the cookie
@@ -124,7 +124,7 @@ namespace GreenPantryFrontend
                 {
                     str += Request.QueryString["ProductID"] + "-" + item_qty.Value;
                     saveToCookie("cart", str);
-                    worked = 2;
+                   // worked = 2;
                 }
                 else
                 {
@@ -133,18 +133,52 @@ namespace GreenPantryFrontend
 
                     str = str.Replace(foundInCookie, newPQPair);
                     Response.Cookies["cart"].Value = str;
-                    worked = 3;
+                    Response.Cookies["cart"].Expires = DateTime.Now.AddDays(30);
+                   // worked = 3;
                 }
             }
             else
             {
                 createCookie("cart", Request.QueryString["ProductID"] + "-" + item_qty.Value);
-                worked = 1;
+               // worked = 1;
             }
-           
-            return worked;
+            //addToCart.InnerText = "Added to cart";
+            Response.Redirect(Request.RawUrl);
         }
+        //protected int add_Click()
+        //{
+        //     int worked = 0;
+        //    if (Request.Cookies["cart"] != null)
+        //    {
+        //        //check if product is already in the cookie
+        //        string foundInCookie = findProductInCookie(Request.QueryString["ProductID"]);
+        //        string str = Request.Cookies["cart"].Value;
 
+        //        if (foundInCookie.Equals(""))
+        //        {
+        //            str += Request.QueryString["ProductID"] + "-" + item_qty.Value;
+        //            saveToCookie("cart", str);
+        //             worked = 2;
+        //        }
+        //        else
+        //        {
+        //            //change quantity in existing product-quantity pair
+        //            string newPQPair = addToCookieProQty(foundInCookie, int.Parse(item_qty.Value));
+
+        //            str = str.Replace(foundInCookie, newPQPair);
+        //            Response.Cookies["cart"].Value = str;
+        //            Response.Cookies["cart"].Expires = DateTime.Now.AddDays(30);
+        //             worked = 3;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        createCookie("cart", Request.QueryString["ProductID"] + "-" + item_qty.Value);
+        //         worked = 1;
+        //    }
+
+        //     return worked;
+        //}
         //function to check a particular products is in the cookie
         private string findProductInCookie(string pId)
         {
@@ -179,31 +213,31 @@ namespace GreenPantryFrontend
             return newCookiePro;
         }
 
-        //protected void listIcon_ServerClick(object sender, EventArgs e)
-        //{
-        //    int addToList = SC.addToList(int.Parse(Session["LoggedInUserID"].ToString()), int.Parse(Request.QueryString["ProductID"]), int.Parse(item_qty.Value));
-        //    if(addToList.Equals(1))
-        //    {
-        //       listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> Added to Shopping List";
-        //    }
-        //    else if(addToList.Equals(0))
-        //    {
-        //        listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> Added to Shopping List";
-        //    }
-        //    else
-        //    {
-        //        listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> An error occured";
-        //    }
-        //}
-
-        protected int listIcon_ServerClick()
+        protected void listIcon_ServerClick(object sender, EventArgs e)
         {
-            int addToList = -1;
-            if(Session["LoggedInUserID"] != null)
-            {
-                addToList = SC.addToList(int.Parse(Session["LoggedInUserID"].ToString()), int.Parse(Request.QueryString["ProductID"]), int.Parse(item_qty.Value));
-            }
-            return addToList;
+            int addToList = SC.addToList(int.Parse(Session["LoggedInUserID"].ToString()), int.Parse(Request.QueryString["ProductID"]), int.Parse(item_qty.Value));
+            //if (addToList.Equals(1))
+            //{
+            //    listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> Added to Shopping List";
+            //}
+            //else if (addToList.Equals(0))
+            //{
+            //    listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> Added to Shopping List";
+            //}
+            //else
+            //{
+            //    listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> An error occured";
+            //}
         }
+
+        //protected int listIcon_ServerClick()
+        //{
+        //    int addToList = -1;
+        //    if(Session["LoggedInUserID"] != null)
+        //    {
+        //        addToList = SC.addToList(int.Parse(Session["LoggedInUserID"].ToString()), int.Parse(Request.QueryString["ProductID"]), int.Parse(item_qty.Value));
+        //    }
+        //    return addToList;
+        //}
     }
 }
