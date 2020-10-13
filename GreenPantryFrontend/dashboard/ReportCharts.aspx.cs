@@ -111,7 +111,7 @@ namespace GreenPantryFrontend.dashboard
             //jsonCatSales = serializer.Serialize(catSales);
 
 
-            dynamic monthDates = SR.getMonthDates(new DateTime(2020, 09, 24));
+            dynamic monthDates = SR.getMonthDates(DateTime.Now);
 
             List<string> dates = new List<string>();
 
@@ -126,7 +126,7 @@ namespace GreenPantryFrontend.dashboard
             jsonMonthDates = serializer.Serialize(dates);
             jsonMonthSales = serializer.Serialize(salesMonthDays);
 
-            dynamic weekDates = SR.getWeekDates(new DateTime(2020, 09, 24));
+            dynamic weekDates = SR.getWeekDates(DateTime.Now);
             List<string> wDays = new List<string>();
             List<decimal> weekSales = new List<decimal>();
 
@@ -161,7 +161,7 @@ namespace GreenPantryFrontend.dashboard
             List<int> getusersmonthly = new List<int>();
             List<int> getusersweekly = new List<int>(); 
 
-            dynamic monthDates1 = SR.getMonthDates(new DateTime(2020, 09, 24));
+            dynamic monthDates1 = SR.getMonthDates(DateTime.Now);
             foreach (DateTime d in monthDates1)
             {
                 int usersperday = SR.getUsersPerDay(d.Date);
