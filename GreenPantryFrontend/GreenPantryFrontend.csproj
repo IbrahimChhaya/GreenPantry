@@ -3372,6 +3372,8 @@
     <Content Include="results.aspx" />
     <Content Include="shoppinglist.aspx" />
     <Content Include="singleproduct.aspx" />
+    <Content Include="src\toastify.css" />
+    <Content Include="src\toastify.js" />
     <Content Include="subcategory.aspx" />
     <Content Include="dashboard\users.aspx" />
     <Content Include="ThankYou.aspx" />

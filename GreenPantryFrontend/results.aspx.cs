@@ -15,6 +15,7 @@ namespace GreenPantryFrontend
         public int currentPage;
         GP_ServiceClient SC = new GP_ServiceClient();
 
+        public int loggedIn;
         protected void Page_Load(object sender, EventArgs e)
         {
             String display = "";
@@ -96,6 +97,12 @@ namespace GreenPantryFrontend
             {
                 display = "<a href='results.aspx?Search=" + search + "&Page=" + (currentPage - 1) + "'><i class='fa fa-long-arrow-left'></i></a>";
             }
+
+            if (Session["LoggedInUserID"] != null)
+            {
+                loggedIn = Convert.ToInt32(Session["LoggedInUserID"]);
+            }
+        
 
             //if current page is 1
             if (currentPage.Equals(1))

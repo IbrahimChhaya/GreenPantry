@@ -15,6 +15,7 @@ namespace GreenPantryFrontend
 
         public int currentPage;
         public string jsonProducts;
+        public int loggedIn;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["SubcategoryID"] == null)
@@ -129,6 +130,11 @@ namespace GreenPantryFrontend
                     display += "<a href='subcategories.aspx?SubcategoryID=" + subID + "&Page=" + (currentPage + 1) + "'><i class='fa fa-long-arrow-right'></i></a>";
                 }
                 pageNumbers.InnerHtml = display;
+            }
+
+            if (Session["LoggedInUserID"] != null)
+            {
+                loggedIn = Convert.ToInt32(Session["LoggedInUserID"]);
             }
         }
 

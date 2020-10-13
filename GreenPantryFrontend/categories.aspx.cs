@@ -16,7 +16,7 @@ namespace GreenPantryFrontend
 
         public int currentPage;
         public string jsonProducts;
-       // public string jsonSortedProducts;
+        public int loggedIn;
         protected void Page_Load(object sender, EventArgs e)
         {
             if(Request.QueryString["CategoryID"] == null)
@@ -50,6 +50,11 @@ namespace GreenPantryFrontend
                     }
                 }
                 subcatList.InnerHtml = display;
+
+                if (Session["LoggedInUserID"] != null)
+                {
+                    loggedIn = Convert.ToInt32(Session["LoggedInUserID"]);
+                }
 
                 display = "";
                 dynamic products = SC.getProductByCat(int.Parse(catID));

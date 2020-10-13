@@ -31,7 +31,7 @@ namespace GreenPantryFrontend
                 //breadcrumb
                 title.InnerHtml = getProducts.Name;
                 Display += "<a href='./home.aspx'>Home</a>";
-                Display += "<a href='./subcategory.aspx?SubcategoryID=" + getProducts.SubCategoryID + "'>" + getSub.Name + "</a>";
+                Display += "<a href='./subcategory.aspx?SubcategoryID=" + getProducts.SubCategoryID + "&Page=1'>" + getSub.Name + "</a>";
                 Display += "<span>" + getProducts.Name + "</span>";
                 productName.InnerHtml = Display;
 
@@ -57,27 +57,28 @@ namespace GreenPantryFrontend
                 Description.InnerHtml = Display;
 
                 ////relatedproducts
-                dynamic relatedProducts = SC.getProductBySubCat(getSub.SubID);
+                var productCategory = SC.getCategorybyProductID(int.Parse(Request.QueryString["ProductID"]));
+                dynamic relatedProducts = SC.getProductByCat(productCategory.ID);
                 Display = "";
-                foreach (Product p in relatedProducts)
+                for (int i = 0; i < 4; i++)
                 {
                     Display += "<div class='col-lg-3 col-md-4 col-sm-6'>";
                     Display += "<div class='product__item'>";
-                    Display += "<div class='product__item__pic set-bg' data-setbg='" + p.Image_Location + "'>";
+                    Display += "<div class='product__item__pic set-bg' data-setbg='" + relatedProducts[i].Image_Location + "'>";
                     Display += "<ul class='product__item__pic__hover'>";
                     if(Session["LoggedInUserID"] != null)
                     {
                         Display += "<li><a href='#'><i class='fa fa-list'></i></a></li>";
                     }
-                    Display += "<li><a href='singleproduct.aspx?ProductID=" + p.ID + "'><i class='fa fa-shopping-cart'></i></a></li>";
+                    Display += "<li><a href='singleproduct.aspx?ProductID=" + relatedProducts[i].ID + "'><i class='fa fa-shopping-cart'></i></a></li>";
                     Display += "</ul></div>";
                     Display += "<div class='product__item__text'>";
-                    Display += "<h6><a href='singleproduct.aspx?ProductID=" + p.ID + "'>" + p.Name + "</a></h6>";
-                    Display += "<h5>R" + Math.Round(p.Price, 2) + "</h5>";
+                    Display += "<h6><a href='singleproduct.aspx?ProductID=" + relatedProducts[i].ID + "'>" + relatedProducts[i].Name + "</a></h6>";
+                    Display += "<h5>R" + Math.Round(relatedProducts[i].Price, 2) + "</h5>";
                     Display += "</div></div></div>";
                     
                    
-                    if (p.StockOnHand.Equals(0))
+                    if (relatedProducts[i].StockOnHand.Equals(0))
                     {
                         stock.InnerHtml = "Out of Stock";
                         //Add.Enabled = false;
@@ -110,8 +111,9 @@ namespace GreenPantryFrontend
             return Request.Cookies[CookieName].ToString();
         }
 
-        protected void add_Click(object sender, EventArgs e)
+        protected int add_Click()
         {
+            int worked = 0;
             if(Request.Cookies["cart"] != null)
             {
                 //check if product is already in the cookie
@@ -122,6 +124,7 @@ namespace GreenPantryFrontend
                 {
                     str += Request.QueryString["ProductID"] + "-" + item_qty.Value;
                     saveToCookie("cart", str);
+                    worked = 2;
                 }
                 else
                 {
@@ -129,17 +132,17 @@ namespace GreenPantryFrontend
                     string newPQPair = addToCookieProQty(foundInCookie, int.Parse(item_qty.Value));
 
                     str = str.Replace(foundInCookie, newPQPair);
-                    Response.Cookies["cart"].Value = str; 
+                    Response.Cookies["cart"].Value = str;
+                    worked = 3;
                 }
             }
             else
             {
                 createCookie("cart", Request.QueryString["ProductID"] + "-" + item_qty.Value);
+                worked = 1;
             }
-            //Add.Text = "ADDED TO CART";
-            addToCart.InnerText = "ADDED TO CART";
-            //reload the page
-            Response.Redirect(Request.RawUrl);
+           
+            return worked;
         }
 
         //function to check a particular products is in the cookie
@@ -176,21 +179,31 @@ namespace GreenPantryFrontend
             return newCookiePro;
         }
 
-        protected void listIcon_ServerClick(object sender, EventArgs e)
+        //protected void listIcon_ServerClick(object sender, EventArgs e)
+        //{
+        //    int addToList = SC.addToList(int.Parse(Session["LoggedInUserID"].ToString()), int.Parse(Request.QueryString["ProductID"]), int.Parse(item_qty.Value));
+        //    if(addToList.Equals(1))
+        //    {
+        //       listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> Added to Shopping List";
+        //    }
+        //    else if(addToList.Equals(0))
+        //    {
+        //        listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> Added to Shopping List";
+        //    }
+        //    else
+        //    {
+        //        listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> An error occured";
+        //    }
+        //}
+
+        protected int listIcon_ServerClick()
         {
-            int addToList = SC.addToList(int.Parse(Session["LoggedInUserID"].ToString()), int.Parse(Request.QueryString["ProductID"]), int.Parse(item_qty.Value));
-            if(addToList.Equals(1))
+            int addToList = -1;
+            if(Session["LoggedInUserID"] != null)
             {
-               listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> Added to Shopping List";
+                addToList = SC.addToList(int.Parse(Session["LoggedInUserID"].ToString()), int.Parse(Request.QueryString["ProductID"]), int.Parse(item_qty.Value));
             }
-            else if(addToList.Equals(0))
-            {
-                listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> Added to Shopping List";
-            }
-            else
-            {
-                listIcon.InnerHtml = "<span class='icon_ul iconSize'></span> An error occured";
-            }
+            return addToList;
         }
     }
 }

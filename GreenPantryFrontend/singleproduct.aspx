@@ -51,10 +51,11 @@
                         </div>
 <%--                        <form id="form1" runat="server">--%>
 <%--                            <a href="/" class="primary-btn" runat="server" id="addToCart" onclick="add_Click">ADD TO CART</a>--%>
-<%--                            <asp:button class="site-btn" ID="Add" runat="server" Text="ADD TO CART" OnClick="add_Click"/>--%>
-                            <a class="site-btn" runat="server" id="addToCart" onserverclick="add_Click">ADD TO CART</a>
+<%--                            <asp:button class="site-btn" ID="addToCart" runat="server" Text="ADD TO CART" OnClientClick="showConfirmation()" type="button"/>--%>
+<%--                            <button class="site-btn" ID="addToCart" runat="server" Text="ADD TO CART" onserverclick="add_Click" type="button"/>--%>
+                            <a class="site-btn" runat="server" id="addToCart" style="color:white; cursor: pointer">ADD TO CART</a>
     
-                            <a href="#" class="heart-icon" id="listIcon" runat="server" onserverclick="listIcon_ServerClick"><span class="icon_ul iconSize"></span> Add to Shopping List</a>
+                            <a class="heart-icon" id="listIcon" runat="server" ><span class="icon_ul iconSize"></span> Add to Shopping List</a>
 <%--                         </form>--%>
                         <ul>
                             <li><b>Availability</b> <span id="stock" runat="server">In Stock</span></li>
@@ -185,4 +186,65 @@
         </div>
     </section>
     <!-- Related Product Section End -->
+
+    <script>
+
+        document.getElementById('ContentPlaceHolder1_addToCart').addEventListener("click", function (event) {
+            event.preventDefault()
+            var added = <%= add_Click()%>;
+            if (added > 0) {
+                showConfirmation("Successfully added to cart")
+            }
+            else {
+                showError("Could not add to cart")
+            }
+           
+        });
+
+        document.getElementById('ContentPlaceHolder1_listIcon').addEventListener("click", function (event) {
+            event.preventDefault()
+            var addedToList = <%= listIcon_ServerClick()%>;
+
+            if (addedToList == 0) {
+                showWarning("This item is already in your list")
+            }
+            else if (addedToList == 1) {
+                showConfirmation("Successfully added to list")
+            }
+            else {
+                showError("Could not add to list")
+            }
+
+        });
+
+        function showConfirmation(message) {
+            var myToast = new Toastify({
+                text: message,
+                duration: 1500,
+                backgroundColor: "#0FAB2C",
+                close: true
+            }).showToast();
+        }
+
+        function showError(message) {
+            var myToast = new Toastify({
+                text: message,
+                duration: 1500,
+                backgroundColor: "#dc3545",
+                close: true
+            }).showToast();
+        }
+
+        function showWarning(message) {
+            var myToast = new Toastify({
+                text: message,
+                duration: 2000,
+                backgroundColor: "#f5dd29",
+                close: true,
+                opacity: 10
+            }).showToast();
+        }
+        
+    </script>
     </asp:Content>
+
