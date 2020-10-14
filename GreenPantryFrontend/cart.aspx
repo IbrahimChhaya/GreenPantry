@@ -106,7 +106,7 @@
                                     <th class="shoping__product">Products</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
-                                    <th>Total</th>
+                                    <th>Amount</th>
                                     <th></th>
                                 </tr>
                             </thead>

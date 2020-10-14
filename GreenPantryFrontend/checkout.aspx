@@ -102,16 +102,12 @@
                                 <input type="text"
                                     placeholder="Notes about your order, e.g. special notes for delivery." id="notes" runat="server" required>
                             </div>
-
-                            <div class="checkout__input">
-                                <p>Delivery Date<span>*</span></p>
-                                <input type="text" class="dateTimeID" runat="server" id="dateTimeID" placeholder="Select date for delivery" required>
-                            </div>
                         </div>
 
-                    
+
+
                     <div class="col-lg-8 col-md-6">
-                        <div class="checkout__order" id="oldAddress" runat="server">
+                        <div class="checkout__order" id="oldAddress" runat="server" visible="true">
                             <div>
                                 <label><b>Home</b> <span class='badge badge-success'>PRIMARY</span></label>
                             </div>
@@ -263,9 +259,8 @@
 
 
                             <!-- -----------------------end hope this works ---------------------------- -->
-
                         
-                        <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6" id="sidebar" runat="server">
                             
                             <div class="checkout__order">
                                 <h4>Green Points</h4>
@@ -282,7 +277,7 @@
 
                             <div class="checkout__order">
                                 <h4>Your Order</h4>
-                                <div class="checkout__order__products">Products <span>Total</span></div>
+                                <div class="checkout__order__products">Products <span>Amount</span></div>
                                 <ul id="checkoutItems" runat="server">
                                     <li>Vegetable’s Package <span>$75.99</span></li>
                                     <li>Fresh Vegetable <span>$151.99</span></li>
@@ -300,6 +295,8 @@
                                 <asp:Button text="PLACE ORDER" class="placeOrder" ID="btnOrder" runat="server" OnClick="btnOrder_Click"></asp:Button>
                             </div>
                         </div>
+                        
+                        
                     </div>
 <%--                </form>--%>
             </div>

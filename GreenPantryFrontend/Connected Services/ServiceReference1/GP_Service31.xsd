@@ -193,6 +193,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="recommended" nillable="true" type="tns:recommended" />
+  <xs:complexType name="SiteSetting">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Field1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Field2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Field3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Field4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SiteSetting" nillable="true" type="tns:SiteSetting" />
   <xs:complexType name="ArrayOfUser">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
