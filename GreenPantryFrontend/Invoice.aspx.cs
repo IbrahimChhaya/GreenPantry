@@ -28,8 +28,7 @@ namespace GreenPantryFrontend
                     string display = " ";
 
                     display += "<h3 class ='h1Inv'>Invoice #" + invoice.ID + "</h3>";
-                    display += "<p class ='pInvoice'>Issued: " + invoice.Date.ToShortDateString();
-                    display += "<br />Order " + invoice.Status + "</p>";
+                    display += "<p class ='pInvoice'>Issued: " + invoice.Date.ToShortDateString() + "</p>";
                     title.InnerHtml = display;
 
                     var user = SR.getUser(invoice.CustomerID);
