@@ -50,7 +50,7 @@ namespace GreenPantryFrontend
                             }
                             else
                             {
-                                createCookie("list", s.ProductID + "-" + s.Quantity);
+                                createCookie("list", s.ProductID + "-" + s.Quantity + ",");
                             }
 
                             dynamic product = SR.getProduct(s.ProductID);
@@ -139,7 +139,7 @@ namespace GreenPantryFrontend
             }
 
 
-            foreach (ShoppingList s in listItems)
+            foreach(ShoppingList s in listItems)
             {
                 if(Request.Cookies["cart"] != null)
                 {
@@ -178,8 +178,8 @@ namespace GreenPantryFrontend
                 else
                 {
                     int qtyAllowed = getFinalQty(s.ProductID.ToString(), s.Quantity);
-                    string strAdd = s.ProductID + "-" + qtyAllowed;
-                    createCookie("cart", strAdd);
+                    str = s.ProductID + "-" + qtyAllowed + ",";
+                    createCookie("cart", str);
                 }
             }
 
