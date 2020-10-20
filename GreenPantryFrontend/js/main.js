@@ -253,8 +253,8 @@
                     close: true
                 }).showToast();
 
-                $button.parent().find('input').val(oldValue);
-                $button.parent().parent().parent().parent().find('.shoping__cart__total#pTotal').html((oldValue * unitValue).toFixed(2));
+                $button.parent().find('input').val(qtyOnhand);
+                $button.parent().parent().parent().parent().find('.shoping__cart__total#pTotal').html((qtyOnhand * unitValue).toFixed(2));
 
             }
             else if (window.location.pathname === "/cart.aspx") {
