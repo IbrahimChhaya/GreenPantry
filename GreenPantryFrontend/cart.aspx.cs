@@ -70,8 +70,10 @@ namespace GreenPantryFrontend
                 decimal Delivery = 0.00M;
                 decimal subTotal = calcSubtotal(totals);
 
+                dynamic setting = SR.getSetting(1);
+                int shippingCost = int.Parse(setting.Field2);
                 //check if delivery charge applies
-                if (subTotal < 500)
+                if (subTotal < shippingCost)
                     Delivery = 60.00M;
                 decimal VAT = subTotal * (decimal)(0.15/1.15);
                 decimal carttotal = subTotal + Delivery;

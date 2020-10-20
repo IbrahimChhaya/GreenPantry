@@ -72,6 +72,9 @@
                                 </asp:DropDownList> 
                             </div>
                         </div>
+                        <div class="col-lg-6">
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Orders</a>
+                        </div>
                   </div>
                 </div>
               </form>

@@ -53,7 +53,7 @@ namespace GreenPantryFrontend
                         display += "<tr class='service'><td class='tableitem'><p class='pInvoice itemtext'>" + product.Name + "</p></td>";
                         display += "<td class='tableitem'><p class='pInvoice itemtext'>R" + Math.Round(product.Price, 2) + "</p></td>";
                         display += "<td class='tableitem'><p class='pInvoice itemtext'>" + item.Qty + "</p></td>";
-                        display += "<td class='tableitem'><p class='pInvoice itemtext'>R" + Math.Round(product.Price * item.Qty) + "</p></td></tr>";
+                        display += "<td class='tableitem'><p class='pInvoice itemtext'>R" + Math.Round(product.Price * item.Qty, 2) + "</p></td></tr>";
                         tableRow.InnerHtml = display;
 
                         subtotal += product.Price * item.Qty;
@@ -77,7 +77,9 @@ namespace GreenPantryFrontend
                         pointsDiv.InnerHtml = "";
                     }
 
-                    if (subtotal > 500)
+                    dynamic setting = SR.getSetting(1);
+                    int shippingCost = int.Parse(setting.Field2);
+                    if (subtotal > shippingCost)
                     {
                         deliverFree.InnerHtml = "<h2 class ='h2Inv'>R0.00</h2>";
                         Total.InnerHtml = "<h2 class ='h2Inv'>R" + Math.Round((subtotal - invoice.Points), 2) + "</h2>";

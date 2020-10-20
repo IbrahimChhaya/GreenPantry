@@ -109,7 +109,9 @@ namespace GreenPantryFrontend
 
                 orderVAT.InnerHtml = "VAT <span>R" + Math.Round(VAT, 2) + "</span>";
 
-                if (total > 500)
+                dynamic setting = SR.getSetting(1);
+                int shippingCost = int.Parse(setting.Field2);
+                if (total > shippingCost)
                 {
                     orderShipping.InnerHtml = "Delivery<span>R0.00</span>";
                 }

@@ -31,7 +31,7 @@ namespace GreenPantryFrontend
                     display += "<tr><td>" + inv.ID + "</td>";
                     display += "<td>" + date.ToString("d") + "</td>";
                     display += "<td>R" + Math.Round((inv.Total + delivery - inv.Points), 2) + "</td>";
-                    display += "<td>Dispatched</td><td></td>";
+                    display += "<td>" + inv.Status + "</td><td></td>";
                     display += "<td><a class='site-btn' href='/invoice.aspx?InvoiceID=" + inv.ID + "'>View order</a></td></tr>";
                 }
                 order.InnerHtml = display;

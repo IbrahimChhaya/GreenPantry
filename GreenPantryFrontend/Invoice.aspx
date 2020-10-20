@@ -51,7 +51,7 @@
                                 <td class="item"><h2 class="h2Inv">Product</h2></td>
                                 <td class="Hours"><h2 class="h2Inv">Price</h2></td>
                                 <td class="Rate"><h2 class="h2Inv">Quantity</h2></td>
-                                <td class="subtotal"><h2 class="h2Inv">Subtotal</h2></td>
+                                <td class="subtotal"><h2 class="h2Inv">Amount</h2></td>
                             </tr>
                             <tbody runat="server" id="tableRow">
 >
@@ -80,14 +80,14 @@
                             <tr class="tabletitle">
                                 <td></td>
                                 <td></td>
-                                <td class="Rate"><h2 class="h2Inv">Total</h2></td>
-                                <td class="payment" runat="server" id="Total"><h2 class ="h2Inv">$3,644.25</h2></td>
+                                <td class="Rate"><h2 class="h2Inv">15% VAT Included</h2></td>
+                                <td class="payment" runat="server" id="Vat"><h2 class ="h2Inv">$3,644.25</h2></td>
                             </tr>
                             <tr class="tabletitle">
                                 <td></td>
                                 <td></td>
-                                <td class="Rate"><h2 class="h2Inv">VAT Included</h2></td>
-                                <td class="payment" runat="server" id="Vat"><h2 class ="h2Inv">$3,644.25</h2></td>
+                                <td class="Rate"><h2 class="h2Inv">Total</h2></td>
+                                <td class="payment" runat="server" id="Total"><h2 class ="h2Inv">$3,644.25</h2></td>
                             </tr>
                         </table>
                     </div><!--End Table-->

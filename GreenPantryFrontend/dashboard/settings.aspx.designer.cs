@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AdminDashboard
+namespace GreenPantryFrontend.dashboard
 {
 
 
-    public partial class products
+    public partial class settings
     {
 
         /// <summary>
@@ -24,48 +24,48 @@ namespace AdminDashboard
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl howdy;
 
         /// <summary>
-        /// numProducts control.
+        /// error control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell numProducts;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl error;
 
         /// <summary>
-        /// productList control.
+        /// updateSite control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl productList;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor updateSite;
 
         /// <summary>
-        /// trafficChange control.
+        /// name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl trafficChange;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText name;
 
         /// <summary>
-        /// pageNumbers control.
+        /// minimum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pageNumbers;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl minimum;
 
         /// <summary>
-        /// firstPage control.
+        /// vat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl firstPage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl vat;
     }
 }

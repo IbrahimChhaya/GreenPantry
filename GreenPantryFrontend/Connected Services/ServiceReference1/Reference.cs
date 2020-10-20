@@ -1676,9 +1676,130 @@ namespace GreenPantryFrontend.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SiteSetting", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class SiteSetting : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Field1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Field2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Field3Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Field4Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Field1 {
+            get {
+                return this.Field1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Field1Field, value) != true)) {
+                    this.Field1Field = value;
+                    this.RaisePropertyChanged("Field1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Field2 {
+            get {
+                return this.Field2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Field2Field, value) != true)) {
+                    this.Field2Field = value;
+                    this.RaisePropertyChanged("Field2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Field3 {
+            get {
+                return this.Field3Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Field3Field, value) != true)) {
+                    this.Field3Field = value;
+                    this.RaisePropertyChanged("Field3");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Field4 {
+            get {
+                return this.Field4Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Field4Field, value) != true)) {
+                    this.Field4Field = value;
+                    this.RaisePropertyChanged("Field4");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IGP_Service")]
     public interface IGP_Service {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageUserChange", ReplyAction="http://tempuri.org/IGP_Service/percentageUserChangeResponse")]
+        double percentageUserChange(System.DateTime currentDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageUserChange", ReplyAction="http://tempuri.org/IGP_Service/percentageUserChangeResponse")]
+        System.Threading.Tasks.Task<double> percentageUserChangeAsync(System.DateTime currentDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getWeekDates", ReplyAction="http://tempuri.org/IGP_Service/getWeekDatesResponse")]
+        System.DateTime[] getWeekDates(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getWeekDates", ReplyAction="http://tempuri.org/IGP_Service/getWeekDatesResponse")]
+        System.Threading.Tasks.Task<System.DateTime[]> getWeekDatesAsync(System.DateTime date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/salesPerWeek", ReplyAction="http://tempuri.org/IGP_Service/salesPerWeekResponse")]
         decimal salesPerWeek(System.DateTime date);
@@ -1853,6 +1974,18 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/newsletter", ReplyAction="http://tempuri.org/IGP_Service/newsletterResponse")]
         System.Threading.Tasks.Task newsletterAsync(string senderemail, string subscriberemail, string subject, string body, string password, string smtp);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getSetting", ReplyAction="http://tempuri.org/IGP_Service/getSettingResponse")]
+        GreenPantryFrontend.ServiceReference1.SiteSetting getSetting(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getSetting", ReplyAction="http://tempuri.org/IGP_Service/getSettingResponse")]
+        System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.SiteSetting> getSettingAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateSettings", ReplyAction="http://tempuri.org/IGP_Service/updateSettingsResponse")]
+        int updateSettings(int id, string field1, string field2, string field3, string field4);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/updateSettings", ReplyAction="http://tempuri.org/IGP_Service/updateSettingsResponse")]
+        System.Threading.Tasks.Task<int> updateSettingsAsync(int id, string field1, string field2, string field3, string field4);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/login", ReplyAction="http://tempuri.org/IGP_Service/loginResponse")]
         int login(string email, string password);
@@ -2219,18 +2352,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/usersperWeek", ReplyAction="http://tempuri.org/IGP_Service/usersperWeekResponse")]
         System.Threading.Tasks.Task<int> usersperWeekAsync(System.DateTime currentDate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageUserChange", ReplyAction="http://tempuri.org/IGP_Service/percentageUserChangeResponse")]
-        double percentageUserChange(System.DateTime currentDate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/percentageUserChange", ReplyAction="http://tempuri.org/IGP_Service/percentageUserChangeResponse")]
-        System.Threading.Tasks.Task<double> percentageUserChangeAsync(System.DateTime currentDate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getWeekDates", ReplyAction="http://tempuri.org/IGP_Service/getWeekDatesResponse")]
-        System.DateTime[] getWeekDates(System.DateTime date);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGP_Service/getWeekDates", ReplyAction="http://tempuri.org/IGP_Service/getWeekDatesResponse")]
-        System.Threading.Tasks.Task<System.DateTime[]> getWeekDatesAsync(System.DateTime date);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2258,6 +2379,22 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public GP_ServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public double percentageUserChange(System.DateTime currentDate) {
+            return base.Channel.percentageUserChange(currentDate);
+        }
+        
+        public System.Threading.Tasks.Task<double> percentageUserChangeAsync(System.DateTime currentDate) {
+            return base.Channel.percentageUserChangeAsync(currentDate);
+        }
+        
+        public System.DateTime[] getWeekDates(System.DateTime date) {
+            return base.Channel.getWeekDates(date);
+        }
+        
+        public System.Threading.Tasks.Task<System.DateTime[]> getWeekDatesAsync(System.DateTime date) {
+            return base.Channel.getWeekDatesAsync(date);
         }
         
         public decimal salesPerWeek(System.DateTime date) {
@@ -2490,6 +2627,22 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task newsletterAsync(string senderemail, string subscriberemail, string subject, string body, string password, string smtp) {
             return base.Channel.newsletterAsync(senderemail, subscriberemail, subject, body, password, smtp);
+        }
+        
+        public GreenPantryFrontend.ServiceReference1.SiteSetting getSetting(int id) {
+            return base.Channel.getSetting(id);
+        }
+        
+        public System.Threading.Tasks.Task<GreenPantryFrontend.ServiceReference1.SiteSetting> getSettingAsync(int id) {
+            return base.Channel.getSettingAsync(id);
+        }
+        
+        public int updateSettings(int id, string field1, string field2, string field3, string field4) {
+            return base.Channel.updateSettings(id, field1, field2, field3, field4);
+        }
+        
+        public System.Threading.Tasks.Task<int> updateSettingsAsync(int id, string field1, string field2, string field3, string field4) {
+            return base.Channel.updateSettingsAsync(id, field1, field2, field3, field4);
         }
         
         public int login(string email, string password) {
@@ -2978,22 +3131,6 @@ namespace GreenPantryFrontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> usersperWeekAsync(System.DateTime currentDate) {
             return base.Channel.usersperWeekAsync(currentDate);
-        }
-        
-        public double percentageUserChange(System.DateTime currentDate) {
-            return base.Channel.percentageUserChange(currentDate);
-        }
-        
-        public System.Threading.Tasks.Task<double> percentageUserChangeAsync(System.DateTime currentDate) {
-            return base.Channel.percentageUserChangeAsync(currentDate);
-        }
-        
-        public System.DateTime[] getWeekDates(System.DateTime date) {
-            return base.Channel.getWeekDates(date);
-        }
-        
-        public System.Threading.Tasks.Task<System.DateTime[]> getWeekDatesAsync(System.DateTime date) {
-            return base.Channel.getWeekDatesAsync(date);
         }
     }
 }

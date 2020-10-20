@@ -58,11 +58,12 @@ namespace GreenPantryFrontend
             //categoryList.InnerHtml = display;
 
             //the 4 banners ---------------------------------------------------------------------
-            String caption = "These discounts dough!";
-            String tag = "25% off at the bakery this month";
-            String categoryLink = "7";
+            dynamic banner1S = SC.getSetting(2);
+            String caption = banner1S.Field1;//"These discounts dough!";
+            String tag = banner1S.Field2;//"25% off at the bakery this month";
+            String categoryLink = banner1S.Field3;//"7";
             display = "<a href='/categories.aspx?CategoryID=" + categoryLink + "&Page=1'>";
-            display += "<div class='hero__4item set-bg' data-setbg='img/banner/banner-1.png'>";
+            display += "<div class='hero__4item set-bg' data-setbg='" + banner1S.Field4 + "'>";//img/banner/banner-1.png"'>";
             display += "<div class='hero__textButBlack'>";
             display += "<span></span>";
             display += "<h2>" + caption + "</h2>";
@@ -71,11 +72,13 @@ namespace GreenPantryFrontend
 
             banner1.InnerHtml = display;
 
-            caption = "Stock up on groceries";
-            tag = "Get all your ingredients here";
-            categoryLink = "1";
+            dynamic banner2S = SC.getSetting(3);
+
+            caption = banner2S.Field1;//"Stock up on groceries";
+            tag = banner2S.Field2;//"Get all your ingredients here";
+            categoryLink = banner2S.Field3;//"1";
             display = "<a href='/categories.aspx?CategoryID=" + categoryLink + "&Page=1'>";
-            display += "<div class='hero__4item set-bg' data-setbg='img/banner/banner-2.png'>";
+            display += "<div class='hero__4item set-bg' data-setbg='" + banner2S.Field4 + "'>";
             display += "<div class='hero__textButBlack secondary'>";
             display += "<span></span>";
             display += "<h2>" + caption + "</h2>";
@@ -84,11 +87,13 @@ namespace GreenPantryFrontend
 
             banner2.InnerHtml = display;
 
-            caption = "Celebrate Spring time with natural juices";
-            tag = "100% fruit juices in every flavour";
-            categoryLink = "8";
+            dynamic banner3S = SC.getSetting(4);
+
+            caption = banner3S.Field1; //"Celebrate Spring time with natural juices";
+            tag = banner3S.Field2; //"100% fruit juices in every flavour";
+            categoryLink = banner3S.Field3;//"8";
             display = "<a href='/categories.aspx?CategoryID=" + categoryLink + "&Page=1'>";
-            display += "<div class='hero__4item set-bg' data-setbg='img/banner/banner-3.png'>";
+            display += "<div class='hero__4item set-bg' data-setbg='" + banner3S.Field4 + "'>";
             display += "<div class='hero__textButBlack secondary'>";
             display += "<span></span>";
             display += "<h2>" + caption + "</h2>";
@@ -97,11 +102,13 @@ namespace GreenPantryFrontend
 
             banner3.InnerHtml = display;
 
-            caption = "Fresh foods at fresh prices";
-            tag = "Fill up your fridge with next-day delivery";
-            categoryLink = "2";
+            dynamic banner4S = SC.getSetting(5);
+
+            caption = banner4S.Field1;//"Fresh foods at fresh prices";
+            tag = banner4S.Field2; //"Fill up your fridge with next-day delivery";
+            categoryLink = banner4S.Field3;//"2";
             display = "<a href='/categories.aspx?CategoryID=" + categoryLink + "&Page=1'>";
-            display += "<div class='hero__4item set-bg' data-setbg='img/banner/banner-4.png'>";
+            display += "<div class='hero__4item set-bg' data-setbg='" + banner4S.Field4 + "'>";
             display += "<div class='hero__textButBlack'>";
             display += "<span></span>";
             display += "<h2>" + caption + "</h2>";
@@ -113,17 +120,32 @@ namespace GreenPantryFrontend
             String sliderCaption;
             //product category slider 0000000000000000000--------------------------------------------
 
+            int userID = 0;
+            bool noAddress = false;
             if(Session["LoggedInUserID"] != null)
             {
-                int userID = int.Parse(Session["LoggedInUserID"].ToString());
+                userID = int.Parse(Session["LoggedInUserID"].ToString());
+                dynamic address = SC.getPrimaryAddress(userID);
+                if (address == null)
+                {
+                    noAddress = true;
+                }
+            }
+            
+            if (Session["LoggedInUserID"] != null && noAddress == false)
+            {
+                dynamic bigBanner1 = SC.getSetting(6);
+
+                userID = int.Parse(Session["LoggedInUserID"].ToString());
+                
                 sliderCaption = "Recommendations For You";
 
                 display = "<div class='col-lg-12'>";
-                display += "<div class='hero__item set-bg' data-setbg='img/freeshipping.png'>";
+                display += "<div class='hero__item set-bg' data-setbg='" + bigBanner1.Field4 + "'>";
                 display += "<div class='hero__text'>";
                 display += "<span></span>";
-                display += "<h2>Free <br/>Shipping</h2>";
-                display += "<p>On Orders Over R500</p>";
+                display += "<h2>" + bigBanner1.Field1 + "</h2>";
+                display += "<p>" + bigBanner1.Field2 + "</p>";
                 display += "<a href='results.aspx?Search=1&Page=1' class='primary-btn'>SHOP NOW</a>";
                 display += "</div></div></br>";
 
@@ -188,14 +210,16 @@ namespace GreenPantryFrontend
 
             //product category slider 333333333333333333-----------------------------------------------
 
+            dynamic bigBanner2 = SC.getSetting(7);
+
             sliderCaption = "Quench Your Thirst";
 
             display = "<div class='col-lg-12'>";
-            display += "<div class='hero__item set-bg' data-setbg='img/PointsBanner2.jpg'>";
+            display += "<div class='hero__item set-bg' data-setbg='" + bigBanner2.Field4 + "'>";
             display += "<div class='hero__text'>";
             display += "<span></span>";
-            display += "<h2>Green <br/>Points</h2>";
-            display += "<p>Earn Green Points By Purchasing Fresh Food Items And Green Household Items</p>";
+            display += "<h2>" + bigBanner2.Field1 + "</h2>";
+            display += "<p>" + bigBanner2.Field2 + "</p>";
             display += "<a href='results.aspx?Search=1&Page=1' class='primary-btn'>SHOP NOW</a>";
             display += "</div></div></br>";
             display += categoryHelper(sliderCaption, 8);
