@@ -97,14 +97,45 @@
                                 <input type="number" Placeholder="Phone Number" id="phone" runat="server" required>
                             </div>
 
-                            <div class="checkout__input">
-                                <p>Order notes<span>*</span></p>
-                                <input type="text"
-                                    placeholder="Notes about your order, e.g. special notes for delivery." id="notes" runat="server" required>
-                            </div>
                         </div>
 
 
+                        <div class="col-lg-4 col-md-6" id="sidebarNew" runat="server" visible="false">
+                            
+                            <div class="checkout__order">
+                                <h4>Green Points</h4>
+                                <label class="gpLabel">Green Points available in Rands:</label><p class="gpP" id="pointsAvailableNew" runat="server">R500</p>
+                                <label class="gpLabel2">Amount you'd like to spend:</label> 
+                                <p class="gpP">R<input type="text" id="pointsUsedNew" runat="server" class="gpInput" value="0"></p>
+                                <a class="noPoints-btn" id="noPointNew" runat="server" visible="false">NOT ENOUGH POINTS</a>
+                                <asp:Button text="REDEEM" class="apply-btn" ID="RedeemNew" runat="server" OnClick="btnRedeem_Click"></asp:Button>
+                                <label id="pointsErrorNew" runat="server" visible="false">bruh</label>
+                            </div>
+
+                            <br />
+                            <br />
+
+                            <div class="checkout__order">
+                                <h4>Your Order</h4>
+                                <div class="checkout__order__products">Products <span>Amount</span></div>
+                                <ul id="checkoutItemsNew" runat="server">
+                                    <li>Vegetable’s Package <span>$75.99</span></li>
+                                    <li>Fresh Vegetable <span>$151.99</span></li>
+                                    <li>Organic Bananas <span>$53.99</span></li>
+                                </ul>
+                                <div class="checkout__order__subtotal" id="orderSubtotalNew" runat="server">Subtotal <span>$750.99</span></div>
+                                <div id="pointsDisplayNew" runat="server">
+                                    <!--<div class="checkout__order__userpoints" id="orderPointsNew" runat="server">Points <span>Rhella</span></div>-->
+                                </div>
+                                <div class="checkout__order__shipping" id="orderVATNew" runat="server">VAT <span>R60</span></div>
+                                <div class="checkout__order__shipping" id="orderShippingNew" runat="server">Delivery <span>R60</span></div>
+                                <div class="checkout__order__total" id="orderTotalNew" runat="server">Total <span>$750.99</span></div>
+
+                                <asp:Label ID="errorNew" Text="An error has occurred" runat="server" Visible="false" />
+                                <asp:Button text="PLACE ORDER" class="placeOrder" ID="btnOrderNew" runat="server" OnClick="btnOrder_Click"></asp:Button>
+                            </div>
+                        </div>
+                    
 
                     <div class="col-lg-8 col-md-6">
                         <div class="checkout__order" id="oldAddress" runat="server" visible="true">
@@ -121,6 +152,12 @@
                                 <label class="gpLabel2" style="float:right;">Change Primary Address</label> 
                             </div>
                         </div>
+
+                            <div class="checkout__input">
+                                <h4>Order notes</h4>
+                                <input type="text"
+                                    placeholder="Notes about your order, e.g. special notes for delivery." id="notes" runat="server">
+                            </div>    
 
                             <br />
                             <div class="checkout__input">
@@ -236,7 +273,7 @@
                             <div class="form-container">
                                 <div class="field-container">
                                     <label class="cardlabel" for="name">Name</label>
-                                    <input id="name" class="cardinput" maxlength="20" type="text" required><span id="generatecard" style="display:none;">generate random</span>
+                                    <input id="name" class="cardinput" maxlength="20" type="text"><span id="generatecard" style="display:none;">generate random</span>
                                 </div>
                                 <div class="field-container">
                                     <label class="cardlabel" for="cardnumber">Card Number</label>
@@ -248,11 +285,11 @@
                                 </div>
                                 <div class="field-container">
                                     <label class="cardlabel" for="expirationdate">Expiration (mm/yy)</label>
-                                    <input class="cardinput" id="expirationdate" type="text" inputmode="numeric" >
+                                    <input class="cardinput" id="expirationdate" type="text" inputmode="numeric">
                                 </div>
                                 <div class="field-container">
                                     <label class="cardlabel" for="securitycode">Security Code</label>
-                                    <input class="cardinput" id="securitycode" type="text" inputmode="numeric" required>
+                                    <input class="cardinput" id="securitycode" type="text" inputmode="numeric">
                                 </div>
                             </div>
                         </div>
@@ -260,7 +297,7 @@
 
                             <!-- -----------------------end hope this works ---------------------------- -->
                         
-                    <div class="col-lg-4 col-md-6" id="sidebar" runat="server">
+                    <div class="col-lg-4 col-md-6" id="sidebar" runat="server" visible="false">
                             
                             <div class="checkout__order">
                                 <h4>Green Points</h4>

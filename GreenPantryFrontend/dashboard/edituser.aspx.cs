@@ -45,6 +45,7 @@ namespace GreenPantryFrontend.dashboard
             //}
             //else
             //{
+            userOrder.InnerHtml = "<a href='userorders.aspx?UserID=" + userID + "&Page=1' class='btn btn-sm btn-outline-primary'>View Orders</a>";
                 if (!IsPostBack)
                 {
                     dynamic user = SC.getUser(userID);

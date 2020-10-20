@@ -158,7 +158,7 @@ namespace GreenPantryFrontend.dashboard
 
                     if (stockNum >= 0 && dblPrice >= 0 && dblCost >= 0)
                     {
-                        if (Global.imagePath.Equals(""))
+                        if (Global.imagePath == "" || Global.imagePath == null)
                         {
                             string img = product.Image_Location;
                             int update = SC.updateProduct(productID, strName, subID, dblPrice, dblCost, img, stat, stockNum, description.Value);

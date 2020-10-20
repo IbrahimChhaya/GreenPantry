@@ -34,9 +34,14 @@ namespace GreenPantryFrontend
                 {
                     newAddress.Visible = true;
                     addressSaved.Visible = true;
+                    oldAddress.Visible = false;
+                    sidebarNew.Visible = true;
+                    sidebar.Visible = false;
                 }
                 else
                 {
+                    sidebarNew.Visible = false;
+                    sidebar.Visible = true;
                     oldAddress.Visible = true;
                     display += "<div><label><b>" + primaryAdd.Type + "</b> <span class='badge badge-success'>PRIMARY</span></label></div>";
                     display += "<div><label>" + primaryAdd.Line1 + "</label></div>";
@@ -65,12 +70,16 @@ namespace GreenPantryFrontend
                 if(points == 0)
                 {
                     noPoint.Visible = true;
+                    noPointNew.Visible = true;
                     Redeem.Visible = false;
+                    RedeemNew.Visible = false;
                 }
                 else
                 {
                     noPoint.Visible = false;
+                    noPointNew.Visible = false;
                     Redeem.Visible = true;
+                    RedeemNew.Visible = true;
                 }
                 decimal VAT = 0;
                 display = "";
@@ -103,28 +112,58 @@ namespace GreenPantryFrontend
                     }
                 }
                 checkoutItems.InnerHtml = display;
-            
+                checkoutItemsNew.InnerHtml = display;
+
                 display = "Subtotal<span>R" + Math.Round(subtotal, 2) + "</span>";
                 orderSubtotal.InnerHtml = display;
+                orderSubtotalNew.InnerHtml = display;
 
                 orderVAT.InnerHtml = "VAT <span>R" + Math.Round(VAT, 2) + "</span>";
+                orderVATNew.InnerHtml = "VAT <span>R" + Math.Round(VAT, 2) + "</span>";
 
                 dynamic setting = SR.getSetting(1);
                 int shippingCost = int.Parse(setting.Field2);
                 if (total > shippingCost)
                 {
                     orderShipping.InnerHtml = "Delivery<span>R0.00</span>";
+                    orderShippingNew.InnerHtml = "Delivery<span>R0.00</span>";
                 }
                 else
                 {
                     orderShipping.InnerHtml = "Delivery<span>R60.00</span>";
+                    orderShippingNew.InnerHtml = "Delivery<span>R60.00</span>";
                 }
 
                 display = "Total<span>R" + Math.Round(total, 2) + "</span>";
                 orderTotal.InnerHtml = display;
+                orderTotalNew.InnerHtml = display;
 
                 pointsAvailable.InnerHtml = "R" + points;
-                pointsRedeemed = int.Parse(pointsUsed.Value);
+                pointsAvailableNew.InnerHtml = "R" + points;
+                if (pointsUsed.Value == "0")
+                {
+                    try
+                    {
+                        pointsRedeemed = int.Parse(pointsUsedNew.Value);
+                    }
+                    catch
+                    {
+                        pointsErrorNew.Visible = true;
+                        pointsErrorNew.InnerText = "Points must be an integer value";
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        pointsRedeemed = int.Parse(pointsUsed.Value);
+                    }
+                    catch
+                    {
+                        pointsError.Visible = true;
+                        pointsError.InnerText = "Points must be an integer value";
+                    }
+                }
             }
             else
             {
@@ -134,12 +173,40 @@ namespace GreenPantryFrontend
 
         protected void btnRedeem_Click(object sender, EventArgs e)
         {
-            pointsRedeemed = int.Parse(pointsUsed.Value);
-            if(pointsRedeemed > points)
+            if (pointsUsed.Value == "0")
+            {
+                try
+                {
+                    pointsRedeemed = int.Parse(pointsUsedNew.Value);
+                }
+                catch
+                {
+                    pointsErrorNew.Visible = true;
+                    pointsErrorNew.InnerText = "Points must be an integer value";
+                }
+            }
+            else
+            {
+                try
+                {
+                    pointsRedeemed = int.Parse(pointsUsed.Value);
+                }
+                catch
+                {
+                    pointsError.Visible = true;
+                    pointsError.InnerText = "Points must be an integer value";
+                }
+            }
+
+            if (pointsRedeemed > points)
             {
                 pointsError.Visible = true;
                 pointsError.InnerText = "Cannot redeemed more than R" + points;
                 pointsDisplay.InnerHtml = "";
+
+                pointsErrorNew.Visible = true;
+                pointsErrorNew.InnerText = "Cannot redeemed more than R" + points;
+                pointsDisplayNew.InnerHtml = "";
             }
             else 
             {
@@ -147,6 +214,11 @@ namespace GreenPantryFrontend
                 total = total - pointsRedeemed;
                 pointsDisplay.InnerHtml = "<div class='checkout__order__subtotal' id='orderPoints' runat='server'>Points <span>R" + pointsRedeemed + ".00</span></div>";
                 orderTotal.InnerHtml = "Total<span>R" + Math.Round(total, 2) + "</span>";
+
+                pointsErrorNew.Visible = false;
+                total = total - pointsRedeemed;
+                pointsDisplayNew.InnerHtml = "<div class='checkout__order__subtotal' id='orderPoints' runat='server'>Points <span>R" + pointsRedeemed + ".00</span></div>";
+                orderTotalNew.InnerHtml = "Total<span>R" + Math.Round(total, 2) + "</span>";
             }
         }
 
@@ -155,8 +227,8 @@ namespace GreenPantryFrontend
             dynamic CookieContent = Request.Cookies["cart"].Value;
             int userID = Convert.ToInt32(Session["LoggedInUserID"]);
 
-            dynamic address = SR.getUserAddresses(userID);
-            if (address == null)
+            dynamic primaryAddress = SR.getPrimaryAddress(userID);
+            if (primaryAddress == null)
             {
                 //save new address
                 int newAdd = SR.addAddress(line1.Value, line2.Value, suburb.Value, town.Value, int.Parse(postcode.Value), type.Value, userID, provincesList.Value, 1, phone.Value);
@@ -166,11 +238,11 @@ namespace GreenPantryFrontend
 
             dynamic products = CookieContent.Split(',');
 
-            int addInvoice = SR.addInvoice(userID, "Pending", DateTime.Now, Convert.ToDateTime(dateTimeID1.Value), notes.Value, subtotal, pointsRedeemed);
+            int addInvoice = SR.addInvoice(userID, "Pending", DateTime.Now, Convert.ToDateTime(dateTimeID1.Value), notes.Value, subtotal, pointsRedeemed*10);
             points = points - pointsRedeemed;
             if(addInvoice > 0)
             {
-                dynamic update = SR.updatePoints(userID, points);
+                dynamic update = SR.updatePoints(userID, points*10);
                 foreach(dynamic p in products)
                 {
                     if (!p.Equals(""))
@@ -190,11 +262,11 @@ namespace GreenPantryFrontend
                             {
                                 if ((cartProduct.Price * Convert.ToDecimal(qty)) > 300)
                                 {
-                                    int updatepoints = SR.updatePoints(userID, points + 30);
+                                    int updatepoints = SR.updatePoints(userID, points*10 + 30);
                                 }
                                 else
                                 {
-                                    int updatepoints = SR.updatePoints(userID, points + 10);
+                                    int updatepoints = SR.updatePoints(userID, points*10 + 10);
                                 }
                             }
                         }
@@ -209,6 +281,9 @@ namespace GreenPantryFrontend
             {
                 error.Visible = true;
                 error.Text = "Something went wrong";
+
+                errorNew.Visible = true;
+                errorNew.Text = "Something went wrong";
             }
         }
     }

@@ -72,8 +72,8 @@
                                 </asp:DropDownList> 
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <a href="#" class="btn btn-sm btn-outline-primary">View Orders</a>
+                        <div class="col-lg-6" id="userOrder" runat="server">
+                            <a href="userorders.aspx?UserID=" class="btn btn-sm btn-outline-primary">View Orders</a>
                         </div>
                   </div>
                 </div>
