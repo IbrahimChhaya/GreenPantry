@@ -14,5 +14,5 @@ Video walkthrough: https://youtu.be/qDm2oAsoEzY ![Youtube](https://img.shields.i
 
 The design of the website was a combination of pre-existing templates, heavily modified by us. This project played a major role in starting my interest in UI.
 <p align="center">
-      <img width="300" src="/GreenPantry/Logos/GP_Logo.png">
+      <img width="300" src="/Designs/Logos/GP_Logo.png">
 </p>
