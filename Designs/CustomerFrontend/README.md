@@ -65,4 +65,24 @@ Page design was modified to suit our needs.
 <p align="center">
       <img width="500" src="/Designs/CustomerFrontend/Checkout3.jpeg">
 </p>
+
+## Invoice page
+<p align="center">
+      <img width="500" src="/Designs/CustomerFrontend/Invoice.jpeg">
+</p>
+
+## Orders page
+<p align="center">
+      <img width="500" src="/Designs/CustomerFrontend/Orders.jpeg">
+</p>
+
+## Address book page
+<p align="center">
+      <img width="500" src="/Designs/CustomerFrontend/Address.jpeg">
+</p>
+
+## Account page
+<p align="center">
+      <img width="500" src="/Designs/CustomerFrontend/Account.jpeg">
+</p>
 (I do not claim the core template as my own)
