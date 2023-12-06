@@ -17,7 +17,7 @@ Page design was modified to suit our needs.
 
 
 <p align="center">
-      <img width="500" src="/GreenPantry/CustomerFrontend/Home.png">
+      <img width="500" src="/Designs/CustomerFrontend/Home.png">
 </p>
 
 (I do not claim the core template as my own)
