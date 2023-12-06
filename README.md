@@ -4,6 +4,8 @@ Green Pantry is a fully fledged grocery ecommerce website and winner of the Univ
 
 Video walkthrough: https://youtu.be/qDm2oAsoEzY ![Youtube](https://img.shields.io/badge/YouTube-FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)
 
+The frontend for the project can be found [here](/GreenPantryFrontend), and the backend [here](/GreenPantryBackend).
+
 ![.NET](https://img.shields.io/badge/.NET-512BD4.svg?style=for-the-badge&logo=dotnet&logoColor=white)
 ![C#](https://img.shields.io/badge/C%20Sharp-239120.svg?style=for-the-badge&logo=C-Sharp&logoColor=white)
 ![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927.svg?style=for-the-badge&logo=Microsoft-SQL-Server&logoColor=white)
@@ -12,7 +14,7 @@ Video walkthrough: https://youtu.be/qDm2oAsoEzY ![Youtube](https://img.shields.i
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black)
 ![Adobe XD](https://img.shields.io/badge/Adobe%20XD-FF61F6.svg?style=for-the-badge&logo=Adobe-XD&logoColor=white)
 
-The design of the website was a combination of pre-existing templates, heavily modified by us. This project played a major role in starting my interest in UI.
+The design of the website was a combination of pre-existing templates, heavily modified by us. This project played a major role in starting my interest in design.
 <p align="center">
       <img width="300" src="/Designs/Logos/GP_Logo.png">
 </p>
