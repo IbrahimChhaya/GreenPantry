@@ -1,14 +1,1 @@
-```diff
-+ G
-+ R
-+ E
-+ E
-+ N
-
-+ P
-+ A
-+ N
-+ T
-+ R
-+ Y
-```
+This is the Green Pantry backend repo, built using .NET and SQL Server.
