@@ -6,7 +6,7 @@ Page design was modified to suit our needs.
 
 
 <p align="center">
-      <img width="700" src="/GreenPantry/AdminFrontend/dash.jpeg">
+      <img width="700" src="/Designs/AdminFrontend/dash.jpeg">
 </p>
 
 (I do not claim the core template as my own)
